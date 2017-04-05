@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.nylas.com/account
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Nylas Ruby SDK 2.0.1 - 2.3.1
+      Authorization:
+      - Basic dGhpc19pc19hbl9pbnZhbGlkX3Rva2VuOg==
+      X-Inbox-Api-Wrapper:
+      - ruby
+  response:
+    status:
+      code: 401
+      message: UNAUTHORIZED
+    headers:
+      Server:
+      - nginx/1.6.2
+      Date:
+      - Thu, 06 Oct 2016 22:24:03 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '89'
+      Www-Authenticate:
+      - Basic realm="API Access Token Required"
+      Access-Control-Allow-Headers:
+      - Authorization,Accept,Cache-Control,X-Requested-With,Content-Type
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE,OPTIONS
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "message": "Could not verify access credential.",
+          "type": "invalid_request_error"
+        }
+    http_version: 
+  recorded_at: Thu, 06 Oct 2016 22:24:03 GMT
+recorded_with: VCR 3.0.3

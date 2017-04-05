@@ -1,0 +1,38 @@
+<container>
+  <style type="text/css">
+    body,
+    html,
+    .body {
+      background: #f3f3f3 !important;
+    }
+
+    .header {
+      background: #f3f3f3;
+    }
+  </style>
+
+  <row class="header">
+    <columns>
+      <spacer size="16"></spacer>
+    </columns>
+  </row>
+  <row>
+    <columns>
+      <spacer size="32"></spacer>
+      <%= yield %>
+      <spacer size="16"></spacer>
+      <hr />
+      <spacer size="16"></spacer>
+      <center>
+        <a rel="noopener noreferrer" href="https://www.agentbright.com" target="_blank">
+          <img class="ab-logo" src="https://gallery.mailchimp.com/2ebad66220aae2fda12951af8/images/AgentBright_Logo_v2.0_web_header.png" />
+        </a>
+        <spacer size="8"></spacer>
+        <p class="text-center">
+          <small>© 2016 AgentBright, Inc., All Rights Reserved.</small>
+        </p>
+      </center>
+    </columns>
+  </row>
+
+</container>

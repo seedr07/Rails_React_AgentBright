@@ -1,0 +1,65 @@
+<!--HEADER SECTION-->
+<% content_for(:back_button, marketing_center_index_path) %>
+<div class="row">
+  <div class="lastUnit col-sm-12 header">
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="line section">
+    <div class="lastUnit col-12-sm below24">
+      <%= link_to "Log a new referral activity", new_contact_activity_path, :id => "add-contact-btn", :class => "add-btn btn btn-primary btn-embossed btn-wide btn-loading ", "data-loading-text" => "Loading..." %>
+
+    </div>
+  </div>
+</div>
+
+
+<!--BASIC TABLE-->
+
+<div class="row">
+  <div class="col-xs-12 below36 basic-table">
+    <div class="line section">
+      <table class="ab-table stay-table">
+        <thead>
+          <tr>
+            <th width="30%">When</th>
+            <th width="70%">Referral Activity</th>
+            <th class="nowrap alignr">
+              Type
+            </th>
+            <th class="nowrap alignr">
+              Action
+            </th>
+            <th class="nowrap alignr">
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @contact_activities.each do |contact_activity| %>
+            <tr>
+              <td class="breakword">
+                <%= display_time_ago(contact_activity.completed_at) %>
+              </td>
+              <td class="breakword">
+                <%= contact_activity.contact.full_name unless contact_activity.contact_id.nil? %><br />
+                <%= link_to edit_contact_activity_path(contact_activity) do %>
+                  <%= contact_activity.subject %>
+                <% end %>
+              </td>
+              <td class="alignr"><%= contact_activity.activity_type %></td>
+              <td class="alignr">
+                <%= link_to 'Edit', edit_contact_activity_path(contact_activity), class: "btn btn-embossed btn-sm btn-primary" %>
+              </td>
+              <td class="alignr nopadding">
+                <%= link_to 'Delete', contact_activity, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-embossed btn-sm btn-primary  btn-wide btn-loading ", "data-loading-text" => "Deleting..." %>
+
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

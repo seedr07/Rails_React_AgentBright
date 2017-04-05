@@ -1,0 +1,11 @@
+<div class="row above24 contacts-table">
+  <div class="col-xs-12">
+    <% cache "table_head" do %>
+      <%= render(partial: "contacts/table/table_head") %>
+    <% end %>
+    <div id="contacts-container">
+      <%= render(partial: "contacts/table/table_body", locals: { contacts: @contacts }) %>
+
+    </div><!-- /#contacts-container -->
+  </div><!-- /col-xs-12 -->
+</div><!-- /row -->

@@ -1,0 +1,27 @@
+<%= f.input(:street, input_html: { data: { info: "street" } }, label: "Street Address") %>
+<%= f.input(
+  :city,
+  input_html: { data: { info: "city" } },
+  label: "City",
+  id: "new-seller-client-address-city"
+) %>
+<div class="row multiple-fields">
+  <div class="col-sm-6">
+    <%= f.input(
+      :state,
+      collection: Carmen::Country.coded("US").subregions.map { |c| c.code },
+      input_html: { data: { info: "state" } }
+    ) %>
+  </div>
+  <div class="col-sm-6">
+    <%= f.input(
+      :zip,
+      input_html: {
+        data: { input_mask: "zipcode" },
+        type: "text",
+        pattern: "[0-9]*"
+      },
+      label: "Zip Code"
+    ) %>
+  </div>
+</div>

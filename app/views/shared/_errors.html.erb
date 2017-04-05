@@ -1,0 +1,18 @@
+
+<% if @contact.errors.any? %>
+  <section id="errors">
+    <header>
+      <h2>
+        Oops! The <%= @contact.first_name %> could not be saved.
+      </h2>
+      <h3>
+        Please correct the following <%= pluralize(@contact.errors.count, "error", plural: "errors") %>:
+      </h3>
+    </header>
+    <ul>
+       <% @contact.errors.full_messages.each do |message| %>
+       <li><%= message %></li>
+      <% end %>
+    </ul>
+  </section>
+<% end %>

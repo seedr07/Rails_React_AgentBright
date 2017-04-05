@@ -1,0 +1,183 @@
+<% content_for(:back_button, contacts_path(page: session[:contact_index_page])) %>
+<% content_for(:title, "#{@contact.name}") %>
+
+<!--START PAGE CONTENT-->
+<% if show_beta_features? %>
+    <a class="btn btn-large btn-success btn-paper btn-width-137" href="javascript:void(0);" onclick="startIntro();">Quick Demo</a>
+<% end %>
+<% cache(["contacts_show_header_and_menu", @contact]) do %>
+  <div class="row header" data-introjs="step11">
+    <div class="col-sm-12">
+      <h1 class="inline-block">
+        <%= link_to "Contacts", @contacts_page_url %>
+      </h1>
+      <h2 class="h2 nomargin"><%= contact_display_name(@contact) %>
+        <a class="clickable" rel="popover" data-container="#main-content" data-toggle="popover" data-placement="right" data-html="true" data-content='<%= render(partial: "contacts/grade_popover", locals: {contact: @contact }) %>' data-title="Change Ranking">
+            <%= @contact.grade_to_s %>
+        </a>
+      </h2>
+      <div class="media">
+        <div class="media-image" style="margin-right: 8px">
+          <%= contact_avatar(@contact).html_safe %>
+        </div>
+        <div class="media-body">
+          <div class="col-xs-12 nopadding">
+            <h4 class="nomargin"><%= display_primary_email_address(@contact) %></h4>
+            <h4 class="nomargin fwl"><%= display_primary_phone_number(@contact) %></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--MENU BAR-->
+
+  <div class="row" data-introjs="step31">
+    <div class="col-sm-12">
+      <nav class="navbar navbar-default local-nav" role="navigation">
+        <div class="container-fluid">
+
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button class="navbar-toggle full-width" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" type="button">
+              Navigation
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div><!-- /navbar-header -->
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+    </div>
+  </div><!-- /.row -->
+  <!--END MENU BAR-->
+<% end %>
+
+<div class="row">
+  <% cache(["contact_show_info", @contact]) do %>
+    <div class="col-sm-6 sub-section" data-introjs="step32">
+      <!-- Contact Details-->
+      <div class="row">
+        <div class="col-xs-12">
+          <h3 class="inline-block">
+            <a data-toggle="collapse" data-toggle-event="true" data-target="#contact-details-section">
+              <div class="title-arrow fui-arrow-right"></div> Contact Details
+            </a>
+          </h3><!-- /.inline-block -->
+          <%= link_to(
+            "Edit",
+            edit_contact_details_contact_path(@contact),
+            class: "add-btn btn btn-primary btn-embossed b0 float-right btn-loading",
+            id: "edit-contact-details",
+            "data-loading-text" => "Loading...",
+            remote: true
+          ) %>
+          <%= render(
+            partial: "contact_details_section",
+            locals: {
+              contact: @contact,
+              email_addresses: @email_addresses,
+              phone_numbers: @phone_numbers
+            }
+          ) %>
+        </div><!-- /.col-xs-12 -->
+      </div><!-- /.row -->
+
+      <!-- Contact Correspondence-->
+      <div class="row">
+        <div class="col-xs-12">
+          <h3 class="inline-block">
+            <a data-toggle="collapse" data-toggle-event="true" data-target="#contact-correspondence-section">
+              <div class="title-arrow fui-arrow-right"></div> Correspondence
+            </a>
+          </h3><!-- /.inline-block -->
+          <%= link_to(
+            "Edit",
+            edit_contact_correspondence_contact_path(@contact),
+            class: "add-btn btn btn-primary btn-embossed b0 float-right btn-loading",
+            id: "edit-contact-correspondence",
+            "data-loading-text" => "Loading...",
+            remote: true
+          ) %>
+          <%= render(partial: "contact_correspondence_section") %>
+        </div><!-- /.col-xs-12 -->
+      </div><!-- /.row -->
+
+      <!-- Work Details-->
+      <div class="row">
+        <div class="col-xs-12">
+          <h3 class="inline-block">
+            <a data-toggle="collapse" data-toggle-event="true" data-target="#contact-work-section">
+              <div class="title-arrow fui-arrow-right"></div> Work
+            </a>
+          </h3><!-- /.inline-block -->
+          <%= link_to(
+            "Edit",
+            edit_contact_work_info_contact_path(@contact),
+            class: "add-btn btn btn-primary btn-embossed b0 float-right btn-loading",
+            id: "edit-contact-work-info",
+            "data-loading-text"=> "Loading...",
+            remote: true
+          ) %>
+          <%= render(partial: "contact_work_section") %>
+        </div><!-- /.col-xs-12 -->
+      </div><!-- /.row -->
+
+  <% end %>
+
+</div><!-- /.row -->
+<script>
+  $('[data-behavior~=email-campaign-activity]').click(function() {
+    window.location.href="<%= contacts_email_campaigns_sent_path(id: @contact.id) %>";
+  });
+</script>
+<% if show_beta_features? %>
+  <script type="text/javascript">
+  function startIntro(){
+    var intro = introJs();
+      intro.setOptions({
+        steps: [
+          {
+            intro: "The Contact Show Page displays relevant details about your relationships and your conversations."
+            ,
+            position: 'top'
+          },
+          {
+            element: '[data-introjs=step11]',
+            intro: "The Contact details displays name, grade and phone and email."
+            ,
+            position: 'left'
+          },
+          {
+            element: '[data-introjs=step31]',
+            intro: "The Contact menu allows you to log activities, convert to leads and send email campaigns.",
+            position: 'left'
+          },
+          {
+            element: '[data-introjs=step32]',
+            intro: "View and update Contact details, correspondence and work information quickly.",
+            position: 'right'
+          },
+          {
+            element: '[data-introjs=step33]',
+            intro: "Easy to add a task, capture comments, send emails or record events such as calls, notes or visits."
+            ,
+            position: 'left'
+          },
+          {
+            intro: "Our single page view is designed to make it simple and easy to use.",
+            position: 'top'
+          }
+        ]
+      });
+      intro.start();
+  }
+  </script>
+<% end %>
+

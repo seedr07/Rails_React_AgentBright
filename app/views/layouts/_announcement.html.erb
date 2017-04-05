@@ -1,0 +1,19 @@
+<div id="ab-flash-block">
+  <% Announcement.current(cookies.signed[:hidden_announcement_ids]).each do |announcement| %>
+    <p><%= div_for announcement do %>
+      <div class="alert alert-info">
+        <div class="media">
+          <div class="media-object">
+            <div class="flash-info-icon"><span class="flash-info-text">i</span></div>
+          </div> <!-- /media-object -->
+          <div class="media-body">
+                <!-- <h4 class="media-heading">Announcement</h4>-->
+            <%= announcement.message %>
+            <%= link_to "dismiss", hide_announcement_path(announcement), remote: true %>
+
+          </div><!-- /media-body -->
+         </div><!-- /media -->
+      </div><!-- /alert -->
+    <% end %></p>
+  <% end %>
+</div><!-- /ab-flash-block -->

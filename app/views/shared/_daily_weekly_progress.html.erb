@@ -1,0 +1,15 @@
+<div class="row sub-section">
+  <div class="col-sm-6">
+    <h3>Daily Progress</h3>
+    <%= progress_bar('Calls', current_user.contact_activities.completed_today('Call').size, @last_goal.daily_calls_goal).html_safe %>
+    <%= progress_bar('Notes', current_user.contact_activities.completed_today('Note').size, @last_goal.daily_notes_goal).html_safe %>
+    <%= progress_bar('Visits', current_user.contact_activities.completed_today('Visit').size, @last_goal.daily_visits_goal).html_safe %>
+  </div><!-- /.col-sm-6 -->
+
+  <div class="col-sm-6">
+    <h3>Weekly Progress</h3>
+    <%= progress_bar('Calls', current_user.contact_activities.completed_this_week('Call').size, @last_goal.calls_required_wkly).html_safe %>
+    <%= progress_bar('Notes', current_user.contact_activities.completed_this_week('Note').size, @last_goal.note_required_wkly).html_safe %>
+    <%= progress_bar('Visits', current_user.contact_activities.completed_this_week('Visit').size, @last_goal.visits_required_wkly).html_safe %>
+  </div><!-- /.col-sm-6 -->
+</div><!-- /.row -->

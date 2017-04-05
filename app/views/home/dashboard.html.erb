@@ -1,0 +1,27 @@
+<% content_for :title, "Dashboard" %>
+<style>
+  section.activity-stream:before {
+    background: #e4e4e4;
+  }
+  section.activity-stream article.activity div.act-icon {
+    box-shadow: 0 0 0 5px #e4e4e4;
+  }
+</style>
+
+<div class="main-dashboard">
+  <% if show_beta_features? %>
+    <a class="btn btn-large btn-success btn-paper btn-width-137" href="javascript:void(0);" onclick="startIntro()">Quick Demo</a>
+  <% end %>
+
+  <%= page_header(
+    primary_name: "Dashboard",
+    primary_path: dashboard_path
+  ) %>
+
+  <%#= render(
+    "shared/stats/dashboard/progress",
+    { total_daily_referral_activities_goal: @dashboard_carrier.total_daily_referral_activities_goal }
+  ) %>
+
+</div>
+

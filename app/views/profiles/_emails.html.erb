@@ -1,0 +1,39 @@
+<h2>Emails</h2>
+<% if current_user.email_messages.empty? %>
+  <%= no_data_block(
+    icon_class: "fui-mail",
+    title: "Reach out - send an email!",
+    message: "No emails here....",
+    block_id: "email_emptymessage"
+  ) %>
+<% else %>
+  <table class="ab-table">
+    <thead>
+      <tr>
+        <th>From</th>
+        <th>Message</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% current_user.email_messages.order("received_at desc").limit(100).each do |email_message| %>
+        <tr>
+          <td>
+            <p class="small-meta nomargin fwb"><%= email_message.from_name %></p>
+            <p class="small-meta"><%= email_message.from_email %></p>
+            <p class="small-meta fsi">ID: <%= email_message.message_id %></p>
+          </td>
+          <td>
+            <%= link_to display_thread_path(contact_id: Contact.first.id, thread_id: email_message.thread_id, message_id: email_message.message_id, "url" => request.original_url, anchor: "#{email_message.message_id}"), class: "email-message", id: "#{email_message.message_id}" do %>
+              <p class="nomargin fwb small-meta"><%= email_message.subject %></p>
+            <% end %>
+            <p class="small-meta"><%= email_message.snippet %>...</p>
+          </td>
+          <td>
+            <%= display_quick_datetime(email_message.received_at) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

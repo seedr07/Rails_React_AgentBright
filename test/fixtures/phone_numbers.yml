@@ -1,0 +1,43 @@
+# == Schema Information
+#
+# Table name: phone_numbers
+#
+#  created_at  :datetime
+#  id          :integer          not null, primary key
+#  number      :string
+#  number_type :string
+#  owner_id    :integer
+#  owner_type  :string
+#  primary     :boolean
+#  updated_at  :datetime
+#
+# Indexes
+#
+#  index_phone_numbers_on_owner_id_and_owner_type              (owner_id,owner_type)
+#  index_phone_numbers_on_owner_id_and_owner_type_and_number   (owner_id,owner_type,number)
+#  index_phone_numbers_on_owner_id_and_owner_type_and_primary  (owner_id,owner_type,primary)
+#  index_phone_numbers_on_owner_type_and_number                (owner_type,number)
+#  phone_numbers_powerful_index                                (owner_id,owner_type,number,primary)
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+will_phone:
+  number: "0105551141"
+  owner: will (Contact)
+
+jane_phone:
+  number: "010555113"
+  owner: jane (Contact)
+
+john_phone:
+  number: "010555112"
+  owner: john (Contact)
+
+katie_phone:
+  number: "010555111"
+  owner: katie (Contact)
+
+inboxapp_contact1_phone:
+  number: "9444444444"
+  owner: inboxapp_contact1 (Contact)

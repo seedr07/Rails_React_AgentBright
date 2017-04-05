@@ -1,0 +1,32 @@
+# == Schema Information
+#
+# Table name: csv_files
+#
+#  created_at              :datetime
+#  csv                     :string
+#  id                      :integer          not null, primary key
+#  import_result           :hstore           default({})
+#  state                   :string
+#  total_failed_records    :integer          default(0)
+#  total_import_time_in_ms :string
+#  total_imported_records  :integer          default(0)
+#  total_parsed_records    :integer          default(0)
+#  updated_at              :datetime
+#  user_id                 :integer
+#
+# Indexes
+#
+#  index_csv_files_on_user_id  (user_id)
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: {}
+# column: value
+#
+two: {}
+#  column: value

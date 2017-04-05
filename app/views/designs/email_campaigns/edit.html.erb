@@ -1,0 +1,577 @@
+<!--
+*******************************************
+Note: The purpose of views/designs/ is for
+building frontend markup only. Do not add
+ERB or javascript to this page. Copy and
+paste this markup, and then integrate that
+code in its rightful location with the app
+backend.
+
+With very few exceptions, this file should
+remain pure front-end HTML/CSS/JS.
+*******************************************
+-->
+
+<div class="ui masthead vertical segment">
+  <div class="ui container">
+    <div class="introduction">
+      <h1 class="ui header">Create Market Data Campaign</h1>
+    </div>
+  </div>
+</div>
+
+<div class="main ui container">
+  <div class="ui vertical basic segment">
+    <div class="ui centered grid">
+      <div class="column">
+        <form class="ui form">
+
+          <h3 class="ui dividing header">Recipients</h3>
+          <div class="grouped fields">
+            <label for="delivery_time">Choose recipients by:</label>
+            <div class="field">
+              <div class="ui radio checkbox" data-ui-behavior="checkbox" data-radio-reveal-group="recipients" data-radio-reveal="groups">
+                <input type="radio" name="recipient_selector_type" tabindex="0" class="hidden">
+                <label>Group</label>
+              </div>
+            </div>
+            <div class="field reveal-section" data-radio-reveal-section="groups">
+              <label for="groups">Select groups</label>
+              <div class="ui fluid multiple search selection dropdown" data-ui-behavior="dropdown">
+                <input type="hidden" name="country" />
+                <i class="dropdown icon"></i>
+                <div class="default text">Select groups</div>
+                <div class="menu">
+                  <div class="item">Agents</div>
+                  <div class="item">Co-workers</div>
+                  <div class="item">Church</div>
+                  <div class="item">Family</div>
+                  <div class="item">Friends</div>
+                  <div class="item">Neighbors</div>
+                  <div class="item">Past Clients</div>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox" data-ui-behavior="checkbox" data-radio-reveal-group="recipients" data-radio-reveal="grades">
+                <input type="radio" name="recipient_selector_type" tabindex="0" class="hidden">
+                <label>Grade</label>
+              </div>
+            </div>
+            <div class="field reveal-section" data-radio-reveal-section="grades">
+              <label for="groups">Select grades</label>
+              <div class="inline field">
+                <div class="ui checkbox" data-ui-behavior="checkbox">
+                  <input type="checkbox" tabindex="0" class="hidden">
+                  <label>A+</label>
+                </div>
+              </div>
+              <div class="inline field">
+                <div class="ui checkbox" data-ui-behavior="checkbox">
+                  <input type="checkbox" tabindex="0" class="hidden">
+                  <label>A</label>
+                </div>
+              </div>
+              <div class="inline field">
+                <div class="ui checkbox" data-ui-behavior="checkbox">
+                  <input type="checkbox" tabindex="0" class="hidden">
+                  <label>B</label>
+                </div>
+              </div>
+              <div class="inline field">
+                <div class="ui checkbox" data-ui-behavior="checkbox">
+                  <input type="checkbox" tabindex="0" class="hidden">
+                  <label>C</label>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox" data-ui-behavior="checkbox" data-radio-reveal-group="recipients" data-radio-reveal="saved_segments">
+                <input type="radio" name="recipient_selector_type" tabindex="0" class="hidden">
+                <label>Saved Segment</label>
+              </div>
+            </div>
+            <div class="field reveal-section" data-radio-reveal-section="saved_segments">
+              <select class="ui dropdown" data-ui-behavior="dropdown">
+                <option>Essex Residents</option>
+                <option>Paused Clients</option>
+              </select>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox" data-ui-behavior="checkbox" data-radio-reveal-group="recipients" data-radio-reveal="create_new_segment">
+                <input type="radio" name="recipient_selector_type" tabindex="0" class="hidden">
+                <label>New Segment</label>
+              </div>
+            </div>
+            <div class="reveal-section" data-radio-reveal-section="create_new_segment">
+              <div class="field">
+                <span>
+                  Subscribers match
+                  <select class="ui compact inline dropdown" data-ui-behavior="dropdown">
+                    <option>any</option>
+                    <option>all</option>
+                  </select>
+                  of the following conditions:
+                </span>
+              </div>
+              <div class="ui divider"></div>
+              <div class="inline fields">
+                <div class="field">
+                  <button class="circular basic ui icon button">
+                    <i class="minus icon"></i>
+                  </button>
+                </div>
+                <div class="field">
+                  <div class="ui compact selection inline dropdown" data-ui-behavior="dropdown">
+                    <i class="dropdown icon"></i>
+                    <div class="text">Campaign Activity</div>
+                    <div class="menu">
+                      <div class="item">Campaign Activity</div>
+                      <div class="item">Client Stage</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui compact selection inline dropdown" data-ui-behavior="dropdown">
+                    <i class="dropdown icon"></i>
+                    <div class="text">opened</div>
+                    <div class="menu">
+                      <div class="item">opened</div>
+                      <div class="item">clicked</div>
+                      <div class="item">was sent</div>
+                      <div class="item">did not open</div>
+                      <div class="item">did not click</div>
+                      <div class="item">was not sent</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="ui selection inline dropdown" data-ui-behavior="dropdown">
+                    <input type="hidden" />
+                    <i class="dropdown icon"></i>
+                    <div class="text">Any of the last 5 campaigns</div>
+                    <div class="menu">
+                      <div class="header">Aggregate campaigns</div>
+                      <div class="item" data-value="">Any of the last 5 campaigns</div>
+                      <div class="item" data-value="">Any of the last 10 campaigns</div>
+                      <div class="item" data-value="">Any recent campaign</div>
+                      <div class="item" data-value="">All of the last 5 campaigns</div>
+                      <div class="header">Sent campaigns</div>
+                      <div class="item" data-value="">April Market Data Report</div>
+                      <div class="item" data-value="">March Market Data Report</div>
+                      <div class="item" data-value="">February Market Data Report</div>
+                      <div class="item" data-value="">January Market Data Report</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="inline fields">
+                <div class="field">
+                  <button class="circular basic ui icon button">
+                    <i class="minus icon"></i>
+                  </button>
+                </div>
+                <div class="field">
+                  <div class="ui compact selection inline dropdown" data-ui-behavior="dropdown">
+                    <input type="hidden" name="condition_object" />
+                    <i class="dropdown icon"></i>
+                    <div class="text">Client Stage</div>
+                    <div class="menu">
+                      <div class="item">Campaign Activity</div>
+                      <div class="item">Client Stage</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="field">
+                  <select class="ui compact selection inline dropdown" data-ui-behavior="dropdown" name="condition_modifier">
+                      <option>is</option>
+                      <option>is not</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <div class="ui selection inline dropdown" data-ui-behavior="dropdown">
+                    <input type="hidden" name="condition_rule" />
+                    <i class="dropdown icon"></i>
+                    <div class="text">Active</div>
+                    <div class="menu">
+                      <div class="item" data-value="">Prospect</div>
+                      <div class="item" data-value="">Long Term Prospect</div>
+                      <div class="item" data-value="">Active</div>
+                      <div class="item" data-value="">Pending</div>
+                      <div class="item" data-value="">Closed</div>
+                      <div class="item" data-value="">Paused</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="ui button">
+                <i class="add circle icon"></i> Add
+              </div>
+            </div>
+          </div>
+          <p>
+            <a href="#">0 recipients</a> will receive an email. <a href="#">Click here to refresh the count</a>
+          </p>
+
+          <h3 class="ui dividing header">Campaign Settings</h3>
+          <div class="field">
+            <label>Name your campaign</label>
+            <input type="text" name="campaign_name" />
+          </div>
+          <div class="field">
+            <label>Email subject</label>
+            <input type="text" name="email_subject" />
+          </div>
+          <div class="inline field">
+            <div class="ui toggle checkbox" data-ui-behavior="checkbox">
+              <input type="checkbox" tabindex="0" class="hidden" checked="">
+              <label>Track opens</label>
+            </div>
+          </div>
+          <div class="inline field">
+            <div class="ui toggle checkbox" data-ui-behavior="checkbox">
+              <input type="checkbox" tabindex="0" class="hidden" checked="">
+              <label>Track clicks</label>
+            </div>
+          </div>
+          <div class="grouped fields">
+            <label for="no_market_data">If a recipient does not have a city and state or zip code entered, or if the market information for their region is unavailable:</label>
+            <div class="field">
+              <div class="ui radio checkbox" data-ui-behavior="checkbox">
+                <input type="radio" name="no_market_data" checked="" tabindex="0" class="hidden">
+                <label>Send them an email with a generic market report for my state</label>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox" data-ui-behavior="checkbox">
+                <input type="radio" name="no_market_data" tabindex="0" class="hidden">
+                <label>Do not send them an email</label>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="ui dividing header">Content</h3>
+          <div class="inline field">
+            <div class="ui toggle checkbox" data-ui-behavior="checkbox" data-checkbox-reveal="message_content">
+              <input type="checkbox" tabindex="0" class="hidden">
+              <label>Display a custom message</label>
+            </div>
+          </div>
+          <div class="field reveal-section" data-checkbox-reveal-section="message_content">
+            <input id="trix_message_content" type="hidden" name="message_content" />
+            <trix-editor input="trix_message_content" class="trix-content"></trix-editor>
+          </div>
+          <div class="grouped fields">
+            <label for="color_palette">Choose a color scheme:</label>
+            <div class="field">
+              <div class="ui radio checkbox" data-ui-behavior="checkbox">
+                <input type="radio" name="color_palette" />
+                <label>Default</label>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox" data-ui-behavior="checkbox">
+                <input type="radio" name="color_palette" />
+                <label>Remax</label>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox" data-ui-behavior="checkbox">
+                <input type="radio" name="color_palette" />
+                <label>Coldwell Banker</label>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox" data-ui-behavior="checkbox">
+                <input type="radio" name="color_palette" />
+                <label>Sotheby's</label>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox" data-ui-behavior="checkbox">
+                <input type="radio" name="color_palette" />
+                <label>Century 21</label>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox" data-ui-behavior="checkbox">
+                <input type="radio" name="color_palette" />
+                <label>Page Taft</label>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui radio checkbox" data-ui-behavior="checkbox">
+                <input type="radio" name="color_palette" />
+                <label>Berkshire Hathaway</label>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="ui dividing header">Preview</h3>
+          <div class="ui button" data-ui-behavior="open_send_test_email_modal">
+            Send test email
+          </div>
+          <div class="field">
+            <label for="preview_recipient">Select a recipient to see a preview of the email they will be receiving</label>
+            <select name="preview_recipient" id="" class="ui search dropdown" data-ui-behavior="dropdown">
+              <option value="">Recipient:</option>
+              <option>Arthur Dayne</option>
+              <option>Bran Stark</option>
+              <option>Gregor Clegane</option>
+              <option>Jamie Lannister</option>
+              <option>Jon Snow</option>
+              <option>Kevan Lannister</option>
+              <option>Ramsey Bolton</option>
+              <option>Sansa Stark</option>
+            </select>
+            <div class="ui raised segment">
+              <h4 class="ui header">Email message info</h4>
+              <div class="ui list">
+                <div class="item">
+                  <div class="header">To:</div>
+                  Kevan Lannister (kevan@casterlyrock.com)
+                </div>
+                <div class="item">
+                  <div class="header">From:</div>
+                  John Smith
+                </div>
+                <div class="item">
+                  <div class="header">Subject:</div>
+                  Market Report for Casterly Rock
+                </div>
+                <div class="item">
+                  <div class="header">Area:</div>
+                  56746
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <iframe src="<%= preview_content_html_email_campaign_path(EmailCampaign.first) %>" class="iframe" width="100%" height="100%" seamless="seamless" style="min-height:900px;border:solid 1px #000"></iframe>
+          </div>
+
+          <h3 class="ui dividing header">Deliver</h3>
+          <div data-behavior="delivery_buttons">
+            <div class="ui primary right labeled icon button" data-behavior="show_scheduling_section">
+              Schedule Campaign
+              <i class="wait icon"></i>
+            </div>
+            <div class="ui secondary right labeled icon button" data-ui-behavior="open_send_now_confirmation_modal">
+              Send now
+              <i class="send icon"></i>
+            </div>
+            <div class="ui button">Cancel</div>
+          </div>
+          <div data-behavior="scheduling_section" style="display:none;">
+            <div class="field">
+              <label for="deliver_date">Delivery date</label>
+              <div class="ui calendar" data-ui-behavior="calendar_date">
+                <div class="ui input left icon">
+                  <i class="calendar icon"></i>
+                  <input type="text" name="deliver_date" placeholder="Date..." />
+                </div>
+              </div>
+            </div>
+            <div class="grouped fields">
+              <label for="delivery_time">Delivery time</label>
+              <div class="field">
+                <div class="ui radio checkbox" data-ui-behavior="checkbox" data-radio-reveal-group="delivery_time">
+                  <input type="radio" name="delivery_time" checked="" tabindex="0" class="hidden">
+                  <label>Let AgentBright optimize send time for maximum engagement</label>
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui radio checkbox" data-ui-behavior="checkbox" data-radio-reveal-group="delivery_time" data-radio-reveal="specific_time">
+                  <input type="radio" name="delivery_time" tabindex="0" class="hidden">
+                  <label>Send at a specific time</label>
+                </div>
+              </div>
+              <div class="field reveal-section" data-radio-reveal-section="specific_time">
+                <div class="ui calendar" data-ui-behavior="calendar_time">
+                  <div class="ui input left icon">
+                    <i class="clock icon"></i>
+                    <input type="text" name="deliver_time" placeholder="Time..." />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ui primary button">
+              Schedule
+            </div>
+            <div class="ui button" data-behavior="hide_scheduling_section">Cancel</div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Send test email modal -->
+<div class="ui small modal" data-ui-behavior="send_test_email_modal">
+  <i class="close icon"></i>
+  <div class="header">
+    Send a Test
+  </div>
+  <div class="content">
+    <form class="ui form" id="send_test_email_form">
+      <div class="field">
+        <label for="test_email_recipients">Send a test to</label>
+        <input type="text" name="test_email_recipients" />
+      </div>
+      <p>
+        Comma separate emails to send to multiple accounts
+      </p>
+    </form>
+  </div>
+  <div class="actions">
+    <div class="ui black deny button">
+      Nevermind
+    </div>
+    <button type="submit" form="send_test_email_form" class="ui positive right labeled icon button">
+      Send Test
+      <i class="send icon"></i>
+    </button>
+  </div>
+</div>
+
+<!-- Send now confirmation modal -->
+<div class="ui basic modal" data-ui-behavior="send_now_confirmation_modal">
+  <i class="close icon"></i>
+  <div class="ui icon header">
+    <i class="send icon"></i>
+    Are you sure you want to send this campaign now?
+  </div>
+  <div class="content">
+    <div class="ui grid">
+      <div class="center aligned row">
+        <div class="column">
+          <p>We recommend scheduling your message to be sent at an optimal tiem to maximize it's visibility.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="actions">
+    <div class="ui red cancel inverted button">
+      <i class="remove icon"></i>
+      No
+    </div>
+    <div class="ui green basic cancel inverted button">
+      <i class="checkmark icon"></i>
+      Yes
+    </div>
+  </div>
+</div>
+
+<script>
+  // Initialize Semantic UI dropdowns
+  $('[data-ui-behavior=checkbox]').checkbox();
+
+  // Initialize Semantic UI checkboxes
+  $('[data-ui-behavior=dropdown]').dropdown();
+
+  // Initialize test email modal
+  $('[data-ui-behavior=send_test_email_modal]')
+    .modal('attach events', '[data-ui-behavior=open_send_test_email_modal]', 'show');
+
+  // Initialize send now confirmation modal
+  $('[data-ui-behavior=send_now_confirmation_modal]')
+    .modal('attach events', '[data-ui-behavior=open_send_now_confirmation_modal]', 'show');
+
+  // Initialize Semantic UI calendar component for date selection
+  $('[data-ui-behavior=calendar_date]')
+    .calendar(
+      {
+        type: 'date',
+        today: true,
+      }
+    );
+
+  // Initialize Semantic UI calendar component for time selection
+  $('[data-ui-behavior=calendar_time]')
+    .calendar(
+      {
+        type: 'time',
+      }
+    );
+
+  // ------------------------
+  // CHECKBOX REVEAL SECTIONS
+  // ------------------------
+
+  // Show or hide a section depending on whether or not a checkbox is checked
+  jQuery.fn.showOrHideCheckboxRevealSection = function() {
+    var $checkbox = $(this);
+    var $checkboxInput = $checkbox.find('input');
+    var sectionName = $checkbox.attr("data-checkbox-reveal");
+    var $section = $('[data-checkbox-reveal-section=' + sectionName + ']');
+
+    if($checkboxInput.is(':checked')) {
+      $section.show();
+    } else {
+      $section.hide();
+    }
+  }
+
+  // Check what sections should be shown or hidden on page load
+  $('[data-checkbox-reveal]').each(function() {
+    $(this).showOrHideCheckboxRevealSection();
+  });
+
+  // Show/hide sections when a checkbox is changed
+  $(document).on('change', '[data-checkbox-reveal]', function() {
+    $(this).showOrHideCheckboxRevealSection();
+  });
+
+  // ---------------------
+  // RADIO REVEAL SECTIONS
+  // ---------------------
+
+  // Show or hide a section depending on if it's radio button is checked
+  jQuery.fn.showOrHideRadioRevealSection = function() {
+    var $radio = $(this);
+    var $radioInput = $radio.find('input');
+    var sectionName = $radio.attr('data-radio-reveal');
+    if(sectionName) {
+      var $section = $('[data-radio-reveal-section=' + sectionName + ']');
+
+      if($radioInput.is(':checked')) {
+        $section.show();
+      } else {
+        $section.hide();
+      }
+    }
+  }
+
+  // Show or hide each radio reveal section
+  $('[data-radio-reveal]').each(function() {
+    $(this).showOrHideRadioRevealSection();
+  });
+
+  // Show or hide sections in a group depending on which radio button
+  // is checked
+  jQuery.fn.updateAllGroupSections = function() {
+    var $changedRadio = $(this);
+    var groupName = $changedRadio.attr('data-radio-reveal-group');
+    var $groupRadios = $('[data-radio-reveal-group=' + groupName + ']');
+
+    $groupRadios.each(function() {
+      $(this).showOrHideRadioRevealSection();
+    });
+  }
+
+  // Update which sections are shown and hidden when one is changed
+  $(document).on('change', '[data-radio-reveal-group]', function() {
+    $(this).updateAllGroupSections();
+  });
+
+  $(document).on('click', '[data-behavior=show_scheduling_section]', function() {
+    $('[data-behavior=scheduling_section]').show();
+    $('[data-behavior=delivery_buttons]').hide();
+  });
+
+  $(document).on('click', '[data-behavior=hide_scheduling_section]', function() {
+    $('[data-behavior=scheduling_section]').hide();
+    $('[data-behavior=delivery_buttons]').show();
+  });
+
+</script>

@@ -1,0 +1,189 @@
+<div class="row">
+  <% if show_all_fields %>
+    <%= simple_form_for(
+      @contact_activity,
+      html: { class: "new-record below48" }
+    ) do |f| %>
+      <% if @contact_activity.new_record? %>
+        <% content_for :extra_js do %>
+          display_datepicker_on_select();
+        <% end %>
+      <% end %>
+      <div class="col-sm-12">
+        <div class="sub-section">
+          <%= f.error_notification %>
+          <%= f.input(:activity_type, as: :select, collection: ["Call", "Note", "Visit"]) %>
+          <%= f.association(
+            :contact,
+            label: "Contact",
+            collection: current_user.contacts.active.order('first_name asc'),
+            label_method: :full_name,
+            value_method: :id,
+            input_html: { data: { behavior: "contacts_select_field" } }
+          ) %>
+
+          <%= f.input(
+            :activity_for,
+            as: :hidden,
+            input_html: { value: ContactActivity::ACTIVITY_FOR[0] }
+          ) %>
+          <%= f.input(:subject, input_html: { class: "form-control" }) %>
+          <% if @contact_activity.new_record? %>
+            <div class="row multiple-fields">
+              <div class="col-sm-6">
+                <%= f.input(
+                  :custom_time,
+                  label: "When was this activity completed?",
+                  as: :radio_buttons,
+                  item_wrapper_class: "radio-inline",
+                  collection: ["Just now", "Specify date..."],
+                  wrapper_html: {
+                    data: {
+                      behavior: "custom-time-group",
+                      show_hide: "specific-completed-date"
+                    }
+                  }
+                ) %>
+              </div><!-- /.col-sm-6 -->
+              <div class="col-sm-6">
+                <%= f.input(
+                  :completed_at,
+                  wrapper: :datepicker,
+                  label: "Date",
+                  as: :string,
+                  input_html: {
+                    class: "date_picker form-control",
+                    type: "date",
+                    data: { behavior: "datepicker"},
+                    value: format_for_datepicker(f.object.completed_at)
+                  },
+                  wrapper_html: { data: { show_hide: "specific-completed-date" } }
+                ) %>
+              </div><!-- /.col-sm-6 -->
+            </div><!-- /.row multiple-fields -->
+          <% else %>
+            <%= f.input(
+              :completed_at,
+              wrapper: :datepicker,
+              label: "Date",
+              as: :string,
+              input_html: {
+                class: "date_picker form-control",
+                type: "date",
+                data: { behavior: "datepicker" },
+                value: format_for_datepicker(f.object.completed_at)
+              },
+              wrapper_html: { data: { show_hide: "specific-completed-date" } }
+            ) %>
+          <% end %>
+
+          <%= f.input(:comments, input_html: { class: 'form-control', rows: 6 }) %>
+          <% if current_user.has_no_team_members? %>
+              <%= f.association(
+                :user,
+                label: "Referral Activity Owner",
+                collection: User.all,
+                label_method: :full_name,
+                default: current_user.full_name,
+                input_html: { class: "form-control" }
+              ) %>
+          <% end %>
+          <div class="checkbox">
+            <%= f.input(
+              :asked_for_referral,
+              wrapper: :default,
+              as: :boolean,
+              label: "Asked for referral?"
+            ) %>
+          </div><!-- /.checkbox -->
+        </div>
+        <div class="sub-section">
+          <%= f.button(
+            :submit,
+            class: "btn-default btn-embossed btn-loading",
+            value: "Submit",
+            "data-loading-text" => "Loading..."
+          ) %>
+          <%= link_to("Cancel", contact_activities_path, class: "new-record-cancel") %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <%= simple_form_for(
+      @contact_activity,
+      html: { class: "new-record below24" }
+    ) do |f| %>
+        <div class="col-sm-12">
+          <div class="sub-section below24">
+            <%= f.error_notification %>
+            <%= f.input(
+              :activity_type,
+              as: :hidden,
+              input_html: { value: activitytype }
+            ) %>
+            <%= f.input(
+              :contact_id,
+              as: :hidden,
+              input_html: { value: thiscontact }
+            ) %>
+            <%= f.input(
+              :subject,
+              as: :hidden,
+              input_html: { value: "Proactive Marketing " + activitytype }
+            ) %>
+            <%= f.input(
+            :completed_at,
+            as: :hidden,
+            input_html: { value: Time.zone.now}
+            ) %>
+            <%= f.input(
+              :comments,
+              input_html: { rows: 4, class: "nomargin" }
+            ) %>
+            <div class="checkbox">
+              <%= f.input(
+                :asked_for_referral,
+                as: :boolean,
+                wrapper: :default,
+                label: "Asked for referral?"
+              ) %>
+            </div><!-- /.checkbox -->
+
+          </div><!--sub-section-->
+          <div class="sub-section">
+            <%= hidden_field_tag(:redirect_location, "marketingcenter") %>
+            <%= f.button(
+              :submit,
+              class: "btn-primary btn-embossed btn-loading set-active-tab",
+              value: "Complete",
+              "data-loading-text" => "Loading..."
+            ) %>
+            <% if activitytype == "Call" %>
+                <%= link_to(
+                  "Postpone",
+                  contact_postponecall_path(thiscontact),
+                  class: "new-record-cancel set-active-tab"
+                ) %>
+            <% elsif activitytype == "Note" %>
+                <%= link_to(
+                  "Postpone",
+                  contact_postponenote_path(thiscontact),
+                  class: "new-record-cancel set-active-tab"
+                ) %>
+            <% elsif activitytype == "Visit" %>
+                <%= link_to(
+                  "Postpone",
+                  contact_postponevisit_path(thiscontact),
+                  class: "new-record-cancel set-active-tab"
+                ) %>
+            <% end %>
+          </div><!--sub-section-->
+        </div><!-- col-sm-12-->
+    <% end %>
+  <% end %>
+</div>
+<script>
+document.addEventListener('turbolinks:load', function() {
+  newcontactactivityform_select2();
+  });
+</script>

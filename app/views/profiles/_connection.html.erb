@@ -1,0 +1,20 @@
+<li>
+  <div class="media">
+    <a href="#" class="pull-left">
+      <div class="media-object">
+        <%= connection_status(provider).html_safe %>
+      </div><!-- /.media-object -->
+    </a>
+    <div class="media-body">
+      <h4 class="media-heading">
+        <%= provider_name %>
+      </h4><!-- /.media-heading -->
+      <p class="inline">
+        <%= check_connection(provider) %>
+      </p>
+      <% if current_user.has_connection_with(provider) %>
+        <span class="fwl float-right"><span class='fui-check-circle'></span> Connected</span>
+      <% end %>
+    </div><!-- /.media-body -->
+  </div><!-- /.media -->
+</li>

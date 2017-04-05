@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" class="wizard-layout">
+  <head>
+    <%= render(partial: "application/head_contents") %>
+  </head>
+
+  <body id="<%= "%s_%s" % [controller_name, action_name] %>" class="navtoggle header-only <%= @layout_carrier.env_banner %>">
+    <%= render(partial: "shared/environment_banner") %>
+
+    <div id="wrap" class="wrap clearfix nopadding">
+      <div id="main-content" class="main-content mc-content">
+
+        <div class="container relative clearfix">
+          <%= render(partial: "shared/flashes") %>
+          <%= yield %>
+
+        </div>
+      </div>
+    </div>
+
+    <!--
+    FAB BUTTON
+    <a href="#" class="btn btn-default btn-fab fui-plus"></a>
+    -->
+
+    <%= render(partial: "application/extra_content") %>
+
+  </body>
+</html>

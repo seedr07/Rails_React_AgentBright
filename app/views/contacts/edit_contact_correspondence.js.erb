@@ -1,0 +1,7 @@
+$('#contact-correspondence-section').hide().after('<%= j render("contact_correspondence_form_section") %>');
+$('#edit-contact-correspondence').hide().button('reset');
+$('[data-behavior~=cancel-edit-form]').cancelEditForm();
+new Salutation();
+$('.btn-loading').click(function() {
+  $(this).button('loading');
+});

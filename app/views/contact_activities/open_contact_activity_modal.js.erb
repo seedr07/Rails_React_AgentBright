@@ -1,0 +1,9 @@
+$("[data-behavior~=insert-form]")
+  .find("[data-behavior~=modal-content]").remove();
+$("[data-behavior~=insert-form]")
+  .append('<%= j render("contact_activities/modals/add_activity", { task: @task }) %>');
+
+$('.btn-loading').click(function() {
+  $(this).button('loading');
+});
+initializeDatepicker();

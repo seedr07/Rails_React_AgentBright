@@ -1,0 +1,30 @@
+<% content_for(:back_button, contacts_path) %>
+
+<%= show_alert_if_processing_csv_file(current_user) %>
+<div class="row">
+  <div class="lastUnit col-sm-12 header">
+    <h1 class="inline-block">
+      <%= link_to "Contacts", contacts_path %>
+    </h1>
+      <%= link_to "Add Contact", new_contact_path, class:  "add-btn btn btn-default b0 btn-embossed", :id => "add-contact-btn" %>
+      <%#= link_to "Upload Contacts", new_upload_contact_path, class:  "add-btn btn btn-default b0 btn-embossed", :id => "add-contact-btn" %>
+    <h2>Select Top Contacts</h2>
+  </div>
+</div>
+
+
+<!--SEARCH-->
+<div class="form-group">
+  <input id="top_contact_search" class="form-control input-hg" type="text" placeholder="Search Contact." autocomplete="off"
+         data-autocomplete-source="<%= top_contact_autocomplete_path%>" />
+  <br/>
+</div>
+
+
+<div id="grading-and-graded-container">
+  <div id='contacts-grading-container'>
+    <%=render(partial: "contact_grader", locals: {no_contact_text: "" }) %>
+  </div>
+
+  <%= render(partial: "graded_contacts", locals: { contacts: @contacts }) %>
+</div>

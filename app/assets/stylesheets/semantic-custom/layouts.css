@@ -1,0 +1,77 @@
+.article {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  min-width: 0px;
+}
+
+/* Add Sticky Footers */
+body.pushable > .pusher {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+-webkit-flex-direction: column;
+    -ms-flex-direction: column;
+        flex-direction: column;
+}
+body.pushable > .pusher > .full.height {
+-webkit-box-flex: 1;
+-webkit-flex: 1 0 auto;
+    -ms-flex: 1 0 auto;
+        flex: 1 0 auto;
+}
+
+.main.container {
+  padding: 2em 0em 7em;
+}
+
+
+
+/*******************************
+      Definition Container
+*******************************/
+
+#example > .pusher > .footer {
+  clear: both;
+}
+
+#example .fixed.menu > .container,
+#example .main.container,
+#example .masthead > .container,
+#example .footer > .container {
+  position: relative;
+}
+
+#example .main.container {
+  padding: 2em 0em 7em;
+}
+#example .wide.main.container {
+  width: 80%;
+  margin: 0 auto;
+  max-width: 1140px;
+}
+
+#example .main.container > .right.rail .sticky,
+#example .main.container > .tab > .examples > .right.rail .sticky,
+#example .main.container > .tab > .right.rail .sticky {
+  padding-bottom: 2em;
+}
+#example .main.container > .right.rail .fixed.sticky,
+#example .main.container > .tab > .examples > .right.rail .fixed.sticky,
+#example .main.container > .tab > .right.rail .fixed.sticky {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+#example .following.menu .menu .active.item {
+  font-weight: bold;
+}
+#example .following.menu .item .menu {
+  margin: 0em;
+}
+#example .following.menu .menu .item {
+  margin: 0em;
+  padding: 0.5rem 0.25rem;
+}

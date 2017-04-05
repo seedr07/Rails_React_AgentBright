@@ -1,0 +1,62 @@
+<% if @contact.errors.blank? %>
+  <% if @inline_form == "contact_details" %>
+      <% if @contact.errors.blank? %>
+        $('#contact-details-section-form').remove();
+        $('#edit-contact-details').show().after('<%= j render(partial: "contact_details_section", locals: { contact: @contact, email_addresses: @email_addresses, phone_numbers: @phone_numbers }) %>');
+      <% else %>
+        $("#contact-details-section-form").remove();
+        $('#contact-details-section').hide().after('<%= j render("contact_details_form_section") %>');
+        $('#edit-contact-details').hide().button('reset');
+        $('form').addAndRemoveFields();
+        $('#contact_addresses_attributes_0_street').focus();
+        $('[data-behavior~=cancel-edit-form]').cancelEditForm();
+        var newSection = $("#contact-details-section-form");
+        newSection.initPrettyCheck();
+        VCF.validate();
+        new ContactsForm();
+        new InputMask(); // This will hookup input mask for phone number
+        new Salutation();
+        $('.btn-loading').click(function() {
+          $(this).button('loading');
+        });
+
+        CPEP.checkPrimayPhoneCheckbox();
+        CPEP.checkPrimayEmailCheckbox();
+      <% end %>
+  <% elsif @inline_form == "contact_correspondence" %>
+
+    $('#contact-correspondence-section-form').remove();
+    $('#edit-contact-correspondence').show().after('<%= j render("contact_correspondence_section") %>');
+
+  <% elsif @inline_form == "contact_work" %>
+
+    $('#contact-work-info-section-form').remove();
+    $('#edit-contact-work-info').show().after('<%= j render("contact_work_section") %>');
+
+  <% end %>
+
+  // This will update tabbed email section.
+  $('[data-behavior="contact-quick-email"]').html('<%= j render(partial: "emails/contact_quick_email_form", locals: { contact: @contact }) %>')
+  // This will update tabbed email seciton's `To` field and will bind `select2`.
+  ER.init();
+  // This will load emails from Nylas for current contact's primary email address.
+  LE.init();
+<% else %>
+  $('#contact-details-section-form').replaceWith('<%= j render("contact_details_form_section") %>');
+  $('#edit-contact-details').hide().button('reset');
+  $('form').addAndRemoveFields();
+  $('#contact_addresses_attributes_0_street').focus();
+  $('[data-behavior~=cancel-edit-form]').cancelEditForm();
+  var newSection = $("#contact-details-section-form");
+  newSection.initPrettyCheck();
+  VCF.validate();
+  new ContactsForm();
+  new InputMask(); // This will hookup input mask for phone number
+  new Salutation();
+  $('.btn-loading').click(function() {
+    $(this).button('loading');
+  });
+
+  CPEP.checkPrimayPhoneCheckbox();
+  CPEP.checkPrimayEmailCheckbox();
+<% end %>

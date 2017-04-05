@@ -1,0 +1,23 @@
+<% if content_for? :extra_html_body %>
+  <%= yield :extra_html_body %>
+<% end %>
+
+<%= render(partial: "shared/modal") %>
+
+<% if content_for? :javascript %>
+  <%= yield :javascript %>
+<% end %>
+
+<script type="text/javascript" data-turbolinks-eval=always>
+  $(function() {
+    <% if content_for? :extra_js %>
+      <%= yield :extra_js %>
+    <% end %>
+  });
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
+</script>
+
+<%= javascript_include_tag "common/tracking" %>
+

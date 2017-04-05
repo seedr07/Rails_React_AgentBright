@@ -1,0 +1,19 @@
+<h2>Email Settings:</h2>
+<div class="row sub-section">
+  <%= form_for current_user, url: save_email_signature_path do |f| %>
+    <div class="col-xs-12">
+      <div class="form-group">
+        <%= f.label :email_signature  %>
+        <div class="bootstrap-switch-square inline">
+          <%= f.check_box :email_signature_status, data: { toggle: "switch", "on-color": "success", "off-color": "danger" } %>
+        </div><!-- /.bootstrap-switch-square -->
+      </div><!-- /.form-group -->
+      <div class="form-group">
+        <%= f.hidden_field :email_signature %>
+        <trix-editor input="user_email_signature" style="width:70%"></trix-editor>
+      </div><!-- /.form-group -->
+      <%= f.submit "Save Email Settings", class: "btn btn-default btn-paper btn-raised" %>
+      <br />
+    </div><!-- /.col-xs-12 -->
+<% end %>
+</div><!-- /.row sub-section -->

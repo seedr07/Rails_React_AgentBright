@@ -1,0 +1,225 @@
+<h3>Broker Fees and Splits</h3>
+<div class="form-group">
+  <label>Monthly fees to broker</label>
+    <%= u.input_field(
+      :monthly_broker_fees_paid,
+      class: "form-control",
+      data: { goal_param: "monthly_broker_fees_paid" },
+      as: :bootstrap_currency
+    ) %>
+</div><!-- /.form-group -->
+
+<%= hidden_field_tag :total_expenses, "", "data-goal-param" => "total_expenses" %>
+<%= hidden_field_tag :average_gross_commission, "", "data-goal-param" => "average_gross_commission" %>
+<%= hidden_field_tag :effective_fee_rate, "", "data-goal-param" => "effective_fee_rate" %>
+<%= hidden_field_tag :effective_percentage_rate, "", "data-goal-param" => "effective_percentage_rate" %>
+<%= hidden_field_tag :effective_franchise_fee_rate, "", "data-goal-param" => "effective_franchise_fee_rate"   %>
+
+<div class="row below24">
+  <div class="col-sm-4">
+    <label>Do you pay a franchise fee to your broker on each transaction?</label>
+    <div class="btn-group btn-group-yes-no btn-group-justified" data-toggle="buttons">
+      <label class="btn btn-primary <%= @commission_carrier.handle_active_class(:franchise_fee, true) %>">
+        <%= u.input_field(
+          :franchise_fee,
+          type: :radio,
+          value: true,
+          as: :string,
+          autocomplete: "off",
+          checked: (u.object.franchise_fee == true),
+          data: {
+            behavior: "show-franchise-fee-section",
+            calc: "franchise-fee-radio"
+          }
+        ) %> Yes
+      </label>
+      <label class="btn btn-primary <%= @commission_carrier.handle_active_class(:franchise_fee, false) %>">
+        <%= u.input_field(
+          :franchise_fee,
+          type: :radio,
+          value: false,
+          as: :string,
+          checked: (u.object.franchise_fee == false),
+          autocomplete: "off",
+          data: {
+            behavior: "hide-franchise-fee-section",
+            calc: "franchise-fee-radio"
+          }
+        ) %> No
+      </label>
+    </div>
+  </div><!-- /.col-xs-12 -->
+</div><!-- /row -->
+
+<div class="form-group" id="franchise-fee-section" style="display:<%= @commission_carrier.handle_display_block_class(:franchise_fee, true) %>">
+  <label>What is the franchise fee?</label>
+  <div class="input-group max200">
+    <%= u.input_field :franchise_fee_per_transaction, class:"form-control", placeholder: "e.g. 5-6%", data: { "input-mask": "twodecimal_percentage",
+                              "v-min": "0.00", "v-max": "100.00",
+                              "goal-param": "franchise_fee_per_transaction"} %>
+    <span class="input-group-addon">%</span>
+  </div><!-- /.input-group max200 -->
+</div><!-- /.form-group -->
+
+<div class="row below24">
+  <div class="col-sm-6">
+    <label>What type of split do you have with your broker?</label>
+    <div class="btn-group btn-group-yes-no btn-group-justified" data-toggle="buttons">
+      <label class="btn btn-primary <%= @commission_carrier.handle_active_class(:commission_split_type, 'Fee') %>">
+        <%= u.input_field(
+          :commission_split_type,
+          type: :radio,
+          value: "Fee",
+          checked: (u.object.commission_split_type == "Fee"),
+          autocomplete: "off",
+          data: {
+            action: {
+              show: "fee-split-section",
+              hide: "percentage-split-section"
+            },
+            calc: "commission-split-type-radio"
+          }
+        ) %> Fee
+      </label>
+      <label class="btn btn-primary <%= @commission_carrier.handle_active_class(:commission_split_type, 'Percentage') %> %>">
+        <%= u.input_field(
+          :commission_split_type,
+          type: :radio,
+          value: "Percentage",
+          checked: (u.object.commission_split_type == "Percentage"),
+          autocomplete: "off",
+          data: {
+            action: {
+              show: "percentage-split-section",
+              hide: "fee-split-section"
+            },
+            calc: "commission-split-type-radio"
+          }
+        ) %> Percentage
+      </label>
+    </div>
+  </div><!-- /.col-xs-12 -->
+</div><!-- /row -->
+
+<div class="form-group" id="percentage-split-section"
+  style="display:<%= @commission_carrier.handle_display_block_class(:commission_split_type, 'Percentage') %>" >
+
+  <label>What is your side of the split with your broker?</label>
+  <div class="input-group max200">
+    <% hash = { "input-mask": "twodecimal_percentage", "v-min": "0.00", "v-max": "100.00" } %>
+    <%= u.input_field(
+      :agent_percentage_split,
+      class: "form-control",
+      placeholder: "e.g. 60%",
+      data: @commission_carrier.data_attribute_for_agent_split(hash, controller_name),
+      type: "text"
+    ) %>
+    <span class="input-group-addon">%</span>
+  </div><!-- /.input-group max200 -->
+</div><!-- /.form-group -->
+<div id="fee-split-section" style="display:<%= @commission_carrier.handle_display_block_class(:commission_split_type, "Fee") %>">
+  <div class="form-group">
+    <label>What is the per-transaction fee paid to the broker?</label>
+    <%= u.input_field(
+      :broker_fee_per_transaction,
+      class: "form-control",
+      data: {
+        "goal-param": "broker_fee_per_transaction"
+      },
+      as: :bootstrap_currency
+    ) %>
+  </div><!-- /.form-group -->
+  <div class="row below24">
+    <div class="col-sm-4">
+      <label>Is there an alternative fee percentage?</label>
+      <div class="btn-group btn-group-yes-no btn-group-justified" data-toggle="buttons">
+        <label class="btn btn-primary <%= @commission_carrier.handle_active_class(:broker_fee_alternative, true) %>">
+          <%= u.input_field(
+            :broker_fee_alternative,
+            type: :radio,
+            as: :string,
+            value: true,
+            checked: (u.object.broker_fee_alternative == true),
+            autocomplete: "off",
+            data: {
+              behavior: "show-alternative-percentage-section",
+              calc: "broker-fee-alternative-radio"
+            }
+          ) %> Yes
+        </label>
+        <label class="btn btn-primary <%= @commission_carrier.handle_active_class(:broker_fee_alternative, false) %>">
+            <%= u.input_field(
+              :broker_fee_alternative,
+              type: :radio,
+              as: :string,
+              value: false,
+              checked: (u.object.broker_fee_alternative == false),
+              autocomplete: "off",
+              data: {
+                behavior: "hide-alternative-percentage-section",
+                calc: "broker-fee-alternative-radio"
+              }
+            ) %> No
+        </label>
+      </div>
+    </div><!-- /.col-xs-12 -->
+    </div><!-- /row -->
+    <div class="form-group" id="alternative-percentage-section"
+      style="display:<%= @commission_carrier.handle_display_block_class(:broker_fee_alternative, true) %>">
+
+      <label>What is the alternative percentage?</label>
+      <div class="input-group max200">
+        <%= u.input_field(
+          :broker_fee_alternative_split,
+          class: "form-control",
+          data: {
+            "input-mask": "twodecimal_percentage",
+            "v-min": "0.00",
+            "v-max": "100.00"
+          }
+        ) %>
+        <span class="input-group-addon">%</span>
+      </div><!-- /.input-group max200 -->
+    </div><!-- /.form-group -->
+    <div class="row below24">
+    <div class="col-sm-4">
+      <label>Are your fees capped after a certain number of transactions?</label>
+      <div class="btn-group btn-group-yes-no btn-group-justified" data-toggle="buttons">
+        <label class="btn btn-primary <%= @commission_carrier.handle_active_class(:per_transaction_fee_capped, true) %>">
+          <%= u.input_field(
+            :per_transaction_fee_capped,
+            type: :radio,
+            as: :string,
+            value: true,
+            checked: (u.object.per_transaction_fee_capped == true),
+            autocomplete: "off",
+            data: {
+              behavior: "show-fees-capped-section",
+              calc: "per-transaction-fee-capped-radio"
+            }
+          ) %> Yes
+        </label>
+        <label class="btn btn-primary <%= @commission_carrier.handle_active_class(:per_transaction_fee_capped, false) %>">
+          <%= u.input_field(
+            :per_transaction_fee_capped,
+            type: :radio,
+            as: :string,
+            value: false,
+            checked: (u.object.per_transaction_fee_capped == false),
+            id: "no3",
+            autocomplete: "off",
+            data: {
+              behavior: "hide-fees-capped-section",
+              calc: "per-transaction-fee-capped-radio"
+            }
+          ) %> No
+        </label>
+      </div>
+    </div><!-- /.col-xs-12 -->
+  </div><!-- /row -->
+  <div class="form-group" id="fees-capped-section" 
+    style="display:<%= @commission_carrier.handle_display_block_class(:per_transaction_fee_capped, true) %>">
+    <label>Number of transactions</label>
+    <%= u.input_field :transaction_fee_cap,  type: :number, class:"form-control max200" %>
+  </div><!-- /.form-group -->
+</div><!-- /#fee-split-section -->

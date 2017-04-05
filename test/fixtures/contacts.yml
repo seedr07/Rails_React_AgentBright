@@ -1,0 +1,198 @@
+# == Schema Information
+#
+# Table name: contacts
+#
+#  active                       :boolean          default(TRUE)
+#  avatar_color                 :integer          default(0)
+#  birthday                     :string
+#  company                      :string
+#  created_at                   :datetime
+#  created_by_user_id           :integer
+#  data                         :hstore           default({})
+#  email                        :string
+#  envelope_salutation          :string
+#  first_name                   :string
+#  google_api_contact_id        :string
+#  grade                        :integer
+#  graded_at                    :datetime
+#  id                           :integer          not null, primary key
+#  import_source_id             :integer
+#  import_source_type           :string
+#  inactive_at                  :datetime
+#  last_activity_at             :datetime
+#  last_called_at               :datetime
+#  last_contacted_at            :datetime
+#  last_name                    :string
+#  last_note_sent_at            :datetime
+#  last_visited_at              :datetime
+#  letter_salutation            :string
+#  mandrill_email_interactions  :string           default("")
+#  mandrill_message_id_list     :string           default([]), is an Array
+#  mandrill_message_ids_string  :string
+#  minutes_since_last_contacted :integer
+#  name                         :string
+#  next_activity_at             :datetime
+#  next_call_at                 :datetime
+#  next_note_at                 :datetime
+#  next_visit_at                :datetime
+#  phone_number                 :string
+#  profession                   :string
+#  search_status                :string
+#  search_status_code           :integer
+#  search_status_message        :string
+#  spouse_first_name            :string
+#  spouse_last_name             :string
+#  suggested_facebook_url       :string
+#  suggested_first_name         :string
+#  suggested_googleplus_url     :string
+#  suggested_instagram_url      :string
+#  suggested_job_title          :string
+#  suggested_last_name          :string
+#  suggested_linkedin_bio       :string
+#  suggested_linkedin_url       :string
+#  suggested_location           :string
+#  suggested_organization_name  :string
+#  suggested_twitter_url        :string
+#  suggested_youtube_url        :string
+#  suggestion_received          :datetime
+#  title                        :string
+#  updated_at                   :datetime
+#  user_id                      :integer
+#  yahoo_contact_id             :string
+#
+# Indexes
+#
+#  index_contacts_on_active                        (active)
+#  index_contacts_on_created_by_user_id            (created_by_user_id)
+#  index_contacts_on_email                         (email)
+#  index_contacts_on_grade                         (grade)
+#  index_contacts_on_name                          (name)
+#  index_contacts_on_phone_number                  (phone_number)
+#  index_contacts_on_user_id                       (user_id)
+#  index_contacts_on_user_id_and_active_and_grade  (user_id,active,grade)
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+will:
+  first_name: Will
+  last_name: "O'Smith"
+  grade: 1
+  graded_at: 2014-01-10
+  user: john
+  created_by_user: john
+  email: "will@example.com"
+  phone_number: "0105551141"
+
+jane:
+  #id: 2
+  first_name: Jane
+  last_name: Smith
+  user: john
+  created_by_user: john
+  email: jane@example.com
+  phone_number: "010555113"
+
+john:
+  #id: 3
+  first_name: John
+  last_name: Smith
+  grade: 1
+  graded_at: 2014-01-09
+  user: john
+  created_by_user: john
+  email: john@example.com
+  phone_number: "010555112"
+
+katie:
+  #id: 4
+  first_name: Katie
+  last_name: Lozar
+  created_by_user: john
+  email: katie@example.com
+  phone_number: "010555111"
+
+peter1:
+  #id: 5
+  first_name: Peter1
+  last_name: Peter1
+  created_by_user: robert
+
+peter2:
+  #id: 6
+  first_name: Peter2
+  last_name: Peter2
+  created_by_user: robert
+
+peter3:
+  # id: 5
+  first_name: Peter3
+  last_name: Peter3
+  created_by_user: robert
+
+patrick:
+  first_name: Patrick
+  last_name: O'Grady
+  created_by_user: john
+  email: ogradypatrickj@gmail.com
+
+ralph:
+  first_name: Ralph
+  last_name: InvalidEmailAddress
+  created_by_user: john
+  email: ralphie
+
+email_campaign_contact:
+  id: 209576 # must have id for email campaign tests to pass
+  first_name: Novak
+  last_name: Djokovic
+  created_by_user: john
+
+tommy:
+  first_name: Tommy
+  last_name: Today
+  created_by_user: ned_newlead
+  user: ned_newlead
+
+yvonne:
+  first_name: Yvonne
+  last_name: Yesterday
+  created_by_user: yvonne_yesterday
+  user: yvonne_yesterday
+
+inboxapp_contact1:
+  first_name: Testy
+  last_name: Testeroni
+  created_by_user: john
+  user: john
+  phone_number: "9444444444"
+
+contact_with_real_inbox_email_messages:
+  first_name: John
+  last_name: Smith
+  created_by_user: jane
+  user: jane
+  email: john.smith.agentbright@gmail.com
+
+john_contact_adam_smith:
+  first_name: Adam
+  last_name: Smith
+  created_by_user: john
+  user: john
+  email: adam.smith@example.com
+
+john_contact_rock_smith:
+  first_name: Rock
+  last_name: Smith
+  created_by_user: john
+  user: john
+  email: rock.smith@example.com
+
+beth:
+  first_name: Beth
+  last_name: Boring
+  grade: 1
+  graded_at: 2014-01-10
+  user: jane
+  created_by_user: jane
+  email: beth.boring.agentbright@gmail.com

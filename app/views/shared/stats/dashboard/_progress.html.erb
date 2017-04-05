@@ -1,0 +1,46 @@
+<div class="row well dashboard-progress relative">
+  <div class="col-xs-12">
+    <h3>Today's Progress:</h3>
+    <ul class="nav nav-pills below18 team-only">
+      <li role="presentation" class="active"><a href="#my-progress" data-toggle="pill">My Progress</a></li>
+      <li role="presentation"><a href="#team-progress" data-toggle="pill">Team Progress</a></li>
+    </ul>
+    <%#= progress_bar('AB Daily Progress Bar:', @daily_completed , @daily_remaining).html_safe %>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="tab-content nopadding noborder">
+          <div class="tab-pane fade in active" id="my-progress">
+            <%#= dashboard_daily_activities_completed_stat_block(@activities_completed_today.count, total_daily_referral_activities_goal).html_safe %>
+            <%= stat_block(
+              value: @dashboard_carrier.open_leads_count,
+              label: "Leads Needing Action",
+              columns: 4
+            ) %>
+            <%= stat_block(
+              value: @dashboard_carrier.clients_without_next_action_count,
+              label: "Clients Without Next Actions",
+              columns: 4
+            ) %>
+            <%= stat_block(
+              value: "#{@dashboard_carrier.todays_task_progress_completed}/#{@dashboard_carrier.todays_task_progress_total}",
+              label: "Tasks Completed",
+              columns: 4
+            ) %>
+          </div>
+          <div class="tab-pane fade" id="team-progress">
+            <%= stat_block(
+              value: @dashboard_carrier.team_clients_without_next_action_count,
+              label: "Clients Without Next Actions",
+              columns: 6
+            ) %>
+            <%= stat_block(
+              value: "#{@dashboard_carrier.todays_team_task_progress_completed}/#{@dashboard_carrier.todays_team_task_progress_total}",
+              label: "Tasks Completed",
+              columns: 6
+            ) %>
+          </div>
+        </div>
+      </div><!-- /.col-xs-12 -->
+    </div><!-- /.row -->
+  </div><!-- /.col-xs-12 -->
+</div><!-- /.row well -->

@@ -1,0 +1,12 @@
+<div class="stat-block alignc col-sm-<%= columns %> <%= color_class %>">
+  <h2 class="nomargin">
+  <% if link.present? %>
+    <a href="<%= link %>"><%= value %></a>
+  <% else %>
+    <%= value %>
+  <% end %>
+  </h2>
+  <p>
+    <span class=""><%= label %></span>
+  </p>
+</div>

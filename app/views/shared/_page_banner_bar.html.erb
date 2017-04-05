@@ -1,0 +1,38 @@
+<div class="page-banner-bar">
+
+  <div class="bar-nav">
+
+    <div class="bar-nav-back">
+      <%= link_to(user_leads_path, class: "btn btn-paper btn-flat btn-menu-icon bar-button with-ripple") do %>
+        <i class="mdi-navigation-arrow-back"></i>
+      <% end %>
+    </div><!-- /.bar-nav-back -->
+
+    <div class="bar-breadcrumbs">
+      <ol class="breadcrumb hide-phone">
+        <li class="active">
+          <div class="page-header-avatar">
+            <%= display_avatar(@lead.contact, 36) %>
+          </div>
+          <%= formatted_lead_name(@lead) %>
+        </li>
+      </ol><!-- /.breadcrumb hide-mobile -->
+    </div><!-- /.bar-breadcrumbs -->
+    <% if super_admin_signed_in? %>
+      <div class="bar-menu-options">
+        <a href="#" class="btn btn-paper btn-flat btn-menu-icon bar-button"><i class="mdi-content-add"></i></a>
+        <a href="#" class="btn btn-paper btn-flat btn-menu-icon bar-button"><i class="mdi-action-search"></i></a>
+        <div class="dropdown inline-block">
+          <a href="#" class="btn btn-paper btn-flat btn-menu-icon bar-button dropdown-toggle" data-toggle="dropdown"><i class="mdi-navigation-more-vert"></i></a>
+          <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+            <li role="presentation"><a class="with-ripple" role="menuitem" tabindex="-1" href="#">Action</a></li>
+            <li role="presentation"><a class="with-ripple" role="menuitem" tabindex="-1" href="#">Another action</a></li>
+            <li role="presentation"><a class="with-ripple" role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+            <li role="presentation"><a class="with-ripple" role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+          </ul>
+        </div><!-- /.dropdown -->
+      </div><!-- /.bar-menu-options -->
+    <% end %>
+  </div><!-- /.bar-nav -->
+
+</div><!-- /.page-banner-bar -->

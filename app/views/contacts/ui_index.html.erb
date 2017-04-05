@@ -1,0 +1,155 @@
+<!--
+*******************************************
+Note: The purpose of views/designs/ is for
+building frontend markup only. Do not add
+ERB or javascript to this page. Copy and
+paste this markup, and then integrate that
+code in its rightful location with the app
+backend.
+
+With very few exceptions, this file should
+remain pure front-end HTML/CSS/JS.
+*******************************************
+-->
+
+<style>
+  .ab-search-bar-header {
+    display: flex;
+  }
+
+  @media only screen and (max-width: 991px) {
+    .ab-search-bar-header {
+      flex-direction: column;
+    }
+  }
+
+  .ab-search-bar-header-left {
+    flex-grow: 1;
+  }
+
+  .ab-search-bar-header-right {
+    flex: 0 1 auto;
+  }
+
+  .ab-contacts-select-menu {
+    flex-wrap: wrap;
+  }
+
+  .ui.sortable.table thead th {
+    border-left: none;
+  }
+
+  .ui.sortable.table thead th.no-sort:hover {
+    background: transparent;
+    cursor: auto;
+    color: rgba(0, 0, 0, 0.87);
+  }
+
+  td.ab-status-column {
+    width: 10px;
+    height: 100%;
+    padding: 0 !important;
+    position: relative;
+  }
+
+  td.ab-status-column > .ab-status {
+    position: absolute;
+    top: 0;
+    width: 10px;
+    height: 100%;
+    background-color: #ddd;
+    display: inline-block;
+  }
+
+  td.ab-status-column > .ab-status.ab-positive-status {
+    background-color: #21BA45;
+  }
+
+  td.ab-status-column > .ab-status.ab-warning-status {
+    background-color: #FFD700;
+  }
+
+  td.ab-status-column > .ab-status.ab-negative-status {
+    background-color: #DB2828;
+  }
+
+  .ui.fixed.sticky + table {
+    margin-top: 61px;
+  }
+
+  .ui[class*="very basic"].table:not(.sortable):not(.striped) thead tr:first-child th {
+    padding-top: 16px;
+  }
+
+  .abg0 {
+    background-color: #63a6c0 !important;
+  }
+
+  .abg1 {
+    background-color: #579584 !important;
+  }
+
+  .abg2 {
+    background-color: #754a7e !important;
+  }
+
+  .abg3 {
+    background-color: #8d2048 !important;
+  }
+
+  .abg4 {
+    background-color: #805550 !important;
+  }
+
+  .abg5 {
+    background-color: #abc178 !important;
+  }
+
+  .abg6 {
+    background-color: #ff9422 !important;
+  }
+
+  .abg7 {
+    background-color: #4c4c4c !important;
+  }
+
+  .abg8 {
+    background-color: #517c96 !important;
+  }
+
+  .abg9 {
+    background-color: #e65993 !important;
+  }
+
+  .abg10 {
+    background-color: #b9e1e2 !important;
+  }
+
+  .abg11 {
+    background-color: #00746F !important;
+  }
+
+  .abg12 {
+    background-color: #f5b7ab !important;
+  }
+
+  .ab-avi {
+    color: white !important;
+  }
+
+  .ui.large.label.ab-avi {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    padding: 0;
+    line-height: 40px;
+  }
+</style>
+
+<div class="main ui container">
+  <div class="ui vertical basic segment">
+
+    <%= react_component('AppContacts', props: @contacts_json_string, prerender: false) %>
+
+  </div><!-- /.ui vertical basic segment -->
+</div><!-- /.main ui container -->

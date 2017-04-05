@@ -1,0 +1,19 @@
+<legend>Default settings:</legend>
+<% if user.franchise_fee %>
+  <p>Franchise Fee: <span class="fwb"><%= user.franchise_fee_per_transaction %>%</span></p>
+<% end %>
+<% if user.commission_split_type == "Percentage" %>
+  <p>You are on a <span class="fwb">percentage</span> split with your broker</p>
+  <p>You get: <span class="fwb"><%= user.agent_percentage_split %>%</span></p>
+  <p>Broker gets: <span class="fwb"><%= user.broker_split %>%</span></p>
+<% elsif user.commission_split_type == "Fee" %>
+  <p>You pay your broker a <span class="fwb">flat fee</span></p>
+  <p>Fee to the broker: <span class="fwb"><%= num_to_currency(user.broker_fee_per_transaction) %></span></p>
+  <% if user.broker_fee_alternative %>
+    <p>If the commission after other fees is less than <span class="fwb"><%= commission_threshold_for_broker_fee_alternative_split(user.broker_fee_per_transaction, user.broker_fee_alternative_split) %></span>, you pay a <span class="fwb"><%= user.broker_fee_alternative_split %>%</span> fee instead.</p>
+  <% end %>
+  <% if user.per_transaction_fee_capped %>
+    <p>Your fees are capped after <span class="fwb"><%= user.transaction_fee_cap %></span> transaction sides.</p>
+    <p>You currently have <span class="fwb"><%= user.number_of_closed_leads_YTD %></span> closed sides YTD.</p>
+  <% end %>
+<% end %>

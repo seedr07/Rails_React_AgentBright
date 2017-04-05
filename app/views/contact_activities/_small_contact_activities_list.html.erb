@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-xs-12 below36 basic-table">
+    <div class="line section">
+      <table class="ab-table stay-table">
+        <thead>
+
+        <tbody>
+          <% @contact_activities.each do |contact_activity| %>
+            <tr>
+              <td class="alignr"><%= contact_activity.activity_type %></td>
+              <td class="breakword">
+                <%= display_time_ago(contact_activity.completed_at) %>
+              </td>
+              <td class="breakword">
+                <%= link_to contact_activity do %>
+                  <%= contact_activity.subject %>
+                <% end %>
+              </td>
+              <td class="alignr nopadding">
+                <%= link_to 'Delete', contact_activity, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

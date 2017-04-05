@@ -1,0 +1,95 @@
+<div class="row">
+  <!-- SIDEBAR MENU -->
+  <div class="col-sm-3 hide-phone">
+    <%=render(partial: "shared/account_settings_sidebar")%>
+  </div>
+    <!-- MAIN SECTION -->
+  <div class="col-sm-9">
+    <%= page_header(
+      primary_name: "Account Settings",
+      primary_path: "#",
+      secondary_name: "Notifications"
+    ) %>
+    <%= render(partial: "shared/account_settings_mobile_menu") %>
+    <%= simple_form_for(
+      @lead_setting,
+      url: user_settings_lead_settings_path(@lead_setting, format: :js),
+      html: { id: "update_lead_notifications" },
+      remote: true
+    ) do |f| %>
+      <div class="row">
+        <div class="col-xs-12 sub-section">
+          <!--BASIC TABLE-->
+          <h3>Daily Reminder Settings</h3>
+          <div class="row below18">
+            <div class="col-sm-9">
+              <table class="ab-table settings-table">
+                <thead>
+                  <tr>
+                    <th width="85%">Reminder</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="breakword">
+                      <span class="mar-r2">
+                        Send me the
+                        <span class="fwb">Overall Daily Recap</span>
+                        email:
+                      </span>
+                      <% if super_admin_signed_in? %>
+                        <%= link_to(
+                          "Send",
+                          send_daily_client_activity_recap_email_user_settings_lead_settings_path,
+                          class: "btn btn-paper btn-xs btn-danger nomargin"
+                        ) %>
+                      <% end %>
+                    </td>
+                    <td class="alignc nopadding">
+                      <div class="bootstrap-switch-square inline">
+                        <%=f.check_box(
+                          :daily_overall_recap,
+                          "data-toggle" => "switch",
+                          "data-on-color" => "success",
+                          "data-off-color" => "danger"
+                        ) %>
+                      </div><!-- /.bootstrap-switch-square -->
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td class="breakword">
+                      <span class="mar-r2">
+                        Send me a
+                        <span class="fwb">morning next actions</span>
+                        text message:
+                      </span>
+                      <% if super_admin_signed_in? %>
+                        <%= link_to(
+                          "Send",
+                          send_next_action_reminder_sms_user_settings_lead_settings_path,
+                          class: "btn btn-paper btn-xs btn-danger nomargin"
+                        ) %>
+                      <% end %>
+                    </td>
+                    <td class="alignc nopadding">
+                      <div class="bootstrap-switch-square inline">
+                        <%=f.check_box(
+                          :next_action_reminder_sms,
+                          "data-toggle" => "switch",
+                          "data-on-color" => "success",
+                          "data-off-color" => "danger"
+                        ) %>
+                      </div><!-- /.bootstrap-switch-square -->
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div><!-- /.col-sm-9 -->
+          </div><!-- /.row sub-section -->
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

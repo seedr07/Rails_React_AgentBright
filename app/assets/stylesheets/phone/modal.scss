@@ -1,0 +1,7 @@
+.modal-open {
+  overflow: hidden;
+  -webkit-overflow-scrolling: auto;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}

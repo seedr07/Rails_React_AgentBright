@@ -1,0 +1,2 @@
+module UserSettings::LeadGroupsHelper
+end

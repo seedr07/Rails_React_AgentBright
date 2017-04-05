@@ -1,0 +1,139 @@
+# == Schema Information
+#
+# Table name: addresses
+#
+#  address    :string
+#  city       :string
+#  county     :string
+#  created_at :datetime
+#  data       :hstore           default({})
+#  id         :integer          not null, primary key
+#  owner_id   :integer
+#  owner_type :string
+#  state      :string
+#  street     :string
+#  updated_at :datetime
+#  zip        :string
+#
+# Indexes
+#
+#  index_addresses_on_city                     (city)
+#  index_addresses_on_owner_type_and_owner_id  (owner_type,owner_id)
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+# This model initially had no columns defined.  If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one: {}
+# column: value
+#
+two: {}
+#  column: value
+
+katie_property_address:
+  street: Miami
+  city: Miami
+  state: Florida
+  zip: 33027
+  owner: katie_property (Property)
+
+katie_buyer_property_1_address:
+  street: Miami
+  city: Miami
+  state: Florida
+  zip: 33027
+  owner: katie_buyer_property_one (Property)
+
+katie2_property_address:
+  street: 10001 Southland Ave. NW
+  city: Dillon
+  state: TX
+  zip: 72349
+  owner: katie2_property (Property)
+
+katie3_property_three_address:
+  street: 10001 Southland Ave. NW
+  city: Dillon
+  state: TX
+  zip: 72349
+  owner: katie3_property_three (Property)
+
+katie3_property_one_address:
+  street: 10001 Southland Ave. NW
+  city: Dillon
+  state: TX
+  zip: 72349
+  owner: katie3_property_one (Property)
+
+katie3_property_two_address:
+  street: 10001 Southland Ave. NW
+  city: Dillon
+  state: TX
+  zip: 72349
+  owner: katie3_property_two (Property)
+
+will_property_one_address:
+  street: 59 Winthrop Rd
+  city: Guilford
+  state: CT
+  zip: 06437
+  owner: will_lead_property (Property)
+
+will_contact_address:
+  street: 59 Winthrop Rd
+  city: Guilford
+  state: CT
+  zip: "06437"
+  owner_type: Contact
+  owner: will
+
+
+peter1_property_one_address:
+  street: 10001 Peter1 Ave. NW
+  city: Dillon
+  state: TX
+  zip: 72349
+  owner: peter1_property_one (Property)
+
+peter2_property_two_address:
+  street: 10001 Peter2 Ave. NW
+  city: Peter2
+  state: TX
+  zip: 72349
+  owner: peter2_property_two (Property)
+
+peter3_property_three_address:
+  street: 10001 Peter3 Ave. NW
+  city: Peter3
+  state: TX
+  zip: 72349
+  owner: peter2_property_three (Property)
+
+lyme_19_birch_hill_rd_address:
+  street: 19 Birch Hill Rd.
+  city: Lyme
+  state: CT
+  zip: '06371'
+  owner: lyme_19_birch_hill_rd (Property)
+
+haddam_41_charles_mary_dr_address:
+  street: 41 Charles Mary Dr
+  city: Higganum
+  state: CT
+  zip: 06441
+  owner: haddam_41_charles_mary_dr (Property)
+
+inbox_app_lead1_property_address:
+  street: 175 Saybrook Rd
+  city: Essex
+  state: CT
+  owner: inbox_app_lead1_property (Property)
+
+katie_seller_active_property_address:
+  street: 123 Sesame Street
+  city: New York
+  state: NY
+  owner: katie_seller_active_property (Property)

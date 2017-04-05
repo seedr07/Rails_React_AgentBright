@@ -1,0 +1,4 @@
+<% if show_beta_features? %>
+  <%#= render "contact_activities/add_activity" %>
+<% end %>
+<%= render( partial: "activities/activity_stream", locals: { activities: activities, activities_link_url: activities_link_url }) %>

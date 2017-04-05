@@ -1,0 +1,9 @@
+<h1>Comments</h1>
+
+	<% if @comments.empty? %>
+		<h5>No comments here! Why don't you add one?</h5>
+	<% else %>
+		<%= render 'comment_list' %>
+	<% end %>
+
+<p><%= link_to "New Comment", [:new, @commentable, :comment] %></p>

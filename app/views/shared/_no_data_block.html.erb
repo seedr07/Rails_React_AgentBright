@@ -1,0 +1,32 @@
+<% if local_assigns[:body].present? %>
+
+  <div class="row" id="<%= block_id %>" >
+    <div class="col-xs-12">
+      <div class="no-data alignc">
+        <div class="ab-icon">
+          <span class="<%= icon_class %>" <%= icon_attributes %>></span>
+        </div>
+        <%= body %>
+      </div><!-- no-data -->
+    </div><!-- /.col-xs-12 -->
+  </div><!-- /row -->
+
+<% else %>
+
+  <div class="row" id="<%= block_id %>">
+    <div class="col-xs-12">
+      <div class="no-data alignc">
+        <div class="ab-icon">
+          <span class="<%= icon_class %>" <%= icon_attributes %>></span>
+        </div>
+        <h2>
+          <%= title %>
+        </h2>
+        <p>
+          <%= message %>
+        </p>
+      </div><!-- no-data -->
+    </div><!-- /.col-xs-12 -->
+  </div><!-- /row -->
+
+<% end %>

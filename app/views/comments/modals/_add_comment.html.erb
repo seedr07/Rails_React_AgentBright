@@ -1,0 +1,64 @@
+<div data-behavior="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h4 class="modal-title" id="myModalLabel">Add a new comment</h4>
+  </div><!-- /modal-header -->
+  <%= simple_form_for(comment, html: { class: "below18" }, remote: true) do |f| %>
+    <div class="modal-body">
+      <div class="form-inputs sub-section">
+        <legend>For <%= comment.commentable.try(:name) %></legend>
+        <%= f.input(
+          :content,
+          placeholder: "Add new comment...",
+          input_html: {
+            class: "form-control below12",
+            rows: 2,
+            data: { behavior: "submit_comment" }
+          },
+          label: false
+        ) %>
+        <%= hidden_field_tag(:commentable_type, f.object.commentable_type) %>
+        <%= hidden_field_tag(:commentable_id, f.object.commentable_id) %>
+      </div><!-- /.form-inputs.sub-section -->
+    </div><!-- /.modal-body -->
+
+    <div class="modal-footer">
+      <%= f.button(
+        :submit,
+        class: "btn btn-primary btn-embossed btn-loading",
+        data: { loading_text: "Saving..." },
+        value: "Save Comment"
+      ) %>
+      <a href="#" data-dismiss="modal">Cancel</a>
+    </div><!-- /modal-footer -->
+  <% end %>
+</div><!-- /modal-content -->
+<% content_for :javascript do %>
+  <script>
+  document.addEventListener('turbolinks:load', function() {
+    var formToValidate = $("[data-form~='comment_form']");
+    formToValidate
+      .formValidation({
+        framework: "bootstrap",
+        excluded: [':disabled'],
+        err: {
+          clazz: "error-message"
+        },
+        fields: {
+          "comment[content]": {
+            validators: {
+              notEmpty: {
+                message: "You must enter a comment"
+              }
+            }
+          },
+        },
+        onError: function(e) {
+          formToValidate.find(".btn-loading").button('reset');
+        }
+      });
+  });
+
+  </script>
+<% end %>
+

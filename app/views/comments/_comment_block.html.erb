@@ -1,0 +1,13 @@
+<div class="data inline-block comment-block float-left">
+  <div class="slat-icon">
+    <span class="fui-chat"></span>
+  </div>
+  <p class="comment-p">
+    <span class="fwb"><%= display_comment_author(comment, current_user) %>: </span>
+    <%= "#{comment.content} #{last_lead_comment_more_link(comment, lead)}" %>
+  </p>
+  <p class="comment-p comment-meta">
+    <span class="dim-el">(<%= time_ago_in_words(comment.created_at) %> ago)</span>
+    <%= link_to("Add Comment", lead_path(id: lead.id, anchor: "comments")) %>
+  </p>
+</div>

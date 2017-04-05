@@ -1,0 +1,5 @@
+.reveal-section,
+.field.reveal-section,
+.ui.form .grouped.fields .field.reveal-section {
+  display: none;
+}

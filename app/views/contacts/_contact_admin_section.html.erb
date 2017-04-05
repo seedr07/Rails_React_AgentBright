@@ -1,0 +1,63 @@
+<div id="contact-admin-section" class="collapse in">
+  <ul class="dotted-list">
+    <li class="clearfix">
+      <div class="float-left col-sm-4 fwb dim-el">Owner:</div>
+      <div class="col-sm-8"><%= @contact.user.full_name if @contact.user%></div>
+    </li><!-- /.clearfix -->
+    <li class="clearfix">
+      <div class="float-left col-sm-4 fwb dim-el">Last Call:</div>
+      <div class="col-sm-8"><%= cal_date(@contact.last_called_at) %></div>
+    </li><!-- /.clearfix -->
+    <li class="clearfix">
+      <div class="float-left col-sm-4 fwb dim-el">Next Call:</div>
+      <div class="col-sm-8"><%= cal_date(@contact.next_call_at) %></div>
+    </li><!-- /.clearfix -->
+    <li class="clearfix">
+      <div class="float-left col-sm-4 fwb dim-el">Last Note:</div>
+      <div class="col-sm-8"><%= cal_date(@contact.last_note_sent_at) %></div>
+    </li><!-- /.clearfix -->
+    <li class="clearfix">
+      <div class="float-left col-sm-4 fwb dim-el">Next Note:</div>
+      <div class="col-sm-8"> <%= cal_date(@contact.next_note_at) %></div>
+    </li><!-- /.clearfix -->
+    <li class="clearfix">
+      <div class="float-left col-sm-4 fwb dim-el">Last Visit:</div>
+      <div class="col-sm-8"><%= cal_date(@contact.last_visited_at) %></div>
+    </li><!-- /.clearfix -->
+    <li class="clearfix">
+      <div class="float-left col-sm-4 fwb dim-el">Next Visit:</div>
+      <div class="col-sm-8"><%= cal_date(@contact.next_visit_at) %></div>
+    </li><!-- /.clearfix -->
+    <li class="clearfix">
+      <div class="float-left col-sm-4 fwb dim-el">Total Email Messages Sent:</div>
+      <div class="col-sm-8"><%= @contact.received_email_messages_total_count %></div>
+    </li><!-- /.clearfix -->
+    <li class="clearfix">
+      <div class="float-left col-sm-4 fwb dim-el">Total Email Messages In Last Year:</div>
+      <div class="col-sm-8"><%= @contact.received_email_messages_in_last_year_count %></div>
+    </li><!-- /.clearfix -->
+    <li class="clearfix">
+      <div class="float-left col-sm-4 fwb dim-el">Last Email Sent:</div>
+      <div class="col-sm-8"><%= cal_date(@contact.last_received_email_sent_at.try(:localtime)) %></div>
+    </li><!-- /.clearfix -->
+    <li class="clearfix">
+      <div class="float-left col-sm-4 fwb dim-el">Overall Last Contacted:</div>
+      <div class="col-sm-8"><%= cal_date(@contact.overall_last_contacted_at.try(:localtime)) %></div>
+    </li><!-- /.clearfix -->
+    <% if @contact.user.has_nylas_token? %>
+      <li class="clearfix" data-behavior="contact-nylas-report-info" data-contact-id="<%= @contact.id %>" >
+        <strong>Loading Nylas info...</strong>
+      </li><!-- /.clearfix -->
+    <% end %>
+  </ul><!-- /.dotted-list -->
+  <%= button_to(
+    "Refresh Social Info",
+    {
+      controller: "contacts",
+      action: "refresh_fullcontact_info",
+      id: @contact.id
+    },
+    class: "btn btn-primary btn-paper btn-raised btn-loading",
+    data: { loading_text: "Refreshing..." }
+  ) %>
+</div><!-- /#activitydates.collapse in -->

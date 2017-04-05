@@ -1,0 +1,22 @@
+if ($("#<%= @modal_id %>").length > 0)
+  $("#<%= @modal_id %>").modal("hide");
+
+<% if @contact.errors.blank?  %>
+  if($("#mainModal").length > 0) {
+    $("#mainModal").modal("hide");
+    $("[data-behavior~=insert-form]").find("[data-behavior~=modal-content]").remove();
+  }
+<% else %>
+  $("[data-behavior~=insert-form]")
+    .find("[data-behavior~=modal-content]").remove();
+  $("[data-behavior~=insert-form]")
+  .append('<%= j render("contacts/modals/new_contact", { contact: @contact, modal_id: @modal_id,
+                                                         target_select_id: @target_select_id,
+                                                         for_page: @for_page }) %>');
+  $('form').addAndRemoveFields();
+  VCF.validate();
+  new InputMask(); // This will hookup input mask for phone number
+<% end %>
+
+$("[data-behavior~=contacts_select_field]").prepend('<option value="<%= @contact.id %>"><%= @contact.full_name %></option>');
+$('#<%= @target_select_id %>').val(<%= @contact.id %>).change();

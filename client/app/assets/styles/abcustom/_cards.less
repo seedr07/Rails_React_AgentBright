@@ -1,0 +1,433 @@
+// CARDS
+
+.card {
+  padding: 0;
+  position: relative;
+  display: inline-block;
+  min-height: 50px;
+  width: 100%;
+  vertical-align: top;
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 4px;
+  border: 0;
+  margin-bottom: 12px;
+  word-break: break-word;
+  .card-avatar {
+    float: left;
+    border-radius: 100%;
+    background-color: #9d9d9d;
+    height: 42px;
+    width: 42px;
+    // line-height: 42px;
+    text-align: center;
+    font-size: 24px;
+    color: #fff;
+    vertical-align: middle;
+    i {
+      vertical-align: middle;
+      font-size: 24px;
+      line-height: 24px;
+    }
+    &#social-image {
+      background: url('https://agentbright-production2.s3.amazonaws.com/uploads/image/file/204/0e502887985a5303965050fe2a06b073_3d8633bb4a9d5c3daab3debf53beed410cb05ea16b7830cd3b4db3d8e51d1406.jpeg');
+      background-position: 50% 50%;
+      background-size: 150%;
+      background-repeat: no-repeat;
+    }
+  }
+  .card-header {
+    padding: 16px;
+    .card-avatar + .card-header-title {
+      margin-left: 54px;
+    }
+    .card-header-title {
+      h3 {
+        font-size: 16px;
+        line-height: 22px;
+        margin: 0;
+      }
+      h4 {
+        font-size: 15px;
+        line-height: 18px;
+        margin: 0;
+        font-weight: 500;
+        color: #888;
+      }
+      .card-title {
+        font-size: 24px;
+        line-height: 32px;
+        font-weight: 500;
+        margin: 0;
+      }
+
+      .card-subhead {
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: 400;
+        color: #595959;
+      }
+      .card-social-location {
+        margin-top: 16px;
+      }
+    }
+    &.card-header-square-pic {
+      border-bottom: 1px solid #E0E0E0;
+      padding: 0;
+      .card-header-title {
+        margin: 12px 12px 12px 116px;
+      }
+      .card-avatar {
+        border-radius: 0;
+        height: 150px;
+        width: 100px;
+        margin-right: 16px;
+      }
+    }
+  }
+  .card-image {
+    background-color: #959595;
+    width: 100%;
+    height: 200px;
+    position: relative;
+    &.property-card-location {
+      background: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5) ), url('https://maps.googleapis.com/maps/api/staticmap?&zoom=16&scale=2&size=640x640&maptype=roadmap&markers=2+Main+St+Old+Saybrook+CT');
+      background-position: 50% 47%;
+      background-size: 125%;
+      background-repeat: no-repeat;
+      .calendar-content h3 {
+        margin-top: 30px;
+      }
+      &.property-card-image {
+        background: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5) ), url('https://agent-bright-dev.s3.amazonaws.com/uploads/image/file/33/lb201e544-m0xd-w400_h300_q80.jpg');
+        background-size: 165%;
+        background-position: 50% 50%;
+      }
+    }
+    .card-image-title {
+      position: absolute;
+      bottom: 0;
+      margin: 10px;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 28px;
+      color: #fff;
+      p.card-image-title-primary {
+        margin-bottom: 4px;
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 28px;
+      }
+      p.card-image-title-secondary {
+        margin: 0;
+        font-size: 18px;
+        line-height: 22px;
+      }
+    }
+  }
+  .card-content {
+    padding: 16px;
+    .card-title {
+      font-size: 24px;
+      line-height: 32px;
+      font-weight: 500;
+      margin: 0;
+    }
+    .card-subhead {
+      font-size: 14px;
+      line-height: 18px;
+      font-weight: 400;
+      color: #595959;
+    }
+    p.card-text {
+      font-size: 14px;
+      line-height: 18px;
+      color: #777;
+      margin: 0;
+      margin-bottom: 8px;
+    }
+    .card-social-icons {
+      margin-top: 16px;
+      a {
+        color: inherit;
+        margin-right: 8px;
+        font-size: 22px;
+        &:hover {
+          color: inherit;
+        }
+        & > .iconic:before {
+          font-size: 22px;
+        }
+      }
+    }
+    .dotted-list > li {
+      font-size: 14px;
+      line-height: 18px;
+    }
+    a {
+      font-size: 14px;
+    }
+  }
+  & .card-actions {
+    border-top: 1px solid #E0E0E0;
+    padding: 8px;
+    padding-top: 0;
+    &.card-link {
+      padding-top: 8px;
+      a {
+        font-weight: 700;
+        padding: 8px;
+        text-transform: uppercase;
+      }
+    }
+    button,
+    .btn {
+      margin: 8px 0 0 0;
+    }
+  }
+  &.card-pic-left {
+    & .card-meat {
+      margin-left: 175px;
+    }
+    & .card-image {
+      position: absolute;
+      overflow: hidden;
+      left: 0;
+      float: left;
+      height: 100%;
+      width: 175px;
+      background-color: #4c4c4c;
+      background-size: 165%;
+      background-position: 50% 50%;
+      background-repeat: no-repeat
+    }
+    @media only screen and (max-width: @screen-xs-max) {
+      .card-meat {
+        margin-left: 125px;
+      }
+      .card-image {
+        width: 125px;
+      }
+    }
+  }
+  &.card-pic-right {
+    .card-meat {
+      margin-right: 125px;
+    }
+    .card-image {
+      position: absolute;
+      right: 0;
+      float: right;
+      height: 100%;
+      width: 125px;
+      background-color: #e0e0e0;
+    }
+    @media only screen and (max-width: @screen-xs-max) {
+      .card-meat {
+        margin-right: 125px;
+      }
+      .card-image {
+        width: 125px;
+      }
+    }
+  }
+  &.hide-pic-mobile {
+    @media only screen and (max-width: @screen-xs-max) {
+      .card-meat {
+        margin: 0;
+      }
+      .card-image {
+        display: none;
+      }
+    }
+  }
+  .headline {
+    font-size: 24px;
+    line-height: 24px;
+    color: #212121;
+  }
+}
+
+.card > .content {
+  height: 170px;
+  font-size: 0.9em;
+}
+
+.card > .content > .title {
+  font-size: 1.3em;
+}
+
+.card > .button {
+  width: 90px;
+  float: right;
+}
+
+.card-column {
+  padding-left: 6px;
+  padding-right: 6px;
+  min-width: 164px;
+}
+
+.card-row {
+  @media only screen and (min-width: @screen-sm-min) {
+    margin-left: -6px;
+    margin-right: -6px;
+  }
+}
+
+.card-title {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.card-subhead {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 400;
+  color: #595959;
+}
+
+.property-more-info {
+  margin-top: 12px;
+}
+
+.quiz-follow-up-wrap {
+  padding-left: 20px;
+  max-height: 0;
+  padding-right: 20px;
+  overflow: hidden;
+  min-height: 0;
+  float: right;
+  -webkit-transition-property: max-height,padding;
+          transition-property: max-height,padding;
+  -webkit-transition-duration: .4s;
+          transition-duration: .4s;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.card.quiz-follow-up-wrap {
+  margin-bottom: 0;
+}
+
+.object-fit-cover {
+  object-fit: cover;
+  height: 121%;
+  width: 175px;
+  margin-top: -20px;
+}
+
+.card.notification-card {
+  .card-avatar {
+    margin: 16px;
+  }
+  .card-content {
+    margin-left: 58px;
+  }
+  .least-content {
+    position: absolute;
+    right: 16px;
+    top: 20px;
+    font-size: 13px;
+    line-height: 13px;
+  }
+  h3 {
+    font-size: 16px;
+    color: #212121;
+    font-weight: 500;
+    line-height: 16px;
+    margin: 4px 0;
+  }
+  h4 {
+    color: #757575;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 17px;
+
+  }
+  p {
+    font-size: 14px;
+    line-height: 20px;
+    color: #757575;
+  }
+  .card-actions {
+    i {
+      font-size: 26px;
+      vertical-align: middle;
+      margin-right: 4px;
+    }
+  }
+  &.heads-up {
+    h4 {
+      color: #212121;
+      margin-top: 3px;
+      margin-bottom: 8px;
+    }
+    .headline {
+      margin-bottom: 24px
+    }
+  }
+  &.recent-activity-card {
+    .headline {
+      margin-bottom: 10px;
+    }
+  }
+  &.with-actions {
+    .card-content {
+      padding-bottom: 0;
+    }
+    .card-actions {
+      a {
+        padding: 8px 16px;
+        &:first-child {
+          margin-left: -24px;
+        }
+      }
+    }
+  }
+}
+
+
+
+.card.picture-card {
+  .card-image {
+    height: 164px;
+    .card-image-title {
+      margin: 18px;
+    }
+    .headline {
+      color: #fff;
+    }
+  }
+}
+
+.card-super-title {
+  padding: 16px 16px;
+  font-weight: 500;
+  font-size: 18px;
+  background-color: #555;
+  color: #FFF;
+  line-height: 23px;
+}
+
+.card.card-wide-left-pic {
+  @media only screen and (min-width: @screen-sm-min) {
+    .card-meat {
+      position: relative;
+    }
+    .card-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 175px;
+      height: 100%;
+    }
+    .card-header,
+    .card-content,
+    .card-actions {
+      margin-left: 175px;
+    }
+  }
+}

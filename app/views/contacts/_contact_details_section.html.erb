@@ -1,0 +1,48 @@
+<div id="contact-details-section" class="collapse in">
+  <ul class="dotted-list">
+    <li class="clearfix">
+      <div class="float-left col-sm-4 fwb dim-el">Name:</div>
+      <div class="col-sm-8"><%= "#{contact.first_name} #{contact.last_name}" %></div>
+    </li><!-- /.clearfix -->
+
+    <li class="clearfix">
+      <div class="float-left col-sm-4 fwb dim-el">Address:</div>
+      <div class="col-sm-8">
+        <% if contact.primary_address %>
+          <%= render(partial: "addresses/address", object: contact.primary_address) %>
+        <% end %>
+      </div>
+    </li><!-- /.clearfix -->
+    <li class="clearfix">
+      <div class="float-left col-sm-4 fwb dim-el">Phone Numbers:</div>
+      <div class="col-sm-8">
+        <% phone_numbers.each do |phone_number|  %>
+          <%= format_phone_number(phone_number) %>
+          <br />
+        <%end%>
+    </li><!-- /.clearfix -->
+    <li class="clearfix">
+      <div class="float-left col-sm-4 fwb dim-el">Email Addresses:</div>
+      <div class="col-sm-8">
+        <div class="inline-block">
+          <% email_addresses.each do |email_address| %>
+            <%= format_email_address(email_address) %>
+            <br />
+          <%end%>
+        </div><!-- /col-sm-6 -->
+      </div>
+    </li><!-- /.clearfix -->
+    <li class="clearfix">
+      <div class="float-left col-sm-4 fwb dim-el">Contact Rank:</div>
+      <div class="col-sm-8"><%= contact.grade_to_s %></div>
+    </li><!-- /.clearfix -->
+    <li class="clearfix">
+      <div class="float-left col-sm-4 fwb dim-el">Groups:</div>
+      <div class="col-sm-8"> <%= contact.contact_groups_by_user(current_user).join(', ') %></div>
+    </li><!-- /.clearfix -->
+    <li class="clearfix">
+      <div class="float-left col-sm-4 fwb dim-el">Spouse/Partner:</div>
+      <div class="col-sm-8"><%= "#{contact.spouse_first_name} #{contact.spouse_last_name}" %></div>
+    </li><!-- /.clearfix -->
+  </ul>
+</div> <!-- /#contactdetails.collapse in -->

@@ -1,0 +1,83 @@
+<div class="row scroll-tabs">
+  <div class="col-xs-12 tabbed-column">
+    <div class="tabbed-section">
+      <div class="tab-row">
+        <ul class="nav nav-tabs">
+          <%= nav_tab("Activity Stream", "#activity-stream", "glyphicon glyphicon-road", "active") %>
+          <%= nav_tab("Comment", "#comments-tab", "glyphicon glyphicon-comment") %>
+          <%= id_nav_tab("Emails", "#emails", "glyphicon glyphicon-envelope", nil, "quick-email-tab") %>
+          <%= nav_tab("Tasks", "#tasks", "glyphicon glyphicon-ok") %>
+        </ul>
+      </div><!-- /tab-row -->
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+
+        <!-- Activity Stream Pane-->
+        <div class="tab-pane fade in active" id="activity-stream">
+          <%= render partial: "contacts/stream/tabbed_activities",
+            locals: { activities: activities, activities_link_url: activities_link_url } %>
+        </div><!-- /tab-pane#activity-stream -->
+
+        <!-- Comments Pane -->
+        <div class="tab-pane fade" id="comments-tab">
+          <div class="row">
+            <div class="col-xs-12">
+              <%= render(partial: "comments/form") %>
+            </div><!-- /col-sm-12 -->
+          </div><!-- /row -->
+
+          <div class="row">
+            <div class="col-xs-12">
+              <div id="activity-form-quick-comment">
+                <%= render(partial: "comments/comment_list") %>
+              </div>
+            </div><!-- /col-sm-12 -->
+          </div><!-- /row -->
+        </div><!-- /tab-pane#comments -->
+
+        <!-- Emails Pane -->
+        <div class="tab-pane fade" id="emails">
+          <% if current_user.nylas_account_valid? %>
+            <div class="row">
+              <div class="col-xs-12" data-behavior="contact-quick-email">
+                <%= render(partial: "emails/contact_quick_email_form", locals: { contact: contact }) %>
+              </div><!-- /.col-xs-12 -->
+            </div><!-- /.row -->
+            <div class="row above24">
+              <div class="col-xs-12">
+                <!-- List of messages, using InboxApp-provided styling -->
+                <%#= render("emails/messages_list", messages: messages, contact: contact) %>
+                <div id="email-messages-list" data-behavior="email-messages-list" data-info-contact="<%= @contact.id %>"></div>
+              </div><!-- /.col-xs-12 -->
+            </div><!-- /.row -->
+          <% else %>
+            <div class="inline-block">
+              <span href="profile/edit/integrations" class="fui-gear"></span> <%= link_to "Please visit email integrations and connect your email account first", edit_integrations_path %>
+            </div>
+          <% end %>
+        </div><!-- /tab-pane#emails -->
+
+        <!-- Tasks Pane -->
+        <div class="tab-pane fade" id="tasks">
+          <div class="row below24">
+            <div class="col-sm-12">
+              <%= link_to(
+                "Add a new task",
+                new_task_path(contact_id: contact.id),
+                id: "add-new-task",
+                class: "add-btn btn btn-primary btn-embossed btn-wide btn-loading",
+                "data-loading-text" => "Loading...",
+                remote: true
+              ) %>
+            </div><!-- /col-sm-12 -->
+          </div><!-- /row -->
+          <%= render(
+            partial: "tasks/tasks",
+            locals: { tasks: @not_completed_tasks }
+          ) %>
+        </div><!-- /tab-pane#tasks -->
+      </div><!-- /tab-content -->
+    </div><!-- /.tabbed-section -->
+  </div><!-- /.tabbed-column -->
+</div><!-- /.row -->

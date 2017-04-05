@@ -1,0 +1,70 @@
+<% content_for(:back_button, contacts_path) %>
+<%= show_alert_if_processing_csv_file(current_user) %>
+
+<div class="row">
+  <div class="lastUnit col-sm-12 header">
+    <h1 class="inline-block">
+      <%= link_to "Contacts", contacts_path %>
+    </h1>
+    <h2>Upload Contacts via CSV</h2>
+  </div>
+</div>
+<% if browser.platform.ios? %>
+  <div class="row">
+    <div class="col-xs-12">
+      <div id="ab-flash-block">
+        <div class="alert alert-warning">
+          <div class="media">
+            <div class="media-object">
+              <div class="flash-warning-icon"><span class="flash-warning-text">!</span></div>
+            </div><!-- /media-object -->
+            <div class="media-body">
+              <h4 class="media-heading">We can't upload a CSV file from an iPhone or iPad</h4>
+              <p>But if you come back to this page on a desktop, we can do it from there!</p>
+            </div><!-- /media-body -->
+          </div><!-- /media -->
+        </div><!-- /alert -->
+      </div>
+      <div class="above24">
+        <p><%= link_to("Touch here to go back to the previous page", :back) %></p>
+      </div><!-- /.below24 -->
+    </div><!-- /.col-xs-12 -->
+  </div><!-- /.row -->
+<% else %>
+  <div class="row">
+    <div class="new-record-wrapper line active">
+      <%= direct_upload_form_for @csv_file, html: { class: "new-record below48", data: { behavior: 'upload-contacts'} } do |f| %>
+        <h5 class="lastUnit col-xs-12">Upload your contacts from a CSV File</h5>
+        <div class="section">
+          <p>
+          </p>
+        </div>
+        <div class="fieldwrapper col-xs-12">
+          <div class="faux-file-field">
+            <div class="faux-file">
+              <%= f.file_field :file, class: "av-text" %>
+              <button class="button btn btn-primary btn-embossed">Browse</button>
+              <span class="filename"></span>
+            </div>
+            <div class="faux-selected">&nbsp;</div>
+          </div>
+        </div>
+        <div class="lastUnit col-xs-12 below12">
+          <p>
+            <strong>File types accepted:</strong>
+            Outlook CSV format.
+          </p>
+        </div>
+        <div class="lastUnit col-xs-12 below24">
+          <%= f.submit(
+            "Upload Contacts File",
+            class: "btn btn-default add-btn btn-embossed btn-loading",
+            value: "Upload Contacts File",
+            "data-loading-text" => "Uploading..."
+          ) %>
+          <%= link_to("Cancel", :back) %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

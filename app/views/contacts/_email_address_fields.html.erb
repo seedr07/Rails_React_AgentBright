@@ -1,0 +1,26 @@
+<fieldset>
+
+  <div class="row multiple-fields add-many">
+    <div class="col-sm-7">
+      <%= f.input :email, wrapper: :appendfull, label: false do %>
+        <%= f.input_field :email, class: "form-control" %>
+        <%= content_tag :span, class: "input-group-addon solo-checkbox-input-group-addon" do %>
+          <div class="checkbox solo-checkbox">
+            <%= f.input :primary, label: '&nbsp;'.html_safe, title: nil, input_html: { data: { checked: f.object.primary?, behavior: "email_primary_checkbox" } } %>
+          </div>
+        <% end %>
+      <% end %>
+    </div><!-- /.col-xs-7 -->
+    <div class="col-xs-5">
+      <%= f.input :email_type, collection: ["Personal", "Work", "Other"],
+                  as: :select, include_blank: false, label: false %>
+    </div><!-- /.col-xs-5 -->
+    <div class="delete-button">
+      <%= f.hidden_field :_destroy %>
+      <%= link_to '#', class: "remove_fields" do %>
+        <span class="fui-trash"></span>
+      <% end %>
+    </div><!-- /.delete-button -->
+  </div><!-- /.row multiple-fields -->
+
+</fieldset>

@@ -1,0 +1,115 @@
+{
+  "name": "agent-bright",
+  "env": {
+    "AWS_ACCESS_KEY_ID": {
+      "required": true
+    },
+    "AWS_SECRET_ACCESS_KEY": {
+      "required": true
+    },
+    "AWS_S3_BUCKET_NAME": {
+      "required": true
+    },
+    "FACEBOOK_ID": {
+      "required": true
+    },
+    "FACEBOOK_SECRET": {
+      "required": true
+    },
+    "FULLCONTACT_API_KEY": {
+      "required": true
+    },
+    "GOOGLE_ID": {
+      "required": true
+    },
+    "GOOGLE_SECRET": {
+      "required": true
+    },
+    "HEROKU_APP_NAME": {
+      "required": true
+    },
+    "HONEYBADGER_API_KEY": {
+      "required": true
+    },
+    "INVOKE_WORKER_AUTOMATICALLY": {
+      "value": "enabled"
+    },
+    "LINKEDIN_ID": {
+      "required": true
+    },
+    "LINKEDIN_SECRET": {
+      "required": true
+    },
+    "LOG_LEVEL": {
+      "value": "DEBUG"
+    },
+    "MAILGUN_API_KEY": {
+      "required": true
+    },
+    "MAILGUN_PUBLIC_API_KEY": {
+      "required": true
+    },
+    "MANDRILL_API_KEY": {
+      "required": true
+    },
+    "MAX_THREADS": {
+      "value": "2"
+    },
+    "NYLAS_ID": {
+      "required": true
+    },
+    "NYLAS_SECRET": {
+      "required": true
+    },
+    "SECRET_KEY_BASE":{
+      "required":true
+    },
+    "RACK_ENV": {
+      "value": "staging"
+    },
+    "RAILS_ENV": {
+      "value": "staging"
+    },
+    "SEGMENTIO_WRITE_KEY": {
+      "required": true
+    },
+    "STRIPE_PUBLISHABLE_KEY": {
+      "required": true
+    },
+    "STRIPE_SECRET_KEY": {
+      "required": true
+    },
+    "TWILIO_ACCOUNT_SID": {
+      "required": true
+    },
+    "TWILIO_AUTH_TOKEN": {
+      "required": true
+    },
+    "TWILIO_FROM_NUMBER": {
+      "required": true
+    },
+    "TWITTER_ID": {
+      "required": true
+    },
+    "TWITTER_SECRET": {
+      "required": true
+    },
+    "TYPEFORM_KEY": {
+      "required": true
+    },
+    "WEB_CONCURRENCY": {
+      "value": "1"
+    }
+  },
+  "formation": { },
+  "addons": [
+    "heroku-postgresql",
+    "logentries",
+    "memcachedcloud",
+    "papertrail"
+  ],
+  "buildpacks": [
+    { "url": "heroku/nodejs" },
+    { "url": "heroku/ruby" }
+  ]
+}

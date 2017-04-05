@@ -1,0 +1,22 @@
+<h1>Edit Comment</h1>
+
+<%= simple_form_for [@commentable, @comment], :html=> {class: "below18"} do |f| %>
+
+  <% if @comment.errors.any? %>
+    <div class="error_message">
+      <h2>Please correct the following errors.</h2>
+      <ul>
+        <% @comment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %><!-- /@comment.errors.full_messages.each -->
+      </ul>
+    </div><!-- /.error_message -->
+  <% end %> <!-- /@comment.errors.any? -->
+
+  <%= f.input :content,  placeholder: "Add new comment...", input_html: { class: "form-control below12", rows: 2 }, label: false %>
+
+  <%= f.button :submit, class: "btn btn-primary btn-embossed
+    btn-loading",
+    value: "Save", "data-loading-text" => "Saving..." %>
+
+<% end %><!-- /simple_form_for -->

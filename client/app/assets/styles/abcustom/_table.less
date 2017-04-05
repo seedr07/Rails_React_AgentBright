@@ -1,0 +1,698 @@
+.table-container {
+  background-color: #FFF;
+  padding: 0 0 0 0;
+  display: block;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+th {
+  text-align: left;
+}
+
+.ab-table {
+  table-layout: auto;
+  word-break: break-word;
+  font-size: 15px;
+  margin-bottom: 30px;
+  width: 100%;
+  @media only screen and  (max-width: @screen-st-min) {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  td {
+    border-bottom: 1px dotted #d0d0d0;
+    word-break: normal;
+  }
+  &>thead>tr>th {
+    word-break: break-word;
+    background-color: #f2f2f2;
+    border-bottom: 1px solid #d0d0d0;
+    font-weight: 500;
+  }
+  th, td {
+    padding: 6px 15px;
+    vertical-align: middle;
+  }
+  th {
+    word-break: normal;
+    background-color: #f2f2f2;
+    border-bottom: 1px solid #d0d0d0;
+    font-weight: 500;
+  }
+}
+
+.ab-table.align-top {
+  th,
+  td {
+    vertical-align: top;
+  }
+}
+
+.pricing-table strong {
+  font-size: 18px;
+}
+
+.no-header tr:first-child td {
+  border-top: dotted 1px #d0d0d0;
+}
+
+.no-dots {
+  &.dotted-list {
+    & > li {
+    border-bottom: none !important;
+    padding: 6px 0 5px;
+    min-height: 32px;
+    }
+  } 
+}
+
+.dotted-list.label-right>li>div:first-child {
+  @media only screen and (min-width: @screen-sm-min) {
+    text-align: right;
+    padding-right: 25px;
+  }
+}
+
+.dotted-list > li > div {
+  word-break: break-word;
+}
+
+.small-scroll {
+  @media only screen and (max-width: @screen-xs-max) {
+    display: block;
+  }
+}
+
+h3+table {
+  margin-top: 18px;
+}
+
+.section.slats {
+  margin-bottom: 320px;
+}
+
+.slats {
+  &>ul {
+    list-style: none;
+    padding-left: 0;
+    -webkit-backface-visibility: hidden;
+       -moz-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+         -o-backface-visibility: hidden;
+            backface-visibility: hidden;
+  }
+  .list-meta-container {
+    p, h4 {
+      padding-left: 54px;
+      @media only screen and (max-width : @screen-xs-max) {
+        padding-left: 0px;
+      }
+    }
+  }
+}
+
+.slats>ul>li {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 14px 0;
+}
+
+.slats>ul>li:first-child {
+  border-top: 1px solid #e0e0e0;
+}
+
+.meta {
+  .col-6-sm,
+  .col-6-xs,
+  .col-7-sm,
+  .col-7-xs,
+  .col-8-sm,
+  .col-8-xs,
+  .col-9-sm,
+  .col-9-xs {
+    &:first-child {
+      max-width: 100%;
+    }
+  }
+  .prettycheckbox {
+    float: left;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+    &>a {
+      margin-top: 4px;
+      margin-left: -3px;
+    }
+    @media only screen and (max-width: @screen-xs-max) {
+      display: none;
+    }
+  }
+  .media {
+    margin: 0;
+    padding-left: 24px;
+    @media only screen and (max-width: @screen-xs-max) {
+      padding-left: 0;
+    }
+    p {
+      font-size: 15px;
+      line-height: 24px;
+    }
+    h4,
+    p {
+      padding: 0;
+    }
+    .media-object {
+      margin-top: 6px;
+    }
+    .media-body {
+      word-break: break-word;
+    }
+  }
+  h4,
+  p {
+    padding-left: 54px;
+    margin: 0;
+    font-size: 15px;
+    line-height: 24px;
+    @media only screen and (max-width : @screen-xs-max) {
+      padding-left: 0;
+      &+p {
+        margin-top: 6px;
+      }
+    }
+  }
+  h4 {
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 500;
+    margin: 0;
+  }
+  p {
+    
+  }
+  @media only screen and (max-width : @screen-st-min) {
+      width: 100%;
+      float: none;
+
+    }
+  input[type="checkbox"] {
+    float: left;
+    margin-top: 10px;
+    @media only screen and (max-width: @screen-xs-max) {
+      display: none;
+    }
+  }
+  .checkbox {
+    float: left;
+    margin: 3px 0 0;
+    @media only screen and (max-width : @screen-xs-max) {
+      display: none !important;
+    }
+    @media only screen and (max-width : @screen-sm-max) {
+      margin-right: 18px;
+    }
+  }
+}
+
+.tbl-meta {
+  padding: 0;
+
+  h4, p {
+    @media only screen and (max-width : @screen-xs-max) {
+      padding-left: 0;
+    }
+  }
+  h4 {
+    font-size: 1.33333em;
+    line-height: 1.66666em;
+    margin: 0;
+  }
+  p {
+    margin: 0;
+    font-size: 0.93333em;
+    line-height: 1.45em;
+    font-weight: 500;
+    @media only screen and (max-width : @screen-xs-max) {
+      margin-top: 6px;
+    }
+  }
+  @media only screen and (max-width : @screen-st-min) {
+      width: 100%;
+      float: none;
+    }
+  .checkbox {
+    float: left;
+    margin: 2px 30px 0 0;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    @media only screen and (max-width : @screen-xs-max) {
+      display: none !important;
+    }
+    @media only screen and (max-width : @screen-sm-max) {
+      margin-right: 18px;
+    }
+  }
+}
+
+.data {
+  text-align: left;
+  padding-left: 18px;
+  h4, p {
+    padding-left: 0;
+  }
+  h4 {
+    font-size: 16px;
+    line-height: 30px;
+    font-weight: 700;
+  }
+  p {
+    font-size: 14px;
+    line-height: 23px;
+    font-weight: 400;
+  }
+}
+
+.action-bar{
+  margin-bottom: 1em;
+  label span.icons {
+    margin-top: 2px;
+  }
+  .btn {
+    margin: 0 15px 0 0;
+    height: 36px;
+  }
+  .btn-var42 {
+    height: 42px;
+    margin-right: 0;
+  }
+  .checkbox {
+    margin-right: 27px;
+    margin: 0 15px 0 0;
+    @media only screen and (max-width : @screen-xs-max) {
+      display: none !important;
+    }
+  }
+  .form-group {
+    margin-bottom: 0;
+  }
+}
+
+.stats-container {
+
+}
+
+.meta-actions {
+  padding-top: 6px;
+  .btn-group {
+    margin-bottom: 8px;
+  }
+  .dropdown-menu {
+    text-align: left;
+    @media only screen and (max-width: @screen-st-max) {
+      left: 0;
+      right: inherit;
+    }
+    @media only screen and (max-width: @screen-xs-max) {
+      width: 100%;
+    }
+  }
+  @media only screen and (max-width: @screen-st-min) {
+    float: none;
+    width: 100%;
+    padding-left: 68px;
+    text-align: left;
+  }
+  @media only screen and (max-width: @screen-xs-max) {
+    padding-left: 15px;
+    padding-right: 15px;
+    .btn-group {
+      width: 100%;
+      button:not(.dropdown-toggle) {
+        width: calc(~"100% - 41px");
+      }
+      .dropdown-toggle {
+        float: right;
+      }
+    }
+    a.btn {
+      width: 100%;
+      margin: 0;
+      &:first-child {
+        margin-bottom: 11px;
+        margin-top: 8px;
+      }
+    }
+  }
+}
+
+.dropdown-menu-right {
+  left: auto;
+  right: 0;
+}
+
+  /* overflow: visible;
+  float: right;
+  max-width: 16.666%;
+  .dropdown-menu.end {
+    left: inherit;
+    right: 0;
+  }
+  @media only screen and (max-width : @screen-st-min) {
+    margin: 0;
+    text-align: left;
+    padding-left: 54px;
+    width: 100%;
+    float: none;
+    min-width: 150px;
+  }
+  padding: 6px 0 0;
+  @media only screen and (max-width : @screen-xs-max) {
+    padding: 13px 0 0;
+    width: 100%;
+    .btn {
+      width: 100%;
+      margin: 0;
+    }
+    .btn:first-child {
+      margin-bottom: 11px;
+      margin-top: 8px;
+    }
+  }
+} */
+
+.table-search {
+	width: 200px;
+	@media only screen and (max-width : @screen-xs-max) {
+		width: 100%;
+	}
+}
+
+.table-search-mobile-container {
+	@media only screen and (max-width : @screen-xs-max) {
+		width: 100%;
+	}	
+}
+
+.sort-option {
+  display: inline-block;
+  margin-right: 15px;
+  @media only screen and (max-width: @screen-xs-max) {
+    width: 100%;
+    position: relative;
+    margin-right: 0;
+  }
+  .btn-group {
+    margin-right: -1px;
+  }
+  .btn-icon {
+    span {
+      top: 3px;
+    }
+  }
+  & > .sort-option--label {
+    display: inline-block;
+    @media only screen and (max-width: @screen-xs-max) {
+      position: absolute;
+      margin-top: 7px;
+    }
+  }
+
+  & > .sort-option--btn-group {
+    margin-left: 12px;
+    @media only screen and (max-width: @screen-xs-max) {
+      width: 100%;
+      padding-left: 60px;
+      padding-right: 42px;
+      margin-bottom: 0;
+      margin-left: 0;
+      .btn.btn-paper {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  & > .sort-option--btn-toggle {
+    @media only screen and (max-width: @screen-xs-max) {
+      right: 0;
+      position: absolute;
+      top: 0;
+      &.btn.btn-paper {
+        position: absolute;
+      }
+    }
+  }
+}
+
+
+
+.filter-option {
+  display: inline-block;
+  .btn-group {
+    margin-left: 10px;
+  }
+}
+
+.ab-table > thead > tr > th {
+  background-color: #f2f2f2;
+  font-weight: 500;
+  color: #595959;
+}
+
+.txs {
+  width: 80px;
+}
+
+.tsm {
+  width: 100px;
+}
+
+.tmd {
+  width: 120px;
+}
+
+.tlg {
+  width: 150px;
+}
+
+.txl {
+  width: 180px;
+}
+
+.thg {
+  width: 220px;
+}
+
+.meta .h4-title {
+  line-height: 1.33em;
+  font-size: 18px;
+  margin-top: 2px;
+}
+
+.meta .h3-title {
+  line-height: 1.33em;
+  font-size: 24px;
+}
+
+.meta .comment-p {
+  margin-left: 38px;
+}
+
+p.comment-p.comment-meta {
+  font-size: 13px;
+}
+
+.testbutton {
+  background-color: red;
+  height: 36px;
+}
+
+.testsidebutton {
+  background-color: black;
+  height: 36px;
+}
+
+.slats-bar {
+  .slat-buttons {
+    margin-left: 0px;
+    display: inline-block;
+    button>span.fui-trash {
+    }
+  }
+  .slat-controls {
+    & > .btn-group,
+    & > .form-group {
+      margin-right: 15px;
+    }
+  }
+  .select-all-checkbox {
+    margin: 0 25px 0 0;
+  }
+  input.slat-bar-search {
+    float: right;
+    width: 200px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    @media only screen and (max-width: @screen-xs-max) {
+      width: 100%;
+      display: block;
+      height: 56px;
+      border-radius: 23px;
+      font-size: 26px;
+      max-width: inherit;
+    }
+  }
+  input.input-rounded {
+    border-radius: 23px;
+    padding: 5px 12px;
+    @media only screen and (max-width: @screen-xs-max) {
+      padding: 5px 18px;
+    }
+  }
+}
+
+.contacts-table {
+  min-height: 600px;
+}
+
+.settings-table {
+  td {
+    padding: 16px 15px;
+    @media only screen and (max-width: @screen-xs-max) {
+      padding: 4px 8px;
+    }
+  }
+}
+
+#email-campaigns-table {
+  .prettycheckbox label,
+  .prettyradio label {
+    display: none;
+  }
+}
+
+span.glyphicon-arrow-up {
+  left: -1px;
+  top: 2px !important;
+}
+
+span.glyphicon-arrow-down {
+  left: 1px;
+}
+
+.scroll-small {
+  table-layout: fixed;
+  @media only screen and (max-width: @screen-sm-max) {
+    display: table;
+  }
+  @media only screen and (max-width: @screen-xs-max) {
+    display: block;
+  }
+  th,
+  td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.table.status-board {
+  &.ab-table {
+    font-size: 14px;
+  }
+  tbody > tr > td:first-child,
+  tbody > tr > th:first-child {
+    padding-left: 12px;
+  }
+  thead > tr > td:first-child,
+  thead > tr > th:first-child {
+    padding-left: 4px;
+  }
+  .row-title {
+    margin-left: 48px;
+  }
+
+}
+
+.table.ab-table {
+  > thead > tr > th,
+  > tbody > tr > th,
+  > tfoot > tr > th,
+  > thead > tr > td,
+  > tbody > tr > td,
+  > tfoot > tr > td {
+    border-top: none;
+  }
+}
+
+.table-condensed.status-board {
+  > thead > tr > th,
+  > tbody > tr > th,
+  > tfoot > tr > th,
+  > thead > tr > td,
+  > tbody > tr > td,
+  > tfoot > tr > td {
+    padding: 9px 9px;
+    &:first-child {
+      padding-left: 6px;
+    }
+  }
+}
+
+.table-menu-search {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  @media only screen and (max-width: @screen-xs-max) {
+    width: 100%;
+    & > .form-control.slat-bar-search {
+      padding-left: 20px;
+      border-radius: 6px;
+    }
+    & > .form-control-feedback {
+      line-height: 56px;
+      font-size: 28px;
+      margin-right: 8px;
+    }
+  }
+}
+
+.table--rank-contacts {
+  max-width: 600px;
+  .td__info {
+    line-height: 18px;
+    margin-bottom: 3px;
+    @media only screen and (max-width: @screen-xs-max) {
+      font-size: 13px;
+      line-height: 16px;
+    }
+  }
+  td.td__grade-circle {
+    padding: 6px 0;
+    vertical-align: top;
+  }
+}
+
+.td__title {
+  line-height: 22px;
+  margin-bottom: 3px;
+}
+
+.row.leads-table {
+  margin-top: 24px;
+  @media only screen and (max-width: @screen-xs-max) {
+    margin-top: 6px;
+  }
+}
+
+#leads-btn-group-status {
+  margin-right: 9px;
+  @media only screen and (max-width: @screen-xs-max) {
+    margin-right: 0;
+  }
+}
+

@@ -1,0 +1,127 @@
+<div class="row header below24">
+  <div class="col-xs-12">
+    <h1 class="inline-block">
+      <%= link_to "Users", users_path %>
+    </h1>
+    <h2><%= @user.name %></h2>
+    <div class="row">
+      <div class="col-sm-12">
+
+
+      </div><!-- /col-sm-12 -->
+    </div><!-- /row -->
+
+  </div><!-- /.col-xs-12 -->
+
+</div><!-- /row -->
+
+<div class="row">
+  <div class="col-xs-12">
+    <h3 class="inline-block">
+      <a data-toggle="collapse" class="clickable" data-toggle-event="true" data-target="#client-info">
+        <div class="title-arrow fui-arrow-right"></div>User Info
+      </a>
+    </h3>
+    <div id="client-info" class="collapse in">
+      <ul class="dotted-list">
+        <li class="clearfix">
+          <div class="float-left col-sm-4 fwb dim-el">User Name</div>
+          <div class="col-sm-8"><%= link_to @user.name, @user.name %></div>
+        </li>
+        <li class="clearfix">
+          <div class="float-left col-sm-4 fwb dim-el">First Name</div>
+          <div class="col-sm-8"><%= @user.first_name %></div>
+        </li>
+                <li class="clearfix">
+          <div class="float-left col-sm-4 fwb dim-el">Last Name</div>
+          <div class="col-sm-8"><%= "#{@user.last_name}" %></div>
+        </li>
+        <li class="clearfix">
+          <div class="float-left col-sm-4 fwb dim-el">Phone</div>
+          <div class="col-sm-8"><%= @user.mobile_number %></div>
+        </li>
+        <li class="clearfix">
+          <div class="float-left col-sm-4 fwb dim-el">Office Number</div>
+          <div class="col-sm-8"><%= @user.fax_number %></div>
+        </li>
+        <li class="clearfix">
+          <div class="float-left col-sm-4 fwb dim-el">Email</div>
+          <div class="col-sm-8"><%= @user.email %></div>
+        </li>
+        <li class="clearfix">
+          <div class="float-left col-sm-4 fwb dim-el">Address</div>
+          <div class="col-sm-8">
+            <div class="inline-block">
+              <% @user.address %>
+              <%= @user.city%> <br/>
+              <%= @user.state %><%= @user.zip %>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div><!-- /#userinfo.collapse in -->
+  </div><!-- /.col-xs-12 -->
+</div><!-- /.row -->
+<div class="row">
+  <div class="col-xs-12">
+    <h3 class="inline-block">
+F      <a data-toggle="collapse" class="clickable" data-toggle-event="true" data-target="#client-info">
+        <div class="title-arrow fui-arrow-right"></div>Password Reset
+      </a>
+    </h3>
+  </div><!-- /.col-xs-12 -->
+</div><!-- /.row -->
+<div class="row">
+  <div class="col-xs-12">
+    <h3 class="inline-block">
+      <a data-toggle="collapse" class="clickable" data-toggle-event="true" data-target="#client-info">
+        <div class="title-arrow fui-arrow-right"></div>Usage Info
+      </a>
+    </h3>
+  </div><!-- /.col-xs-12 -->
+</div><!-- /.row -->
+<div class="row">
+  <div class="col-xs-12">
+    <h3 class="inline-block">
+      <a data-toggle="collapse" class="clickable" data-toggle-event="true" data-target="#client-info">
+        <div class="title-arrow fui-arrow-right"></div>Billing Info
+      </a>
+    </h3>
+  </div><!-- /.col-xs-12 -->
+</div><!-- /.row -->
+<div class="row">
+  <div class="col-xs-12">
+    <h3 class="inline-block">
+      <a data-toggle="collapse" class="clickable" data-toggle-event="true" data-target="#client-info">
+        <div class="title-arrow fui-arrow-right"></div>Business Details
+      </a>
+    </h3>
+  </div><!-- /.col-xs-12 -->
+</div><!-- /.row -->
+<div class="row">
+  <div class="col-xs-12">
+    <h3 class="inline-block">
+      <a data-toggle="collapse" class="clickable" data-toggle-event="true" data-target="#client-info">
+        <div class="title-arrow fui-arrow-right"></div>Team Info
+      </a>
+    </h3>
+  </div><!-- /.col-xs-12 -->
+</div><!-- /.row -->
+<div class="row">
+  <div class="col-xs-12">
+    <h3 class="inline-block">
+      <a data-toggle="collapse" class="clickable" data-toggle-event="true" data-target="#client-info">
+        <div class="title-arrow fui-arrow-right"></div>Commission Info
+      </a>
+    </h3>
+  </div><!-- /.col-xs-12 -->
+</div><!-- /.row -->
+<div class="row">
+  <div class="col-xs-12">
+    <h3 class="inline-block">
+      <a data-toggle="collapse" class="clickable" data-toggle-event="true" data-target="#client-info">
+        <div class="title-arrow fui-arrow-right"></div>Communications Info
+      </a>
+    </h3>
+  </div><!-- /.col-xs-12 -->
+</div><!-- /.row -->

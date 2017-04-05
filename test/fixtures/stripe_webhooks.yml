@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+#one:
+  #type:
+  #amount: MyString
+  #info: MyString
+  #customer_id: MyString
+  #user_id:
+
+#two:
+  #type:
+  #amount: MyString
+  #info: MyString
+  #customer_id: MyString
+  #user_id:

@@ -1,0 +1,17 @@
+$('#contact-details-section').hide().after('<%= j render("contact_details_form_section") %>');
+$('#edit-contact-details').hide().button('reset');
+$('form').addAndRemoveFields();
+$('#contact_addresses_attributes_0_street').focus();
+$('[data-behavior~=cancel-edit-form]').cancelEditForm();
+var newSection = $("#contact-details-section-form");
+newSection.initPrettyCheck();
+VCF.validate();
+new ContactsForm();
+new InputMask(); // This will hookup input mask for phone number
+new Salutation();
+$('.btn-loading').click(function() {
+  $(this).button('loading');
+});
+
+CPEP.checkPrimayPhoneCheckbox();
+CPEP.checkPrimayEmailCheckbox();

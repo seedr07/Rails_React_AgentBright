@@ -1,0 +1,90 @@
+<%= simple_form_for(@contact, html: { class: "new-record below48",  data: { fv_live: "submitted", form: "contact_form" }}) do |f| %>
+  <%= f.input_field(:require_basic_validations, value: true, as: :hidden) %>
+
+  <%= render partial: "server_side_form_errors" %>
+
+  <div class="sub-section">
+    <h2>Enter your contact's information below:</h2>
+    <div class="row multiple-fields">
+      <div class="col-sm-6">
+        <%= f.input(:first_name, label: "First Name") %>
+      </div>
+      <div class="col-sm-6">
+        <%= f.input(:last_name, label: "Last Name") %>
+      </div><!-- /.col-sm-6 -->
+    </div><!-- /.row multiple-fields -->
+    <div class="row multiple-fields">
+      <div class="col-sm-6">
+        <%= f.input(:spouse_first_name, label: "Spouse/Partner First Name") %>
+      </div><!-- /.col-sm-6 -->
+      <div class="col-sm-6">
+        <%= f.input(:spouse_last_name, label: "Spouse/Partner Last Name") %>
+      </div><!-- /.col-sm-6 -->
+    </div><!-- /.row multiple-fields -->
+    <%= f.input(
+      :grade,
+      label: "Contact Rank",
+      as: :radio_buttons,
+      collection: Contact::GRADES
+    ) %>
+    <%= render(partial: "contact_groups_tag_field", locals: { contact: @contact })%>
+    <div class="sub-section">
+      <label data="contact-phones">Phone Number</label>
+      <%= f.fields_for :phone_numbers do |builder| %>
+        <%= render(partial: "phone_number_fields", locals: { contact: @contact, f: builder })%>
+      <% end %>
+      <%= link_to_add_fields "Add Phone Number", f, :phone_numbers %>
+    </div><!-- /.sub-section -->
+    <div class="sub-section nested-attributes">
+      <label data="contact-emails">Email Address</label>
+      <%= f.fields_for :email_addresses do |builder| %>
+        <%= render(partial: "email_address_fields", locals: { contact: @contact, f: builder })%>
+      <% end %>
+      <%= link_to_add_fields "Add Email Address", f, :email_addresses %>
+    </div><!-- /.sub-section -->
+    <%= f.simple_fields_for(:addresses) do |address_form| %>
+        <%= render(partial: "addresses/form", locals: { contact: @contact, f: address_form })%>
+    <% end %>
+    <div class='form-group' id='edit_salutations'>
+      <div class="checkbox">
+        <%= check_box_tag(:enable_salutation_field, nil) %>
+        <%= label_tag(:enable_salutation_field, "Edit Salutations") %>
+      </div><!-- /.checkbox -->
+    </div>
+    <br />
+    <%= f.input(
+      :envelope_salutation,
+      label: "Envelope Salutation",
+      input_html: { readonly: true }
+    ) %>
+    <%= f.input(
+      :letter_salutation,
+      label: "Letter Salutation",
+      input_html: { readonly: true }
+    ) %>
+    <%= f.input(:company) %>
+    <%= f.input(:profession) %>
+    <%= f.input(:title, label: "Business Title") %>
+  </div>
+
+  <div class="sub-section">
+    <%= f.button(
+      :submit,
+      class: "btn-default btn-embossed btn-loading",
+      value: "Save",
+      data: { loading_text: "Saving..." }
+    ) %>
+    <% if f.object.new_record? %>
+      <%= f.button(
+        :submit,
+        class: "btn-default btn-embossed btn-loading",
+        value: "Save & Add Another",
+        name: "btn_save_and_add_another",
+        data: { loading_text: "Saving..." }
+      ) %>
+      <%= link_to("Cancel", contacts_path) %>
+    <% else %>
+      <%= link_to("Cancel", contact_path(@contact)) %>
+    <% end %>
+  </div><!-- /.sub-section -->
+<% end %><!-- /simple_form_for -->

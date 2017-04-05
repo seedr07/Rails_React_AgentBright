@@ -1,0 +1,65 @@
+# == Schema Information
+#
+# Table name: authorizations
+#
+#  access_token             :string
+#  created_at               :datetime
+#  email                    :string
+#  expires_in               :integer
+#  first_name               :string
+#  id                       :integer          not null, primary key
+#  last_name                :string
+#  link                     :string
+#  name                     :string
+#  provider                 :string
+#  refresh_expires          :boolean
+#  refresh_token            :string
+#  refresh_token_expires_at :datetime
+#  secret                   :string
+#  token                    :string
+#  uid                      :string
+#  updated_at               :datetime
+#  user_id                  :integer
+#  via_inbox_app            :boolean          default(FALSE)
+#
+# Indexes
+#
+#  index_authorizations_on_provider  (provider)
+#  index_authorizations_on_uid       (uid)
+#  index_authorizations_on_user_id   (user_id)
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  provider: MyString
+  uid: MyString
+  user_id: nancy
+  token: MyString
+  secret: MyString
+  first_name: MyString
+  last_name: MyString
+  name: MyString
+  link: MyString
+
+two:
+  provider: MyString
+  uid: MyString
+  user_id: 
+  token: MyString
+  secret: MyString
+  first_name: MyString
+  last_name: MyString
+  name: MyString
+  link: MyString
+
+john_auth:
+  provider: Google
+  uid: "google_uid"
+  user: john
+  token: "google_token"
+  secret: "google_secret"
+  first_name: "John"
+  last_name: "Smith"
+  name: "John Smith"
+  link: "link"

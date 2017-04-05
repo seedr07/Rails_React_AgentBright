@@ -1,0 +1,44 @@
+<div class="modal-content" id="quick-add-contact">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+    <h4 class="modal-title" id="myModalLabel">Add new contact</h4>
+  </div>
+  <%= simple_form_for(@contact, html: { class: "new-record below48" }, remote: true) do |f| %>
+    <div class="modal-body">
+      <div class="row" id="quick-add-contact">
+        <div class="new-record-wrapper line active">
+          <%#= render "shared/errors" %>
+          <!--FORM TITLE-->
+          <h2 class="lastUnit col-xs-12">Add your new contact</h2>
+
+          <%= f.input :first_name, label: "First Name", hint: "Enter your first name. If you are suffering from amnesia, please skip this field." %>
+
+          <%= f.input :last_name, label: "Last Name",
+                        hint: "Enter your first name. If you are suffering from amnesia, please skip this field." %>
+
+          <%= f.input :grade, wrapper: :radio_inline, label: "Contact Rank",
+                        as: :radio_buttons, collection: Contact::GRADES,
+                        :input_html => { "data-toggle"=> "radio" } %>
+
+          <%= f.input :email, label: "Email Address" , hint: "Must have phone or email!"%>
+
+          <%= f.input :mobile_phone, label: "Mobile Phone", input_html: { class: "form-control", data: { input_mask: 'phone'}, hint: "Must have phone or email!" %>
+
+          <%= f.input :address1, label: "Street Address" %>
+
+          <%= f.input :city, label: "City" %>
+
+          <%= f.input :state, collection:
+                        Carmen::Country.coded('US').subregions.map { |c| c.code } %>
+
+          <%= f.input :zip, input_html: { class: "form-control", data: { input_mask: 'zipcode'} }, label: "Zip Code" %>
+
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <%= f.button :submit, class: "btn-default btn-embossed btn-loading", value: "Save Contact", "data-loading-text" => "Saving...", data: { dismiss: "modal" } %>
+      <a data-dismiss="modal">Cancel</a>
+    </div>
+  <% end %>
+</div>

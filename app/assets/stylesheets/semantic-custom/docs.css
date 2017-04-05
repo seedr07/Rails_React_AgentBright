@@ -1,0 +1,202 @@
+
+/*******************************
+             Global
+*******************************/
+
+/*--------------
+   Page Headers
+---------------*/
+
+#example .masthead.segment {
+  position: relative;
+  z-index: 1;
+  margin: 0em;
+  min-height: 185px;
+  padding: 3em 0em;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #DDDDDD;
+  box-shadow: none;
+}
+
+#example .masthead .introduction {
+  display: block;
+}
+#example .masthead .introduction:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+#example .masthead.segment h1 {
+  margin: 0em;
+}
+
+#example .masthead iframe {
+  margin-left: 5px;
+  width: 101px !important;
+  float: right;
+}
+
+/* Align with buttons */
+#example .masthead .main.menu {
+  margin-top: -2px;
+  min-height: 0em;
+}
+#example .masthead .main.menu > .item {
+  padding-top: 0.785714em;
+  padding-bottom: 0.785714em;
+}
+
+
+/*--------------
+   Fixed Menu
+---------------*/
+
+#example .main.menu .title.item b {
+  margin-right: 0.5em;
+}
+#example .fixed.main.menu .launch.item {
+  display: block;
+}
+#example .fixed.main.menu .search .icon {
+  opacity: 0.9;
+}
+
+
+/*--------------
+  Sidebar Button
+---------------*/
+
+#example .fixed.launch.button {
+  display: none;
+  position: fixed;
+  top: 2.5em;
+  left: 0px;
+
+  width: 55px;
+  height: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  -webkit-transition:
+    0.3s width ease,
+    0.5s transform ease
+  ;
+  -moz-transition:
+    0.3s width ease,
+    0.5s transform ease
+  ;
+  -o-transition:
+    0.3s width ease,
+    0.5s transform ease
+  ;
+  -ms-transition:
+    0.3s width ease,
+    0.5s transform ease
+  ;
+  transition:
+    0.3s width ease,
+    0.5s transform ease
+  ;
+}
+#example .launch.button .icon {
+  margin-left: 0px;
+}
+
+
+#example .fixed.launch.button .text {
+  position: absolute;
+  white-space: nowrap;
+  top: auto;
+  left: 54px;
+  opacity: 0;
+  -webkit-transition:
+    0.3s opacity 0.3s
+  ;
+  -moz-transition:
+    0.3s opacity 0.3s
+  ;
+  -o-transition:
+    0.3s opacity 0.3s
+  ;
+  -ms-transition:
+    0.3s opacity 0.3s
+  ;
+  transition:
+    0.3s opacity 0.3s
+  ;
+}
+#example .fixed.launch.button:hover {
+  width: 130px;
+}
+#example .fixed.launch.button:hover .text {
+  opacity: 1;
+}
+
+/* Position Change */
+#example.pushable.left.overlay .fixed.launch.button {
+  transform: translate3d(0, 0, 0);
+}
+#example.pushable.overlay.left.pushed .fixed.launch.button {
+  transform: translate3d(260px, 0, 0);
+}
+
+
+/*******************************
+        Alternate Layouts
+*******************************/
+
+/*----------------
+   Basic Layout
+-----------------*/
+
+#example .main.container .introduction p,
+#example .main.container .tab > p,
+#example .main.container .example > p,
+#example .main.container > p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+/* Link Styles */
+#example .main.container > p a,
+#example .main.container > .tab > p a,
+#example .main.container .example > .ignored a,
+#example .main.container .example > p a  {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  vertical-align: top;
+  z-index: 0;
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
+  outline: none;
+}
+#example .main.container > p a > code,
+#example .main.container > .tab > p a > code,
+#example .main.container .example > .ignored a > code,
+#example .main.container .example > p a > code {
+  background-color: rgba(0, 50, 100, 0.08);
+}
+#example .main.container > p a:before,
+#example .main.container > .tab > p a:before,
+#example .main.container .example > .ignored a:before,
+#example .main.container .example > p a:before,
+#example .main.container .code .value a:before {
+  position: absolute;
+  top: auto;
+  bottom: 1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #4183C4;
+  content: '';
+  -webkit-transition: all 0.2s;
+  -webkit-backface-visibility: hidden;
+  transition: all 0.2s;
+  backface-visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+}

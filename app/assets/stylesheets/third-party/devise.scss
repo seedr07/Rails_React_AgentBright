@@ -1,0 +1,125 @@
+.grey_background .wrap {
+  background-color: #eee;
+}
+
+.form-signin {
+  .checkbox .icons .first-icon, .checkbox .icons .second-icon {
+    background-color: #eee;
+  }
+}
+
+.form-signin {
+  max-width: 380px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+
+.form-signin .checkbox {
+  font-weight: normal;
+}
+
+.form-signin .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+.form-signin input#user_email {
+  margin-bottom: -1px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  height: 50px;
+  font-size: 18px;
+  color: #555;
+  padding: 10px;
+  vertical-align: middle;
+  line-height: inherit;
+}
+
+.input_password {
+  margin-bottom: 10px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  height: 50px;
+  font-size: 18px;
+  color: #555;
+  padding: 10px;
+  vertical-align: middle;
+  line-height: inherit;
+}
+
+.form-signin input#user_password {
+  @extend .input_password
+}
+
+.reset_password {
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+  border-top-left-radius: 8px !important;
+  border-top-right-radius: 8px !important;
+}
+
+.reset_email {
+  border-bottom-left-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+}
+
+.form-signin input#user_password_confirmation {
+  @extend .input_password
+}
+
+.loginfield {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.form-signin h1 {
+  margin-left: 15px;
+}
+
+.form-signin h2 {
+  margin-left: 15px;
+}
+
+.login-footer {
+  font-size: 13px;
+  text-align: center;
+  clear: both;
+  margin-top: 25px;
+  margin-bottom: 24px;
+  padding-top: 12px;
+  height: 100px;
+}
+
+.footer-logo {
+  background-image: image-url("/abhuge.png");
+  background-repeat: no-repeat;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: contain;
+  background-size: 200px;
+  float: center;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: .8;
+}
+
+.signup-onboarding-wrapper {
+   max-width: 400px;
+}
+

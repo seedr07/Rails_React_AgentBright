@@ -1,0 +1,46 @@
+<div class="row sub-section hide-phone">
+  <div class="row sub-section">
+    <div class="col-xs-12">
+      <div class="stat-block alignc col-sm-2">
+        <h2 class="nomargin">
+          <%= @campaigns.count %>
+        </h2>
+        <p class="fwb">
+          <span class="">Campaigns <br> Sent</span>
+        </p>
+      </div><!-- /stat-block.col-sm-4 -->
+      <div class="stat-block alignc col-sm-2">
+        <h2 class="nomargin">
+          <%= calculate_contact_campaigns_open_percentage(@campaigns) %>%
+        </h2>
+        <p class="fwb">
+          <span class="">Campaigns Opened</span>
+        </p>
+      </div><!-- /stat-block.col-sm-4 -->
+      <div class="stat-block alignc col-sm-2">
+        <h2 class="nomargin">
+          <%= calculate_contact_campaigns_click_percentage(@campaigns) %>%
+        </h2>
+        <p class="fwb">
+          <span class="">Campaigns Clicked</span>
+        </p>
+      </div><!-- /stat-block.col-sm-4 -->
+      <div class="stat-block alignc col-sm-2">
+        <h2 class="nomargin">
+          <%= calculate_contact_total_campaign_opens(@campaigns) %>
+        </h2>
+        <p class="fwb">
+          <span class="">Total Campaign Open Count</span>
+        </p>
+      </div><!-- /stat-block.col-sm-4 -->
+      <div class="stat-block alignc col-sm-2">
+        <h2 class="nomargin">
+          <%= calculate_contact_total_campaign_clicks(@campaigns) %>
+        </h2>
+        <p class="fwb">
+          <span class="">Total Campaign Click Count</span>
+        </p>
+      </div><!-- /stat-block.col-sm-4 -->
+    </div><!-- /.col-xs-12 -->
+  </div><!-- /.row sub-section -->
+</div>

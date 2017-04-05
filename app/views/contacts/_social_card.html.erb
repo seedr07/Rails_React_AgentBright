@@ -1,0 +1,44 @@
+<% cache(["social_card", contact]) do %>
+  <% if contact.social_info_present? %>
+
+    <div class="card social-card">
+      <div class="card-header card-header-square-pic clearfix">
+        <div class="card-avatar" style="background-image: url('<%= contact.api_suggested_image.try(:image_url) %>');background-position: 50% 50%; background-size: 150%;"></div>
+        <div class="card-header-title">
+          <h3><%= contact.suggested_first_name %> <%= contact.suggested_last_name %></h3>
+          <h4><%= contact.primary_email_address.try(:email) %></h4>
+          <h4 class="card-social-location">
+            <%= contact.suggested_location %>
+          </h4>
+          <%= contact.suggested_linkedin_bio %>
+        </div><!-- /.card-header-title -->
+      </div><!-- /.card-header -->
+      <div class="card-content">
+        <p class="card-text">
+          <%= contact.suggested_job_title %>
+        </p><!-- /.card-text -->
+        <div class="card-social-icons">
+          <% if contact.suggested_facebook_url %>
+            <a rel="noopener noreferrer" href="<%= contact.suggested_facebook_url %>" target="_blank"><span class="iconic" data-glyph="social-facebook"></span></a>
+          <% end %>
+          <% if contact.suggested_twitter_url %>
+            <a rel="noopener noreferrer" href="<%= contact.suggested_twitter_url %>" target="_blank"><span class="iconic" data-glyph="social-twitter"></span></a>
+          <% end %>
+          <% if contact.suggested_linkedin_url %>
+            <a rel="noopener noreferrer" href="<%= contact.suggested_linkedin_url %>" target="_blank"><span class="iconic" data-glyph="social-linkedin"></span></a>
+          <% end %>
+          <% if contact.suggested_googleplus_url %>
+            <a rel="noopener noreferrer" href="<%= contact.suggested_googleplus_url %>" target="_blank"><span class="fui-google-plus"></span></a>
+          <% end %>
+          <% if contact.suggested_instagram_url %>
+            <a rel="noopener noreferrer" href="<%= contact.suggested_instagram_url %>" target="_blank"><span class="iconic" data-glyph="social-instagram"></span></a>
+          <% end %>
+          <% if contact.suggested_youtube_url %>
+            <a rel="noopener noreferrer" href="<%= contact.suggested_youtube_url %>" target="_blank"><span class="iconic" data-glyph="social-youtube"></span></a>
+          <% end %>
+        </div><!-- /.card-social-icons -->
+      </div><!-- /.card-content -->
+    </div><!-- /.card.social-card -->
+
+  <% end %>
+<% end %>

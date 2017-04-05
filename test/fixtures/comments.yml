@@ -1,0 +1,41 @@
+# == Schema Information
+#
+# Table name: comments
+#
+#  commentable_id   :integer
+#  commentable_type :string
+#  content          :text
+#  created_at       :datetime
+#  id               :integer          not null, primary key
+#  updated_at       :datetime
+#  user_id          :integer
+#
+# Indexes
+#
+#  index_comments_on_commentable_id_and_commentable_type  (commentable_id,commentable_type)
+#  index_comments_on_user_id                              (user_id)
+#
+
+katie_1:
+  user: john
+  content: This is the first comment for katie's transaction
+  commentable: katie (Lead)
+  created_at: <%= Time.current - 3.days %>
+
+katie_2:
+  user: john
+  content: This is the second comment for katie's transaction
+  commentable: katie (Lead)
+  created_at: <%= Time.current - 2.days %>
+
+katie_3:
+  user: john
+  content: This is the third and most recent comment for katie's transaction
+  commentable: katie (Lead)
+  created_at: <%= Time.current %>
+
+will_1:
+  user: john
+  content: This comment is for the contact Will
+  commentable: will (Contact)
+  created_at: <%= Time.current %>

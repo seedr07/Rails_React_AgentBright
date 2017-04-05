@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%= render(partial: "application/head_contents_phone") %>
+  </head>
+
+  <% if user_signed_in? %>
+    <% narrow_class = (current_user.show_narrow_main_nav_bar ? "narrow" : "") %>
+    <% active_teammates_class = (current_user.belongs_to_team? ? "show-team" : "hide-team") %>
+  <% else %>
+    <% narrow_class = "" %>
+    <% active_teammates_class = "" %>
+  <% end %>
+
+  <body id="<%= "%s_%s" % [controller_name, action_name] %>" class="navtoggle <%= narrow_class %> <%= active_teammates_class %> <%= @layout_carrier.env_banner %>">
+    <% cache "environment_banner" do %>
+      <%= render(partial: "shared/environment_banner") %>
+    <% end %>
+
+    <div id="wrap" class="wrap clearfix nopadding">
+      <div id="main-content" class="main-content mc-content">
+
+        <div class="container relative clearfix">
+          <%= render(partial: "shared/flashes") %>
+          <%= yield %>
+
+        </div>
+      </div>
+    </div>
+
+    <!--
+    FAB BUTTON
+    <a href="#" class="btn btn-default btn-fab fui-plus"></a>
+    -->
+
+    <%= render("application/extra_content") %>
+
+  </body>
+</html>

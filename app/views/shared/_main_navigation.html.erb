@@ -1,0 +1,80 @@
+<div class="main-navigation clearfix <% content_for?(:shadow_z_class) ? yield(:shadow_z_class) : "shadow-z-1" %> <%= content_for(:main_nav_color_class) %>" tabindex="0">
+  <div class="line clearfix">
+    <nav class="navigation-left float-left">
+      <ul class="linear-list clearfix">
+        <li class="nav-link small-meta fwb show-mobile">
+          <a href="#" class="menu-btn no-delay gray-link alignc pad-lv3 pad-tb0" data-no-turbolink data-behavior="open-navigation-overlay">
+            <span class="ab-md-icon mdi-navigation-menu"></span>
+          </a>
+        </li>
+        <li class="nav-link small-meta fwb full-height hide-phone">
+          <%= link_to(content_for?(:back_button) ? yield(:back_button) : dashboard_path, class: "no-delay gray-link alignc pad-lv3 pad-tb0") do %>
+            <i class="nav-link-icon mdi-navigation-arrow-back"></i>
+          <% end %>
+        </li>
+        <li class="hide-phone", data-introjs="step6">
+          <% if content_for? :main_navigation %>
+            <%= yield :main_navigation %>
+          <% else %>
+            <%#= render_breadcrumbs("") %>
+          <% end %>
+        </li>
+      </ul><!-- /.linear-list clearfix -->
+    </nav><!-- /.navigation-left float-left -->
+
+    <% cache ["right_navigation", current_user] do %>
+      <nav class="navigation-right float-right">
+        <ul class="linear-list clearfix">
+          <!--li class="nav-link small-meta fwb full-height">
+            <a href="#" class="no-delay gray-link alignc pad-lv3 pad-tb0">
+              <i class="nav-link-icon mdi-content-add"></i>
+            </a>
+          </li>-->
+          <li class="nav-link small-meta fwb full-height">
+            <div class="dropdown inline-block">
+              <a href="#" class="no-delay gray-link alignc pad-lv3 pad-tb0 block" data-toggle="dropdown"><i class="nav-link-icon mdi-content-add"></i></a>
+              <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+                <li role="presentation"><%= link_to "Contact", new_contact_path %></li>
+                <li role="presentation"><%= link_to "Lead", new_lead_lead_path %></li>
+                <li role="presentation"><%= link_to "Client", new_lead_path %></li>
+                <!--<li role="presentation"><%#= link_to("Task", open_task_modal_path, remote: true, data: { toggle: "modal", target: "#mainModal" } ) %></li>
+                <li role="presentation"><%#= link_to("Comment", open_comment_modal_path, remote: true, data: { toggle: "modal", target: "#mainModal" } ) %></li>
+                <li role="presentation"><%#= link_to("Activity", open_contact_activity_modal_path, remote: true, data: { toggle: "modal", target: "#mainModal" } ) %></li>-->
+              </ul>
+            </div><!-- /.dropdown -->
+          </li>
+          <% if show_beta_features? %>
+            <li class="nav-link small-meta fwb full-height">
+              <a href="#" class="no-delay gray-link alignc pad-lv3 pad-tb0">
+                <i class="nav-link-icon mdi-action-search"></i>
+              </a>
+            </li>
+          <% end %>
+          <!--<li class="nav-link small-meta fwb full-height">
+            <div class="dropdown inline-block">
+              <a href="#" class="no-delay gray-link alignc pad-lv3 pad-tb0 block" data-toggle="dropdown"><i class="nav-link-icon mdi-navigation-more-vert"></i></a>
+              <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+                <li role="presentation"><a class="with-ripple" role="menuitem" tabindex="-1" href="#">Action</a></li>
+                <li role="presentation"><a class="with-ripple" role="menuitem" tabindex="-1" href="#">Another action</a></li>
+                <li role="presentation"><a class="with-ripple" role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+                <li role="presentation"><a class="with-ripple" role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+              </ul>
+            </div><! /.dropdown
+          </li>-->
+          <li class="nav-link small-meta fwb full-height hide-phone">
+            <a class="account-btn no-delay gray-link alignc pad-lv3 pad-tb0 show-mobile clickable" data-behavior="open-account-menu">
+              <% if current_user.profile_image %>
+                <div class="main-navigation-avatar inline-block avatar" style="background-image: url(<%= current_user.profile_image_url %>)"></div>
+              <% else %>
+                <div class="main-navigation-avatar inline-block avatar <%=current_user.avatar_class %>">
+                  <%= current_user.initials.upcase %>
+                </div>
+              <% end %>
+            </a>
+          </li><!-- /.nav-link small-meta fwb full-height -->
+        </ul><!-- /.linear-list clearfix -->
+      </nav><!-- /.navigation-right float-right -->
+    <% end %>
+
+  </div><!-- /.line clearfix -->
+</div><!-- /.main-navigation -->

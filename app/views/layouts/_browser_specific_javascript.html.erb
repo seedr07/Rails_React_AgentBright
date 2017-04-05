@@ -1,0 +1,5 @@
+<% if browser.device.mobile? || browser.device.tablet? %>
+    <%=  javascript_include_tag "browser/mobile", "data-turbolinks-track" => true %>
+<% else %>
+    <%=  javascript_include_tag "browser/desktop", "data-turbolinks-track" => true %>
+<% end %>

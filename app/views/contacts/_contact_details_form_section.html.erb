@@ -1,0 +1,71 @@
+<div class="row main-section" id="contact-details-section-form">
+  <div class="col-sm-12" >
+    <!--START PAGE CONTENT-->
+    <%= simple_form_for(@contact, remote: true, html: { data: { fv_live: "submitted", form: "contact_form" } }) do |f| %>
+      <%= hidden_field_tag :inline_form, "contact_details" %>
+
+      <%= render partial: "server_side_form_errors" %>
+
+      <%= f.input_field(:require_basic_validations, value: true, as: :hidden) %>
+        <div class="row multiple-fields">
+          <div class="col-sm-6">
+            <%= f.input :first_name,
+                        label: "First Name",
+                        input_html: { class: "form-control" } %>
+          </div><!-- /.col-sm-6 -->
+          <div class="col-sm-6">
+            <%= f.input :last_name,
+                        label: "Last Name",
+                        input_html: { class: "form-control" } %>
+
+          </div><!-- /.col-sm-6 -->
+        </div>
+        <%= f.simple_fields_for :addresses, f.object.addresses do |address_form| %>
+          <%= address_form.hidden_field :require_basic_address_validations, value: true %>
+            <%= render(partial: 'addresses/form', locals: { contact: @contact, f: address_form })%>
+        <% end %>
+      <div class="nested-attributes">
+      <label data="contact-phones">Phone Number</label>
+        <%= f.fields_for :phone_numbers, f.object.phone_numbers do |builder| %>
+          <%= render(partial: "phone_number_fields", locals: { contact: @contact, f: builder })%>
+        <% end %>
+        <%= link_to_add_fields "Add Phone Number", f, :phone_numbers %>
+      </div><!-- /.sub-section -->
+
+      <br />
+
+      <div class="nested-attributes">
+      <label data="contact-emails">Email Address</label>
+        <%= f.fields_for :email_addresses, f.object.email_addresses.presence || f.object.email_addresses.build do |builder| %>
+          <%= render(partial: "email_address_fields", locals: { contact: @contact, f: builder })%>
+        <% end %>
+        <%= link_to_add_fields "Add Email Address", f, :email_addresses, "contacts/" %>
+      </div><!-- /.sub-section -->
+      <br />
+      <%= f.input :grade,
+                  label: "Contact Rank",
+                  as: :radio_buttons,
+                  item_wrapper_class: "radio radio-inline",
+                  collection: Contact::GRADES %>
+      <%= render partial: "contact_groups_tag_field", locals: { contact: @contact } %>
+      <div class="row multiple-fields">
+        <div class="col-sm-6">
+          <%= f.input :spouse_first_name,
+                      input_html: { class: "form-control" },
+                      label: "Spouse/Partner First Name" %>
+        </div><!-- /.col-sm-6 -->
+        <div class="col-sm-6">
+          <%= f.input :spouse_last_name,
+                      input_html: { class: "form-control" },
+                      label: "Spouse/Partner Last Name" %>
+        </div><!-- /.col-sm-6 -->
+
+      </div><!-- /.row multiple-fields -->
+
+      <%= f.button :submit, class: 'btn-default btn-embossed
+                  btn-loading', value: "Save",
+                  "data-loading-text" => "Saving...", remote: true %>
+      <a data-behavior="cancel-edit-form" class="clickable">Cancel</a>
+    <% end %>
+  </div><!--/col-sm-12-->
+</div><!--/row main-section-->

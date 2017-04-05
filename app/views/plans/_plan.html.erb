@@ -1,0 +1,11 @@
+<section class="below18 <%= popular(plan) %> plan" data_sku="<%= plan.sku %>">
+  <h4>
+    <%= plan.name %>
+  </h4>
+  <%= render grid_partial_for(plan) %>
+  <div class="price">
+    <%= plan_price(plan) %>
+  </div>
+  <%= choose_plan_link(plan) %>
+  <%# raise if plan.name == "Standard Plan" %>
+</section>

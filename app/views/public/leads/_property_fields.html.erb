@@ -1,0 +1,51 @@
+<fieldset>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="row well form-well">
+        <%= f.fields_for :address, f.object.build_address do |address_form| %>
+          <%= render 'addresses/form', f: address_form %>
+        <% end %>
+        <%= f.hidden_field :transaction_type, value: "Buyer" %>
+        <%= f.input :property_type,
+                        as: :select,
+                        collection: Property::PROPERTY_TYPES,
+                        include_blank: false %>
+        <div class="row multiple-fields">
+          <div class="col-sm-6">
+            <%= f.input(
+              :list_price,
+              label: "List Price",
+              as: :bootstrap_currency
+            ) %>
+          </div><!-- /.col-sm-6 -->
+          <div class="col-sm-6">
+            <%= f.input :mls_number,
+                            input_html: { class: "form-control" },
+                            label: "MLS Number" %>
+          </div><!-- /.col-sm-6 -->
+        </div><!-- /.row multiple-fields -->
+        <%= f.input :property_url,
+                        input_html: { class: "form-control" },
+                        label: "Property URL" %>
+        <div class="row multiple-fields add-many">
+          <div class="col-sm-3">
+            <%= f.input :bedrooms, input_html: { class: "form-control" } %>
+          </div><!-- /.col-xs-3 -->
+          <div class="col-sm-3">
+            <%= f.input :bathrooms, input_html: { class: "form-control" } %>
+          </div><!-- /.col-xs-3 -->
+          <div class="col-sm-3">
+            <%= f.input :sq_feet, input_html: { class: "form-control" }, label: "Square Feet" %>
+          </div><!-- /.col-xs-3 -->
+          <div class="col-sm-3">
+            <%= f.input :lot_size, input_html: { class: "form-control" }, label: "Lot Size" %>
+          </div><!-- /.col-xs-3 -->
+        </div><!-- /.row multiple-fields -->
+        <%= f.hidden_field :_destroy %>
+        <%= link_to '#', class: "remove_fields" do %>
+          <span class="fui-trash"></span>
+        <% end %>
+      </div><!-- /.row well form-well -->
+    </div><!-- /.col-sm-12 -->
+  </div><!-- /.row add-many -->
+</fieldset>

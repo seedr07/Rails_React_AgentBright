@@ -1,0 +1,32 @@
+<div id="stats" class="below24 relative">
+  <h3>Annual Sales Goals</h3>
+
+  <ul class="nav nav-pills below18 team-only">
+    <li role="presentation" class="active"><a href="#my-stats" data-toggle="pill">My Stats</a></li>
+    <li role="presentation"><a href="#team-stats" data-toggle="pill">Team Stats</a></li>
+  </ul>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="tab-content nopadding noborder">
+        <div class="tab-pane fade in active" id="my-stats">
+          <%= stat_block(
+            value: (@goal.annual_transaction_goal).round,
+            label: "Annual Transaction Goal",
+            columns: 4
+          ) %>
+          <%= stat_block(
+            value: number_to_currency(@gross_sales_vol, :precision => 0),
+            label: "Forecast Volume Full Year",
+            columns: 4
+          ) %>
+          <%= stat_block(
+            value: number_to_currency(@goal.gross_commission_goal, :precision => 0),
+            label: "Forecast Commission Full Year",
+            columns: 4
+          ) %>
+        </div>
+
+      </div>
+    </div><!-- /.col-xs-12 -->
+  </div><!-- /.row -->
+</div><!-- /#stats.below24 -->

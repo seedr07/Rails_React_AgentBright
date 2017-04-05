@@ -1,0 +1,17 @@
+<%%= simple_form_for(@<%= singular_table_name %>) do |f| %>
+  <div class="row sub-section">
+    <div class="col-sm-12">
+      <%- attributes.each do |attribute| -%>
+        <%%= f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %>, <%= attribute.string? || attribute.integer? || attribute.decimal? || attribute.text? ? input_html: { class: "form-control" } %>
+      <%- end -%>
+    </div><!-- /.col-sm-12 -->
+  </div><!-- /.row sub-section -->
+
+  <div class="row sub-section">
+    <div class="col-sm-12">
+      <%%= f.button :submit, class: "btn btn-primary btn-embossed btn-loading",
+                    value: "Save", "data-loading-text" => "Saving..." %>
+    </div><!-- /.col-sm-12 -->
+  </div><!-- /.row sub-section -->
+
+<%% end %>

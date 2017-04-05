@@ -1,0 +1,71 @@
+.calendar-day {
+  line-height: 1em;
+  display: inline-block;
+  float: left;
+  .cal-date {
+    font-size: 28px;
+    line-height: 30px;
+  }
+  .cal-day-of-week {
+    line-height: 16px;
+  }
+}
+
+.calendar-event {
+  margin-left: 50px;
+  background: #63a6c0;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  padding: 8px 10px 10px 10px;
+  color: white;
+  .calendar-content {
+    h3 {
+      font-size: 12px;
+      line-height: 1.2em;
+      margin: 0;
+      font-weight: 700;
+      margin-top: 6px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    h4 {
+      font-size: 12px;
+      line-height: 1.2em;
+      margin: 0;
+      font-weight: 500;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+  &.cal-with-person {
+    .calendar-content {
+      margin-right: 40px;
+    }
+  }
+  &.event-location {
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://maps.googleapis.com/maps/api/staticmap?&zoom=16&scale=2&size=640x640&maptype=roadmap&markers=2+Main+St+Old+Saybrook+CT');
+    background-position: 50% 47%;
+    background-size: 125%;
+    background-repeat: no-repeat;
+    .calendar-content h3 {
+      margin-top: 30px;
+    }
+    &.event-image {
+      background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('https://agent-bright-dev.s3.amazonaws.com/uploads/image/file/33/lb201e544-m0xd-w400_h300_q80.jpg');
+      background-size: 165%;
+      background-position: 50% 50%;
+    }
+  }
+}
+
+.calendar-person {
+  float: right;
+  display: inline-block;
+}
+
+.calendar-more {
+  margin-top: 30px;
+  margin-left: 50px;
+}

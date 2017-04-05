@@ -1,0 +1,10 @@
+// JS tracking of every page that is loaded
+analytics.page();
+
+// JS tracking of links clicked
+// To enable, add the class "js-track-link"
+$('.js-track-link').each(function() {
+  var link = $(this);
+  var linkText = link.text();
+  analytics.trackLink(link, 'Clicked: ' + linkText);
+});

@@ -1,0 +1,10 @@
+$("[data-behavior~=insert-form]")
+  .find("[data-behavior~=modal-content]").remove();
+$("[data-behavior~=insert-form]")
+  .append('<%= j render("contacts/modals/new_contact", { contact: @contact, modal_id: @modal_id,
+                                                         target_select_id: @target_select_id,
+                                                         for_page: @for_page}) %>');
+
+$('form').addAndRemoveFields();
+VCF.validate();
+new InputMask(); // This will hookup input mask for phone number

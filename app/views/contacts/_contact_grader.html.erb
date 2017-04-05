@@ -1,0 +1,62 @@
+<%= render(partial: "contacts/grading_progress")%>
+
+<% if @current_contact %>
+    <div id="current_contact_id" data-contact-id="<%= @current_contact.id %>"></div>
+    <div class="row">
+      <div class="lastUnit col-xs-12 header nomargin">
+        <div class="record-title">
+      <span class="record-image">
+        <span class="contact-holder <%= @current_contact.avatar_class %>"><%= @current_contact.initials %></span>
+      </span>
+
+          <div class="record-name">
+            <div class="col-xs-12 nopadding below12 info-stack">
+              <h1><%= @current_contact.full_name %></h1>
+
+              <div class="row">
+                <div class="col-sm-4">
+                  <p><strong>Email:</strong> <%= display_primary_email_address(@current_contact) %></p>
+
+                  <p><strong>Phone:</strong> <%= display_primary_phone_number(@current_contact) %> </p>
+                </div>
+                <div class="col-sm-4">
+                  <div class="block-label"><p><strong>Address:</strong></p></div>
+                  <div class="inline-block">
+                    <% if @current_contact.primary_address %>
+                      <%= render(partial: 'addresses/address', object: @current_contact.primary_address) %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 lastUnit below48">
+        <% Contact::GRADES.each do |grade, grade_id| %>
+            <% grade_path = grade_contact_path(@current_contact, {grade_id: "#{grade_id}"}) %>
+            <%= link_to "#{grade}", grade_path, class: "btn btn-primary btn-embossed btn-square", "data-toggle" => "tooltip", "data-placement" => "auto-top", "title"=> "#{grade_tooltip(grade_id)}" , method: :post, data: {grade_path: grade_path, behaviour: "contacts-grader" } %>
+
+        <% end %>
+        <%= link_to raw("<span class='fui-trash'></span>"), destroy_from_grader_contact_path(@current_contact), method: :delete, remote: true,
+                    data: {confirm: "You are about to delete contact for #{@current_contact.full_name}. Are you sure?"}, class: "btn btn-danger btn-embossed btn-square", id: "contact-delete" %>
+      </div>
+    </div>
+
+<% else %>
+    <h3><%= no_contact_text %></h3>
+    <br/>
+    <br/>
+<% end %>
+
+<% if @contact_graded_message.present? %>
+
+    <div class="alert alert-success">
+      <a class="close" data-dismiss="alert">×</a>
+
+      <div id="flash_notice"><%= @contact_graded_message %></div>
+    </div>
+<% end %>

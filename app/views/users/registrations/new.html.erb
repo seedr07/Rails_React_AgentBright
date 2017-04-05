@@ -1,0 +1,54 @@
+<% content_for(:body_class, "grey_background") %>
+<% content_for(:title, "Create a new account") %>
+
+<div class="agentbright-logo">
+  <a class="block"></a>
+</div>
+
+<div class="onboarding-wrapper signup-onboarding-wrapper centered">
+  <div class="row sub-section">
+    <div class="col-xs-12">
+      <h1 class="h3 fwb nomargin">Let's Get Started</h1>
+      <p>Sign up in 30 seconds. No credit card required.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "new-record below48", autocomplete: "on" }) do |f| %>
+      <div class="col-xs-12">
+        <div class="row sub-section below24">
+          <div class="col-sm-12">
+            <legend>About You</legend>
+            <div class="row multiple-fields">
+              <div class="col-sm-6">
+                <%= f.input(:first_name) %>
+              </div>
+              <div class="col-sm-6">
+                <%= f.input(:last_name) %>
+              </div>
+            </div>
+            <%= f.input(:email) %>
+            <%= f.input(:password) %>
+            <%= f.input(:password_confirmation) %>
+            <%#= f.input(:invite_code, required: true) %>
+          </div>
+        </div>
+        <div class="row sub-section">
+          <div class="col-xs-12">
+            <%= f.button(
+              :submit,
+              class: "btn btn-default btn-embossed btn-loading",
+              value: "Continue",
+              "data-loading-text" => "Continuing..."
+            ) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="row sub-section">
+    <div class="col-sm-12">
+      <%= render(partial: "users/shared/links") %>
+    </div>
+  </div>
+</div>

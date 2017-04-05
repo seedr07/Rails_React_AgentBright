@@ -1,0 +1,214 @@
+<!--
+*******************************************
+Note: The purpose of views/designs/ is for
+building frontend markup only. Do not add
+ERB or javascript to this page. Copy and
+paste this markup, and then integrate that
+code in its rightful location with the app
+backend.
+
+With very few exceptions, this file should
+remain pure front-end HTML/CSS/JS.
+*******************************************
+-->
+
+<style>
+  /*.ui.labels.ab-grading-labels > .label {
+    margin: 0em 0.25em 0.25em 0em;
+  }*/
+
+  .column.ab-contacts-sorting-card {
+    max-width: 500px;
+  }
+
+  .ui.massive.button.ab-grade-button {
+    width: 8.5rem;
+  }
+</style>
+
+<div class="main ui container">
+  <div class="ui vertical basic segment">
+    <div class="ui centered grid">
+      <div class="column ab-contacts-sorting-card">
+
+        <div class="ui fluid centered card ab-contacts-sorting-card">
+          <div class="content">
+            <img class="right floated mini ui image" src="http://semantic-ui.com/images/avatar/large/elliot.jpg">
+            <div class="header">
+              Elliot Fu
+            </div>
+            <div class="meta">
+              elliotfu@gmail.com
+            </div>
+            <div class="meta">
+              (860) 454-3491
+            </div>
+            <div class="ui divider"></div><!-- /.ui divider -->
+            <div class="ui two column grid">
+              <div class="column">
+                <div class="description">
+                  <div class="ui list">
+                    <div class="item">
+                      <i class="ui comments icon"></i>
+                      <div class="content">Connected: 0 times</div><!-- /.content -->
+                    </div><!-- /.item -->
+                  </div><!-- /.ui list -->
+                </div><!-- /.description -->
+              </div><!-- /.column -->
+              <div class="column">
+                <div class="description">
+                  <div class="ui list">
+                    <div class="item">
+                        <i class="ui calendar icon"></i>
+                        <div class="content">Last Contact: Jun 21, 2014</div><!-- /.content -->
+                    </div><!-- /.item -->
+                  </div><!-- /.ui list -->
+                </div><!-- /.description -->
+              </div><!-- /.column -->
+            </div><!-- /.mobile only -->
+            <div class="ui divider"></div><!-- /.divider -->
+            <span class="fwb">Recent Conversations:</span>
+            <div class="ui list">
+              <div class="item">
+                <div class="right floated content meta">12:45pm</div><!-- /.right floated content -->
+                <i class="ui call icon"></i>
+                <div class="content">Follow up on contract</div><!-- /.content -->
+              </div><!-- /.item -->
+              <div class="item">
+                <div class="right floated content meta">Yesterday</div><!-- /.right floated content -->
+                <i class="ui mail icon"></i>
+                <div class="content">New contract for 221 Baker St.</div><!-- /.content -->
+              </div><!-- /.item -->
+              <div class="item">
+                <div class="right floated content meta">Aug 31</div><!-- /.right floated content -->
+                <i class="ui mobile icon"></i>
+                <div class="content">What's the status?</div><!-- /.content -->
+              </div><!-- /.item -->
+            </div><!-- /.ui list -->
+          </div><!-- /.content -->
+        </div><!-- /.ui fluid centered card -->
+
+        <div class="ui active transition fade in tab" data-tab="first">
+          <div class="ui basic segment">
+            <div class="ui list">
+              <div class="item" data-go-to-tab="second">
+                <div class="ui image">
+                  <div class="ui massive button ab-grade-button">A+</div><!-- /.ui massive button -->
+                </div><!-- /.ui image -->
+                <div class="content middle aligned">
+                  They have given you multiple referrerals.
+                </div><!-- /.content -->
+              </div><!-- /.item -->
+              <div class="item" data-go-to-tab="second">
+                <div class="ui image">
+                  <div class="ui massive button ab-grade-button">A</div><!-- /.ui massive button -->
+                </div><!-- /.ui image -->
+                <div class="content middle aligned">
+                  They have given at least one referral in the past.
+                </div><!-- /.content -->
+              </div><!-- /.item -->
+              <div class="item" data-go-to-tab="second">
+                <div class="ui image">
+                  <div class="ui massive button ab-grade-button">B</div><!-- /.ui massive button -->
+                </div><!-- /.ui image -->
+                <div class="content middle aligned">
+                  They are likely to give you a referral if asked.
+                </div><!-- /.content -->
+              </div><!-- /.item -->
+              <div class="item" data-go-to-tab="second">
+                <div class="ui image">
+                  <div class="ui massive button ab-grade-button">C</div><!-- /.ui massive button -->
+                </div><!-- /.ui image -->
+                <div class="content middle aligned">
+                  They might give you a referral with some cultivation.
+                </div><!-- /.content -->
+              </div><!-- /.item -->
+              <div class="item" data-go-to-tab="second">
+                <div class="ui image">
+                  <div class="ui massive button ab-grade-button">D</div><!-- /.ui massive button -->
+                </div><!-- /.ui image -->
+                <div class="content middle aligned">
+                  They will never refer you, or you don't want their referrals.
+                </div><!-- /.content -->
+              </div><!-- /.item -->
+              <div class="item" data-go-to-tab="second">
+                <div class="ui image">
+                  <div class="ui massive button ab-grade-button">N/A</div><!-- /.ui massive button -->
+                </div><!-- /.ui image -->
+                <div class="content middle aligned">
+                  They are not part of your relationship database.
+                </div><!-- /.content -->
+              </div><!-- /.item -->
+            </div><!-- /.ui list -->
+            <div class="ui right floated big black button">Skip</div><!-- /.ui button -->
+            <div class="ui red big button">
+              <i class="undo icon"></i>
+              Undo Last
+            </div><!-- /.ui button -->
+          </div><!-- /.ui basic segment -->
+        </div><!-- /.ui active transition fade in tab -->
+        <div class="ui transition fade in tab" data-tab="second">
+          <div class="ui basic segment">
+            <h3>Select Groups</h3>
+            <div class="ui fluid icon input">
+              <input class="prompt" type="text" placeholder="Search for a group...">
+              <i class="search icon"></i>
+            </div>
+            <div class="ui segment p-r-0">
+              <div class="ab-edit-group-list-container">
+                <div class="ui selection list">
+                  <div class="item">
+                    <div class="ui checkbox" data-ui-behavior="checkbox">
+                      <input type="checkbox" name="example">
+                      <label>Current Clients</label>
+                    </div>
+                  </div><!-- /.item -->
+                  <div class="item">
+                    <div class="ui checkbox" data-ui-behavior="checkbox">
+                      <input type="checkbox" name="example">
+                      <label>Past Clients</label>
+                    </div>
+                  </div><!-- /.item -->
+                  <div class="item">
+                    <div class="ui checkbox" data-ui-behavior="checkbox">
+                      <input type="checkbox" name="example">
+                      <label>Realtors</label>
+                    </div>
+                  </div><!-- /.item -->
+                  <div class="item">
+                    <div class="ui checkbox" data-ui-behavior="checkbox">
+                      <input type="checkbox" name="example">
+                      <label>Vendors</label>
+                    </div>
+                  </div><!-- /.item -->
+                </div><!-- /.ui list -->
+              </div><!-- /.ab-edit-group-list-container -->
+            </div><!-- /.ui segment -->
+            <button class="ui right floated primary large button">
+              Save & Next
+            </button>
+            <button class="ui right floated large black button">
+              Skip
+            </button>
+            <button class="ui large button" data-go-to-tab="first">
+              <i class="arrow left icon"></i>
+              Back
+            </button>
+          </div><!-- /.ui basic segment -->
+        </div><!-- /.ui transition fade in tab -->
+
+      </div><!-- /.column -->
+    </div><!-- /.ui centered grid -->
+  </div><!-- /.ui vertical basic segment -->
+</div><!-- /.main ui container -->
+
+<script>
+  $('[data-go-to-tab]')
+    .on('click', function() {
+      // programmatically activating tab
+      $buttonClicked = $(this);
+      var tabName = $buttonClicked.data('go-to-tab');
+      $.tab('change tab', tabName);
+    })
+  ;
+</script>

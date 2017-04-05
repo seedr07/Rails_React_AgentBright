@@ -1,0 +1,5 @@
+<div class="form-group string optional contact_profession tokenfield-container">
+  <label for="contact_tag_list" class="string optional">Contact groups</label>
+  <%= hidden_field_tag(:contact_tag_list, contact.contact_groups_by_user(current_user).join(','), :autocomplete => "off", "data-default-tag-list" => Contact::DEFAULT_GROUPS_LIST.join(",")) %>
+
+</div>

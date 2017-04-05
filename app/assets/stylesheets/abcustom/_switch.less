@@ -1,0 +1,134 @@
+// SWITCHES
+
+// In order to resize the switch:
+
+// Total width of the switch = x
+// Total width of the handle = y
+
+// Note: make y an odd number
+
+
+// Switching offset = -(x-y)
+// Span = x - 1/2(y-1)
+// Indent on = -(y+1)/2
+// Indent off = (y+1)/2
+
+
+
+table .bootstrap-switch {
+  margin: 12px 8px;
+}
+
+.switch-margin .bootstrap-switch {
+  margin-right: 12px;
+  margin-bottom: 12px;
+}
+
+// .bootstrap-switch-primary {
+//   color: #fff;
+//   background-color: @river;
+// }
+
+// .bootstrap-switch-primary ~ .bootstrap-switch-handle-off:before {
+//   background-color: #fff;
+//   border-color: @river;
+// }
+
+// .bootstrap-switch-default {
+//   color: #fff;
+//   background-color: #bdc3c7;
+// }
+
+// .bootstrap-switch-off .bootstrap-switch-handle-on ~ .bootstrap-switch-handle-off.bootstrap-switch-default:before {
+//   border-color: #BDC3C7;
+//   background-color: #7F8C9A;
+// }
+
+// `On` handler
+.@{switch-name}-handle-on {
+  .border-left-radius(@switch-border-radius);
+
+  .@{switch-name}-off & {
+    .switch-handle-off-variant(default, @gray-light, #7f8c9a);
+    .switch-handle-off-variant(primary, @brand-primary, @brand-secondary);
+    .switch-handle-off-variant(success, @brand-success, @inverse);
+    .switch-handle-off-variant(warning, @brand-warning, @inverse);
+    .switch-handle-off-variant(info, @brand-info, @inverse);
+    .switch-handle-off-variant(danger, @brand-danger, mix(@brand-danger, white, 63%));
+  }
+}
+
+// Handler feedback states
+// --------------------------------------------------
+
+// text color, background color, circle border, circle color
+
+.@{switch-name}-default {
+  .switch-variant(@inverse, @gray-light, @gray-light, #7f8c9a);
+}
+
+.@{switch-name}-primary {
+  .switch-variant(@inverse, @brand-primary, @brand-primary, @inverse);
+}
+
+.@{switch-name}-info {
+  .switch-variant(@inverse, @brand-info, @brand-info, @inverse);
+}
+
+.@{switch-name}-success {
+  .switch-variant(@inverse, @brand-success, @brand-success, mix(@brand-success, white, 63%));
+}
+
+.@{switch-name}-warning {
+  .switch-variant(@inverse, @brand-warning, @brand-warning, @inverse);
+}
+
+.@{switch-name}-danger {
+  .switch-variant(@inverse, @brand-danger, @brand-danger, mix(@brand-danger, white, 63%));
+}
+
+@media only screen and (max-width: @screen-xs-max) {
+  .bootstrap-switch {
+    font-size: 13px;
+    line-height: 23px;
+    height: 23px;
+    width: 60px;  // width of switch
+    margin: 0 8px;
+    & > div {
+      width: 100px;
+      & > span {
+        line-height: 17px;  // plus padding must equal total height
+        padding-bottom: 3px;
+        padding-top: 3px;
+        width: 49px; // span width
+      }
+
+    }
+  }
+
+  .bootstrap-switch-square {
+    .bootstrap-switch {
+      .bootstrap-switch-handle-on {
+        text-indent: -11px;  // indent on
+      }
+      .bootstrap-switch-handle-off {
+        text-indent: 11px;  // indent off
+      }
+    }
+  }
+
+  .bootstrap-switch-handle-off:before {
+    height: 23px;
+    width: 23px; // handle width
+    left: 37px; // switching offset
+  }
+
+  .bootstrap-switch-on > div {
+    margin-left: 0;
+  }
+
+  .bootstrap-switch-off > div {
+    margin-left: -37px;  // switching offset
+  }
+}
+

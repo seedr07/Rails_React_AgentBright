@@ -1,0 +1,63 @@
+<div class="row">
+  <div class="col-xs-12 below18">
+    <h2>Connect with Social Media:</h2>
+  </div>
+</div>
+
+<div class="row sub-section">
+  <div class="col-xs-12">
+    <ul class="dotted-list">
+      <% render partial: 'connection', locals: { provider_name: "Twitter", provider: "Twitter" } %>
+      <% render partial: 'connection', locals: { provider_name: "Facebook", provider: "Facebook" } %>
+      <% render partial: 'connection', locals: { provider_name: "LinkedIn", provider: "LinkedIn" } %>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 below18">
+    <h2>Link your Google account:</h2>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-xs-12 basic-table">
+    <div class="line section nomargin">
+      <table class="ab-table stay-table">
+        <thead>
+        <tr>
+          <th width="30%">Provider</th>
+          <th width="20%">Account</th>
+          <th width="50%">Last Updated</th>
+          <th class="nowrap alignr"></th>
+        </tr>
+        </thead>
+        <tbody>
+          <%= @active_google_authorizations.each do |authorization| %>
+            <tr>
+              <td class="bk-word">
+                <%= authorization.provider %>
+              </td>
+              <td class="bk-word">
+                <%= authorization.email %>
+              </td>
+              <td>
+                <%= display_quick_datetime(authorization.updated_at) %>
+              </td>
+              <td class="alignr">
+                <%= link_to 'Disconnect', authorization, method: :delete, data: { confirm: "You are about to disconnect from the Google account for #{authorization.email}. Are you sure?" }, class: "btn btn-embossed btn-sm btn-primary btn-loading ", "data-loading-text" => "Disconnecting..." %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="lastUnit col-12-sm below36">
+    <%= link_to 'Add a new Google account', apilogin_path, class: "add-btn btn btn-default btn-embossed btn-wide" %>
+    <br>
+    <h2><%= link_to "Import Google Contacts", "/contacts/gmail" %></h2>
+  </div>
+</div>

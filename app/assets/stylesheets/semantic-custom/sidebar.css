@@ -1,0 +1,91 @@
+/*--------------
+     Sidebar
+---------------*/
+
+.sidebar.menu .logo.image,
+.sticky.menu .logo.image {
+  width: 35px;
+  margin-right: 1em;
+}
+
+/* Incomplete Label */
+#toc .item .circular.label {
+  position: absolute;
+  top: 0.75rem;
+  right: 1em;
+  opacity: 0.2;
+  transition: background 0.3s ease;
+}
+#toc .item.active > .circular.label,
+#toc .item:hover > .circular.label {
+  opacity: 0.8;
+}
+
+/* Hidden Items */
+#toc .hide.item {
+  display: none;
+}
+
+/* Sidebar Header */
+#toc .inverted.header {
+  font-size: 1em;
+  font-weight: normal;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0.5em;
+}
+#toc a.inverted.header.active,
+#toc a.inverted.header:hover {
+  color: rgba(255, 255, 255, 1);
+}
+#toc .menu .active.item {
+  color: #6DFFFF !important;
+}
+
+/*******************************
+         Sidebar Layout
+*******************************/
+
+.pusher > .full.height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.pusher > .full.height {
+  background-color: #FFFFFF;
+}
+
+/* page layout */
+.full.height > .toc {
+  position: relative;
+  z-index: 1;
+  background-color: #1b1c1d;
+  width: 250px;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 auto;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+.full.height > .toc .ui.menu {
+  border-radius: 0;
+  border-width: 0 1px 0 0;
+  box-shadow: none;
+  margin: 0;
+  width: inherit;
+  overflow: hidden;
+  will-change: transform;
+}
+.article {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  min-width: 0px;
+}
+
+
+
+

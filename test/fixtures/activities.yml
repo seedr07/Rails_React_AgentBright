@@ -1,0 +1,45 @@
+# == Schema Information
+#
+# Table name: activities
+#
+#  associable_id   :integer
+#  associable_type :string
+#  created_at      :datetime
+#  id              :integer          not null, primary key
+#  key             :string
+#  owner_id        :integer
+#  owner_type      :string
+#  parameters      :text
+#  recipient_id    :integer
+#  recipient_type  :string
+#  trackable_id    :integer
+#  trackable_type  :string
+#  updated_at      :datetime
+#
+# Indexes
+#
+#  index_activities_on_associable_type_and_associable_id  (associable_type,associable_id)
+#  index_activities_on_owner_id_and_owner_type            (owner_id,owner_type)
+#  index_activities_on_recipient_id_and_recipient_type    (recipient_id,recipient_type)
+#  index_activities_on_trackable_id_and_trackable_type    (trackable_id,trackable_type)
+#
+
+task_create:
+  id: '9880'
+  trackable_id: '87'
+  trackable_type: Task
+  owner_id: '45'
+  owner_type: User
+  key: task.create
+  parameters: "---\n:changes: !ruby/hash:ActiveSupport::HashWithIndifferentAccess\n
+    \ subject:\n  - \n  - adding a new task\n  assigned_to_id:\n  - \n  - 45\n  due_date_at:\n
+    \ - \n  - 2015-04-23 17:17:52.000000000 Z\n  taskable_id:\n  - \n  - 703\n  taskable_type:\n
+    \ - \n  - Lead\n  user_id:\n  - \n  - 45\n  created_at:\n  - \n  - &1 2015-04-23
+    17:17:57.969019540 Z\n  updated_at:\n  - \n  - *1\n  id:\n  - \n  - 87\n:name:
+    adding a new task\n"
+  recipient_id: '703'
+  recipient_type: Lead
+  created_at: '2015-04-23 17:17:58.009369'
+  updated_at: '2015-04-23 17:17:58.009369'
+  associable_id: 
+  associable_type: 

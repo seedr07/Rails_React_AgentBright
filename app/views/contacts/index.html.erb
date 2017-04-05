@@ -1,0 +1,17 @@
+<%= show_alert_if_processing_csv_file(current_user) %>
+<% cache(["contacts_index", @contacts.map(&:id), @contacts.maximum(:updated_at)]) do %>
+  <%= page_header(
+    primary_name: "Contacts",
+    primary_path: contacts_path,
+    add_button_text: "Add Contact",
+    add_button_path: new_contact_path
+  ) %>
+
+  <% if @contacts.empty? %>
+    <%= render(partial: "no_contacts_block") %>
+  <% else %>
+    <%= render(partial: "shared/contacts_stats") %>
+    <%= render(partial: "contacts/menu_bar") %>
+    <%= render(partial: "contacts/table/contacts_table", locals: { contacts: @contacts }) %>
+  <% end %>
+<% end %>

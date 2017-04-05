@@ -1,0 +1,249 @@
+<!--
+*******************************************
+Note: The purpose of views/designs/ is for
+building frontend markup only. Do not add
+ERB or javascript to this page. Copy and
+paste this markup, and then integrate that
+code in its rightful location with the app
+backend.
+
+With very few exceptions, this file should
+remain pure front-end HTML/CSS/JS.
+*******************************************
+-->
+
+<style>
+  .ab-list-container {
+    max-height: 250px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+</style>
+
+<div class="main ui container">
+  <div class="ui vertical basic segment">
+    <div class="ui centered grid">
+      <div class="column">
+        <div class="ui basic segments">
+          <div class="ui active transition fade in tab" data-tab="first">
+            <div class="ui segments">
+              <div class="ui segment">
+                <h1>Import your contacts</h1>
+              </div><!-- /.ui segment -->
+              <div class="ui segment">
+                <div class="ui stackable two column grid">
+                  <div class="column">
+                    <div class="ui basic segment">
+                      <h4>Import your contacts from email</h4>
+                      <div class="ui form">
+                        <div class="ui field">
+                          <div class="ui input">
+                            <input type="text" placeholder="Enter your email address..." />
+                          </div><!-- /.ui input -->
+                        </div><!-- /.ui field -->
+                        <button class="ui button" data-go-to-tab="second">Import</button>
+                      </div><!-- /.ui form -->
+                    </div><!-- /.ui basic segment -->
+                  </div><!-- /.column -->
+                  <div class="ui vertical divider">or</div><!-- /.ui vertical divider -->
+                  <div class="column">
+                    <div class="ui basic segment">
+                      <h4>Upload a CSV file</h4>
+                      <div class="ui form">
+                        <div class="field">
+                          <div class="ui action input">
+                            <input type="text">
+                            <button class="ui button">Browse</button>
+                          </div>
+                        </div><!-- /.field -->
+                      </div><!-- /.ui form -->
+                    </div><!-- /.ui basic segment -->
+                  </div><!-- /.column -->
+                </div><!-- /.ui stackable two column grid -->
+              </div><!-- /.ui segment -->
+            </div><!-- /.ui segments -->
+          </div><!-- /.ui tab -->
+          <div class="ui transition fade in tab" data-tab="second">
+            <div class="ui segments">
+              <div class="ui segment">
+                <h1>Set up automatic emails</h1>
+              </div><!-- /.ui segment -->
+              <div class="ui segment">
+                <p>
+                  Successful agents are consistent at keeping in touch with their past clients and their spheres of influence, on average 20-40 times per person per year. That's a lot!
+                </p>
+                <p>
+                  You have access to the <strong>Connecticut MLS</strong> and the <strong>Fairfield County MLS</strong>, so let's take advantage of that! Choose <strong>3</strong> contacts that live within those areas, and are most likely to give you referrals, and we will automatically send them an email with a market report for the area they live.
+                </p>
+                <h4>Select three contacts that live in your MLS areas:</h4>
+              </div><!-- /.ui segment -->
+              <div class="ui segment">
+                <div class="ui fluid right icon input">
+                  <input type="text" placeholder="Search..." />
+                  <i class="search icon"></i>
+                </div><!-- /.ui fluid input -->
+                <div class="ui very relaxed selection middle aligned list">
+                  <div class="item">
+                    <img class="ui avatar image" src="http://semantic-ui.com/images/avatar2/small/rachel.png">
+                    <div class="content">
+                      <div class="header">Rachel D'Fantis</div>
+                      <div class="description">
+                        Email: rdfantis@clevelandmail.com<br />
+                        Location: Macedonia, OH 43446
+                      </div><!-- /.description -->
+                    </div><!-- /.content -->
+                    <div class="right floated content">
+                      <button class="ui green active button">
+                        <i class="check icon"></i>
+                        Selected
+                      </button>
+                    </div><!-- /.content -->
+                  </div><!-- /.item -->
+                  <div class="item">
+                    <img class="ui avatar image" src="http://semantic-ui.com/images/avatar2/small/rachel.png">
+                    <div class="content">
+                      <div class="header">Rachel D'Fantis</div>
+                      <div class="description">
+                        Email: rdfantis@clevelandmail.com<br />
+                        Location: Macedonia, OH 43446
+                      </div><!-- /.description -->
+                    </div><!-- /.content -->
+                    <div class="right floated content">
+                      <button class="ui green active button">
+                        <i class="check icon"></i>
+                        Selected
+                      </button>
+                    </div><!-- /.content -->
+                  </div><!-- /.item -->
+                  <% [*1..10].each do |index| %>
+                    <div class="item" data-go-to-tab="third">
+                      <img class="ui avatar image" src="http://semantic-ui.com/images/avatar2/small/rachel.png">
+                      <div class="content">
+                        <div class="header">Rachel D'Fantis</div>
+                        <div class="description">
+                          Email: rdfantis@clevelandmail.com<br />
+                          Location: Macedonia, OH 43446
+                        </div><!-- /.description -->
+                      </div><!-- /.content -->
+                      <div class="right floated content">
+                        <button class="ui green basic button">Select</button>
+                        <button class="ui basic button">Edit</button>
+                      </div><!-- /.content -->
+                    </div><!-- /.item -->
+                  <% end %>
+                </div><!-- /.ui list -->
+              </div><!-- /.ui segment -->
+            </div><!-- /.ui segments -->
+          </div><!-- /.ui tab -->
+          <div class="ui transition fade in tab" data-tab="third">
+            <div class="ui segments">
+              <div class="ui segment">
+                <h1>Confirm automatic market email</h1>
+              </div><!-- /.ui segment -->
+              <div class="ui segment">
+                <div class="ui two column stackable grid">
+                  <div class="column">
+                    <h3>Contacts we're sending this to</h3>
+                    <div class="ui very relaxed selection middle aligned list">
+                      <% [*1..3].each do |index| %>
+                        <div class="item">
+                          <img class="ui avatar image" src="http://semantic-ui.com/images/avatar2/small/rachel.png">
+                          <div class="content">
+                            <div class="header">Rachel D'Fantis</div>
+                            <div class="description">
+                              Email: rdfantis@clevelandmail.com<br />
+                              Location: Macedonia, OH 43446
+                            </div><!-- /.description -->
+                          </div><!-- /.content -->
+                        </div><!-- /.item -->
+                      <% end %>
+                    </div><!-- /.ui list -->
+                  </div><!-- /.column -->
+                  <div class="column">
+                    <h3>Preview:</h3>
+                    <div class="ui raised segment">
+                      <div class="ui list">
+                        <div class="item">
+                          <div class="header">To:</div>
+                          Kevan Lannister (kevan@casterlyrock.com)
+                        </div>
+                        <div class="item">
+                          <div class="header">From:</div>
+                          John Smith
+                        </div>
+                        <div class="item">
+                          <div class="header">Subject:</div>
+                          Market Report for Casterly Rock
+                        </div>
+                        <div class="item">
+                          <div class="header">Area:</div>
+                          56746
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <iframe src="<%= preview_content_html_email_campaign_path(EmailCampaign.first) %>" class="iframe" width="100%" height="100%" seamless="seamless" style="min-height:900px;border:solid 1px #000"></iframe>
+                    </div>
+                  </div><!-- /.column -->
+                </div><!-- /.ui two column stackable grid -->
+              </div><!-- /.ui segment -->
+              <div class="ui segment">
+                <button class="ui primary button">Schedule!</button>
+                <button class="ui basic button">Cancel</button>
+              </div><!-- /.ui segment -->
+            </div><!-- /.ui segments -->
+          </div><!-- /.ui tab -->
+        </div><!-- /.ui raised segments -->
+      </div><!-- /.column -->
+    </div><!-- /.ui tab -->
+  </div>
+</div>
+
+<script>
+  $('[data-go-to-tab]')
+    .on('click', function() {
+      // programmatically activating tab
+      $buttonClicked = $(this);
+      var tabName = $buttonClicked.data('go-to-tab');
+      $.tab('change tab', tabName);
+    })
+  ;
+
+  var content = [
+    { title: 'Andorra' },
+    { title: 'United Arab Emirates' },
+    { title: 'Afghanistan' },
+    { title: 'Antigua' },
+    { title: 'Anguilla' },
+    { title: 'Albania' },
+    { title: 'Armenia' },
+    { title: 'Netherlands Antilles' },
+    { title: 'Angola' },
+    { title: 'Argentina' },
+    { title: 'American Samoa' },
+    { title: 'Austria' },
+    { title: 'Australia' },
+    { title: 'Aruba' },
+    { title: 'Aland Islands' },
+    { title: 'Azerbaijan' },
+    { title: 'Bosnia' },
+    { title: 'Barbados' },
+    { title: 'Bangladesh' },
+    { title: 'Belgium' },
+    { title: 'Burkina Faso' },
+    { title: 'Bulgaria' },
+    { title: 'Bahrain' },
+    { title: 'Burundi' }
+    // etc
+  ];
+
+  $('[data-behavior=test-country-search]')
+    .search({
+      source: content
+    });
+
+  $('[data-behavior=test-country-dropdown]')
+    .dropdown({
+      useLabels: false
+    });
+</script>

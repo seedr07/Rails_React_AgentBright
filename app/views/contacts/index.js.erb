@@ -1,0 +1,2 @@
+$('#contacts').html("<%= escape_javascript render(:partial => 'contacts/table/slat', :collection => @contacts, as: :contact)%>");
+$('#paginator').html('<%= escape_javascript(paginate(@contacts, :remote => true).to_s) %>'

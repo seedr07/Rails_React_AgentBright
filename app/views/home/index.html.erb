@@ -1,0 +1,162 @@
+<%= show_alert_if_processing_csv_file(current_user) %>
+<div class="main-dashboard">
+	<!--HEADER SECTION-->
+  <div class="row">
+    <div class="col-sm-12 header">
+      <h1 class="inline-block">
+        <%= link_to "Dashboard", dashboard_path %>
+      </h1>
+    </div>
+  </div>
+
+  <div class="row main-section">
+    <div class="sub-section">
+      <div class="col-xs-12">
+        <h2>Get started with AgentBright</h2>
+        <ul class="media-list rows onboarding-dashboard">
+          <!--MEDIA ROW-->
+          <li>
+            <div class="media">
+              <!--ROW IMAGE-->
+              <div class="media-object">
+                <% if current_user.goals_entered %>
+                  <span class="indicator indicator-good"><span class="fui-check"></span></span>
+                <% else %>
+                  <div class="onboarding add-contacts"><%= image_tag 'iconic/compass.svg', class: "iconic iconic-fluid", data: { src: "compass.svg" } %></div>
+                <% end %>
+              </div>
+              <!--ROW BODY-->
+              <div class="media-body">
+                <div class="row">
+                  <div class=" col-sm-9 below12">
+                    <h4>Set your goals</h4>
+                    <p>
+                      Having a goal is vital to reaching your potential. It helps keep you focused and motivated. We start with your big picture production goal, and then work backwards to come up with simple, clear weekly and daily activity goals.
+                    </p>
+
+                    <% if current_user.goals_entered %>
+                      <p class="above12">
+                      In order to make <strong><%= number_to_currency(current_user.last_goal.desired_annual_income, precision: 0) %></strong>, all you need to do is write <strong><%= pluralize(number_with_precision(current_user.last_goal.note_required_wkly / 4, precision: 0), 'note', plural: "notes" ) %></strong>, make <strong><%= pluralize(number_with_precision(current_user.last_goal.calls_required_wkly / 4, precision: 0), 'call', plural: "calls") %></strong> and see <strong><%= pluralize(number_with_precision(current_user.last_goal.visits_required_wkly / 4, precision: 0), 'contact', plural: "contacts") %></strong> face-to-face daily for four days a week.
+                      </p>
+                    <% end %>
+
+                  </div>
+                  <div class=" col-sm-3 alignr">
+                    <%= link_to "Set Goals", edit_goals_path, class: "btn btn-primary btn-embossed nomargin fwm-btn" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <!--END MEDIA ROW-->
+
+          <!--MEDIA ROW-->
+          <li>
+            <div class="media">
+
+              <!--ROW IMAGE-->
+              <div class="media-object">
+
+                <% if current_user.contacts.active.count < 5 %>
+                  <div class="onboarding add-contacts"><%= image_tag 'iconic/people.svg', class: "iconic iconic-fluid", data: { src: "people.svg" } %></div>
+                <% else %>
+                  <span class="indicator indicator-good"><span class="fui-check"></span></span>
+                <% end %>
+              </div>
+
+              <!--ROW BODY-->
+              <div class="media-body">
+                <div class="row">
+                  <div class=" col-sm-9 below12">
+                    <p>
+                      <% if @csv_upload_success_message %>
+                        <div class="alert alert-success">
+                          <a class="close" data-dismiss="alert">×</a>
+
+                          <div id="flash_notice"><%= @csv_upload_success_message %></div>
+                        </div>
+                    <% end %>
+                    </p>
+
+                    <h4>Build your contacts database</h4>
+                    <p>
+                      The contacts database is the heartbeat of every successful real estate professional. Add a few quick contacts, or import your Contacts via CSV. 
+                    </p>
+                    <p class="above12">
+                      You currently have <strong><%= pluralize(current_user.contacts.active.count, 'total contact', plural: "total contacts") %></strong> in AgentBright.
+                    </p>
+
+                  </div>
+                  <div class=" col-sm-3 alignr">
+                    <%#= link_to image_tag("Glyphicons/csv.png"), new_upload_contact_path %>
+                    <%= link_to "Upload Contacts", new_upload_contact_path, class: "btn btn-primary btn-embossed nomargin fwm-btn" %>
+                  </div>
+                </div>
+                <!--<div class="row below12">
+                  <div class="col-sm-12">
+                    <div class="row multiple-fields alignc" >
+                      <div class="col-sm-6">
+                          <%#= link_to image_tag("Glyphicons/csv.png"), new_upload_contact_path %>
+                          <h4> CSV </h4>
+                      </div><! /.col-sm-6 -->
+                      <!--<div class="col-sm-3">-->
+                          <%#= link_to image_tag("Glyphicons/gmail.png"), "/contacts/gmail" %>
+                          <!--<h4> Gmail </h4>-->
+                      <!--</div><! /.col-sm-6 -->
+                      <!--<div class="col-sm-3">-->
+                        <%# link_to image_tag('Glyphicons/outlook.png'),  new_upload_contact_path %>
+                        <!--<h4> Outlook </h4>-->
+                      <!--</div> -->
+                      <!--<div class="col-sm-3">
+                        <%#= link_to image_tag('Glyphicons/yahoo.png'),"/contacts/yahoo" %>-->
+                        <!--<h4> Yahoo </h4>-->
+                     <!-- </div><!/.col-sm-6 -->
+                    <!--</div>
+                  </div>
+                </div>-->
+              </div>
+            </div>
+          </li>
+          <!--END MEDIA ROW-->
+
+          <!--MEDIA ROW-->
+          <li>
+            <div class="media">
+              <!--ROW IMAGE-->
+              <div class="media-object">
+                <% if  current_user.contacts_with_grade_count < 5 %>
+                  <div class="onboarding add-contacts"><%= image_tag 'iconic/sort.svg', class: "iconic iconic-fluid", data: { src: "sort.svg", state: "descending" } %></div>
+                <% else %>
+                  <span class="indicator indicator-good"><span class="fui-check"></span></span>
+                <% end %>
+              </div>
+
+              <!--ROW BODY-->
+              <div class="media-body">
+                <div class="row">
+                  <div class=" col-sm-9 below12">
+                    <h4>Sort and rank your database</h4>
+                    <p>
+                      Your time is valuable, and it's important to prioritize the time you plan on spending on and with your contacts database. Start sorting through your contacts and grading them so you can easily see which of your relationships deserve your time so you can reach your goal.
+                    </p>
+                    <p class="above12">
+                      You currently have ranked <strong><%=current_user.contacts_with_grade_count %> contacts</strong>.
+                      <% if current_user.contacts.active.count > 0 %>
+                        That is <strong><%= ((current_user.contacts_with_grade_count.to_f / current_user.contacts.active.count.to_f) * 100).floor %>%</strong> of your database.
+                      <% end %>
+                    </p>
+                  </div>
+
+                  <div class=" col-sm-3 alignr">
+                    <%= link_to "Rank Contacts", rank_contact_path, class: "btn btn-primary btn-embossed nomargin fwm-btn" %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <!--END MEDIA ROW-->
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<% if super_admin_signed_in? %>
+    <li><%= link_to "Categories" %></li>
+    <li><%= link_to "DJ Console", "/delayed_job", "target" => "_blank", "rel" => "noopener noreferrer" %></li>
+    <% if masquerading? %>
+      <li><%= link_to(
+        "Stop Masquerading",
+        masquerade_path,
+        title: "Masquerading #{current_user.email}",
+        method: :delete
+      ) %></li>
+    <% end %>
+<% end %>
+
+<% if user_signed_in? %>
+    <li><%= link_to current_user.full_name, profile_path %></li>
+    <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+<% else %>
+    <li><%= link_to "Sign in", new_session_path(:user) %></li>
+<% end %>

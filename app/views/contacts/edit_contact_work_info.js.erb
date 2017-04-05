@@ -1,0 +1,7 @@
+$('#contact-work-section').hide().after('<%= j render("contact_work_form_section") %>');
+$('#edit-contact-work-info').hide().button('reset');
+// $('#lead_attributes_first_name').focus();
+$('[data-behavior~=cancel-edit-form]').cancelEditForm();
+$('.btn-loading').click(function() {
+  $(this).button('loading');
+});

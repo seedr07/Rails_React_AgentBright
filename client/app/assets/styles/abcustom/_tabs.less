@@ -1,0 +1,309 @@
+.old-tabs {
+
+  @media only screen and (min-width: @screen-sm-min) {
+    .nav-tabs > li.active > a,
+    .nav-tabs > li.active > a:hover,
+    .nav-tabs > li.active > a:focus {
+      // background-color: inherit;
+      border-color: #ddd;
+      border-bottom-color: #FFF;
+      // border-width: 2px;
+      // color: #91ACBD;
+      padding: 5px 19px 8px;
+    }
+  }
+  // .tab-content {
+  //   border: none;
+  //   padding: 20px 0 0 0;
+  //   .row {
+  //     // margin-right: 0;
+  //   }
+  //   textarea {
+  //     max-width: none;
+  //   }
+  // }
+
+
+  //   .nav-tabs {
+  //     li {
+  //       margin-bottom: -1px;
+  //       margin: 0 20px 0 20px;
+  //       top: 2px;
+
+  //       &:first-child {
+  //         margin-left: 0 !important;
+  //       }
+  //       a {
+  //         font-size: 22px;
+  //         padding: 0;
+  //         margin: 0 10px 0 10px;
+  //       }
+  //     }
+  //     .dropdown-menu {
+  //       li {
+  //         margin: 0;
+  //         a {
+  //           padding: 8px 25px;
+  //           margin: 0;
+  //         }
+  //       }
+  //     }
+  //   }
+
+
+  // @media only screen and (max-width: @screen-xs-max) {
+  //   .nav-tabs {
+  //     li {
+  //       // border-bottom: none;
+  //       // display: block;
+  //       // float: none;
+  //       // margin: 0;
+  //       // margin-bottom: -2px;
+  //       a {
+  //         // padding: 10px 15px;
+  //         // margin: 0;
+  //         // margin-bottom: 10px;
+  //       }
+  //     }
+  //   }
+  //   .nav-tabs.nav-append-content > li.active:first-child:before {
+  //     // height: 0;
+  //   }
+  // }
+
+  // @media only screen and (max-width: @screen-xs-max) {
+  //   .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+  //     // background-color: #517c96;
+  //     // border: 2px solid #517c96;
+  //     // color: #ffffff;
+  //     border-bottom: 3px solid @main-color;
+  //   }
+  //   .nav-tabs > li > a, .nav-tabs > li > a:hover, .nav-tabs > li > a:focus {
+  //     // border: 2px solid #e5ebef;
+  //     // border-radius: 4px;
+  //   }
+  // }
+
+
+
+  //   .tab-row {
+  //     border-bottom: 1px solid #d9d9d9;
+  //   }
+
+  //   .nav-tabs > li > a {
+  //     border: none;
+  //     vertical-align: middle;
+  //     margin: 0;
+  //     height: 38px;
+  //     color: #595959;
+  //     &:first-child {
+  //       margin-left: 0 !important;
+  //     }
+  //     &:focus,
+  //     &:hover {
+  //       padding: 0;
+  //     }
+  //   }
+
+  //   .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+  //     border: none;
+  //     padding: 0;
+  //   }
+
+  //   .nav-tabs.nav-append-content {
+  //     li.active {
+  //       border-bottom: 3px solid @main-color;
+  //     }
+  //   }
+
+  //   .nav-tabs.nav-append-content > li.active:first-child:before {
+  //     border: none;
+  //     bottom: 0;
+  //     width: 0;
+  //     z-index: 2;
+  //   }
+}
+
+.tabbed-column {
+  @media only screen and (max-width: @screen-xs-max) {
+    border-top: 1px solid #e0e0e0;
+    padding: 12px 0;
+  }
+}
+
+.scroll-tabs {
+  .nav-tabs {
+    & > li.active:before {
+      display: none;
+    }
+    &.nav-append-content {
+      border-bottom: none;
+      margin-bottom: 0;
+      & > li.active:first-child:before {
+        display: block;
+        background-color: #FFF;
+        border-left: 2px solid #E5EBEF;
+        content: "";
+        height: 6px;
+        left: 0;
+        position: absolute;
+        bottom: -4px;
+        width: 6px;
+        z-index: 2;
+      }
+    }
+    & > li {
+      float: left;
+      margin-bottom: 5px;
+    }
+  }
+
+  .nav-tabs > li > a,
+  .nav-tabs > li > a:hover,
+  .nav-tabs > li > a:focus {
+    border: none;
+    margin-right: 0;
+    margin-bottom: 0;
+    // padding: 5px 8px 6px;
+    padding: 34px 12px 10px;
+    // border-radius: 6px 6px 0 0;
+    border-radius: 0;
+    border-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    font-size: 12px;
+    margin-top: 4px;
+    margin: 0;
+    background-color: inherit;
+
+    position: relative;
+    display: block;
+    height: 60px;
+    min-width: 70px;
+    text-align: center;
+    font-size: 12px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 700;
+    color: #C3C2B9;
+  }
+
+  .nav-tabs > li.active > a,
+  .nav-tabs > li.active > a:hover,
+  .nav-tabs > li.active > a:focus {
+    border: none;
+    // border-color: #E5EBEF;
+    // border-bottom-color: #FFF;
+    // border-width: 2px;
+    padding: 34px 12px 10px;
+    margin: 0;
+    background-color: #fff !important;
+    box-shadow: inset 0 4px 0 #F05451;
+    color: #29324E;
+  }
+
+  .nav-tabs > li > a:hover {
+    color: #29324e;
+    .tab-icon {
+      color: #c3c289;
+    }
+  }
+
+  .nav-tabs > li.active > a:hover {
+    color: #29324e;
+    .tab-icon {
+      color: #29324e;
+    }
+  }
+
+  .tabbed-section .tab-row {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    background: #F8F7EE;
+    box-shadow: inset 0 -2px 3px rgba(203, 196, 130, 0.06);
+  }
+
+  .tab-row {
+    width: 100%;
+    position: relative;
+  }
+
+  .nav-tabs {
+    width: 410px;
+    background: none;
+    margin-bottom: 0;
+    border: none;
+    & > li {
+      float: left;
+      margin: 0;
+    }
+  }
+
+  .tab-content {
+    background-color: #fff;
+    border-radius: 0;
+    border: none;
+    padding: 20px 0;
+    @media only screen and (max-width: @screen-xs-max) {
+      padding: 20px 15px;
+    }
+  }
+
+  .tab-icon {
+    font-size: 20px;
+    position: absolute;
+    top: 8px;
+    text-align: center;
+    width: 100%;
+    left: 0;
+  }
+
+  .nav-tabs > li.active > a,
+  .nav-tabs > li.active > a:hover,
+  .nav-tabs > li.active > a:focus {
+    .tab-icon {
+      color: #f05451;
+    }
+  }
+}
+
+.tabbed-section {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  &::after {
+    /* subtle gradient layer on top right - to indicate it's possible to scroll */
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 60px;
+    width: 70px;
+    z-index: 50;
+    pointer-events: none;
+    background: -webkit-linear-gradient( right , #F8F7EE, rgba(248, 247, 238, 0));
+    background: linear-gradient(to left, #F8F7EE, rgba(248, 247, 238, 0));
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: opacity .3s 0s, visibility 0s 0s;
+       -moz-transition: opacity .3s 0s, visibility 0s 0s;
+            transition: opacity .3s 0s, visibility 0s 0s;
+    @media only screen and (max-width: @screen-xs-max) {
+      top: 12px;
+    }
+  }
+  &.is-ended::after {
+    /* class added in jQuery - remove the gradient layer when it's no longer possible to scroll */
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity .3s 0s, visibility 0s .3s;
+       -moz-transition: opacity .3s 0s, visibility 0s .3s;
+            transition: opacity .3s 0s, visibility 0s .3s;
+  }
+}
+
+.modal .tab-content {
+  border: none;
+}
+
+

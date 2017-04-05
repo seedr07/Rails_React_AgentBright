@@ -1,0 +1,47 @@
+<!--HEADER-->
+<div class="row">
+  <div class="lastUnit col-sm-12 header">
+    <h1>
+      <%= link_to "Referral Generation", contact_activities_path %>
+    </h1>
+    <h2><%= @contact_activity.activity_type %></h2>
+  </div>
+</div>
+<!--END HEADER-->
+
+<div class="row">
+  <div class="col-xs-12">
+
+		<p id="notice"><%= notice %></p>
+
+		<p>
+		  <strong>Type:</strong>
+		  <%= @contact_activity.activity_type %>
+		</p>
+		<p>
+		  <strong>Contact:</strong>
+		  <%= @contact_activity.contact.full_name unless @contact_activity.contact_id.nil? %>
+		</p>
+		<p>
+		  <strong>Subject:</strong>
+		  <%= @contact_activity.subject %>
+		</p>
+		<p>
+		  <strong>Completed at:</strong>
+		  <%= @contact_activity.completed_at.to_s(:date_time) %>
+		</p>
+		<p>
+		  <strong>Comments:</strong>
+		  <%= @contact_activity.comments %>
+		</p>
+
+		<p>
+		  <strong>Owner:</strong>
+		  <%= @contact_activity.user.full_name unless @contact_activity.user_id.nil? %>
+		</p>
+
+		<%= link_to 'Edit', edit_contact_activity_path(@contact_activity) %> |
+		<%= link_to 'Back', contact_activities_path %>
+
+	</div>
+</div>

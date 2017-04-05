@@ -1,0 +1,131 @@
+article.todolist ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+
+
+li.todo {
+  padding: 0 0 0 32px;
+  font-weight: normal;
+  overflow: hidden;
+  color: #AA9C84;
+  vertical-align: baseline;
+  list-style: none;
+  margin-bottom: 0;
+
+  form {
+    display: inline-block;
+    margin-left: -23px;
+    margin-right: 2px;
+    margin-top: 10px;
+    float: left;
+  }
+
+  .checkbox {
+    display: inline-block;
+    width: 20px;
+    margin: -4px 0 0 -9px;
+    top: 0.25em;
+  }
+
+  h3 {
+    font-size: 13px;
+    line-height: 18px;
+    color: #000;
+    font-weight: 400;
+    margin-bottom: 0;
+    a {
+      color: inherit;
+      display: block;
+      padding:  9px 0;
+    }
+  }
+
+  .unlinked_content {
+    padding: 7px 0;
+    display: none;
+  }
+
+  .todo_meta {
+    color: #808080;
+  }
+
+  &.busy {
+    h3 {
+      background-image: asset-url("dots-white@2x.gif");
+      background-size: 21px 5px;
+      background-position: left 15px;
+      background-repeat: no-repeat;
+      * {
+        visibility: hidden;
+      }
+    }
+  }
+
+  &.overdue {
+    span.content,
+    span.pill {
+      color: @brand-danger;
+    }
+  }
+
+  &.completed {
+    span.content {
+      color: #808080;
+      text-decoration: line-through;
+    }
+  }
+}
+
+.project {
+  display: none;
+}
+
+article.todolist.show-buckets ul {
+  li {
+    .project {
+      display: inherit;
+    }
+    &.todo {
+      h3 {
+        .content {
+          font-weight: 500;
+        }
+        .project {
+          display: inherit;
+          // color: #090;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}
+
+section.completed_todos {
+  article.todolist {
+    time {
+      display: inline-block;
+      font-size: 12px;
+    }
+    & > ul {
+      margin-left: 0;
+      & > li {
+        padding-left: 15px;
+        line-height: 17px;
+        margin: 0 0 6px 8px;
+        &:before {
+          content: "\2714";
+          color: #777;
+          margin: 0 5px 0 -21px;
+        }
+        .project,
+        .todo_meta {
+          font-size: 12px;
+          color: #999;
+        }
+      }
+    }
+  }
+}

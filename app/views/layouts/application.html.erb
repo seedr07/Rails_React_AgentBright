@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" class="application-layout">
+  <head>
+    <%= render(partial: "application/head_contents") %>
+  </head>
+
+  <% if user_signed_in? %>
+    <% narrow_class = (current_user.show_narrow_main_nav_bar ? "narrow" : "") %>
+    <% active_teammates_class = (current_user.belongs_to_team? ? "show-team" : "hide-team") %>
+  <% else %>
+    <% narrow_class = "" %>
+    <% active_teammates_class = "" %>
+  <% end %>
+
+  <body id="<%= "%s_%s" % [controller_name, action_name] %>" class="navtoggle <%= narrow_class %> <%= active_teammates_class %> <%= yield :body_class if content_for? :body_class %> ">
+    <%# cache "environment_banner" do %>
+      <%#= render(partial: "shared/environment_banner") %>
+    <%# end %>
+
+    <% if user_signed_in? %>
+      <%= render(partial: "shared/big_nav_sidebar") %>
+      <%= render(partial: "shared/main_navigation") %>
+    <% end %>
+
+    <% if user_signed_in? %>
+      <%= render(partial: "shared/account_menu") %>
+      <%= render(partial: "shared/phone_navigation") %>
+      <%= render(partial: "shared/tablet_navigation") %>
+    <% end %>
+
+    <div id="wrap" class="wrap clearfix nopadding">
+      <div id="main-content" class="main-content mc-content">
+
+        <div class="container relative clearfix">
+          <%= render(partial: "shared/flashes") %>
+          <%= yield %>
+
+        </div>
+      </div>
+    </div>
+
+    <!--
+    FAB BUTTON
+    <a href="#" class="btn btn-default btn-fab fui-plus"></a>
+    -->
+
+    <%= render(partial: "application/extra_content") %>
+  </body>
+</html>

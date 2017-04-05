@@ -1,0 +1,7 @@
+<% if params[:replace_feed] == "true"%>
+  $(".activity-stream").html("<%= j render(partial: 'activities/activities_by_day', locals: { activities: @activities, activities_link_url: @activities_link_url }) %>");
+<% else %>
+  $("#show-more-activities").remove();
+  $(".activity-stream").append("<%= j render(partial: 'activities/activities_by_day', locals: { activities: @activities, activities_link_url: @activities_link_url }) %>");
+  $(".js-loading").removeClass("loading");
+<% end %>

@@ -1,0 +1,24 @@
+<span class="in_timeline">
+  <%= action %>
+  <span class="suffix">
+    <% unless local_assigns.has_key?(:name) %>
+      <% if local_assigns.has_key?(:link) && link %>
+        <%= link_to(human_activity_name(activity), link, class: "decorated") %>
+      <% else %>
+        <%= human_activity_name(activity) %>
+      <% end %>
+    <% end %>
+  </span>
+</span>
+<span class="in_project">
+  <%= action %>
+  <span class="suffix">
+    <% unless local_assigns.has_key?(:name) %>
+      <% if local_assigns.has_key?(:link) && link %>
+        <%= link_to(human_activity_name(activity), link, class: "decorated") %>
+      <% else %>
+        <%= human_activity_name(activity) %>
+      <% end %>
+    <% end %>
+  </span>
+</span>

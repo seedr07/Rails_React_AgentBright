@@ -1,0 +1,490 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.nylas.com/account
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Nylas Ruby SDK 2.0.1 - 2.3.1
+      Authorization:
+      - Basic NzRhYUpZTFd6dDJkaXpHNnVFNjM0Tlg1Q3VqTXVSOg==
+      X-Inbox-Api-Wrapper:
+      - ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.6.2
+      Date:
+      - Thu, 06 Oct 2016 22:43:48 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '284'
+      Access-Control-Allow-Headers:
+      - Authorization,Accept,Cache-Control,X-Requested-With,Content-Type
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE,OPTIONS
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "account_id": "3sdlmdy4bnyy7rynd7ysuo8jy",
+            "email_address": "jane.jones.agentbright@gmail.com",
+            "id": "3sdlmdy4bnyy7rynd7ysuo8jy",
+            "name": "jane jones",
+            "object": "account",
+            "organization_unit": "label",
+            "provider": "gmail",
+            "sync_state": "running"
+        }
+    http_version: 
+  recorded_at: Thu, 06 Oct 2016 22:43:48 GMT
+- request:
+    method: get
+    uri: https://api.nylas.com/threads/c95ltqqj9yxg8owimw4ccz1w2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Nylas Ruby SDK 2.0.1 - 2.3.1
+      Authorization:
+      - Basic NzRhYUpZTFd6dDJkaXpHNnVFNjM0Tlg1Q3VqTXVSOg==
+      X-Inbox-Api-Wrapper:
+      - ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.6.2
+      Date:
+      - Thu, 06 Oct 2016 22:43:49 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Headers:
+      - Authorization,Accept,Cache-Control,X-Requested-With,Content-Type
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE,OPTIONS
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Content-Encoding:
+      - gzip
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA5xUW2/aMBh936+weG5R7iHdSzvtZZOqTaPSJlUVcmwncfAl
+        2A7EVP3vcwJktCusqyWEE5/v8/HxOXn8ANyYQIRkK8yC4skVmIQaM45tlAtr
+        U2UFTq1u5ay2k4sdHCtY9GDt0PcP+5cFVdosONEalmRhqJsZyBsH8aMo9MI0
+        9dI9tIJ6AY2BqOJEmL5LAZkm+9UdCZTFzKxWdWa7ciY3lG8ihLb+JjiQYDAn
+        bGAwPPfjcZztaFLdMGgXAnLSt/zCG6kMFGbfYgTudpwVlfBWntkEmVqZdrlk
+        psRpTdFL+KEfHfuN608XbyYjctm9TiSshEG+9qPO5h0NbFAkYYyDtD1JZOj1
+        DhJzJz+4hZS9TgSKWROYTmhTt07uBmW+pzuSbE8R0eR9YtwwdoYGLjwacqzX
+        YSuTGtYYdUXQxhqeogEZO2IxzB5G1xyZVBFE6Jrgv9zq7Br5s9dK+hOeN/cz
+        +NnGB9A+SCPjia+XAmPCS2nXq6xqYrpUuijI5ujAE7z1nC9EYk2z9op1TmPc
+        rUQRHos4SXLrrxGt49isrdtMpD7Hs6hUxyAEbVd32LY1CtZ+vKwl1pus2ZLJ
+        M+lkXhNken1NpQjEhyA2UBmKaAN3UT4ZR8L7G3bltazENemcKoxMkeSnrvGr
+        w4E5p6Z6i6f+tIeCTGspiJ46dYXJFS0rc1326+e26+vAUPdf2/X/RF1iSLgU
+        16WUJSP/2qr3OvhMmDOfsmDe5tpqQ/gp02pBm4YM0o9FRgJTEVBIxtzXUZTA
+        mZk2tA900TPCoCGKuyMJw+wVeKk5uOwH+Oa0oQIysPfi/vWvyx/7aFyB3ALf
+        mybJ1I/8/gc27kLA/PbuO6AYKOmHXIXZLHMJCBqYT5PZdMxEFif+R/CT4AsQ
+        hGBOmoNnXCaUIvjFl1+3o8Xub/qr+zRcHbhzGXo4lLZiMN/zSieJplIMKQs+
+        PP0GAAD//wMAxEufStcGAAA=
+    http_version: 
+  recorded_at: Thu, 06 Oct 2016 22:43:49 GMT
+- request:
+    method: put
+    uri: https://api.nylas.com/threads/c95ltqqj9yxg8owimw4ccz1w2
+    body:
+      encoding: UTF-8
+      string: '{"unread":true,"starred":false,"label_ids":["8fhn0q0tw29rqtukkltgd7jic","3hntc1s14xybxi2y2f635d27u","an8p2txnstjulabpc910sxe6z","df0i3mdsv3uo6jajdcxf2u5sa"]}'
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '157'
+      User-Agent:
+      - Nylas Ruby SDK 2.0.1 - 2.3.1
+      Authorization:
+      - Basic NzRhYUpZTFd6dDJkaXpHNnVFNjM0Tlg1Q3VqTXVSOg==
+      X-Inbox-Api-Wrapper:
+      - ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.6.2
+      Date:
+      - Thu, 06 Oct 2016 22:43:50 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Headers:
+      - Authorization,Accept,Cache-Control,X-Requested-With,Content-Type
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE,OPTIONS
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Content-Encoding:
+      - gzip
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA5xUW2/aMBh976+w8tyiXEgg7KWd9rJJ1aZRaZOqCjm2kzj4
+        EmwHYqr+9zkBUtoV1tUSwonP9/n4+Jw8XgA3PIiQbIRZUOzNgBdpzDi240xY
+        O1FW4InVjZxW1rvcwbGCeQfWDn3/sH+ZU6XNghOtYUEWhrqZgbx2kGA8jvxo
+        MvEne2gJ9QIaA1HJiTBdlxwyTfarOxIojZlZrarUtsVUbijfjBHaBpvwQILB
+        jLCeQf/cjcdhtqNJdc2gXQjISdfyhjFwCynbdxhwuw1x7tOIY72OGplUsMKo
+        zcMm1vA1/NAOMuYNK0+X72XxVWSyfZtCVAqDAh2MW5u1NLRhnkQxDifNKQq0
+        7/UBEnOn+xktoJjWoWmFNlXjdK5RGvi6Jcn2FBHt+n1IDF5LZaArfpPHNC+F
+        v/LNJkzVyjTLJTMFnlQUnRRk6PdMpp89DK45MqkiiNA1wX+51dl1HEzfKukO
+        et7cL+BnGx9A+yANjL1ALwXGhBfSrldpWcd0qXSek83RsT289Z09RGJNvfbz
+        dUZj3K5EHh1fqZdkNlgjWsWxWVu3mZgEHE/HhToGIWjbqsW2qVC4DuJlJbHe
+        pPWWeC+kk1lFkOlUNqUiEB+CWENlKKI13EX5ZBwJ7/zmyitZimvSOlUYGSHJ
+        T13mN4cDc05N+R5rPbeHgowqKYgeOXWFyRQtSnNddOvntuvqQF/3X9t1/0Rd
+        YUi4FNeFlAUj/9qqSx74Qpgzn7Jg3mTaakP4KdNqQeua9NIPRUYCUxKQS8bc
+        11EUwJmZ1rTLdd4xwqAmirsjCcPsDLzWHFx1A3x32lABGdh7cf/699XPfTRm
+        ILMg8EdJMgrGQfcDG3chYH579wNQDJQMIq6idJq6BIQ1zEbJdDRkIo2T4BP4
+        RfAlCCMwJ/XBMy4TShH86suvm8Fi9zfd1X3urw7cuQw9HEob0ZtvBoxqDoVO
+        EU2l6EOWXDz9AQAA//8DAITcNVjWBgAA
+    http_version: 
+  recorded_at: Thu, 06 Oct 2016 22:43:50 GMT
+- request:
+    method: get
+    uri: https://api.nylas.com/account
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Nylas Ruby SDK 2.0.1 - 2.3.1
+      Authorization:
+      - Basic NzRhYUpZTFd6dDJkaXpHNnVFNjM0Tlg1Q3VqTXVSOg==
+      X-Inbox-Api-Wrapper:
+      - ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.6.2
+      Date:
+      - Thu, 06 Oct 2016 22:43:50 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '284'
+      Access-Control-Allow-Headers:
+      - Authorization,Accept,Cache-Control,X-Requested-With,Content-Type
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE,OPTIONS
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "account_id": "3sdlmdy4bnyy7rynd7ysuo8jy",
+            "email_address": "jane.jones.agentbright@gmail.com",
+            "id": "3sdlmdy4bnyy7rynd7ysuo8jy",
+            "name": "jane jones",
+            "object": "account",
+            "organization_unit": "label",
+            "provider": "gmail",
+            "sync_state": "running"
+        }
+    http_version: 
+  recorded_at: Thu, 06 Oct 2016 22:43:50 GMT
+- request:
+    method: get
+    uri: https://api.nylas.com/threads/c95ltqqj9yxg8owimw4ccz1w2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Nylas Ruby SDK 2.0.1 - 2.3.1
+      Authorization:
+      - Basic NzRhYUpZTFd6dDJkaXpHNnVFNjM0Tlg1Q3VqTXVSOg==
+      X-Inbox-Api-Wrapper:
+      - ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.6.2
+      Date:
+      - Thu, 06 Oct 2016 22:43:51 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Headers:
+      - Authorization,Accept,Cache-Control,X-Requested-With,Content-Type
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE,OPTIONS
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Content-Encoding:
+      - gzip
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA5xUW2/aMBh976+weG5RLiQQ9tJOe+mkatOotElVhRzbSRx8
+        CbYDMVX/+5wQMtoV1tUSwonP9/n4+Jw8XQA3RhAhWQuzpHg0B6NQY8axnaTC
+        2qmyAk+truWstKPLPRwrmLVg7dAPj/3LjCptlpxoDXOyNNTNDOSVg/iTSeiF
+        06k37aEF1EtoDEQFJ8K0XTLINOlX9yRQEjGzXpeJbfKZ3FK+nSC087fBgQSD
+        KWEdg+65HU/DbE+T6opBuxSQk7blrUhl05cPoP7IhTDI1/6ksWlDAxtkcRjh
+        YFq/hh960a7XsPZ8+V4SN4yBO0jZ2zxw5tGQY70JaxmXsMSoyYI60vAUD8jY
+        R1jc8koqA4V5m8YsK4S39sw2SNTa1KsVMzmelhSdlGPo9wEyC2eCM5pAMasC
+        0whtytpdeoUS39MNiXenyGjygkc3exxcc2RSRRChG4L/cquz68SfvVXS9j5v
+        7hfws40PoD5IA+ORr1cCY8JzaTfrpKgiulI6y8j26MQjvPOcSUVsTbXxsk1K
+        I9ysRRYeqziKU+tvEC2jyGys20xMfY5nk1wdgxC0TdlgW5co2PjRqpRYb5Nq
+        R0YvpJNpSZBpBTaFIhAfglhBZSiiFdxH+WQcCW+v2JWXshDXpHGqMDJGkp+6
+        x68OBxacmuI9rvrTHgoyLqUgeuzUFSZVNC/Mdd6un9uurQNd3X9t1/4TdYUh
+        4VJc51LmjPxrq9bs4AthznzKgkWdaqsN4adMqwWtKtJJPxQZCUxBQCYZc19H
+        kQNnZlrRNkpZywiDiijujiQMs3PwWnNw1Q7wzWlDBWSg92L/+tfVjz4ac5Ba
+        4HvjOB77E7/9ga27ELC4u/8OKAZK+iFXYTJLXAKCCqbjeDYeMpFEsf8J/CT4
+        EgQhWJDq4BmXCaUIfvXl1/VgsYeb9uo+d1cH7l2GHg+ltejMNwdG1YdCp4im
+        UnQhiy+efwMAAP//AwAuXprn1gYAAA==
+    http_version: 
+  recorded_at: Thu, 06 Oct 2016 22:43:51 GMT
+- request:
+    method: put
+    uri: https://api.nylas.com/threads/c95ltqqj9yxg8owimw4ccz1w2
+    body:
+      encoding: UTF-8
+      string: '{"unread":false,"starred":false,"label_ids":["3hntc1s14xybxi2y2f635d27u","df0i3mdsv3uo6jajdcxf2u5sa","8fhn0q0tw29rqtukkltgd7jic","an8p2txnstjulabpc910sxe6z"]}'
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '158'
+      User-Agent:
+      - Nylas Ruby SDK 2.0.1 - 2.3.1
+      Authorization:
+      - Basic NzRhYUpZTFd6dDJkaXpHNnVFNjM0Tlg1Q3VqTXVSOg==
+      X-Inbox-Api-Wrapper:
+      - ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.6.2
+      Date:
+      - Thu, 06 Oct 2016 22:43:52 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Headers:
+      - Authorization,Accept,Cache-Control,X-Requested-With,Content-Type
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE,OPTIONS
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Content-Encoding:
+      - gzip
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA5xUXU/bMBR951dYfYYqH03asBeY9sIktGlF2iSEKsd2Eqf+
+        SG2njUH899ltmhVGO4alKE587vW5x+f66Qy4MYIIyVaYBcWjSzCKNWYc20ku
+        rJ0qK/DU6lbOajs638GxgoUHa4e+f+h/FlRps+BEa1iShaFuZiBvHCScTOIg
+        nk6DaQ+toF5AYyCqOBHGZykg06Rf3ZFAWcLMalVntitnckP5ZoLQY7iJ9iQY
+        zAnbMth++/E0zHY0qW4YtAsBOfEpb0Quuz58APUlV8KgUIeTzuYdjWxUpHGC
+        o2n7Gr7PRbe5hrXn8/eSmLuKwS2k7G0iUMyayHRCm7p1FTYoCwPdkfTxGBHt
+        8n2Exw1vpDLQBb/JY1ZUIlgFZhNlamXa5ZKZEk9rio4KMuT7AJlrxk5ogouA
+        xhzrddzKtIY1Rl0RtYmGx7hAxg5YbGcPg2sOTKoIInRN8F9udXadhLO3Qrzc
+        p839An4y8R7UN9LAeBTqpcCY8FLa9SqrmoQulS4KsjkoeIQfA2dSkVrTrINi
+        ndMEdytRxIcijtLchmtE6yQxa+s2E9OQ49mkVIcgBG1Xd9i2NYrWYbKsJdab
+        rHkkoxfSybwmyHh9TaUIxPtGbKAyFNEG7lr5aDsS7k/YhdeyElekc6owMkaS
+        HzvGrw4H5pya6j2e+pMeCjKupSB67NQVJle0rMxV6ddPbefjwDbuv7bzb6Iu
+        MCRciqtSypKRf23lvQ6+EObMpyyYt7m22hB+zLRa0KYhW+mHICOBqQgoJGPu
+        dhQlcGamDfW3S+EZYdAQxV1JwjB7CV5rDi78AN+cNlRABnov9r9/XfzoW+MS
+        5BaEwThNx+Ek9A/YuAMB89u774BioGQYcxVns8x1QNTAfJzOxkNPZEkafgI/
+        CT4HUQzmpNl7xvWEUgS/uvl1O1js/tof3eft0YE710MP+9BWbM33MtJJoqkU
+        vsuS4Oz5NwAAAP//AwDDo7u81wYAAA==
+    http_version: 
+  recorded_at: Thu, 06 Oct 2016 22:43:52 GMT
+- request:
+    method: get
+    uri: https://api.nylas.com/account
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Nylas Ruby SDK 2.0.1 - 2.3.1
+      Authorization:
+      - Basic NzRhYUpZTFd6dDJkaXpHNnVFNjM0Tlg1Q3VqTXVSOg==
+      X-Inbox-Api-Wrapper:
+      - ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.6.2
+      Date:
+      - Thu, 06 Oct 2016 22:43:53 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '284'
+      Access-Control-Allow-Headers:
+      - Authorization,Accept,Cache-Control,X-Requested-With,Content-Type
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE,OPTIONS
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "account_id": "3sdlmdy4bnyy7rynd7ysuo8jy",
+            "email_address": "jane.jones.agentbright@gmail.com",
+            "id": "3sdlmdy4bnyy7rynd7ysuo8jy",
+            "name": "jane jones",
+            "object": "account",
+            "organization_unit": "label",
+            "provider": "gmail",
+            "sync_state": "running"
+        }
+    http_version: 
+  recorded_at: Thu, 06 Oct 2016 22:43:53 GMT
+- request:
+    method: get
+    uri: https://api.nylas.com/threads/c95ltqqj9yxg8owimw4ccz1w2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Nylas Ruby SDK 2.0.1 - 2.3.1
+      Authorization:
+      - Basic NzRhYUpZTFd6dDJkaXpHNnVFNjM0Tlg1Q3VqTXVSOg==
+      X-Inbox-Api-Wrapper:
+      - ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.6.2
+      Date:
+      - Thu, 06 Oct 2016 22:43:54 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Headers:
+      - Authorization,Accept,Cache-Control,X-Requested-With,Content-Type
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE,OPTIONS
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Content-Encoding:
+      - gzip
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA5xUXU/bMBR951dYeYYqH03asBeY9rJJaNOKtEkIVY7tJE79
+        kdpOG4P477P7EQqjHcNSFCc+997j63P8eAbcCCBCshNmTnFwCYJEY8axHRfC
+        2omyAk+s7uS0scH5Fo4VLD1YO/Td/e5nSZU2c060hhWZG+pmBvLWQaLxOAmT
+        ySSc7KA11HNoDEQ1J8L4LCVkmuxWtyRQnjKzXDa57aupXFO+HiP0EK3jPQkG
+        C8I2DDbffjwOsy1NqlsG7VxATnzKa8bADaRsl2HAbQviMqQJx3qVdDJrYINR
+        X8ZdquFr+D4dZCwYVp7O38ti5rZ8ggYU0zY2vdCm6dwWW5RHoe5J9nCMhnb5
+        PsLjqyhk/zaHpBYGRToa97boaWzjMktSHE+6YxzoJtdHSPBWKgPdDt4kMi1r
+        ES5Ds45ztTTdYsFMhScNRUeJDPmeyWxm94NqDkSqCCJ0RfBfanVyHUfTt0J8
+        t0+L+wX8ZOI9aGekgXEQ6YXAmPBK2tUyr9uULpQuS7I+2HaAH0J3LCKzpl2F
+        5aqgKe6XokwOdRVkhY1WiDZpalbWFROTiOPpuFKHIARt3/TYdg2KV1G6aCTW
+        67x9IMGL1smiIcj4LptaEYj3RmyhMhTRFm6tfNSOhHvRu/BG1uKK9K4rjIyQ
+        5McO85vDgRmnpn6PtJ7TQ0FGjRREj1x3hSkUrWpzVfn1U+V8HNjE/Vc5/ybq
+        AkPCpbiqpKwY+Vcpb3/whTAnPmXBrCu01YbwY6LVgrYt2bR+CDISmJqAUjLm
+        bkdRASdm2lJ/uZSeEQYtUdxtSRhmL8HrnoMLP8B31xsqIAM7Le5+/774ubPG
+        JSgsiMJRlo2iceQfsHYHAmY3tz8AxUDJKOEqyae5c0DcwmKUTUeDJ/I0iz6B
+        XwSfgzgBM9LuNeM8oRTBr25+3Q0Su7v2R/d5c3Tg1nnofh/aiY34Xka6lmgq
+        hXdZGp49/QEAAP//AwBO2DNy1wYAAA==
+    http_version: 
+  recorded_at: Thu, 06 Oct 2016 22:43:54 GMT
+recorded_with: VCR 3.0.3

@@ -1,0 +1,19 @@
+<p class="full-width clearfix nomargin alignr">
+  <span class="float-left fwb nomargin">
+    <% if goal_was_met %>
+      <span class="fui-check"></span>
+    <% end %>
+    <%= title %>
+  </span>
+  <span class="h4 nomargin">
+    <% if goal_was_met %>
+      <%= counter.to_s %>
+    <% else %>
+      <%= "#{counter.to_s}/#{number_with_precision(goal, precision: 0)}" %>
+    <% end %>
+  </span>
+</p>
+<div class="progress">
+  <div class="progress-bar <%= progress_bar_class(goal_percent_completed) %>" role="progressbar" aria-valuenow="<%= goal_percent_completed.to_s %>" aria-valuemin="0" aria-valuemax="20" style="width: <%= goal_percent_completed.to_s %>%;">
+  </div>
+</div>

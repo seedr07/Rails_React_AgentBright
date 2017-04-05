@@ -1,0 +1,29 @@
+<% content_for(:back_button, contacts_path) %>
+<% content_for(:title, "Rank Contacts") %>
+<%= show_alert_if_processing_csv_file(current_user) %>
+<%= page_header(
+  primary_name: "Contacts",
+  primary_path: contacts_path,
+  secondary_name: "Rank Contacts"
+) %>
+<div class="row">
+  <div class="col-xs-12">
+    <%= link_to(
+      (raw "Skip This Contact<span class='fui-arrow-right'>"),
+      rank_contact_path({dont_rank: @current_contact.id}),
+      class: "btn btn-primary btn-paper btn-raised",
+      style: "letter-spacing: 0",
+      id: "skip_contact_link",
+      data: { rank_contact_path: rank_contact_path }
+    ) if @current_contact %>
+  </div>
+</div>
+<div id="grading-and-graded-container">
+  <div id="contacts-grading-container">
+    <%= render(
+      partial: "contact_grader",
+      locals: { no_contact_text: "No more contacts to rank." }
+    ) %>
+  </div>
+  <%= render(partial: "graded_contacts") %>
+</div>

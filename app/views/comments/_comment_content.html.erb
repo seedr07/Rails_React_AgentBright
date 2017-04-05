@@ -1,0 +1,3 @@
+<p id="comment_content_<%= comment.id %>">
+  <%= safe_join(comment.content.split("\r\n"), "<br />".html_safe) %>
+</p>

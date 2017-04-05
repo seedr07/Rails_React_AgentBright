@@ -1,0 +1,37 @@
+<% cache(["comment_form", @commentable]) do %>
+  <%= simple_form_for(
+    [@commentable, @comment],
+    html: { class: "below18" },
+    remote: true
+  ) do |f| %>
+
+    <% if @comment.errors.any? %>
+      <div class="error_message">
+        <h2>Please correct the following errors.</h2>
+        <ul>
+          <% @comment.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %><!-- /@comment.errors.full_messages.each -->
+        </ul>
+      </div><!-- /.error_message -->
+    <% end %> <!-- /@comment.errors.any? -->
+
+    <%= f.input(
+      :content,
+      placeholder: "Add new comment...",
+      input_html: {
+        class: "below12",
+        rows: 2,
+        data: { behavior: "submit_comment" }
+      },
+      label: false
+    ) %>
+    <%= f.button(
+      :submit,
+      id: "add-comment",
+      class: "btn btn-primary btn-embossed btn-loading",
+      value: "Submit",
+      data: { loading_text: "Submitting..." }
+    ) %>
+  <% end %><!-- /simple_form_for -->
+<% end %>

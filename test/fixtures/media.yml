@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: media
+#
+#  created_at :datetime
+#  id         :integer          not null, primary key
+#  media_type :string
+#  num_order  :integer
+#  updated_at :datetime
+#
+
+
+one:
+  media_type: Email Marketing
+
+two:
+  media_type: Newspaper
+
+three:
+  media_type: Print Flyer
+
+four:
+  media_type: Social Media
+
+five:
+  media_type: Radio
+
+six:
+  media_type: TV

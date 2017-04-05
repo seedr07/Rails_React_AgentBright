@@ -1,0 +1,41 @@
+<div class="account-menu sliding-card--mask rounded6 border-gray selfclear fixed hide-phone">
+  <div class="sliding-card--container relative">
+    <nav class="sliding-card bg-white clearfix">
+      <ul class="small-meta fwb list-unstyled block-list nomargin">
+        <li class="border-bottom">
+          <%= link_to(
+            "Profile",
+            edit_profile_path,
+            class: "account-link nolink pad-lv3 with-ripple"
+          ) %>
+        </li>
+        <li class="border-bottom">
+          <%= link_to(
+            "Account",
+            edit_user_registration_path,
+            class: "account-link nolink pad-lv3 with-ripple"
+          ) %>
+        </li>
+        <li class="border-bottom">
+          <%= link_to(
+            "Support",
+            "#",
+            class: "account-link nolink pad-lv3 with-ripple"
+          ) %>
+        </li>
+        <li class="border-bottom">
+          <%= link_to(
+            "Log Out",
+            destroy_user_session_path,
+            method: :delete,
+            class: "account-link nolink pad-lv3 with-ripple"
+          ) %>
+        </li>
+
+        <li class="tiny-meta fwn dim6 pad-lv1 alignc">
+          © 2016 AgentBright. All rights reserved.
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

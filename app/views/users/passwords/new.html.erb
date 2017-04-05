@@ -1,0 +1,44 @@
+<% content_for(:body_class, "grey_background") %>
+<div class="row">
+  <div class="col-xs-12 login-logo">
+    <div class="bounding-box"></div>
+  </div>
+</div>
+
+<!--HEADER-->
+<div class="row">
+  <div class="lastUnit col-sm-12 header form-signin">
+    <h2>Forgot Your Password?</h2>
+  </div>
+</div>
+<!--END HEADER-->
+
+
+<div class="row">
+  <div class="new-record-wrapper line active">
+
+    <%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => {:method => :post, class: "new-record below48 form-signin"}) do |f| %>
+
+        <%= f.input :email, label: false, placeholder: "Email Address", input_html: {class: "reset_email"} %>
+
+        <div class="lastUnit col-xs-12 below24 btn-form">
+          <%= f.button :submit, class: "btn btn-default btn-block btn-embossed btn-loading",
+            value: "Send password reset instructions", "data-loading-text" => "Sending password reset instructions..." %>
+        </div>
+
+        <div class="alignc">
+          <%= render(partial: "users/shared/links") %>
+        </div>
+
+        <div class="login-footer">
+          <a href="http://www.agentbright.com">
+            <div class="footer-logo"></div>
+          </a>
+          <span class="dim-el"> ©2010-2014 All Rights Reserved. <a rel="noopener noreferrer" href="http://agentbright.com/terms-of-service/" target="_blank" tabindex="-1">Privacy
+            and Terms</a></span>
+        </div>
+
+    <% end %>
+
+  </div>
+</div>

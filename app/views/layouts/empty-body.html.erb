@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" class="empty-body-layout">
+  <head>
+    <%= render(partial: "application/head_contents") %>
+  </head>
+
+  <body id="<%= "%s_%s" % [controller_name, action_name] %> <%= @layout_carrier.env_banner %>">
+
+    <%= render(partial: "shared/environment_banner") %>
+
+    <%= yield %>
+
+    <%= render(partial: "application/extra_content") %>
+
+  </body>
+</html>

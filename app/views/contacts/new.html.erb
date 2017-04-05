@@ -1,0 +1,7 @@
+<% content_for(:back_button, contacts_path) %>
+<%= page_header(
+  primary_name: "Contacts",
+  primary_path: contacts_path,
+  secondary_name: "Add Contact"
+) %>
+<%= render(partial: "form") %>

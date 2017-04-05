@@ -1,0 +1,36 @@
+<div id="calendar" class="below24 relative">
+  <h3>Calendar</h3>
+  <div class="calendar-list">
+      <% unique_cal_date_label = "" %>
+      <% events.each do |event| %>
+        <% if not event.title == "Happy birthday!" %>
+          <% if event_has_unique_date_attribute(event, unique_cal_date_label) %>
+            <% unique_cal_date_label = event_cal_date_attribute(event) %>
+            <% unique_day_date_label = event_day_date_attribute(event) %>
+            <div class="calendar-day">
+              <span class="cal-date"><%= unique_cal_date_label %></span>
+                <br />
+              <span class="cal-day-of-week"><%= unique_day_date_label %></span>
+            </div><!-- /.calendar-day -->
+          <% end %>
+          <% if event.location %>
+            <div class="calendar-event event-location" style="background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)), url('<%= event_location_url(event) %>');">
+          <% else %>
+            <div class="calendar-event">
+          <% end %>
+            <!-- <div class="calendar-person">
+              <span class="initials-36 circle user-avatar nomargin float-right" style="background-image: url(https://agentbright-production2.s3.amazonaws.com/uploads/image/file/40/Patrick_O_Grady_Headshot.jpg);"></span>
+            </div> //Extra div to hold image -->
+
+            <div class="calendar-content">
+              <h3><%= event.title %></h3>
+              <h4><%= formated_nilas_event_start_to_end_time(event) %></h4>
+              <% if event.location %>
+                <h4><%= event.location %></h4>
+              <% end %>
+            </div><!-- /.calendar-content -->
+          </div><!-- /.calendar-event -->
+        <% end %>
+      <% end %>
+  </div><!-- /.calendar-list -->
+</div><!-- /#calendar.below24 -->

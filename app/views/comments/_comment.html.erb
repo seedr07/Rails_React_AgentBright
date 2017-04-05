@@ -1,0 +1,27 @@
+<% cache(comment) do %>
+  <div id="comment_<%= comment.id %>">
+    <span class="act-img">
+      <% if current_user.user_has_teammates? %>
+        <%= display_user_avatar(comment.user, 50, "circle").html_safe %>
+      <% else %>
+        <span class="initials-50 circle comment-icon"><span class="fui-chat"></span></span>
+      <% end %>
+    </span>
+    <div class="listed-comment">
+      <% if current_user.user_has_teammates? %>
+        <h4><%= comment.user.nil? ? 'Anonymous' : comment.user.full_name %></h4>
+      <% end %>
+      <p id="comment_content_<%= comment.id %>">
+        <%= safe_join(comment.content.split("\r\n"), "<br />".html_safe) %>
+      </p>
+      <p class="dim-el small-meta">
+        <%= display_posted_time(comment) %>
+        <% if comment.user == current_user || @commentable.user == current_user %>
+          - <%= link_to 'Edit', [:edit, @commentable, comment], remote: true %> or
+          <%= link_to "Delete", [@commentable, comment], method: :delete, data: { confirm: 'Are you sure you want to delete this comment?' }, remote: true %>
+        <% end %>
+      </p>
+    </div>
+    <hr>
+  </div>
+<% end %>

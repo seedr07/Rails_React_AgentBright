@@ -1,0 +1,15 @@
+<% cache(["comment_list", @comments.pluck(:id), @comments.maximum(:updated_at)]) do %>
+  <div id="comments">
+    <% if @comments.empty? %>
+      <%= no_data_block(
+        icon_class: "glyphicon glyphicon-comment",
+        title: "Looks like you haven't created any comments.",
+        message: "No time like the present!",
+        block_id: "comment_emptymessage"
+      ) %>
+    <% else %>
+      <%= render @comments %>
+    <% end %>
+  </div>
+<% end %>
+

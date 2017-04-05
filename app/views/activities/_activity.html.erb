@@ -1,0 +1,24 @@
+<div class="activity_container">
+  <article class="activity">
+  <%= activity_icon("info", "fui-user") %>
+    <div class="activity-flat-container">
+      <div class="activity-flat">
+        <%= render 'public_activity/shared/activity_timestamp', activity: activity %>
+        <div class="action">
+          <span class="creator"><%= activity.owner.first_name if activity.owner %></span>
+          <span class="in_timeline">updated the contact<span class="suffix">:</span> <%= link_to human_activity_name(activity), contact_path(activity.recipient), { class: "decorated" } %></span>
+          <span class="in_project">updated the contact<span class="suffix">:</span> <%= link_to human_activity_name(activity), contact_path(activity.recipient), { class: "decorated" }  %></span>
+          <span class="bucket">in <%= link_to human_activity_name(activity), contact_path(activity.recipient) %></span>
+          <div class="excerpt">
+            <div class="in_timeline">
+              <%= render 'public_activity/shared/changes', activity: activity %>
+            </div><!-- /.in_timeline comment -->
+            <div class="in_project">
+              <%= render 'public_activity/shared/changes', activity: activity %>
+            </div><!-- /.in_project comment -->
+          </div><!-- /.excerpt -->
+        </div><!-- /.action -->
+      </div><!-- /.activity-flat -->
+    </div><!-- /.activity-flat-container -->
+  </article><!-- /.activity -->
+</div><!-- /.activity_container -->

@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.nylas.com/delta/latest_cursor
+    body:
+      encoding: UTF-8
+      string: content_type=json
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Length:
+      - '17'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Nylas Ruby SDK 2.0.1 - 2.3.1
+      Authorization:
+      - Basic NzRhYUpZTFd6dDJkaXpHNnVFNjM0Tlg1Q3VqTXVSOg==
+      X-Inbox-Api-Wrapper:
+      - ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.6.2
+      Date:
+      - Thu, 06 Oct 2016 16:38:15 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '45'
+      Access-Control-Allow-Headers:
+      - Authorization,Accept,Cache-Control,X-Requested-With,Content-Type
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE,OPTIONS
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "cursor": "625g26m3e6fvn42v4aedjzcc9"
+        }
+    http_version: 
+  recorded_at: Thu, 06 Oct 2016 16:38:15 GMT
+recorded_with: VCR 3.0.3

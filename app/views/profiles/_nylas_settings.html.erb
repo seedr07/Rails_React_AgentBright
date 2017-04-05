@@ -1,0 +1,64 @@
+<% if nylas_account %>
+  <h2>Account:</h2>
+  <div class="row sub-section">
+    <div class="col-xs-12 basic-table">
+      <div class="line section nomargin">
+        <table class="ab-table stay-table">
+          <thead>
+          <tr>
+            <th width="35%">Account</th>
+            <th width="20%">Provider</th>
+            <th width="30%">Services</th>
+            <th class="nowrap alignr"></th>
+          </tr>
+          </thead>
+          <tbody>
+
+              <tr>
+                <td class="bk-word">
+                  <%= nylas_account.email_address %><br>
+                  <% if super_admin_signed_in? %>
+                    <span class="small-meta fsi"><%= current_user.nylas_token %></span><br>
+                  <% end %>
+                  <% if current_user.nylas_sync_status.present? %>
+                    Sync status: <b><%= current_user.nylas_sync_status %> </b>
+                  <% end %>
+                </td>
+                <td class="bk-word">
+                  <%= nylas_account.provider.try(:titleize) %>
+                </td>
+                <td class="bk-word">
+                  Email<br>
+                  Calendar (<%= link_to("Settings", edit_calendar_settings_path) %>)<br>
+                  Contacts
+                </td>
+                <td class="col-sm-3 alignr">
+                  <% if !current_user.nylas_account_valid? %>
+                    <%= link_to "Reauthenticate", add_inbox_email_path, class: "btn btn-sm btn-success nomargin" %>
+                    <br/><br/>
+                  <% end %>
+                    <%= link_to "Remove Account", delete_nylas_token_path, class: "btn btn-sm btn-danger nomargin" %>
+                </td>
+              </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% if current_user.nylas_token.blank? %>
+  <div class="row sub-section">
+    <div class="col-xs-12">
+      <%= form_tag add_inbox_email_path, method: :get do %>
+        <h3>Add an account</h3>
+        <legend>Enter the email address associated with the account.</legend>
+        <%= text_field_tag 'email', nil, class: 'form-control' %>
+        <%= submit_tag "Add account",
+                        class: "btn btn-primary btn-embossed btn-loading",
+                     data: { "loading-text" => "Adding..." } %>
+      <% end %>
+    </div><!-- /.col-xs-12 -->
+  </div><!-- /.row -->
+<% end %>

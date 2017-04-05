@@ -1,0 +1,1867 @@
+<!--
+*******************************************
+Note: The purpose of views/designs/ is for
+building frontend markup only. Do not add
+ERB or javascript to this page. Copy and
+paste this markup, and then integrate that
+code in its rightful location with the app
+backend.
+
+With very few exceptions, this file should
+remain pure front-end HTML/CSS/JS.
+*******************************************
+-->
+
+<style>
+  .ab-search-bar-header {
+    display: flex;
+  }
+
+  @media only screen and (max-width: 991px) {
+    .ab-search-bar-header {
+      flex-direction: column;
+    }
+  }
+
+  .ab-search-bar-header-left {
+    flex-grow: 1;
+  }
+
+  .ab-search-bar-header-right {
+    flex: 0 1 auto;
+  }
+
+  .ab-contacts-select-menu {
+    flex-wrap: wrap;
+  }
+
+  .ui.sortable.table thead th {
+    border-left: none;
+  }
+
+  .ui.sortable.table thead th.no-sort:hover {
+    background: transparent;
+    cursor: auto;
+    color: rgba(0, 0, 0, 0.87);
+  }
+
+  td.ab-status-column {
+    width: 10px;
+    height: 100%;
+    padding: 0 !important;
+    position: relative;
+  }
+
+  td.ab-status-column > .ab-status {
+    position: absolute;
+    top: 0;
+    width: 10px;
+    height: 100%;
+    background-color: #ddd;
+    display: inline-block;
+  }
+
+  td.ab-status-column > .ab-status.ab-positive-status {
+    background-color: #21BA45;
+  }
+
+  td.ab-status-column > .ab-status.ab-warning-status {
+    background-color: #FFD700;
+  }
+
+  td.ab-status-column > .ab-status.ab-negative-status {
+    background-color: #DB2828;
+  }
+
+  .ui.fixed.sticky + table {
+    margin-top: 61px;
+  }
+</style>
+
+<div class="main ui container">
+  <div class="ui vertical basic segment">
+    <div class="ui stackable grid">
+      <div class="three wide column">
+        <div class="ui vertical accordion menu fluid" data-ui-behavior="accordion-filter">
+          <div class="item">
+            <div class="active title">
+              <i class="dropdown icon"></i>
+              Groups
+            </div>
+            <div class="active content">
+              <div class="ui form">
+                <div class="grouped fields">
+                  <div class="field">
+                    <div class="ui checkbox" data-ui-behavior="checkbox">
+                      <input type="checkbox" name="example">
+                      <label class="fsi">None</label>
+                    </div>
+                  </div><!-- /.field -->
+                  <div class="field">
+                    <div class="ui checkbox" data-ui-behavior="checkbox">
+                      <input type="checkbox" name="example">
+                      <label>Current Clients</label>
+                    </div>
+                  </div><!-- /.field -->
+                  <div class="field">
+                    <div class="ui checkbox" data-ui-behavior="checkbox">
+                      <input type="checkbox" name="example">
+                      <label>Past Clients</label>
+                    </div>
+                  </div><!-- /.field -->
+                  <div class="field">
+                    <div class="ui checkbox" data-ui-behavior="checkbox">
+                      <input type="checkbox" name="example">
+                      <label>Realtors</label>
+                    </div>
+                  </div><!-- /.field -->
+                  <div class="field">
+                    <div class="ui checkbox" data-ui-behavior="checkbox">
+                      <input type="checkbox" name="example">
+                      <label>Vendors</label>
+                    </div>
+                  </div><!-- /.field -->
+                </div><!-- /.grouped fields -->
+                <a href="#">More ></a>
+              </div><!-- /.ui form -->
+            </div>
+          </div><!-- /.item -->
+          <div class="item">
+            <div class="title">
+              <i class="dropdown icon"></i>
+              Grades
+            </div>
+            <div class="content">
+              <div class="ui form">
+                <div class="grouped fields">
+                  <div class="field">
+                    <div class="ui checkbox" data-ui-behavior="checkbox">
+                      <input type="checkbox" />
+                      <label for="">A+</label>
+                    </div><!-- /.ui checkbox -->
+                  </div><!-- /.field -->
+                  <div class="field">
+                    <div class="ui checkbox" data-ui-behavior="checkbox">
+                      <input type="checkbox" />
+                      <label for="">A</label>
+                    </div><!-- /.ui checkbox -->
+                  </div><!-- /.field -->
+                  <div class="field">
+                    <div class="ui checkbox" data-ui-behavior="checkbox">
+                      <input type="checkbox" />
+                      <label for="">B</label>
+                    </div><!-- /.ui checkbox -->
+                  </div><!-- /.field -->
+                  <div class="field">
+                    <div class="ui checkbox" data-ui-behavior="checkbox">
+                      <input type="checkbox" />
+                      <label for="">C</label>
+                    </div><!-- /.ui checkbox -->
+                  </div><!-- /.field -->
+                  <div class="field">
+                    <div class="ui checkbox" data-ui-behavior="checkbox">
+                      <input type="checkbox" />
+                      <label for="">D</label>
+                    </div><!-- /.ui checkbox -->
+                  </div><!-- /.field -->
+                  <div class="field">
+                    <div class="ui checkbox" data-ui-behavior="checkbox">
+                      <input type="checkbox" />
+                      <label for="">N/A</label>
+                    </div><!-- /.ui checkbox -->
+                  </div><!-- /.field -->
+                  <div class="field">
+                    <div class="ui checkbox" data-ui-behavior="checkbox">
+                      <input type="checkbox" />
+                      <label class="fsi">None</label>
+                    </div><!-- /.ui checkbox -->
+                  </div><!-- /.field -->
+                </div><!-- /.grouped fields -->
+              </div><!-- /.ui form -->
+            </div>
+          </div><!-- /.item -->
+          <div class="item">
+            <div class="title">
+              <i class="dropdown icon"></i>
+              Owned By
+            </div>
+            <div class="content">
+              <div class="ui form">
+                <div class="grouped fields">
+                  <div class="field">
+                    <div class="ui checkbox" data-ui-behavior="checkbox">
+                      <input type="checkbox" />
+                      <label class="fsi">None</label>
+                    </div><!-- /.ui checkbox -->
+                  </div><!-- /.field -->
+                  <div class="field">
+                    <div class="ui checkbox" data-ui-behavior="checkbox">
+                      <input type="checkbox" />
+                      <label>John Smith</label>
+                    </div><!-- /.ui checkbox -->
+                  </div><!-- /.field -->
+                  <div class="field">
+                    <div class="ui checkbox" data-ui-behavior="checkbox">
+                      <input type="checkbox" />
+                      <label>Jane Jones</label>
+                    </div><!-- /.ui checkbox -->
+                  </div><!-- /.field -->
+                </div><!-- /.grouped fields -->
+              </div><!-- /.ui form -->
+            </div>
+          </div><!-- /.item -->
+          <div class="item">
+            <div class="title">
+              <i class="dropdown icon"></i>
+              Transactions
+            </div>
+            <div class="content">
+              <div class="ui form">
+                <div class="grouped fields">
+                  <div class="field">
+                    <div class="ui icon input">
+                      <input class="prompt" type="text" placeholder="Search transactions...">
+                      <i class="search icon"></i>
+                    </div>
+                  </div><!-- /.field -->
+                  <div class="field">
+                    <div class="ui checkbox" data-ui-behavior="checkbox">
+                      <input type="checkbox" />
+                      <label for="" class="fsi">None</label>
+                    </div><!-- /.ui checkbox -->
+                  </div><!-- /.field -->
+                  <div class="field">
+                    <div class="ui checkbox" data-ui-behavior="checkbox">
+                      <input type="checkbox" />
+                      <label for="">19 Birch Hill Rd., Lyme</label>
+                    </div><!-- /.ui checkbox -->
+                  </div><!-- /.field -->
+                  <div class="field">
+                    <div class="ui checkbox" data-ui-behavior="checkbox">
+                      <input type="checkbox" />
+                      <label for="">3544 Crowne Point Rd., Louisville</label>
+                    </div><!-- /.ui checkbox -->
+                  </div><!-- /.field -->
+                  <div class="field">
+                    <div class="ui checkbox" data-ui-behavior="checkbox">
+                      <input type="checkbox" />
+                      <label for="">5 Essex Square, APT 2B, Essex</label>
+                    </div><!-- /.ui checkbox -->
+                  </div><!-- /.field -->
+                </div><!-- /.grouped fields -->
+                <a href="#">See All ></a>
+              </div><!-- /.ui form -->
+            </div>
+          </div><!-- /.item -->
+          <div class="item">
+            <div class="title">
+              <i class="dropdown icon"></i>
+              Campaigns
+            </div>
+            <div class="active content">
+              <div class="ui form">
+                <div class="grouped fields">
+                  <div class="field">
+                    <div class="ui icon input">
+                      <input class="prompt" type="text" placeholder="Search campaigns...">
+                      <i class="search icon"></i>
+                    </div>
+                  </div><!-- /.field -->
+                  <div class="field">
+                    <div class="ui checkbox" data-ui-behavior="checkbox">
+                      <input type="checkbox" />
+                      <label for="" class="fsi">None</label>
+                    </div><!-- /.ui checkbox -->
+                  </div><!-- /.field -->
+                  <div class="field">
+                    <div class="ui checkbox" data-ui-behavior="checkbox">
+                      <input type="checkbox" />
+                      <label for="">Monthly newsletter</label>
+                    </div><!-- /.ui checkbox -->
+                  </div><!-- /.field -->
+                  <div class="field">
+                    <div class="ui checkbox" data-ui-behavior="checkbox">
+                      <input type="checkbox" />
+                      <label for="">Lead recapture</label>
+                    </div><!-- /.ui checkbox -->
+                  </div><!-- /.field -->
+                  <div class="field">
+                    <div class="ui checkbox" data-ui-behavior="checkbox">
+                      <input type="checkbox" />
+                      <label for="">Christmas cards</label>
+                    </div><!-- /.ui checkbox -->
+                  </div><!-- /.field -->
+                </div><!-- /.grouped fields -->
+                <a data-ui-behavior="see-all-campaigns-link">See All ></a>
+              </div><!-- /.ui form -->
+            </div>
+          </div><!-- /.item -->
+          <div class="item">
+            <div class="title">
+              <i class="dropdown icon"></i>
+              Frequency
+            </div>
+            <div class="content m-t">
+              <div class="ui tiny form">
+                <h5 class="ui dividing header">Last contacted:</h5>
+                <div class="two fields">
+                  <div class="field">
+                    <label for="last_contacted_after_date">After</label>
+                    <div class="ui calendar" data-ui-behavior="calendar_date">
+                      <div class="ui input left icon">
+                        <i class="calendar icon"></i>
+                        <input type="text" name="last_contacted_after_date" />
+                      </div><!-- /.ui input left icon -->
+                    </div><!-- /.ui calendar -->
+                  </div><!-- /.field -->
+                  <div class="field">
+                    <label for="last_contacted_before_date">Before</label>
+                    <div class="ui calendar" data-ui-behavior="calendar_date">
+                      <div class="ui input left icon">
+                        <i class="calendar icon"></i>
+                        <input type="text" name="last_contacted_before_date" />
+                      </div><!-- /.ui input left icon -->
+                    </div><!-- /.ui calendar -->
+                  </div><!-- /.field -->
+                </div><!-- /.two fields -->
+                <h5 class="ui dividing header">Added:</h5>
+                <div class="two fields">
+                  <div class="field">
+                    <label for="added_after_date">After</label>
+                    <div class="ui calendar" data-ui-behavior="calendar_date">
+                      <div class="ui input left icon">
+                        <i class="calendar icon"></i>
+                        <input type="text" name="added_after_date" />
+                      </div><!-- /.ui input left icon -->
+                    </div><!-- /.ui calendar -->
+                  </div><!-- /.field -->
+                  <div class="field">
+                    <label for="added_before_date">Before</label>
+                    <div class="ui calendar" data-ui-behavior="calendar_date">
+                      <div class="ui input left icon">
+                        <i class="calendar icon"></i>
+                        <input type="text" name="added_before_date" />
+                      </div><!-- /.ui input left icon -->
+                    </div><!-- /.ui calendar -->
+                  </div><!-- /.field -->
+                </div><!-- /.two fields -->
+                <h5 class="ui dividing header">Times contacted:</h5>
+                <div class="two fields">
+                  <div class="field">
+                    <label for="">Min</label>
+                    <input type="text" />
+                  </div><!-- /.field -->
+                  <div class="field">
+                    <label for="">Max</label>
+                    <input type="text" />
+                  </div><!-- /.field -->
+                </div><!-- /.two fields -->
+              </div><!-- /.ui form -->
+            </div>
+          </div><!-- /.item -->
+          <div class="item">
+            <div class="title">
+              <i class="dropdown icon"></i>
+              Accounts
+            </div>
+            <div class="content">
+              <div class="ui form">
+                <div class="grouped fields">
+                  <div class="field">
+                    <div class="ui checkbox" data-ui-behavior="checkbox">
+                      <input type="checkbox" />
+                      <label for="">johnsmith@gmail.com</label>
+                    </div><!-- /.ui checkbox -->
+                  </div><!-- /.field -->
+                  <div class="field">
+                    <div class="ui checkbox" data-ui-behavior="checkbox">
+                      <input type="checkbox" />
+                      <label for="">Facebook - John Smith</label>
+                    </div><!-- /.ui checkbox -->
+                  </div><!-- /.field -->
+                  <div class="field">
+                    <div class="ui checkbox" data-ui-behavior="checkbox">
+                      <input type="checkbox" />
+                      <label for="">Twitter - @johnny234</label>
+                    </div><!-- /.ui checkbox -->
+                  </div><!-- /.field -->
+                </div><!-- /.grouped fields -->
+              </div><!-- /.ui form -->
+            </div>
+          </div><!-- /.item -->
+        </div>
+      </div><!-- /.three wide column -->
+      <div class="thirteen wide column">
+
+        <div class="ui segments">
+
+          <div class="ui segment">
+
+            <div class="ab-search-bar-header">
+
+              <div class="ab-search-bar-header-left">
+                <div class="ui icon fluid input">
+                  <input class="prompt" type="text" placeholder="Search contacts...">
+                  <i class="search icon"></i>
+                </div>
+              </div><!-- /.ab-search-bar-header-left -->
+
+              <div class="ab-search-bar-header-right">
+                <div class="p-l display-inline-block">
+                  <div class="ui basic button hide-tablet-and-up">
+                    <span class="text">Filter</span>
+                  </div><!-- /.ui basic button -->
+                  <div class="ui dropdown basic button" data-ui-behavior="dropdown-sort">
+                    <span class="text">Sort</span>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                      <div class="header">Sort contacts by</div><!-- /.header -->
+                      <div class="item">Recommended</div><!-- /.item -->
+                      <div class="item">Most Recent</div><!-- /.item -->
+                      <div class="item">Least Recent</div><!-- /.item -->
+                      <div class="item">Most Contacted</div><!-- /.item -->
+                      <div class="item">Least Contacted</div><!-- /.item -->
+                      <div class="item">First Name</div><!-- /.item -->
+                      <div class="item">First Name (Z-A)</div><!-- /.item -->
+                      <div class="item">Last Name</div><!-- /.item -->
+                      <div class="item">Last Name (Z-A)</div><!-- /.item -->
+                    </div><!-- /.menu -->
+                  </div><!-- /.ui dropdown button -->
+                </div><!-- /.p-l -->
+
+                <div class="ui small basic buttons">
+                  <div class="ui button">
+                    <span class="text">1</span>
+                  </div><!-- /.ui button -->
+                  <div class="ui button">
+                    <span class="text">2</span>
+                  </div><!-- /.ui button -->
+                  <div class="ui disabled button">
+                    <span class="text">...</span>
+                  </div><!-- /.ui button -->
+                  <div class="ui button">
+                    <span class="text">13</span>
+                  </div><!-- /.ui button -->
+                  <div class="ui icon button">
+                    <i class="right chevron icon"></i>
+                  </div><!-- /.ui button -->
+                </div><!-- /.ui buttons -->
+                
+              </div><!-- /.ab-search-bar-header-right -->
+              
+            </div><!-- /.ab-search-bar-header -->
+            <div class="ui basic segment p-a-0">
+              <a class="ui label">
+                <i class="filter icon"></i>
+                Group: Family
+                <i class="delete icon"></i>
+              </a>
+
+              <a class="ui label">
+                <i class="filter icon"></i>
+                Group: Friends
+                <i class="delete icon"></i>
+              </a>
+
+              <a class="ui label">
+                <i class="filter icon"></i>
+                Grade: A+
+                <i class="delete icon"></i>
+              </a>
+
+              <span>  |  <a href="#">Clear Filters</a></span>
+              <div class="ui flowing popup transition hidden" data-ui-behavior="mass-update-grade-popup">
+                <h5>Change grade:</h5>
+                <div class="ui large labels">
+                  <a class="ui green circular label">A+</a>
+                  <a class="ui teal circular basic label">A</a>
+                  <a class="ui yellow circular basic label">B</a>
+                  <a class="ui orange circular basic label">C</a>
+                  <a class="ui red circular basic label">D</a>
+                  <a class="ui grey circular basic label">NA</a>
+                  <a href="#">Cancel</a>
+                </div><!-- /.ui labels -->
+              </div><!-- /.ui flowing popup -->
+            </div><!-- /.ui basic segment -->
+
+          </div><!-- /.ui segment -->
+
+          <div class="ui segment p-a-0">
+
+            <div class="ui sticky" data-ui-behavior="contacts-select-menu">
+
+                <div class="ui inverted menu ab-contacts-select-menu">
+                  <div class="left menu">
+                    <a class="item">Add activity</a>
+                    <a class="item">Edit groups</a>
+                    <div class="item">
+                      <div class="ui dropdown" data-ui-behavior="more-actions-dropdown">
+                        <div class="text">More...</div><!-- /.text -->
+                        <div class="menu">
+                          <div class="header">Edit contacts by</div><!-- /.header -->
+                          <div class="item" data-ui-behavior="mass-update-grade-popup-trigger">
+                            <i class="users icon"></i>
+                            Grade
+                          </div><!-- /.item -->
+                          <div class="item">
+                            <i class="mail icon"></i>
+                            Email Campaigns
+                          </div><!-- /.item -->
+                        </div><!-- /.menu -->
+                      </div><!-- /.ui dropdown -->
+                    </div><!-- /.item -->
+                  </div><!-- /.left menu -->
+                  <div class="borderless item">
+                    <span>3 Contacts Selected | <a href="#">Clear</a></span>
+                  </div><!-- /.item -->
+                  <div class="right menu">
+                    <a class="item" data-ui-behavior="merge-button">Merge</a>
+                    <a class="item" data-ui-behavior="delete-contacts-button">
+                      <i class="large trash outline icon m-a-0"></i>
+                    </a>
+                  </div>
+                </div>
+
+            </div><!-- /.ui fixed bottom sticky -->
+
+            <table class="ui sortable very basic table" data-ui-behavior="sortable-table">
+              <thead>
+                <tr>
+                  <th class="no-sort collapsing p-a-0"></th><!-- /.no-sort collapsing -->
+                  <th class="no-sort collapsing">
+                    <div class="ui fitted checkbox" data-ui-behavior="select-all-checkbox-popover" data-html="Select all <a href='#'>150 contacts</a> in the search." data-variation="inverted">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </th>
+                  <th class="no-sort collapsing"></th>
+                  <th class="">Name</th>
+                  <th class="collapsing">Grade</th>
+                  <th class="">Group</th>
+                  <th class="collapsing">Last Contact</th>
+                  <th class="no-sort">Phone</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="ab-status-column">
+                    <div class="ab-status ab-positive-status"></div><!-- /.ab-status -->
+                  </td>
+                  <td>
+                    <div class="ui fitted checkbox">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <img class="ui mini rounded image" src="http://semantic-ui.com/images/avatar2/small/lindsay.png">
+                  </td>
+                  <td>
+                    <div class="item">
+                      <div class="ui small header">
+                        <div class="content">
+                          Lindsay Bungenstock
+                          <a class="sub header" href="mailto:lbungenstock@interior.home.gov">lbungenstock@interior.home.gov</a><!-- /.sub header -->
+                          <div class="sub header">Senior Conservatorship Specialist, FHFA</div><!-- /.sub header -->
+                        </div><!-- /.content -->
+                      </div><!-- /.ui small header -->
+                    </div><!-- /.item -->
+                  </td>
+                  <td data-sort-value="6">
+                    <a data-ui-behavior="grade-select-popup-trigger">A+</a>
+                    <div class="ui flowing popup top left transition hidden" data-ui-behavior="grade-select-popup">
+                      <h5>Change grade:</h5>
+                      <div class="ui large labels">
+                        <a class="ui green circular label">A+</a>
+                        <a class="ui teal circular basic label">A</a>
+                        <a class="ui yellow circular basic label">B</a>
+                        <a class="ui orange circular basic label">C</a>
+                        <a class="ui red circular basic label">D</a>
+                        <a class="ui grey circular basic label">NA</a>
+                        <a href="#">Cancel</a>
+                      </div><!-- /.ui labels -->
+                    </div><!-- /.ui flowing popup -->
+                  </td>
+                  <td>
+                    Friends
+                    <i class="dropdown icon"></i>
+                  </td>
+                  <td data-sort-value="1473778039">
+                    <p>10:06am<br /><small>by you</small></p>
+                  </td>
+                  <td>
+                    (614) 981-0855
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ab-status-column">
+                    <div class="ab-status"></div><!-- /.ab-status -->
+                  </td>
+                  <td>
+                    <div class="ui fitted checkbox">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <img class="ui mini rounded image" src="http://semantic-ui.com/images/avatar/small/jenny.jpg">
+                  </td>
+                  <td>
+                    <div class="item">
+                      <div class="ui small header">
+                        <div class="content">
+                          Jennifer Joy
+                          <a class="sub header" href="mailto:jjoy@select.cigna.com">jjoy@select.cigna.com</a><!-- /.sub header -->
+                          <div class="sub header">Chief Operating Officer, Cigna Select</div><!-- /.sub header -->
+                        </div><!-- /.content -->
+                      </div><!-- /.ui small header -->
+                    </div><!-- /.item -->
+                  </td>
+                  <td class="disabled" data-sort-value="0">
+                    None
+                  </td>
+                  <td class="disabled" data-sort-value="zzzzz">
+                    None
+                  </td>
+                  <td data-sort-value="1473697655">
+                    <p>Yesterday<br /><small>by you</small></p>
+                  </td>
+                  <td>
+                    (860) 227-3482
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ab-status-column">
+                    <div class="ab-status ab-positive-status"></div><!-- /.ab-status -->
+                  </td>
+                  <td>
+                    <div class="ui fitted checkbox">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <img class="ui mini rounded image" src="http://semantic-ui.com/images/avatar/small/helen.jpg">
+                  </td>
+                  <td>
+                    <div class="item">
+                      <div class="ui small header">
+                        <div class="content">
+                          Helen Thomas
+                        </div><!-- /.content -->
+                      </div><!-- /.ui small header -->
+                    </div><!-- /.item -->
+                  </td>
+                  <td data-sort-value="3">
+                    C
+                  </td>
+                  <td>
+                    Vendors
+                    <i class="dropdown icon"></i><br />
+                    <small>+ 1 more</small>
+                  </td>
+                  <td data-sort-value="1463156603">
+                    <p>May 9<br /><small>by you</small></p>
+                  </td>
+                  <td>
+                    (860) 446-3492
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ab-status-column">
+                    <div class="ab-status ab-warning-status"></div><!-- /.ab-status -->
+                  </td>
+                  <td>
+                    <div class="ui fitted checkbox">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <img class="ui mini rounded image" src="http://semantic-ui.com/images/avatar/small/veronika.jpg">
+                  </td>
+                  <td>
+                    <div class="item">
+                      <div class="ui small header">
+                        <div class="content">
+                          Kylee Burgess
+                          <a class="sub header" href="mailto:kylee124@notes.american.edu">kylee124@notes.american.edu</a><!-- /.sub header -->
+                        </div><!-- /.content -->
+                      </div><!-- /.ui small header -->
+                    </div><!-- /.item -->
+                  </td>
+                  <td data-sort-value="4">
+                    B
+                  </td>
+                  <td>
+                    Friends
+                    <i class="dropdown icon"></i>
+                  </td>
+                  <td data-sort-value="1465835338">
+                    <p>June 19<br /><small>by you</small></p>
+                  </td>
+                  <td>
+                    (202) 948-3491
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ab-status-column">
+                    <div class="ab-status ab-negative-status"></div><!-- /.ab-status -->
+                  </td>
+                  <td>
+                    <div class="ui fitted checkbox">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <img class="ui mini rounded image" src="http://semantic-ui.com/images/avatar/small/christian.jpg">
+                  </td>
+                  <td>
+                    <div class="item">
+                      <div class="ui small header">
+                        <div class="content">
+                          Christian Grey
+                          <a class="sub header" href="mailto:christian@grey.co">christian@grey.co</a><!-- /.sub header -->
+                          <div class="sub header">CEO, Grey Enterprise Holdings, Inc.</div><!-- /.sub-header -->
+                        </div><!-- /.content -->
+                      </div><!-- /.ui small header -->
+                    </div><!-- /.item -->
+                  </td>
+                  <td data-sort-value="4">
+                    B
+                  </td>
+                  <td>
+                    Friends
+                    <i class="dropdown icon"></i>
+                  </td>
+                  <td data-sort-value="1440000000">
+                    <p>Jan 20<br /><small>by you</small></p>
+                  </td>
+                  <td>
+                    (206) 301-5001
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ab-status-column">
+                    <div class="ab-status ab-positive-status"></div><!-- /.ab-status -->
+                  </td>
+                  <td>
+                    <div class="ui fitted checkbox">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <img class="ui mini rounded image" src="http://semantic-ui.com/images/avatar2/small/lindsay.png">
+                  </td>
+                  <td>
+                    <div class="item">
+                      <div class="ui small header">
+                        <div class="content">
+                          Lindsay Bungenstock
+                          <a class="sub header" href="mailto:lbungenstock@interior.home.gov">lbungenstock@interior.home.gov</a><!-- /.sub header -->
+                          <div class="sub header">Senior Conservatorship Specialist, FHFA</div><!-- /.sub header -->
+                        </div><!-- /.content -->
+                      </div><!-- /.ui small header -->
+                    </div><!-- /.item -->
+                  </td>
+                  <td data-sort-value="6">
+                    A+
+                  </td>
+                  <td>
+                    Friends
+                    <i class="dropdown icon"></i>
+                  </td>
+                  <td data-sort-value="1473778039">
+                    <p>10:06am<br /><small>by you</small></p>
+                  </td>
+                  <td>
+                    (614) 981-0855
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ab-status-column">
+                    <div class="ab-status"></div><!-- /.ab-status -->
+                  </td>
+                  <td>
+                    <div class="ui fitted checkbox">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <img class="ui mini rounded image" src="http://semantic-ui.com/images/avatar/small/jenny.jpg">
+                  </td>
+                  <td>
+                    <div class="item">
+                      <div class="ui small header">
+                        <div class="content">
+                          Jennifer Joy
+                          <a class="sub header" href="mailto:jjoy@select.cigna.com">jjoy@select.cigna.com</a><!-- /.sub header -->
+                          <div class="sub header">Chief Operating Officer, Cigna Select</div><!-- /.sub header -->
+                        </div><!-- /.content -->
+                      </div><!-- /.ui small header -->
+                    </div><!-- /.item -->
+                  </td>
+                  <td class="disabled" data-sort-value="0">
+                    None
+                  </td>
+                  <td class="disabled" data-sort-value="zzzzz">
+                    None
+                  </td>
+                  <td data-sort-value="1473697655">
+                    <p>Yesterday<br /><small>by you</small></p>
+                  </td>
+                  <td>
+                    (860) 227-3482
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ab-status-column">
+                    <div class="ab-status ab-positive-status"></div><!-- /.ab-status -->
+                  </td>
+                  <td>
+                    <div class="ui fitted checkbox">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <img class="ui mini rounded image" src="http://semantic-ui.com/images/avatar/small/helen.jpg">
+                  </td>
+                  <td>
+                    <div class="item">
+                      <div class="ui small header">
+                        <div class="content">
+                          Helen Thomas
+                        </div><!-- /.content -->
+                      </div><!-- /.ui small header -->
+                    </div><!-- /.item -->
+                  </td>
+                  <td data-sort-value="3">
+                    C
+                  </td>
+                  <td>
+                    Vendors
+                    <i class="dropdown icon"></i><br />
+                    <small>+ 1 more</small>
+                  </td>
+                  <td data-sort-value="1463156603">
+                    <p>May 9<br /><small>by you</small></p>
+                  </td>
+                  <td>
+                    (860) 446-3492
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ab-status-column">
+                    <div class="ab-status ab-warning-status"></div><!-- /.ab-status -->
+                  </td>
+                  <td>
+                    <div class="ui fitted checkbox">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <img class="ui mini rounded image" src="http://semantic-ui.com/images/avatar/small/veronika.jpg">
+                  </td>
+                  <td>
+                    <div class="item">
+                      <div class="ui small header">
+                        <div class="content">
+                          Kylee Burgess
+                          <a class="sub header" href="mailto:kylee124@notes.american.edu">kylee124@notes.american.edu</a><!-- /.sub header -->
+                        </div><!-- /.content -->
+                      </div><!-- /.ui small header -->
+                    </div><!-- /.item -->
+                  </td>
+                  <td data-sort-value="4">
+                    B
+                  </td>
+                  <td>
+                    Friends
+                    <i class="dropdown icon"></i>
+                  </td>
+                  <td data-sort-value="1465835338">
+                    <p>June 19<br /><small>by you</small></p>
+                  </td>
+                  <td>
+                    (202) 948-3491
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ab-status-column">
+                    <div class="ab-status ab-negative-status"></div><!-- /.ab-status -->
+                  </td>
+                  <td>
+                    <div class="ui fitted checkbox">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <img class="ui mini rounded image" src="http://semantic-ui.com/images/avatar/small/christian.jpg">
+                  </td>
+                  <td>
+                    <div class="item">
+                      <div class="ui small header">
+                        <div class="content">
+                          Christian Grey
+                          <a class="sub header" href="mailto:christian@grey.co">christian@grey.co</a><!-- /.sub header -->
+                          <div class="sub header">CEO, Grey Enterprise Holdings, Inc.</div><!-- /.sub-header -->
+                        </div><!-- /.content -->
+                      </div><!-- /.ui small header -->
+                    </div><!-- /.item -->
+                  </td>
+                  <td data-sort-value="4">
+                    B
+                  </td>
+                  <td>
+                    Friends
+                    <i class="dropdown icon"></i>
+                  </td>
+                  <td data-sort-value="1440000000">
+                    <p>Jan 20<br /><small>by you</small></p>
+                  </td>
+                  <td>
+                    (206) 301-5001
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ab-status-column">
+                    <div class="ab-status ab-positive-status"></div><!-- /.ab-status -->
+                  </td>
+                  <td>
+                    <div class="ui fitted checkbox">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <img class="ui mini rounded image" src="http://semantic-ui.com/images/avatar2/small/lindsay.png">
+                  </td>
+                  <td>
+                    <div class="item">
+                      <div class="ui small header">
+                        <div class="content">
+                          Lindsay Bungenstock
+                          <a class="sub header" href="mailto:lbungenstock@interior.home.gov">lbungenstock@interior.home.gov</a><!-- /.sub header -->
+                          <div class="sub header">Senior Conservatorship Specialist, FHFA</div><!-- /.sub header -->
+                        </div><!-- /.content -->
+                      </div><!-- /.ui small header -->
+                    </div><!-- /.item -->
+                  </td>
+                  <td data-sort-value="6">
+                    A+
+                  </td>
+                  <td>
+                    Friends
+                    <i class="dropdown icon"></i>
+                  </td>
+                  <td data-sort-value="1473778039">
+                    <p>10:06am<br /><small>by you</small></p>
+                  </td>
+                  <td>
+                    (614) 981-0855
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ab-status-column">
+                    <div class="ab-status"></div><!-- /.ab-status -->
+                  </td>
+                  <td>
+                    <div class="ui fitted checkbox">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <img class="ui mini rounded image" src="http://semantic-ui.com/images/avatar/small/jenny.jpg">
+                  </td>
+                  <td>
+                    <div class="item">
+                      <div class="ui small header">
+                        <div class="content">
+                          Jennifer Joy
+                          <a class="sub header" href="mailto:jjoy@select.cigna.com">jjoy@select.cigna.com</a><!-- /.sub header -->
+                          <div class="sub header">Chief Operating Officer, Cigna Select</div><!-- /.sub header -->
+                        </div><!-- /.content -->
+                      </div><!-- /.ui small header -->
+                    </div><!-- /.item -->
+                  </td>
+                  <td class="disabled" data-sort-value="0">
+                    None
+                  </td>
+                  <td class="disabled" data-sort-value="zzzzz">
+                    None
+                  </td>
+                  <td data-sort-value="1473697655">
+                    <p>Yesterday<br /><small>by you</small></p>
+                  </td>
+                  <td>
+                    (860) 227-3482
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ab-status-column">
+                    <div class="ab-status ab-positive-status"></div><!-- /.ab-status -->
+                  </td>
+                  <td>
+                    <div class="ui fitted checkbox">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <img class="ui mini rounded image" src="http://semantic-ui.com/images/avatar/small/helen.jpg">
+                  </td>
+                  <td>
+                    <div class="item">
+                      <div class="ui small header">
+                        <div class="content">
+                          Helen Thomas
+                        </div><!-- /.content -->
+                      </div><!-- /.ui small header -->
+                    </div><!-- /.item -->
+                  </td>
+                  <td data-sort-value="3">
+                    C
+                  </td>
+                  <td>
+                    Vendors
+                    <i class="dropdown icon"></i><br />
+                    <small>+ 1 more</small>
+                  </td>
+                  <td data-sort-value="1463156603">
+                    <p>May 9<br /><small>by you</small></p>
+                  </td>
+                  <td>
+                    (860) 446-3492
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ab-status-column">
+                    <div class="ab-status ab-warning-status"></div><!-- /.ab-status -->
+                  </td>
+                  <td>
+                    <div class="ui fitted checkbox">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <img class="ui mini rounded image" src="http://semantic-ui.com/images/avatar/small/veronika.jpg">
+                  </td>
+                  <td>
+                    <div class="item">
+                      <div class="ui small header">
+                        <div class="content">
+                          Kylee Burgess
+                          <a class="sub header" href="mailto:kylee124@notes.american.edu">kylee124@notes.american.edu</a><!-- /.sub header -->
+                        </div><!-- /.content -->
+                      </div><!-- /.ui small header -->
+                    </div><!-- /.item -->
+                  </td>
+                  <td data-sort-value="4">
+                    B
+                  </td>
+                  <td>
+                    Friends
+                    <i class="dropdown icon"></i>
+                  </td>
+                  <td data-sort-value="1465835338">
+                    <p>June 19<br /><small>by you</small></p>
+                  </td>
+                  <td>
+                    (202) 948-3491
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ab-status-column">
+                    <div class="ab-status ab-negative-status"></div><!-- /.ab-status -->
+                  </td>
+                  <td>
+                    <div class="ui fitted checkbox">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <img class="ui mini rounded image" src="http://semantic-ui.com/images/avatar/small/christian.jpg">
+                  </td>
+                  <td>
+                    <div class="item">
+                      <div class="ui small header">
+                        <div class="content">
+                          Christian Grey
+                          <a class="sub header" href="mailto:christian@grey.co">christian@grey.co</a><!-- /.sub header -->
+                          <div class="sub header">CEO, Grey Enterprise Holdings, Inc.</div><!-- /.sub-header -->
+                        </div><!-- /.content -->
+                      </div><!-- /.ui small header -->
+                    </div><!-- /.item -->
+                  </td>
+                  <td data-sort-value="4">
+                    B
+                  </td>
+                  <td>
+                    Friends
+                    <i class="dropdown icon"></i>
+                  </td>
+                  <td data-sort-value="1440000000">
+                    <p>Jan 20<br /><small>by you</small></p>
+                  </td>
+                  <td>
+                    (206) 301-5001
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ab-status-column">
+                    <div class="ab-status ab-positive-status"></div><!-- /.ab-status -->
+                  </td>
+                  <td>
+                    <div class="ui fitted checkbox">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <img class="ui mini rounded image" src="http://semantic-ui.com/images/avatar2/small/lindsay.png">
+                  </td>
+                  <td>
+                    <div class="item">
+                      <div class="ui small header">
+                        <div class="content">
+                          Lindsay Bungenstock
+                          <a class="sub header" href="mailto:lbungenstock@interior.home.gov">lbungenstock@interior.home.gov</a><!-- /.sub header -->
+                          <div class="sub header">Senior Conservatorship Specialist, FHFA</div><!-- /.sub header -->
+                        </div><!-- /.content -->
+                      </div><!-- /.ui small header -->
+                    </div><!-- /.item -->
+                  </td>
+                  <td data-sort-value="6">
+                    A+
+                  </td>
+                  <td>
+                    Friends
+                    <i class="dropdown icon"></i>
+                  </td>
+                  <td data-sort-value="1473778039">
+                    <p>10:06am<br /><small>by you</small></p>
+                  </td>
+                  <td>
+                    (614) 981-0855
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ab-status-column">
+                    <div class="ab-status"></div><!-- /.ab-status -->
+                  </td>
+                  <td>
+                    <div class="ui fitted checkbox">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <img class="ui mini rounded image" src="http://semantic-ui.com/images/avatar/small/jenny.jpg">
+                  </td>
+                  <td>
+                    <div class="item">
+                      <div class="ui small header">
+                        <div class="content">
+                          Jennifer Joy
+                          <a class="sub header" href="mailto:jjoy@select.cigna.com">jjoy@select.cigna.com</a><!-- /.sub header -->
+                          <div class="sub header">Chief Operating Officer, Cigna Select</div><!-- /.sub header -->
+                        </div><!-- /.content -->
+                      </div><!-- /.ui small header -->
+                    </div><!-- /.item -->
+                  </td>
+                  <td class="disabled" data-sort-value="0">
+                    None
+                  </td>
+                  <td class="disabled" data-sort-value="zzzzz">
+                    None
+                  </td>
+                  <td data-sort-value="1473697655">
+                    <p>Yesterday<br /><small>by you</small></p>
+                  </td>
+                  <td>
+                    (860) 227-3482
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ab-status-column">
+                    <div class="ab-status ab-positive-status"></div><!-- /.ab-status -->
+                  </td>
+                  <td>
+                    <div class="ui fitted checkbox">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <img class="ui mini rounded image" src="http://semantic-ui.com/images/avatar/small/helen.jpg">
+                  </td>
+                  <td>
+                    <div class="item">
+                      <div class="ui small header">
+                        <div class="content">
+                          Helen Thomas
+                        </div><!-- /.content -->
+                      </div><!-- /.ui small header -->
+                    </div><!-- /.item -->
+                  </td>
+                  <td data-sort-value="3">
+                    C
+                  </td>
+                  <td>
+                    Vendors
+                    <i class="dropdown icon"></i><br />
+                    <small>+ 1 more</small>
+                  </td>
+                  <td data-sort-value="1463156603">
+                    <p>May 9<br /><small>by you</small></p>
+                  </td>
+                  <td>
+                    (860) 446-3492
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ab-status-column">
+                    <div class="ab-status ab-warning-status"></div><!-- /.ab-status -->
+                  </td>
+                  <td>
+                    <div class="ui fitted checkbox">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <img class="ui mini rounded image" src="http://semantic-ui.com/images/avatar/small/veronika.jpg">
+                  </td>
+                  <td>
+                    <div class="item">
+                      <div class="ui small header">
+                        <div class="content">
+                          Kylee Burgess
+                          <a class="sub header" href="mailto:kylee124@notes.american.edu">kylee124@notes.american.edu</a><!-- /.sub header -->
+                        </div><!-- /.content -->
+                      </div><!-- /.ui small header -->
+                    </div><!-- /.item -->
+                  </td>
+                  <td data-sort-value="4">
+                    B
+                  </td>
+                  <td>
+                    Friends
+                    <i class="dropdown icon"></i>
+                  </td>
+                  <td data-sort-value="1465835338">
+                    <p>June 19<br /><small>by you</small></p>
+                  </td>
+                  <td>
+                    (202) 948-3491
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ab-status-column">
+                    <div class="ab-status ab-negative-status"></div><!-- /.ab-status -->
+                  </td>
+                  <td>
+                    <div class="ui fitted checkbox">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <img class="ui mini rounded image" src="http://semantic-ui.com/images/avatar/small/christian.jpg">
+                  </td>
+                  <td>
+                    <div class="item">
+                      <div class="ui small header">
+                        <div class="content">
+                          Christian Grey
+                          <a class="sub header" href="mailto:christian@grey.co">christian@grey.co</a><!-- /.sub header -->
+                          <div class="sub header">CEO, Grey Enterprise Holdings, Inc.</div><!-- /.sub-header -->
+                        </div><!-- /.content -->
+                      </div><!-- /.ui small header -->
+                    </div><!-- /.item -->
+                  </td>
+                  <td data-sort-value="4">
+                    B
+                  </td>
+                  <td>
+                    Friends
+                    <i class="dropdown icon"></i>
+                  </td>
+                  <td data-sort-value="1440000000">
+                    <p>Jan 20<br /><small>by you</small></p>
+                  </td>
+                  <td>
+                    (206) 301-5001
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ab-status-column">
+                    <div class="ab-status ab-positive-status"></div><!-- /.ab-status -->
+                  </td>
+                  <td>
+                    <div class="ui fitted checkbox">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <img class="ui mini rounded image" src="http://semantic-ui.com/images/avatar2/small/lindsay.png">
+                  </td>
+                  <td>
+                    <div class="item">
+                      <div class="ui small header">
+                        <div class="content">
+                          Lindsay Bungenstock
+                          <a class="sub header" href="mailto:lbungenstock@interior.home.gov">lbungenstock@interior.home.gov</a><!-- /.sub header -->
+                          <div class="sub header">Senior Conservatorship Specialist, FHFA</div><!-- /.sub header -->
+                        </div><!-- /.content -->
+                      </div><!-- /.ui small header -->
+                    </div><!-- /.item -->
+                  </td>
+                  <td data-sort-value="6">
+                    A+
+                  </td>
+                  <td>
+                    Friends
+                    <i class="dropdown icon"></i>
+                  </td>
+                  <td data-sort-value="1473778039">
+                    <p>10:06am<br /><small>by you</small></p>
+                  </td>
+                  <td>
+                    (614) 981-0855
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ab-status-column">
+                    <div class="ab-status"></div><!-- /.ab-status -->
+                  </td>
+                  <td>
+                    <div class="ui fitted checkbox">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <img class="ui mini rounded image" src="http://semantic-ui.com/images/avatar/small/jenny.jpg">
+                  </td>
+                  <td>
+                    <div class="item">
+                      <div class="ui small header">
+                        <div class="content">
+                          Jennifer Joy
+                          <a class="sub header" href="mailto:jjoy@select.cigna.com">jjoy@select.cigna.com</a><!-- /.sub header -->
+                          <div class="sub header">Chief Operating Officer, Cigna Select</div><!-- /.sub header -->
+                        </div><!-- /.content -->
+                      </div><!-- /.ui small header -->
+                    </div><!-- /.item -->
+                  </td>
+                  <td class="disabled" data-sort-value="0">
+                    None
+                  </td>
+                  <td class="disabled" data-sort-value="zzzzz">
+                    None
+                  </td>
+                  <td data-sort-value="1473697655">
+                    <p>Yesterday<br /><small>by you</small></p>
+                  </td>
+                  <td>
+                    (860) 227-3482
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ab-status-column">
+                    <div class="ab-status ab-positive-status"></div><!-- /.ab-status -->
+                  </td>
+                  <td>
+                    <div class="ui fitted checkbox">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <img class="ui mini rounded image" src="http://semantic-ui.com/images/avatar/small/helen.jpg">
+                  </td>
+                  <td>
+                    <div class="item">
+                      <div class="ui small header">
+                        <div class="content">
+                          Helen Thomas
+                        </div><!-- /.content -->
+                      </div><!-- /.ui small header -->
+                    </div><!-- /.item -->
+                  </td>
+                  <td data-sort-value="3">
+                    C
+                  </td>
+                  <td>
+                    Vendors
+                    <i class="dropdown icon"></i><br />
+                    <small>+ 1 more</small>
+                  </td>
+                  <td data-sort-value="1463156603">
+                    <p>May 9<br /><small>by you</small></p>
+                  </td>
+                  <td>
+                    (860) 446-3492
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ab-status-column">
+                    <div class="ab-status ab-warning-status"></div><!-- /.ab-status -->
+                  </td>
+                  <td>
+                    <div class="ui fitted checkbox">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <img class="ui mini rounded image" src="http://semantic-ui.com/images/avatar/small/veronika.jpg">
+                  </td>
+                  <td>
+                    <div class="item">
+                      <div class="ui small header">
+                        <div class="content">
+                          Kylee Burgess
+                          <a class="sub header" href="mailto:kylee124@notes.american.edu">kylee124@notes.american.edu</a><!-- /.sub header -->
+                        </div><!-- /.content -->
+                      </div><!-- /.ui small header -->
+                    </div><!-- /.item -->
+                  </td>
+                  <td data-sort-value="4">
+                    B
+                  </td>
+                  <td>
+                    Friends
+                    <i class="dropdown icon"></i>
+                  </td>
+                  <td data-sort-value="1465835338">
+                    <p>June 19<br /><small>by you</small></p>
+                  </td>
+                  <td>
+                    (202) 948-3491
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ab-status-column">
+                    <div class="ab-status ab-negative-status"></div><!-- /.ab-status -->
+                  </td>
+                  <td>
+                    <div class="ui fitted checkbox">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <img class="ui mini rounded image" src="http://semantic-ui.com/images/avatar/small/christian.jpg">
+                  </td>
+                  <td>
+                    <div class="item">
+                      <div class="ui small header">
+                        <div class="content">
+                          Christian Grey
+                          <a class="sub header" href="mailto:christian@grey.co">christian@grey.co</a><!-- /.sub header -->
+                          <div class="sub header">CEO, Grey Enterprise Holdings, Inc.</div><!-- /.sub-header -->
+                        </div><!-- /.content -->
+                      </div><!-- /.ui small header -->
+                    </div><!-- /.item -->
+                  </td>
+                  <td data-sort-value="4">
+                    B
+                  </td>
+                  <td>
+                    Friends
+                    <i class="dropdown icon"></i>
+                  </td>
+                  <td data-sort-value="1440000000">
+                    <p>Jan 20<br /><small>by you</small></p>
+                  </td>
+                  <td>
+                    (206) 301-5001
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ab-status-column">
+                    <div class="ab-status ab-positive-status"></div><!-- /.ab-status -->
+                  </td>
+                  <td>
+                    <div class="ui fitted checkbox">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <img class="ui mini rounded image" src="http://semantic-ui.com/images/avatar2/small/lindsay.png">
+                  </td>
+                  <td>
+                    <div class="item">
+                      <div class="ui small header">
+                        <div class="content">
+                          Lindsay Bungenstock
+                          <a class="sub header" href="mailto:lbungenstock@interior.home.gov">lbungenstock@interior.home.gov</a><!-- /.sub header -->
+                          <div class="sub header">Senior Conservatorship Specialist, FHFA</div><!-- /.sub header -->
+                        </div><!-- /.content -->
+                      </div><!-- /.ui small header -->
+                    </div><!-- /.item -->
+                  </td>
+                  <td data-sort-value="6">
+                    A+
+                  </td>
+                  <td>
+                    Friends
+                    <i class="dropdown icon"></i>
+                  </td>
+                  <td data-sort-value="1473778039">
+                    <p>10:06am<br /><small>by you</small></p>
+                  </td>
+                  <td>
+                    (614) 981-0855
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ab-status-column">
+                    <div class="ab-status"></div><!-- /.ab-status -->
+                  </td>
+                  <td>
+                    <div class="ui fitted checkbox">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <img class="ui mini rounded image" src="http://semantic-ui.com/images/avatar/small/jenny.jpg">
+                  </td>
+                  <td>
+                    <div class="item">
+                      <div class="ui small header">
+                        <div class="content">
+                          Jennifer Joy
+                          <a class="sub header" href="mailto:jjoy@select.cigna.com">jjoy@select.cigna.com</a><!-- /.sub header -->
+                          <div class="sub header">Chief Operating Officer, Cigna Select</div><!-- /.sub header -->
+                        </div><!-- /.content -->
+                      </div><!-- /.ui small header -->
+                    </div><!-- /.item -->
+                  </td>
+                  <td class="disabled" data-sort-value="0">
+                    None
+                  </td>
+                  <td class="disabled" data-sort-value="zzzzz">
+                    None
+                  </td>
+                  <td data-sort-value="1473697655">
+                    <p>Yesterday<br /><small>by you</small></p>
+                  </td>
+                  <td>
+                    (860) 227-3482
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ab-status-column">
+                    <div class="ab-status ab-positive-status"></div><!-- /.ab-status -->
+                  </td>
+                  <td>
+                    <div class="ui fitted checkbox">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <img class="ui mini rounded image" src="http://semantic-ui.com/images/avatar/small/helen.jpg">
+                  </td>
+                  <td>
+                    <div class="item">
+                      <div class="ui small header">
+                        <div class="content">
+                          Helen Thomas
+                        </div><!-- /.content -->
+                      </div><!-- /.ui small header -->
+                    </div><!-- /.item -->
+                  </td>
+                  <td data-sort-value="3">
+                    C
+                  </td>
+                  <td>
+                    Vendors
+                    <i class="dropdown icon"></i><br />
+                    <small>+ 1 more</small>
+                  </td>
+                  <td data-sort-value="1463156603">
+                    <p>May 9<br /><small>by you</small></p>
+                  </td>
+                  <td>
+                    (860) 446-3492
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ab-status-column">
+                    <div class="ab-status ab-warning-status"></div><!-- /.ab-status -->
+                  </td>
+                  <td>
+                    <div class="ui fitted checkbox">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <img class="ui mini rounded image" src="http://semantic-ui.com/images/avatar/small/veronika.jpg">
+                  </td>
+                  <td>
+                    <div class="item">
+                      <div class="ui small header">
+                        <div class="content">
+                          Kylee Burgess
+                          <a class="sub header" href="mailto:kylee124@notes.american.edu">kylee124@notes.american.edu</a><!-- /.sub header -->
+                        </div><!-- /.content -->
+                      </div><!-- /.ui small header -->
+                    </div><!-- /.item -->
+                  </td>
+                  <td data-sort-value="4">
+                    B
+                  </td>
+                  <td>
+                    Friends
+                    <i class="dropdown icon"></i>
+                  </td>
+                  <td data-sort-value="1465835338">
+                    <p>June 19<br /><small>by you</small></p>
+                  </td>
+                  <td>
+                    (202) 948-3491
+                  </td>
+                </tr>
+                <tr>
+                  <td class="ab-status-column">
+                    <div class="ab-status ab-negative-status"></div><!-- /.ab-status -->
+                  </td>
+                  <td>
+                    <div class="ui fitted checkbox">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <img class="ui mini rounded image" src="http://semantic-ui.com/images/avatar/small/christian.jpg">
+                  </td>
+                  <td>
+                    <div class="item">
+                      <div class="ui small header">
+                        <div class="content">
+                          Christian Grey
+                          <a class="sub header" href="mailto:christian@grey.co">christian@grey.co</a><!-- /.sub header -->
+                          <div class="sub header">CEO, Grey Enterprise Holdings, Inc.</div><!-- /.sub-header -->
+                        </div><!-- /.content -->
+                      </div><!-- /.ui small header -->
+                    </div><!-- /.item -->
+                  </td>
+                  <td data-sort-value="4">
+                    B
+                  </td>
+                  <td>
+                    Friends
+                    <i class="dropdown icon"></i>
+                  </td>
+                  <td data-sort-value="1440000000">
+                    <p>Jan 20<br /><small>by you</small></p>
+                  </td>
+                  <td>
+                    (206) 301-5001
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr><th colspan="8">
+                  <div class="ui right floated pagination menu">
+                    <a class="icon item">
+                      <i class="left chevron icon"></i>
+                    </a>
+                    <a class="item">1</a>
+                    <a class="item">2</a>
+                    <a class="item">...</a>
+                    <a class="item">12</a>
+                    <a class="item">13</a>
+                    <a class="icon item">
+                      <i class="right chevron icon"></i>
+                    </a>
+                  </div>
+                </th>
+              </tr></tfoot>
+            </table>
+
+          </div><!-- /.ui segment -->
+
+
+
+        </div><!-- /.ui segments -->
+
+      </div><!-- /.column -->
+    </div><!-- /.ui centered grid -->
+  </div><!-- /.ui vertical basic segment -->
+</div><!-- /.main ui container -->
+
+<div class="ui small basic modal" data-ui-behavior="merge-modal">
+  <div class="ui icon header">
+    <i class="compress icon"></i>
+    Are you sure you want to merge these 3 contacts?
+  </div>
+  <div class="actions">
+    <div class="ui cancel red basic inverted button">
+      <i class="remove icon"></i>
+      No
+    </div>
+    <div class="ui ok green inverted button">
+      <i class="checkmark icon"></i>
+      Yes
+    </div>
+  </div>
+</div>
+
+<div class="ui small basic modal" data-ui-behavior="delete-contacts-modal">
+  <div class="ui icon header">
+    <i class="trash icon"></i>
+    Are you sure you want to delete these 3 contacts?
+  </div>
+  <div class="actions">
+    <div class="ui cancel red basic inverted button">
+      <i class="remove icon"></i>
+      No
+    </div>
+    <div class="ui ok green inverted button">
+      <i class="checkmark icon"></i>
+      Yes
+    </div>
+  </div>
+</div>
+
+<div class="ui modal" data-ui-behavior="all-campaigns-modal">
+  <i class="close icon"></i>
+  <div class="header">
+    All Campaigns
+  </div>
+  <div class="content">
+    <div class="ui icon fluid input">
+      <input class="prompt" type="text" placeholder="Search for campaigns...">
+      <i class="search icon"></i>
+    </div><!-- /.ui icon input -->
+    <div class="ui middle aligned divided list">
+      <div class="item">
+        <div class="left floated content">
+          A
+        </div><!-- /.left floated content -->
+        <div class="content">
+          <a href="#" class="ui label">Apple</a>
+          <a href="#" class="ui label">Axel</a>
+          <a href="#" class="ui label">Azure</a>
+        </div><!-- /.content -->
+      </div><!-- /.item -->
+
+        <div class="left floated content">
+          B
+        </div><!-- /.left floated content -->
+        <div class="content">
+          <a href="#" class="ui label">Banana</a>
+          <a href="#" class="ui label">Beetle</a>
+          <a href="#" class="ui label">Bunny</a>
+        </div><!-- /.content -->
+      </div><!-- /.item -->
+    </div><!-- /.ui divided list -->
+  </div><!-- /.content -->
+</div>
+
+<script>
+  // Initialize sorting dropdown
+  $('[data-ui-behavior=dropdown-sort]')
+    .dropdown({
+      action: 'select'
+    })
+  ;
+
+  // Initialize regular dropdowns
+  $('[data-ui-behavior=dropdown]')
+    .dropdown()
+  ;
+
+  // Initialize more actions dropdown
+  $('[data-ui-behavior=more-actions-dropdown]')
+    .dropdown({
+      action: 'nothing'
+    })
+  ;
+
+  // Initialize grade select popup
+  $('[data-ui-behavior=mass-update-grade-popup-trigger]')
+    .popup({
+      on: 'click',
+      popup: '[data-ui-behavior=mass-update-grade-popup]'
+    })
+  ;
+
+  // Initialize select all popover
+  $('[data-ui-behavior=select-all-checkbox-popover]')
+    .popup({
+      on: 'click'
+    })
+  ;
+
+  // Initialize merge modal
+  $('[data-ui-behavior=merge-modal]')
+    .modal('attach events', '[data-ui-behavior=merge-button]', 'show')
+  ;
+
+  // Initialize delete confirmation modal
+  $('[data-ui-behavior=delete-contacts-modal]')
+    .modal('attach events', '[data-ui-behavior=delete-contacts-button]', 'show')
+  ;
+
+  // Initialize all campaigns modal
+  $('[data-ui-behavior=all-campaigns-modal]')
+    .modal('attach events', '[data-ui-behavior=see-all-campaigns-link]', 'show')
+  ;
+
+  // Initialize accordion
+  $('[data-ui-behavior=accordion-filter]')
+    .accordion({
+      exclusive: false,
+      duration: 100
+    })
+  ;
+
+  // Initialize Semantic UI dropdowns
+  $('[data-ui-behavior=checkbox]')
+    .checkbox()
+  ;
+
+  // Initialize sortable table
+  $('[data-ui-behavior=sortable-table]')
+    .tablesort()
+  ;
+
+  // Initialize Semantic UI calendar component for date selection
+  $('[data-ui-behavior=calendar_date]')
+    .calendar({
+      type: 'date',
+      today: true,
+    })
+  ;
+
+  // Initialize grade select popup
+  $('[data-ui-behavior=grade-select-popup-trigger]')
+    .popup({
+      on: 'click'
+    })
+  ;
+
+  // Initialize sticky
+  $('[data-ui-behavior=contacts-select-menu]')
+    .sticky()
+  ;
+</script>

@@ -1,0 +1,115 @@
+<ul class="nav nav-pills below24">
+  <% if current_user.user_has_teammates? %>
+    <li role="presentation"  class="active"><a href="#team-stats" data-toggle="pill">Team Pipeline</a></li>
+    <li role="presentation"><a href="#my-stats" data-toggle="pill">Individual Pipeline</a></li>
+  <% end %>
+</ul>
+<div class="row sub-section hide-phone">
+  <div class="col-sm-12">
+    <div class="tab-content nopadding noborder">
+      <% if current_user.user_has_teammates? %>
+        <div class="tab-pane fade in active" id="team-stats">
+          <div class="row stat-row">
+            <div class="stat-block alignc col-sm-3">
+              <h2 class="nomargin fwl">
+                <%= number_to_currency(Lead.owned_by_team_member(current_user.team_member_ids).leads_by_status(1).sum(:displayed_price).to_i, precision: 0) %>
+              </h2>
+              <h2 class="nomargin">
+                <%= number_to_currency(Lead.owned_by_team_member(current_user.team_member_ids).leads_by_status(1).sum(:displayed_net_commission).to_i, precision: 0) %>
+              </h2>
+              <p class="fwb">
+                <span class=""><%= pluralize(Lead.owned_by_team_member(current_user.team_member_ids).leads_by_status(1).count, "Prospect", plural: "Prospects") %></span>
+              </p>
+            </div><!-- /stat-block.col-sm-3 -->
+            <div class="stat-block alignc col-sm-3">
+              <h2 class="nomargin fwl">
+                <%= number_to_currency(Lead.owned_by_team_member(current_user.team_member_ids).leads_by_status(2).sum(:displayed_price).to_i, precision: 0) %>
+              </h2>
+              <h2 class="nomargin">
+                <%= number_to_currency(Lead.owned_by_team_member(current_user.team_member_ids).leads_by_status(2).sum(:displayed_net_commission).to_i, precision: 0) %>
+              </h2>
+              <p class="fwb">
+                <span class=""><%= Lead.owned_by_team_member(current_user.team_member_ids).leads_by_status(2).count %> Active</span>
+              </p>
+            </div><!-- /stat-block.col-sm-3 -->
+            <div class="stat-block alignc col-sm-3">
+              <h2 class="nomargin fwl">
+                <%= number_to_currency(Lead.owned_by_team_member(current_user.team_member_ids).leads_by_status(3).sum(:displayed_price).to_i, precision: 0) %>
+              </h2>
+              <h2 class="nomargin">
+                <%= number_to_currency(Lead.owned_by_team_member(current_user.team_member_ids).leads_by_status(3).sum(:displayed_net_commission).to_i, precision: 0) %>
+              </h2>
+              <p class="fwb">
+                <span class=""><%= Lead.owned_by_team_member(current_user.team_member_ids).leads_by_status(3).count %> Pending</span>
+              </p>
+            </div><!-- /stat-block.col-sm-3 -->
+            <div class="stat-block alignc col-sm-3">
+              <h2 class="nomargin fwl">
+                <%= number_to_currency(current_user.closed_leads_ytd.sum(:displayed_price).to_i, precision: 0) %>
+              </h2>
+              <h2 class="nomargin">
+                <%= number_to_currency(current_user.closed_leads_ytd.sum(:displayed_net_commission).to_i, precision: 0) %>
+              </h2>
+              <p class="fwb">
+                <span class=""><%= current_user.closed_leads_ytd.count %> Closed YTD</span>
+              </p>
+            </div><!-- /stat-block.col-sm-3 -->
+          </div><!-- /.row -->
+        </div><!-- /team stats -->
+      <% end %>
+      <!--individual -->
+      <% if current_user.user_has_teammates? %>
+        <div class="tab-pane fade" id="my-stats">
+      <% else %>
+        <div class="tab-pane fade in active" id="team-report">
+      <% end %>
+        <div class="row stat-row">
+          <div class="stat-block alignc col-sm-3">
+            <h2 class="nomargin fwl">
+              <%= number_to_currency(current_user.display_pipeline_status_total_house_value(1), precision: 0) %>
+            </h2>
+            <h2 class="nomargin">
+              <%= number_to_currency(current_user.display_pipeline_status_total_net_commission(1), precision: 0) %>
+            </h2>
+            <p class="fwb">
+              <span class=""><%= pluralize(current_user.display_pipeline_status_count(1), "Prospect", plural: "Prospects") %></span>
+            </p>
+          </div><!-- /stat-block.col-sm-3 -->
+          <div class="stat-block alignc col-sm-3">
+            <h2 class="nomargin fwl">
+              <%= number_to_currency(current_user.display_pipeline_status_total_house_value(2), precision: 0) %>
+            </h2>
+            <h2 class="nomargin">
+              <%= number_to_currency(current_user.display_pipeline_status_total_net_commission(2), precision: 0) %>
+            </h2>
+            <p class="fwb">
+              <span class=""><%= current_user.display_pipeline_status_count(2) %>  Active</span>
+            </p>
+          </div><!-- /stat-block.col-sm-3 -->
+          <div class="stat-block alignc col-sm-3">
+            <h2 class="nomargin fwl">
+              <%= number_to_currency(current_user.display_pipeline_status_total_house_value(3), precision: 0) %>
+            </h2>
+            <h2 class="nomargin">
+              <%= number_to_currency(current_user.display_pipeline_status_total_net_commission(3), precision: 0) %>
+            </h2>
+            <p class="fwb">
+              <span class=""><%= current_user.display_pipeline_status_count(3) %> Pending</span>
+            </p>
+          </div><!-- /stat-block.col-sm-3 -->
+          <div class="stat-block alignc col-sm-3">
+            <h2 class="nomargin fwl">
+              <%= number_to_currency(current_user.pipeline_current_closed_ytd_house_value, precision: 0) %>
+            </h2>
+            <h2 class="nomargin">
+              <%= number_to_currency(current_user.display_pipeline_closed_ytd_net_commission, precision: 0) %>
+            </h2>
+            <p class="fwb">
+              <span class=""><%= current_user.display_pipeline_closed_ytd_count%> Closed YTD</span>
+            </p>
+          </div><!-- /stat-block.col-sm-3 -->
+        </div><!-- /.row -->
+      </div>
+    </div><!-- /tab-content... -->
+  </div><!-- /.col-sm-12 -->
+</div><!-- /.row sub-section -->

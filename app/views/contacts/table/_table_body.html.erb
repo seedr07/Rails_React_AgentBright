@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-xs-12">
+    <% if contacts.empty? %>
+      <%= render(partial: "contacts/table/contacts_empty_table") %>
+    <% else %>
+      <div class="section slats">
+        <ul>
+          <% contacts.each_with_index do |contact, index| %>
+            <% cache(contact) do %>
+              <%= render(partial: "contacts/table/slat", locals: { contact: contact, index: index }) %>
+            <% end %>
+          <% end %>
+          <%= paginate contacts, remote: true, params: { :controller => "contacts", :action => "index" } %>
+        </ul>
+      </div>
+    <% end %>
+  </div><!-- /.col-xs-12 -->
+</div><!-- /#contacts-container.row -->

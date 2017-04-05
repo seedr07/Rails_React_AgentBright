@@ -1,0 +1,142 @@
+<!--
+*******************************************
+Note: The purpose of views/designs/ is for
+building frontend markup only. Do not add
+ERB or javascript to this page. Copy and
+paste this markup, and then integrate that
+code in its rightful location with the app
+backend.
+
+With very few exceptions, this file should
+remain pure front-end HTML/CSS/JS.
+*******************************************
+-->
+
+<style>
+  .ab-recent-contacts-example {
+    max-width: 350px;
+  }
+ /* .ab-edit-group-list-container {
+    max-height: 100px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }*/
+</style>
+
+<div class="main ui container">
+  <div class="ui vertical basic segment">
+    <div class="ui centered grid">
+      <div class="column ab-recent-contacts-example">
+        <div class="ui segments">
+          <div class="ui segment">
+            <h3>Recent Contacts</h3>
+            <div class="ui relaxed divided list">
+              <div class="item">
+                <h4>Stephen Van Dorn</h4>
+                <div class="ui large labels">
+                  <a class="ui green circular label">A+</a>
+                  <a class="ui teal circular label">A</a>
+                  <a class="ui yellow circular label">B</a>
+                  <a class="ui orange circular label">C</a>
+                  <a class="ui red circular label">D</a>
+                  <a class="ui grey circular label">NA</a>
+                  <a href="#">Skip</a>
+                </div><!-- /.ui labels -->
+              </div><!-- /.item -->
+              <div class="item">
+                <h4>Keith Anderle</h4>
+                <div class="ui large labels">
+                  <a class="ui green circular label">A+</a>
+                  <a class="ui teal circular label">A</a>
+                  <a class="ui yellow circular label">B</a>
+                  <a class="ui orange circular label">C</a>
+                  <a class="ui red circular label">D</a>
+                  <a class="ui grey circular label">NA</a>
+                  <a href="#">Skip</a>
+                </div><!-- /.ui labels -->
+              </div><!-- /.item -->
+              <div class="item">
+                <h4>Blair Sturm</h4>
+                <div class="ui basic vertical segment p-t-0">
+                  <div class="ui dropdown button" data-ui-behavior="recent-contacts-dropdown">
+                    Select groups
+                    <i class="dropdown icon"></i>
+                    <div class="menu ab-dropdown-menu">
+                      <div class="ui icon search input">
+                        <input class="prompt" type="text" placeholder="Search for a group...">
+                        <i class="search icon"></i>
+                      </div>
+                      <div class="scrolling menu">
+                        <div class="item">
+                          <div class="ui checkbox" data-ui-behavior="checkbox">
+                            <input type="checkbox" name="example">
+                            <label>Friends</label>
+                          </div>
+                        </div><!-- /.item -->
+                        <div class="item">
+                          <div class="ui checkbox" data-ui-behavior="checkbox">
+                            <input type="checkbox" name="example">
+                            <label>Family</label>
+                          </div>
+                        </div><!-- /.item -->
+                        <div class="item">
+                          <div class="ui checkbox" data-ui-behavior="checkbox">
+                            <input type="checkbox" name="example">
+                            <label>Current Clients</label>
+                          </div>
+                        </div><!-- /.item -->
+                        <div class="item">
+                          <div class="ui checkbox" data-ui-behavior="checkbox">
+                            <input type="checkbox" name="example">
+                            <label>Past Clients</label>
+                          </div>
+                        </div><!-- /.item -->
+                        <div class="item">
+                          <div class="ui checkbox" data-ui-behavior="checkbox">
+                            <input type="checkbox" name="example">
+                            <label>Realtors</label>
+                          </div>
+                        </div><!-- /.item -->
+                        <div class="item">
+                          <div class="ui checkbox" data-ui-behavior="checkbox">
+                            <input type="checkbox" name="example">
+                            <label>Vendors</label>
+                          </div>
+                        </div><!-- /.item -->
+                      </div><!-- /.scrolling menu -->
+                    </div>
+                  </div>
+                  <a href="#" class="p-l-2">Done</a>
+                </div><!-- /.ui basic vertical segment -->
+              </div><!-- /.item -->
+              <div class="item">
+                <h4>Colleen Douglass</h4>
+                <div class="ui large labels">
+                  <a class="ui green circular label">A+</a>
+                  <a class="ui teal circular label">A</a>
+                  <a class="ui yellow circular label">B</a>
+                  <a class="ui orange circular label">C</a>
+                  <a class="ui red circular label">D</a>
+                  <a class="ui grey circular label">NA</a>
+                  <a href="#">Skip</a>
+                </div><!-- /.ui labels -->
+              </div><!-- /.item -->
+            </div><!-- /.ui relaxed divided list -->
+          </div><!-- /.ui segment -->
+        </div><!-- /.ui segments -->
+      </div><!-- /.column -->
+    </div><!-- /.ui centered grid -->
+  </div><!-- /.ui vertical basic segment -->
+</div><!-- /.main ui container -->
+
+<script>
+  // Initialize Semantic UI dropdowns
+  $('[data-ui-behavior=checkbox]').checkbox();
+
+  // Initialize dropdowns to set recent contacts
+  $('[data-ui-behavior=recent-contacts-dropdown]')
+    .dropdown({
+      action: 'nothing',
+    })
+  ;
+</script>

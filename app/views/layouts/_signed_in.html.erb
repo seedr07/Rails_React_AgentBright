@@ -1,0 +1,28 @@
+<%= render(partial: "shared/big_nav_sidebar") %>
+
+<%= render(partial: "shared/main_navigation") %>
+
+<div id="wrap" class="wrap clearfix nopadding">
+  <div id="main-content" class="main-content mc-content">
+
+    <%= render(partial: "shared/loading_indicator") %>
+
+    <div class="container relative clearfix">
+
+      <%= render(partial: "shared/flashes") %>
+
+      <%= yield %>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- <a href="#" class="btn btn-default btn-fab fui-plus"></a> -->
+
+<script>
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
+</script>
+

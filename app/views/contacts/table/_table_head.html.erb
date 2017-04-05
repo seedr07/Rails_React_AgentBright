@@ -1,0 +1,60 @@
+<div class="row slats-bar below18">
+  <div class="col-xs-12">
+    <div class="slat-controls">
+      <div class="checkbox solo-checkbox hide-phone inline-block select-all-checkbox">
+        <input type="checkbox" id="contacts-checkbox-select-all">
+        <label for="contacts-checkbox-select-all"></label>
+      </div><!-- /.checkbox -->
+
+      <div class="btn-group btn-group-full-mobile" id="contacts-btn-group-grade" data-value="all">
+        <button type="button" id="contacts-grade-input" class="btn btn-primary btn-paper btn-narrow dropdown-toggle" data-toggle="dropdown">
+          Display:&nbsp;<span class="btn-group-button-text">All
+          </span><span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li class="active"><a href="#" data-value="all">All</a></li>
+            <li><a href="#" data-value="graded">Ranked</a></li>
+            <li><a href="#" data-value="ungraded">Not Ranked</a></li>
+            <li><a href="#" data-value="aplus_abc">A+, A, B, or C</a></li>
+            <li><a href="#" data-value="aplus">A+</a></li>
+        </ul>
+      </div><!-- /btn-group -->
+
+      <div class="sort-option hide-phone">
+        <div class="btn-group" id="contacts-btn-group-order-by" data-value="first_name">
+          <button type="button" class="btn btn-primary btn-paper btn-narrow dropdown-toggle" data-toggle="dropdown">
+            <span class="btn-group-button-text">First name</span><span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li class="active"><a href="#" data-value="first_name">First name</a></li>
+            <li><a href="#" data-value="last_name">Last name</a></li>
+            <li><a href="#" data-value="grade">Rank</a></li>
+          </ul>
+        </div><!-- /btn-group -->
+        <button type="button" class="btn btn-primary btn-paper btn-narrow btn-paper-menu-icon nomargin" id="contacts-sort-order-toggle" data-value="asc">
+          <span class="glyphicon glyphicon-arrow-down"></span></button>
+      </div><!-- /sort-option -->
+
+      <div class="btn-group hide-phone" id="contact-btn-group" data-value="all">
+        <button type="button" id="contact-btn-group-input" class="btn btn-primary btn-paper btn-narrow dropdown-toggle" data-toggle="dropdown">
+          Group:&nbsp;<span class="btn-group-button-text">All</span><span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+            <li class="active"><a href="#" data-value="all">All</a></li>
+            <% Contact::DEFAULT_GROUPS_LIST.each do |group| %>
+              <li><a href="#" data-value="<%= group %>"><%= group %></a></li>
+            <% end %>
+        </ul>
+      </div>
+
+      <div class="form-group has-feedback inline-block valign-top table-menu-search">
+        <input type="search" class="form-control slat-bar-search nomargin" placeholder="Search contacts" id="contacts-search-input" data-search-url="<%= search_contacts_path %>">
+        <span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
+      </div><!-- /.form-group has-feedback -->
+      
+      <button type="button" id="contacts-delete-button" data-url="<%= contacts_destroy_multiple_path %>" class="btn btn-primary btn-paper btn-narrow btn-paper-menu-icon">
+        <span class="fui-trash"></span>
+      </button>
+    </div>
+  </div><!-- /.col-xs-12 -->
+</div><!-- /slats-bar.row -->

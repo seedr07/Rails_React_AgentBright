@@ -1,0 +1,1368 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.fullcontact.com/v2/person.json?apiKey=7718b6047c08a037&email=
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - FullContact Ruby Client/0.10.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 422
+      message: Unprocessable Entity
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 01 Apr 2016 16:02:50 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '146'
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Charset,Accept
+      X-Rate-Limit-Limit:
+      - '60'
+      X-Rate-Limit-Remaining:
+      - '57'
+      X-Rate-Limit-Reset:
+      - '60'
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "status" : 422,
+          "message" : "Parameter(type='email', value='') failed validation.",
+          "requestId" : "99049650-3337-416f-b603-7da51016f5f4"
+        }
+    http_version: 
+  recorded_at: Fri, 01 Apr 2016 16:02:50 GMT
+- request:
+    method: get
+    uri: https://74aaJYLWzt2dizG6uE634NX5CujMuR:@api.nylas.com/threads?any_email=will@example.com&limit=9&offset=0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Nylas Ruby SDK 1.1.0 - 2.3.0
+      X-Inbox-Api-Wrapper:
+      - ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.6.2
+      Date:
+      - Fri, 01 Apr 2016 16:15:45 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '2'
+      Access-Control-Allow-Headers:
+      - Authorization,Accept,Cache-Control,X-Requested-With,Content-Type
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE,OPTIONS
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: UTF-8
+      string: "[]"
+    http_version: 
+  recorded_at: Fri, 01 Apr 2016 16:15:45 GMT
+- request:
+    method: get
+    uri: https://74aaJYLWzt2dizG6uE634NX5CujMuR:@api.nylas.com/threads?any_email=john.smith.agentbright@gmail.com&limit=9&offset=0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Nylas Ruby SDK 1.1.0 - 2.3.0
+      X-Inbox-Api-Wrapper:
+      - ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.6.2
+      Date:
+      - Fri, 01 Apr 2016 16:21:10 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Headers:
+      - Authorization,Accept,Cache-Control,X-Requested-With,Content-Type
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE,OPTIONS
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Content-Encoding:
+      - gzip
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+        AAD//wMA40hiCZUxAAA=
+    http_version: 
+  recorded_at: Fri, 01 Apr 2016 16:21:10 GMT
+- request:
+    method: get
+    uri: https://74aaJYLWzt2dizG6uE634NX5CujMuR:@api.nylas.com/messages?any_email=john.smith.agentbright@gmail.com&limit=9&offset=0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Nylas Ruby SDK 1.1.0 - 2.3.0
+      X-Inbox-Api-Wrapper:
+      - ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.6.2
+      Date:
+      - Fri, 01 Apr 2016 16:30:09 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Headers:
+      - Authorization,Accept,Cache-Control,X-Requested-With,Content-Type
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE,OPTIONS
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Content-Encoding:
+      - gzip
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA+xVTY/aMBC991dEnBGKCfnaU6m0h626J/aGVsiJncSJYzv+
+        gISq/70JXdgALQvttuqu8CFSxn4z743Gz/MPVru+br7dGsA45obpBUGDG2vg
+        KERL1Ewi1jS+bBjyG2V4kDeD4TMkiuP27PyxH+Ko6fDz6Sfr4Xb2YN3eT+++
+        PPZRxyAENW5jYOIGvgdCx+vt4SVmWh0iEkLxcVDysovtIvsKn1OWkNCOZA4Z
+        HuWcYTWCaVsmkiTN9Me02x/FbbLhMZjBEm+x1gY72Dv0bffXp/bUVBGvK2OA
+        bUiYpilIEBJ6vMqCfnsojDBV5+hARAkKm8WW0qyVYN132n7C+wcDyAIx1jVT
+        OjdtIRGHwFY19tanpKo274HI4aXcppS+QA0lNnFKpJaO4V4OcxTXydi4Cp6i
+        Bin9U2Z3peBSw1biL6kFScbsytarcSgrbYqC6hT5OYlPUSO7vGfMB49yHOsO
+        VmKl2mHsT4TEgjYLzQ/nXTEiBNYvXDeloZS405FAqnB/x+yqnsDrTGKInmzB
+        g1Ib7KNYVO4EY+MVCvtO0pA9BL/sFvKMjVRJdHb5LfzcYq1Zhz2ny4Z1Urad
+        2MSf5uX/80EXhHbwTn0QNSuaq0KXPqNrwwkANZNIBOHr+ODVa36b4D98Qt60
+        D2JQKEK4LlGYB9kEEMBq7jtOevXBV/dB13HfqQ9Ga8+UucgRjfzMT4rKyQhq
+        XLS8+uDVB9+EDwLpKqbjimQT7RpvmYRArGqPyr/pg98BAAD//+zZ2Y3DIAAE
+        0Ja4MeVge2MCLARsDrv6TQmRlo+E8DMlPM1ovtJBwgTFnTrISYz4t9y1FPjy
+        NuKgdrwaIts4+PbavC/Uw8HXHJyZCzKrtJAjXPaxkQ0eCLqbGA62dBBjxKjA
+        vFMHaYXsviZot3OnNTFtKhAMGt57HxzMvMZMKYUGu2hwwqh+vAKl1lCiGso0
+        VQYJ8IxeXwiETCgnWJ0lgS+7cnq26MSg0QsxlPl0ZcR03FCeHnkBEz2y0Jep
+        1Gc0mGnMDCeQg17LzORWlJSMSj7XXSDQGytTnT34NzN/AAAA///s1DsWwiAQ
+        heHe1UiAGViMhVGMRJFXEMzq1cIdpJEz/S3+4p6PmPm1/TUzmCPz3PrQTNaK
+        X6RbG5/v/kzMbMnMoEEIRNYpM7KgvYUCGkBV3q7JlcyfRyuJGWLmu4MkvF9w
+        llMyY6xFPcTni/s1EjObMwO6V2bYKzHpgnGqnkSbYAaFZVjSSMwQM30yszu8
+        AQAA//8DAEiYgVIkKgAA
+    http_version: 
+  recorded_at: Fri, 01 Apr 2016 16:30:09 GMT
+- request:
+    method: get
+    uri: https://api.fullcontact.com/v2/person.json?apiKey=7718b6047c08a037&email
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - FullContact Ruby Client/0.13.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 26 May 2016 12:06:19 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '218'
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Charset,Accept
+      X-Rate-Limit-Limit:
+      - '60'
+      X-Rate-Limit-Remaining:
+      - '38'
+      X-Rate-Limit-Reset:
+      - '24'
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "status" : 403,
+          "message" : "Usage limits for the provided API Key have been exceeded. Please try again later or contact support to increase your limits.",
+          "requestId" : "50d732c8-edf9-41b9-bd9c-553efefe5368"
+        }
+    http_version: 
+  recorded_at: Thu, 26 May 2016 12:06:17 GMT
+- request:
+    method: get
+    uri: https://api.nylas.com/threads?any_email=john.smith.agentbright@gmail.com&limit=9&offset=0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Nylas Ruby SDK 1.1.0 - 2.3.1
+      Authorization:
+      - Basic NzRhYUpZTFd6dDJkaXpHNnVFNjM0Tlg1Q3VqTXVSOg==
+      X-Inbox-Api-Wrapper:
+      - ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.6.2
+      Date:
+      - Thu, 26 May 2016 12:06:21 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Headers:
+      - Authorization,Accept,Cache-Control,X-Requested-With,Content-Type
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE,OPTIONS
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Content-Encoding:
+      - gzip
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA+xVXW+bMBR9769APFcRYDChT+ukPnRan9q3qoqMbcAEbAfb
+        CWTaf59J15T0A5Zu0yqtfkCA77k+Pvf6+PbEsePb7tkPF2EsDNcLRtwzxwWK
+        VDXpwpR3Xdx0nMSdMmJedu7pI4Q0KOsByiJu7wYTGWuUXtRUKZTThWb2TaNa
+        2jA/hGEQgCQKB+EFUgukNcJFTbnus2WoUnQQcU+KVjRdtw1ol6aMYoBTpEqM
+        G7MZkqpQSqsdo/2/w50+0mdKVqhbcFTTPv15VTlXiFWDbE8IkMxjoCZqDYyA
+        JSoJbrPARAq9BHlIi6rKPZj9fnoss2srywQ1xOcy0C1XujRWAokT31Mthdsx
+        asrmfcJt/3V3oOmgnA3FlK0pma7rAaxf60jIZPRD4M8WPNiJS9plhDBBjZaw
+        VDDJvFK14brA7ot7FGlJse5V0UVDERn2lLRJGGYS3XfnZGfRuq+VTVUiTmel
+        4FTNLE+u04blhf6U9/MzLOqx4vRYZ4c9tn0elxcFn6ma6eL45b9YrHPdY3+l
+        QxRnUtKdfLfnn52bi+sb5+Lq/PLr3VBHW8ymoeSFA67MXv4RvOG7yjyHr2mj
+        mOB2BpwMNPon9uYnHvT9N9gbTioIN3EwXxXFpq2RwEB43pYGH/b2HuztWV2n
+        7W0cMhk9am9gyTd2ID+OTJ4VGLYeoZ3Ymg97+7C3v2Zv0TyGfgLgG+wN2i4z
+        NCZYrqKQUgOXisYg69ifsbdLnor2dQMBBdfYV37YdmnLgi7IIIhIEJuxJmG7
+        nL/pbu/Xdy9rKRptT/3r1OZZwb2VpzdB0qy0WS4rnZO4ZHhUtn3e/+BiuD8R
+        0TEXwxRkMnr8YpB4uzLG9wxL8jz3M0KkDjbF/IkiLlgRb96iOJIQpmBLheyE
+        DCM/f+c3yA8AAAD//+yY3XKEIAxGX8ksBOVx1mUUFBEFXPXpa6867Wy1dWd/
+        h/tkJhfhnPBFg2wbxPfhskAgebxBcLl0sj3/f6idUq1vBK8ySUGBGduUkDIa
+        JBrk8oAvYpDlRQD5n0FWWzar15OT6awrV/smNXoOrQIYTS9sxn8aJHPTEMRJ
+        KjeGYBPu80MwRGESDRINcluDIMEdBoEe3ULxTknqMbCh4GDPI9P9u0csEdRf
+        s10H6u+L9ydQr7RsVq+COp9ZaCpbCZ2nMi3qjkglJhRD5O/L8/f3DAgfz1/K
+        OJId/M2Z6Y6DDCfqu1nbkpbgD2AK/u78vSPent4N1/D3c/E+AAAA///s2cGO
+        gyAUBdBfAh4IfI7VtghUClZBv36a6R6iSdPOhI2re1cvObmGnUM5Wymms/5y
+        GgLc4qBbCZuzAbyaoDe0rf5Wf9/mLwBpmCTygL8xRuZtp9GKgzo7hWJKPgZV
+        +f38unydFfgO3UqVYjqrG0u4GfoZ2+s6sTQ32iQkG2x41e0f60Y/rRuR6Pk5
+        si6leFzIIu5LhwR7LFJvJjG3kMrbN/D2umuzh7dCpZjO8kaI8XFF/Wip592k
+        Rn2yZAUkKm+Vtzfyxinm6AhvfPLYweDu6TxJARd22xJo6/rK2zfw9nvXXeut
+        UCmms7yJsSezaoNqnz+pnmJnbDunk/v7bzM/AAAA//8aLd4IFm9csQAAAAD/
+        /wMA8OZAc+AvAAA=
+    http_version: 
+  recorded_at: Thu, 26 May 2016 12:06:19 GMT
+- request:
+    method: get
+    uri: https://api.nylas.com/messages?any_email=john.smith.agentbright@gmail.com&limit=9&offset=0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Nylas Ruby SDK 1.1.0 - 2.3.1
+      Authorization:
+      - Basic NzRhYUpZTFd6dDJkaXpHNnVFNjM0Tlg1Q3VqTXVSOg==
+      X-Inbox-Api-Wrapper:
+      - ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.6.2
+      Date:
+      - Thu, 26 May 2016 12:06:30 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Headers:
+      - Authorization,Accept,Cache-Control,X-Requested-With,Content-Type
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE,OPTIONS
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Content-Encoding:
+      - gzip
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA+xWTY+bMBC991egnKOITwM9NZX2sFX3lL1Fq8jYBkyMTbAd
+        IFX/e83uJkuSNptIOVRRfEBi7Dfz3jA8ef7FMuvX67NfI4iQ0FwtKB59tUae
+        xKzEnZ/wrgvrjuOwk1pERTcaf0AShMzZ+cswJHDX4+fT79bzw+zZeniaPv58
+        GaKOQRgqYmKOD3zX9eLAH+yRNeFKHiJSyshxsBZlH9tF9hV+pCwhZT3JAnIy
+        KQQncgIzUyapaZarb1m/P0Em2fgYzGFJtljrFTvaO/R79zak9tZU3C4DiDCs
+        VQUKCeLULmTrr3M0bA+DCWHyHB2YyorBbrGlNDMSrKde2194vzGAPKpc1XKp
+        Cm0KVSh2bNkSsDklVZq8ByLHl3KbMvYJNZza1CuxXHtagAIWGLWpqwMJT1GD
+        jJ3TfpEUBKkeUBIpzbceNrwmFesWShyOk+S0qoj6ZJqlgnVNegUpZJIMd/Su
+        6gm8ymsC8ftfRxhJ1m3ttUtdBKGHEigLhGrd7CHEZUMucj6RJVX55UP+w2Ct
+        WY89p8ua91K2nXiNvw/Kf2czTmwDx7lRm/GWvDELOmGgszRHoLUx6cRG323m
+        bjP9ORQzAJrQjVZ53rQlFMgTtr0h7t1mrmkzQRQCJ/bArdpMhTYrrR1b0zjL
+        MifFuFJuk0d3m7mazVzM7LGsRK2gkfhPalGac3tlq8aN65XSyyVTGQ4Lik5R
+        o7u8N+SDwNzENQkxqlaBT4gGS0lCL+3o3Qev7IOBuXBF1/LBPwAAAP//7Ndb
+        joQgFATQLc3ty6NZjjZRXqIgKLr6+ZzPyWRMxybsoJJKTqp+a+Ddr+7YnVlt
+        mrh3Z541QPFRLk9xjYP3tebOQjcH/3I7wa5az2mSwjwVAQ2+zBxxbA5e7iBF
+        WqmD/cnyZBYjXc8VH2xApeVB5Va7g++25s5Qf7SDEOnq0ytoRRLNbBsELHth
+        LjYHL3aQMEGxUgc5iRGnXZtO4Dm7iEGtKC3panew7cGfgB/tYM986DaVXySF
+        0y0jGSE9wA+iOXilg4gPRgXySh2kBZiWGdx4rLRkZmz5Egws/6+D3wAAAP//
+        7Nk5DoMwEAXQPqcZj7GwD5OCVY5xGMzihdODUuQENCA3U0/19L9+dvD/262Z
+        CSEIZxsDic26Iw0hRhdmnZW5VBlUcJ6nrhCIgwsJ2tEWrmwWPZraYuJw0QqR
+        lbm7MkquPXo5+QakWL0y+xAFeczMXMxMWbASnhpm5NjipqtZV2e7cwWjwVZb
+        rAkyM5mZX+tfHCP+oSl2i5K8F989cmOpvS0zr/cBAAD//wMAAYu9DyQqAAA=
+    http_version: 
+  recorded_at: Thu, 26 May 2016 12:06:22 GMT
+- request:
+    method: get
+    uri: https://api.nylas.com/account
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Nylas Ruby SDK 2.0.1 - 2.3.1
+      Authorization:
+      - Basic NzRhYUpZTFd6dDJkaXpHNnVFNjM0Tlg1Q3VqTXVSOg==
+      X-Inbox-Api-Wrapper:
+      - ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.6.2
+      Date:
+      - Thu, 06 Oct 2016 20:10:03 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '284'
+      Access-Control-Allow-Headers:
+      - Authorization,Accept,Cache-Control,X-Requested-With,Content-Type
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE,OPTIONS
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "account_id": "3sdlmdy4bnyy7rynd7ysuo8jy",
+            "email_address": "jane.jones.agentbright@gmail.com",
+            "id": "3sdlmdy4bnyy7rynd7ysuo8jy",
+            "name": "jane jones",
+            "object": "account",
+            "organization_unit": "label",
+            "provider": "gmail",
+            "sync_state": "running"
+        }
+    http_version: 
+  recorded_at: Thu, 31 Mar 2016 16:00:00 GMT
+- request:
+    method: get
+    uri: https://api.nylas.com/messages?any_email=john.smith.agentbright@gmail.com&limit=100&offset=0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Nylas Ruby SDK 2.0.1 - 2.3.1
+      Authorization:
+      - Basic NzRhYUpZTFd6dDJkaXpHNnVFNjM0Tlg1Q3VqTXVSOg==
+      X-Inbox-Api-Wrapper:
+      - ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.6.2
+      Date:
+      - Thu, 06 Oct 2016 22:26:19 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Headers:
+      - Authorization,Accept,Cache-Control,X-Requested-With,Content-Type
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE,OPTIONS
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Content-Encoding:
+      - gzip
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+        L4qxhOoBAA==
+    http_version: 
+  recorded_at: Thu, 06 Oct 2016 22:26:19 GMT
+- request:
+    method: get
+    uri: https://api.nylas.com/messages?any_email=john.smith.agentbright@gmail.com&view=count
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Nylas Ruby SDK 2.0.1 - 2.3.1
+      Authorization:
+      - Basic NzRhYUpZTFd6dDJkaXpHNnVFNjM0Tlg1Q3VqTXVSOg==
+      X-Inbox-Api-Wrapper:
+      - ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.6.2
+      Date:
+      - Thu, 06 Oct 2016 22:26:20 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '20'
+      Access-Control-Allow-Headers:
+      - Authorization,Accept,Cache-Control,X-Requested-With,Content-Type
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE,OPTIONS
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "count": 783
+        }
+    http_version: 
+  recorded_at: Thu, 06 Oct 2016 22:26:20 GMT
+- request:
+    method: get
+    uri: https://api.nylas.com/threads?any_email=john.smith.agentbright@gmail.com&limit=100&offset=0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Nylas Ruby SDK 2.0.1 - 2.3.1
+      Authorization:
+      - Basic NzRhYUpZTFd6dDJkaXpHNnVFNjM0Tlg1Q3VqTXVSOg==
+      X-Inbox-Api-Wrapper:
+      - ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.6.2
+      Date:
+      - Thu, 06 Oct 2016 22:27:55 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Headers:
+      - Authorization,Accept,Cache-Control,X-Requested-With,Content-Type
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE,OPTIONS
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Content-Encoding:
+      - gzip
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+        AgA=
+    http_version: 
+  recorded_at: Thu, 06 Oct 2016 22:27:56 GMT
+- request:
+    method: get
+    uri: https://api.nylas.com/threads?any_email=john.smith.agentbright@gmail.com&view=count
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Nylas Ruby SDK 2.0.1 - 2.3.1
+      Authorization:
+      - Basic NzRhYUpZTFd6dDJkaXpHNnVFNjM0Tlg1Q3VqTXVSOg==
+      X-Inbox-Api-Wrapper:
+      - ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.6.2
+      Date:
+      - Thu, 06 Oct 2016 22:27:56 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '20'
+      Access-Control-Allow-Headers:
+      - Authorization,Accept,Cache-Control,X-Requested-With,Content-Type
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE,OPTIONS
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "count": 454
+        }
+    http_version: 
+  recorded_at: Thu, 06 Oct 2016 22:27:56 GMT
+- request:
+    method: get
+    uri: https://api.nylas.com/messages?from=jane.jones.agentbright@gmail.com&limit=100&offset=0&to=beth.boring.agentbright@gmail.com
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Nylas Ruby SDK 2.0.1 - 2.3.1
+      Authorization:
+      - Basic UnM1R2hFbThtVUxUVkZVM0xiUFZQR0x2UE15Mk1hOg==
+      X-Inbox-Api-Wrapper:
+      - ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.6.2
+      Date:
+      - Fri, 04 Nov 2016 14:15:41 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Headers:
+      - Authorization,Accept,Cache-Control,X-Requested-With,Content-Type
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE,OPTIONS
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Content-Encoding:
+      - gzip
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA+yWW2/bNhTH3/cpOA/bU2RLlOhYaZwt2XKZkXTLcnHipAgo
+        kbrYFMmIlGu56HcfKTupkwxtAqxFUZQPhHh4/tQ5h0c/++oHYMa7ZrajheNY
+        VFzf5KS1AVq+IqwgdRDxul4va07Wa1WJ3rhurX2QRHFsfK/erJoEqa3+ansH
+        nO6enILdo+0/D9+sqp6KCNbU2LygG3ihi/xgZY9OKdfqsSLJGX1qLEVhbfeW
+        hxl+OLLAObNBjjGn7bHgVLVxal4TlXma6d9Su9+OzWFrT8UcF/ROCxpt64HT
+        +/vVamiLogbpGIlbRW/nPtT4FifBfDJLJnC6Wh6GI8rUc/IguZIM1zd3IW0z
+        Bo5sav8R9iIAkri5XxA19SvRHeMxiWcJrJDCH8sUM/YoxbWXRnZiivuJ0DDv
+        SahnXOlxZUog49Bz1Yx25x8LTZlzn1N+EY1prK2ioEqZu14teEklq2+0eNxO
+        iudSUv2JblYalyW1KSSYKbq6U92/tWkWGyxY9N6Kl85Kisnyq4NTxLQvqx6E
+        mmVcVmkvRJT13AcK8aImj6jO2pEoc56+vMt3jBjsNOLn1LniNpm7WjT2ZbN8
+        NtBsyq0MTynAfFHbzY7cAps/Og44MfcHHMesotJMeZECVcb961amtdzodJiI
+        McuE0hu+67qdnEdihqV0li3S0SWOJybxDjkYZJdQy6ggCR4eh2dn5K/zg110
+        wrILPDmHR/veaHQxQOTgzD/dHeSn9YhFwz0Z7YXZNR/t/1OPLl7P/x4OGNlP
+        q8sirPEQ8cNij4+GyL3kAzmCmXu8T/TlkKnD4vU0Ou73r3lb8vS6Bd7mRGcm
+        bM88Z9Te3WJxl9hqrs/lLIS9nufDb5SzkE/L4NYtRCrieoo0T7ywKmWo/x/O
+        fkGavZi0X+w34LNw9sGX/J2yXxFlST4FJC8NeZguDXtMQwCdURBRpdt2d2ss
+        Mr7ZsU+Nc6YkjqnxV9pEO3GkdgpcTgzDlK6Z3SjwzFnwbMOTM3PmAtHL3YZ6
+        G66cvQIrjnZtj7jnuDIgtyVOhEgxbRt+Kym0LXhH/2p6gdCyj3GxV41O0G0E
+        EYtrlI3geUX2BwbDRJDdHd7A+nc0jqD7s//HL7iQr3QtaX9OSxELrs11Nsa0
+        ykkfxknSdUPk+EHoOkG4vu5gL4icboyQF7hJ0PWwTSYxQhALJmzRfkqaYUPP
+        53TJ7+vKC+D6Zsd6bi1L18zPpDhEKOxBD32jFO/xaUz8bJrV2QQTqHSOynhW
+        oNl3in/dFH/ABouFRaO/mOdxRps/YCDnwAGZkBTUoirB238BAAD//0rNydHD
+        WbqnmFaY52RUJlqkW1SVFBdZFmQZ5BUZp+QMVOFObonOFQsAAAD//wMAVjMS
+        DqMPAAA=
+    http_version: 
+  recorded_at: Fri, 04 Nov 2016 14:15:36 GMT
+- request:
+    method: get
+    uri: https://api.nylas.com/messages?from=jane.jones.agentbright@gmail.com&received_after=1446920838&to=beth.boring.agentbright@gmail.com&view=count
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Nylas Ruby SDK 2.0.1 - 2.3.1
+      Authorization:
+      - Basic UnM1R2hFbThtVUxUVkZVM0xiUFZQR0x2UE15Mk1hOg==
+      X-Inbox-Api-Wrapper:
+      - ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.6.2
+      Date:
+      - Mon, 07 Nov 2016 18:27:23 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '18'
+      Access-Control-Allow-Headers:
+      - Authorization,Accept,Cache-Control,X-Requested-With,Content-Type
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE,OPTIONS
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "count": 2
+        }
+    http_version: 
+  recorded_at: Mon, 07 Nov 2016 18:27:18 GMT
+- request:
+    method: get
+    uri: https://api.nylas.com/messages?from=jane.jones.agentbright@gmail.com&received_after=1446529288&to=beth.boring.agentbright@gmail.com&view=count
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Nylas Ruby SDK 2.0.1 - 2.3.1
+      Authorization:
+      - Basic UnM1R2hFbThtVUxUVkZVM0xiUFZQR0x2UE15Mk1hOg==
+      X-Inbox-Api-Wrapper:
+      - ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.6.2
+      Date:
+      - Mon, 07 Nov 2016 18:29:46 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '18'
+      Access-Control-Allow-Headers:
+      - Authorization,Accept,Cache-Control,X-Requested-With,Content-Type
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE,OPTIONS
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "count": 2
+        }
+    http_version: 
+  recorded_at: Thu, 03 Nov 2016 04:41:28 GMT
+- request:
+    method: get
+    uri: https://api.nylas.com/messages?from=jane.jones.agentbright@gmail.com&received_after=1446921089&to=beth.boring.agentbright@gmail.com&view=count
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Nylas Ruby SDK 2.0.1 - 2.3.1
+      Authorization:
+      - Basic UnM1R2hFbThtVUxUVkZVM0xiUFZQR0x2UE15Mk1hOg==
+      X-Inbox-Api-Wrapper:
+      - ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.6.2
+      Date:
+      - Mon, 07 Nov 2016 18:31:40 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '18'
+      Access-Control-Allow-Headers:
+      - Authorization,Accept,Cache-Control,X-Requested-With,Content-Type
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE,OPTIONS
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "count": 2
+        }
+    http_version: 
+  recorded_at: Mon, 07 Nov 2016 18:31:29 GMT
+- request:
+    method: get
+    uri: https://api.nylas.com/messages?from=jane.jones.agentbright@gmail.com&received_after=1446922136&to=beth.boring.agentbright@gmail.com&view=count
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Nylas Ruby SDK 2.0.1 - 2.3.1
+      Authorization:
+      - Basic UnM1R2hFbThtVUxUVkZVM0xiUFZQR0x2UE15Mk1hOg==
+      X-Inbox-Api-Wrapper:
+      - ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.6.2
+      Date:
+      - Mon, 07 Nov 2016 19:07:47 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '18'
+      Access-Control-Allow-Headers:
+      - Authorization,Accept,Cache-Control,X-Requested-With,Content-Type
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE,OPTIONS
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "count": 2
+        }
+    http_version: 
+  recorded_at: Thu, 03 Nov 2016 04:41:28 GMT
+- request:
+    method: get
+    uri: https://api.nylas.com/messages?any_email=john.smith.agentbright@gmail.com&limit=10&offset=0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Nylas Ruby SDK 2.0.1 - 2.3.1
+      Authorization:
+      - Basic UnM1R2hFbThtVUxUVkZVM0xiUFZQR0x2UE15Mk1hOg==
+      X-Inbox-Api-Wrapper:
+      - ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.6.2
+      Date:
+      - Wed, 07 Dec 2016 12:12:47 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Headers:
+      - Authorization,Accept,Cache-Control,X-Requested-With,Content-Type
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE,OPTIONS
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Content-Encoding:
+      - gzip
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+        Mno0MAAA
+    http_version: 
+  recorded_at: Wed, 07 Dec 2016 12:12:47 GMT
+recorded_with: VCR 3.0.3

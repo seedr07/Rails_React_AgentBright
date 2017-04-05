@@ -1,0 +1,16 @@
+<li class="clearfix">
+  <div class="float-left col-sm-4 fwb dim-el">Total Email Messages Sent <br/> (Nylas API):</div>
+  <div class="col-sm-8"><%= @contact.received_email_messages_total_count_from_nylas %></div>
+</li><!-- /.clearfix -->
+<li class="clearfix">
+  <div class="float-left col-sm-4 fwb dim-el">Total Email Messages In Last Year <br/>(Nylas API):</div>
+  <div class="col-sm-8"><%= @contact.received_email_messages_in_past_year_count_from_nylas %></div>
+</li><!-- /.clearfix -->
+<li class="clearfix">
+  <div class="float-left col-sm-4 fwb dim-el">Last Email Sent <br/>(Nylas API):</div>
+  <div class="col-sm-8"><%= cal_date(@contact.last_received_email_sent_at_from_nylas.try(:localtime)) %></div>
+</li><!-- /.clearfix -->
+<li class="clearfix">
+  <div class="float-left col-sm-4 fwb dim-el">Overall Last Contacted <br/>(Nylas API):</div>
+  <div class="col-sm-8"><%= cal_date(@contact.overall_last_contacted_at_from_nylas.try(:localtime)) %></div>
+</li><!-- /.clearfix -->

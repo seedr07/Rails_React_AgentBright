@@ -1,0 +1,15 @@
+
+---
+market_states:
+  columns:
+  - id
+  - name
+  - abbreviation
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - Connecticut
+    - CT
+    - '2016-06-27 21:06:28.213208'
+    - '2016-06-27 21:06:28.213208'

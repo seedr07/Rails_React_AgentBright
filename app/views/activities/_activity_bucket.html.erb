@@ -1,0 +1,8 @@
+<span class="bucket">
+  <%= preposition %>
+  <% if local_assigns.has_key?(:bucket_link) && bucket_link %>
+    <%= link_to(bucket_name, bucket_link) %>
+  <% else %>
+    <%= bucket_name %>
+  <% end %>
+</span>

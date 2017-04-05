@@ -1,0 +1,3 @@
+$("#show-more-activities").remove();
+$(".activity-stream").append("<%= j render(partial: 'activities/activities_by_day', locals: { activities: @activities }) %>");
+$(".js-loading").removeClass("loading");

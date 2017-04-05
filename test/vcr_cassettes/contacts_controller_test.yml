@@ -1,0 +1,536 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.fullcontact.com/v2/person.json?apiKey=7718b6047c08a037&email=mary@exapmle.com
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - FullContact Ruby Client/0.15.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 13 Dec 2016 10:04:46 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '218'
+      Connection:
+      - keep-alive
+      Content-Language:
+      - en
+      Vary:
+      - Accept-Charset,Accept,Accept-Language
+      X-Rate-Limit-Limit:
+      - '60'
+      X-Rate-Limit-Remaining:
+      - '59'
+      X-Rate-Limit-Reset:
+      - '60'
+      Strict-Transport-Security:
+      - max-age=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "status" : 403,
+          "message" : "Usage limits for the provided API Key have been exceeded. Please try again later or contact support to increase your limits.",
+          "requestId" : "0e7b5643-83ed-45c3-b3bc-35337906d040"
+        }
+    http_version: 
+  recorded_at: Tue, 13 Dec 2016 10:04:46 GMT
+- request:
+    method: get
+    uri: https://api.fullcontact.com/v2/person.json?apiKey=7718b6047c08a037&email=johncontact@example.com
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - FullContact Ruby Client/0.15.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 13 Dec 2016 10:04:48 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '218'
+      Connection:
+      - keep-alive
+      Content-Language:
+      - en
+      Vary:
+      - Accept-Charset,Accept,Accept-Language
+      X-Rate-Limit-Limit:
+      - '60'
+      X-Rate-Limit-Remaining:
+      - '58'
+      X-Rate-Limit-Reset:
+      - '59'
+      Strict-Transport-Security:
+      - max-age=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "status" : 403,
+          "message" : "Usage limits for the provided API Key have been exceeded. Please try again later or contact support to increase your limits.",
+          "requestId" : "0e4c9fc0-17cb-4415-ac9f-111ae2fcec84"
+        }
+    http_version: 
+  recorded_at: Tue, 13 Dec 2016 10:04:48 GMT
+- request:
+    method: get
+    uri: https://api.fullcontact.com/v2/person.json?apiKey=7718b6047c08a037&email
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - FullContact Ruby Client/0.15.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 13 Dec 2016 10:04:54 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '218'
+      Connection:
+      - keep-alive
+      Content-Language:
+      - en
+      Vary:
+      - Accept-Charset,Accept,Accept-Language
+      X-Rate-Limit-Limit:
+      - '60'
+      X-Rate-Limit-Remaining:
+      - '57'
+      X-Rate-Limit-Reset:
+      - '53'
+      Strict-Transport-Security:
+      - max-age=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "status" : 403,
+          "message" : "Usage limits for the provided API Key have been exceeded. Please try again later or contact support to increase your limits.",
+          "requestId" : "f41d6265-a1fe-495c-a2c4-40dc16179f9b"
+        }
+    http_version: 
+  recorded_at: Tue, 13 Dec 2016 10:04:54 GMT
+- request:
+    method: get
+    uri: https://api.fullcontact.com/v2/person.json?apiKey=7718b6047c08a037&email=mike@example.com
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - FullContact Ruby Client/0.15.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 13 Dec 2016 10:04:56 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '218'
+      Connection:
+      - keep-alive
+      Content-Language:
+      - en
+      Vary:
+      - Accept-Charset,Accept,Accept-Language
+      X-Rate-Limit-Limit:
+      - '60'
+      X-Rate-Limit-Remaining:
+      - '56'
+      X-Rate-Limit-Reset:
+      - '51'
+      Strict-Transport-Security:
+      - max-age=86400
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "status" : 403,
+          "message" : "Usage limits for the provided API Key have been exceeded. Please try again later or contact support to increase your limits.",
+          "requestId" : "c4aaab03-6fcb-4e91-8b13-7d2c1d2d4589"
+        }
+    http_version: 
+  recorded_at: Tue, 13 Dec 2016 10:04:56 GMT
+- request:
+    method: get
+    uri: https://api.nylas.com/account
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Nylas Ruby SDK 2.0.1 - 2.3.1
+      Authorization:
+      - Basic UnM1R2hFbThtVUxUVkZVM0xiUFZQR0x2UE15Mk1hOg==
+      X-Inbox-Api-Wrapper:
+      - ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.6.2
+      Date:
+      - Tue, 13 Dec 2016 10:04:59 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '284'
+      Access-Control-Allow-Headers:
+      - Authorization,Accept,Cache-Control,X-Requested-With,Content-Type
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE,OPTIONS
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "account_id": "3sdlmdy4bnyy7rynd7ysuo8jy",
+            "email_address": "jane.jones.agentbright@gmail.com",
+            "id": "3sdlmdy4bnyy7rynd7ysuo8jy",
+            "name": "jane jones",
+            "object": "account",
+            "organization_unit": "label",
+            "provider": "gmail",
+            "sync_state": "running"
+        }
+    http_version: 
+  recorded_at: Thu, 03 Nov 2016 04:41:28 GMT
+- request:
+    method: get
+    uri: https://api.nylas.com/messages?from=jane.jones.agentbright@gmail.com&to=beth.boring.agentbright@gmail.com&view=count
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Nylas Ruby SDK 2.0.1 - 2.3.1
+      Authorization:
+      - Basic UnM1R2hFbThtVUxUVkZVM0xiUFZQR0x2UE15Mk1hOg==
+      X-Inbox-Api-Wrapper:
+      - ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.6.2
+      Date:
+      - Tue, 13 Dec 2016 10:05:02 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '18'
+      Access-Control-Allow-Headers:
+      - Authorization,Accept,Cache-Control,X-Requested-With,Content-Type
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE,OPTIONS
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "count": 9
+        }
+    http_version: 
+  recorded_at: Thu, 03 Nov 2016 04:41:28 GMT
+- request:
+    method: get
+    uri: https://api.nylas.com/messages?from=jane.jones.agentbright@gmail.com&received_after=1446529288&to=beth.boring.agentbright@gmail.com&view=count
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Nylas Ruby SDK 2.0.1 - 2.3.1
+      Authorization:
+      - Basic UnM1R2hFbThtVUxUVkZVM0xiUFZQR0x2UE15Mk1hOg==
+      X-Inbox-Api-Wrapper:
+      - ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.6.2
+      Date:
+      - Tue, 13 Dec 2016 10:05:03 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '18'
+      Access-Control-Allow-Headers:
+      - Authorization,Accept,Cache-Control,X-Requested-With,Content-Type
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE,OPTIONS
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "count": 8
+        }
+    http_version: 
+  recorded_at: Thu, 03 Nov 2016 04:41:28 GMT
+- request:
+    method: get
+    uri: https://api.nylas.com/messages?from=jane.jones.agentbright@gmail.com&limit=100&offset=0&to=beth.boring.agentbright@gmail.com
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Nylas Ruby SDK 2.0.1 - 2.3.1
+      Authorization:
+      - Basic UnM1R2hFbThtVUxUVkZVM0xiUFZQR0x2UE15Mk1hOg==
+      X-Inbox-Api-Wrapper:
+      - ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.6.2
+      Date:
+      - Tue, 13 Dec 2016 10:05:05 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Access-Control-Allow-Headers:
+      - Authorization,Accept,Cache-Control,X-Requested-With,Content-Type
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE,OPTIONS
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Content-Encoding:
+      - gzip
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+        MgAA
+    http_version: 
+  recorded_at: Thu, 03 Nov 2016 04:41:28 GMT
+- request:
+    method: get
+    uri: https://api.nylas.com/messages?from=jane.jones.agentbright@gmail.com&received_after=1427860799&to=beth.boring.agentbright@gmail.com&view=count
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Nylas Ruby SDK 2.0.1 - 2.3.1
+      Authorization:
+      - Basic UnM1R2hFbThtVUxUVkZVM0xiUFZQR0x2UE15Mk1hOg==
+      X-Inbox-Api-Wrapper:
+      - ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.6.2
+      Date:
+      - Thu, 22 Dec 2016 15:24:12 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '18'
+      Access-Control-Allow-Headers:
+      - Authorization,Accept,Cache-Control,X-Requested-With,Content-Type
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE,OPTIONS
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "count": 8
+        }
+    http_version: 
+  recorded_at: Fri, 01 Apr 2016 03:59:59 GMT
+- request:
+    method: get
+    uri: https://api.nylas.com/messages?from=jane.jones.agentbright@gmail.com&received_after=1450846799&to=beth.boring.agentbright@gmail.com&view=count
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Nylas Ruby SDK 2.0.1 - 2.3.1
+      Authorization:
+      - Basic UnM1R2hFbThtVUxUVkZVM0xiUFZQR0x2UE15Mk1hOg==
+      X-Inbox-Api-Wrapper:
+      - ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.6.2
+      Date:
+      - Thu, 22 Dec 2016 15:36:56 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '18'
+      Access-Control-Allow-Headers:
+      - Authorization,Accept,Cache-Control,X-Requested-With,Content-Type
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE,OPTIONS
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "count": 8
+        }
+    http_version: 
+  recorded_at: Fri, 23 Dec 2016 04:59:59 GMT
+recorded_with: VCR 3.0.3

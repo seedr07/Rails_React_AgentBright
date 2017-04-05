@@ -1,0 +1,362 @@
+<!--
+*******************************************
+Note: The purpose of views/designs/ is for
+building frontend markup only. Do not add
+ERB or javascript to this page. Copy and
+paste this markup, and then integrate that
+code in its rightful location with the app
+backend.
+
+With very few exceptions, this file should
+remain pure front-end HTML/CSS/JS.
+*******************************************
+-->
+
+<style>
+  .ab-list-container {
+    max-height: 250px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+</style>
+
+<div class="main ui container">
+  <div class="ui vertical basic segment">
+    <div class="ui centered grid">
+      <div class="column">
+        <div class="ui basic segments">
+          <div class="ui active transition fade in tab" data-tab="first">
+              <div class="ui segments">
+
+                <div class="ui segment">
+                  <h1>Identify 5 current clients</h1>
+                </div><!-- /.ui segment -->
+
+                <div class="ui segment">
+                  <div class="ui stackable mobile reversed two column divided grid">
+                    <div class="ten wide column p-a-0">
+                      <div class="ui basic segment m-b-0">
+                        <div class="ui search">
+                          <div class="ui fluid icon input">
+                            <input class="prompt" type="text" placeholder="Search for contacts...">
+                            <i class="search icon"></i>
+                          </div>
+                          <div class="results"></div>
+                        </div>
+                      </div><!-- /.ui segment -->
+
+                     <!--  <div class="ui basic vertical segment"> -->
+                        <div class="ab-list-container p-l">
+                          <div class="ui very relaxed selection middle aligned list">
+                            <div class="item">
+                              <div class="right floated content">
+                                <i class="big circle thin icon"></i>
+                              </div>
+                              <img class="ui avatar image" src="http://semantic-ui.com/images/avatar2/small/rachel.png">
+                              <div class="content">
+                                <div class="header">Rachel D'Fantis</div>
+                                <div class="description">rdfantis@clevelandmail.com</div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <div class="right floated content">
+                                <i class="big circle thin icon"></i>
+                              </div>
+                              <img class="ui avatar image" src="http://semantic-ui.com/images/avatar2/small/lindsay.png">
+                              <div class="content">
+                                <div class="header">Lindsay Bungenstock</div>
+                                <div class="description">lbungenstock@interior.home.gov</div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <div class="right floated content">
+                                <i class="big check circle teal icon"></i>
+                              </div>
+                              <img class="ui avatar image" src="http://semantic-ui.com/images/avatar/small/helen.jpg">
+                              <div class="content">
+                                <div class="header">Helen Thomas</div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <div class="right floated content">
+                                <i class="big circle thin icon"></i>
+                              </div>
+                              <img class="ui avatar image" src="http://semantic-ui.com/images/avatar2/small/matthew.png">
+                              <div class="content">
+                                <div class="header">Matthew Gordon</div>
+                                <div class="description">m.gordon@aig.com</div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <div class="right floated content">
+                                <i class="big circle thin icon"></i>
+                              </div>
+                              <img class="ui avatar image" src="http://semantic-ui.com/images/avatar/small/jenny.jpg">
+                              <div class="content">
+                                <div class="header">Jennifer Joy</div>
+                                <div class="description">jjoy@select.cigna.com</div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <div class="right floated content">
+                                <i class="big circle thin icon"></i>
+                              </div>
+                              <img class="ui avatar image" src="http://semantic-ui.com/images/avatar/small/veronika.jpg">
+                              <div class="content">
+                                <div class="header">Kylee Burgess</div>
+                                <div class="description">kylee124@notes.american.edu</div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <div class="right floated content">
+                                <i class="big check circle teal icon"></i>
+                              </div>
+                              <img class="ui avatar image" src="http://semantic-ui.com/images/avatar/small/christian.jpg">
+                              <div class="content">
+                                <div class="header">Christian Grey</div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <div class="right floated content">
+                                <i class="big circle thin icon"></i>
+                              </div>
+                              <img class="ui avatar image" src="http://semantic-ui.com/images/avatar2/small/rachel.png">
+                              <div class="content">
+                                <div class="header">Rachel D'Fantis</div>
+                                <div class="description">rdfantis@clevelandmail.com</div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <div class="right floated content">
+                                <i class="big circle thin icon"></i>
+                              </div>
+                              <img class="ui avatar image" src="http://semantic-ui.com/images/avatar2/small/lindsay.png">
+                              <div class="content">
+                                <div class="header">Lindsay Bungenstock</div>
+                                <div class="description">lbungenstock@interior.home.gov</div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <div class="right floated content">
+                                <i class="big circle thin icon"></i>
+                              </div>
+                              <img class="ui avatar image" src="http://semantic-ui.com/images/avatar2/small/matthew.png">
+                              <div class="content">
+                                <div class="header">Matthew Gordon</div>
+                                <div class="description">m.gordon@aig.com</div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <div class="right floated content">
+                                <i class="big circle thin icon"></i>
+                              </div>
+                              <img class="ui avatar image" src="http://semantic-ui.com/images/avatar/small/jenny.jpg">
+                              <div class="content">
+                                <div class="header">Jennifer Joy</div>
+                                <div class="description">jjoy@select.cigna.com</div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <div class="right floated content">
+                                <i class="big circle thin icon"></i>
+                              </div>
+                              <img class="ui avatar image" src="http://semantic-ui.com/images/avatar/small/veronika.jpg">
+                              <div class="content">
+                                <div class="header">Kylee Burgess</div>
+                                <div class="description">kylee124@notes.american.edu</div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <div class="right floated content">
+                                <i class="big circle thin icon"></i>
+                              </div>
+                              <img class="ui avatar image" src="http://semantic-ui.com/images/avatar2/small/rachel.png">
+                              <div class="content">
+                                <div class="header">Rachel D'Fantis</div>
+                                <div class="description">rdfantis@clevelandmail.com</div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <div class="right floated content">
+                                <i class="big circle thin icon"></i>
+                              </div>
+                              <img class="ui avatar image" src="http://semantic-ui.com/images/avatar2/small/lindsay.png">
+                              <div class="content">
+                                <div class="header">Lindsay Bungenstock</div>
+                                <div class="description">lbungenstock@interior.home.gov</div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <div class="right floated content">
+                                <i class="big circle thin icon"></i>
+                              </div>
+                              <img class="ui avatar image" src="http://semantic-ui.com/images/avatar2/small/matthew.png">
+                              <div class="content">
+                                <div class="header">Matthew Gordon</div>
+                                <div class="description">m.gordon@aig.com</div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <div class="right floated content">
+                                <i class="big circle thin icon"></i>
+                              </div>
+                              <img class="ui avatar image" src="http://semantic-ui.com/images/avatar/small/jenny.jpg">
+                              <div class="content">
+                                <div class="header">Jennifer Joy</div>
+                                <div class="description">jjoy@select.cigna.com</div>
+                              </div>
+                            </div>
+                            <div class="item">
+                              <div class="right floated content">
+                                <i class="big circle thin icon"></i>
+                              </div>
+                              <img class="ui avatar image" src="http://semantic-ui.com/images/avatar/small/veronika.jpg">
+                              <div class="content">
+                                <div class="header">Kylee Burgess</div>
+                                <div class="description">kylee124@notes.american.edu</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div><!-- /.ab-list-container -->
+
+                      <!-- </div> --><!-- /.ui segment -->
+                    </div><!-- /.column -->
+                    <div class="six wide column p-a-0" style="background-color:#f3f4f5;">
+                      <div class="ui secondary basic segment m-b-0">
+                        <div class="ui mini horizontal statistic">
+                          <div class="value">
+                            2/5
+                          </div>
+                          <div class="label">
+                            Selected
+                          </div>
+                        </div>
+                      </div><!-- /.ui segment -->
+                      <div class="ui middle aligned selection tiny list m-x">
+                        <div class="item">
+                          <div class="right floated content">
+                            <div class="circular mini ui icon button">
+                              <i class="icon remove"></i>
+                            </div>
+                          </div>
+                          <img class="ui avatar image" src="http://semantic-ui.com/images/avatar/small/helen.jpg">
+                          <div class="content">
+                            <div class="header">Helen Thomas</div>
+                          </div>
+                        </div>
+                        <div class="item">
+                          <div class="right floated content">
+                            <div class="mini circular ui icon button">
+                              <i class="icon remove"></i>
+                            </div>
+                          </div>
+                          <img class="ui avatar image" src="http://semantic-ui.com/images/avatar/small/christian.jpg">
+                          <div class="content">
+                            <div class="header">Christian Grey</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div><!-- /.column -->
+                  </div><!-- /.ui stackable two column grid -->
+                </div><!-- /.ui segment -->
+
+                <div class="ui clearing segment">
+                  <button class="ui right floated primary button" data-go-to-tab="second">
+                    Next
+                  </button>
+                </div><!-- /.ui segment -->
+              </div><!-- /.ui stacked segments -->
+
+          </div>
+          <div class="ui transition fade in tab" data-tab="second">
+            <div class="ui segments">
+              <div class="ui segment">
+                <h1>Second</h1>
+              </div><!-- /.ui segment -->
+              <div class="ui segment">
+                <p>Content</p>
+              </div><!-- /.ui segment -->
+              <div class="ui segment">
+                <button class="ui button" data-go-to-tab="first">
+                  Back
+                </button>
+                <button class="ui primary right floated button" data-go-to-tab="third">
+                  Next
+                </button>
+              </div><!-- /.ui segment -->
+            </div><!-- /.ui segments -->
+          </div>
+
+          <div class="ui transition fade in tab" data-tab="third">
+            <div class="ui segments">
+              <div class="ui segment">
+                <h1>Third</h1>
+              </div><!-- /.ui segment -->
+              <div class="ui segment">
+                <p>Content</p>
+              </div><!-- /.ui segment -->
+              <div class="ui segment">
+                <button class="ui button" data-go-to-tab="second">
+                  Back
+                </button>
+                <button class="ui primary right floated button">
+                  Finish
+                </button>
+              </div><!-- /.ui segment -->
+            </div><!-- /.ui segments -->
+
+          </div>
+        </div><!-- /.ui raised segments -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $('[data-go-to-tab]')
+    .on('click', function() {
+      // programmatically activating tab
+      $buttonClicked = $(this);
+      var tabName = $buttonClicked.data('go-to-tab');
+      $.tab('change tab', tabName);
+    })
+  ;
+
+  var content = [
+    { title: 'Andorra' },
+    { title: 'United Arab Emirates' },
+    { title: 'Afghanistan' },
+    { title: 'Antigua' },
+    { title: 'Anguilla' },
+    { title: 'Albania' },
+    { title: 'Armenia' },
+    { title: 'Netherlands Antilles' },
+    { title: 'Angola' },
+    { title: 'Argentina' },
+    { title: 'American Samoa' },
+    { title: 'Austria' },
+    { title: 'Australia' },
+    { title: 'Aruba' },
+    { title: 'Aland Islands' },
+    { title: 'Azerbaijan' },
+    { title: 'Bosnia' },
+    { title: 'Barbados' },
+    { title: 'Bangladesh' },
+    { title: 'Belgium' },
+    { title: 'Burkina Faso' },
+    { title: 'Bulgaria' },
+    { title: 'Bahrain' },
+    { title: 'Burundi' }
+    // etc
+  ];
+
+  $('[data-behavior=test-country-search]')
+    .search({
+      source: content
+    });
+
+  $('[data-behavior=test-country-dropdown]')
+    .dropdown({
+      useLabels: false
+    });
+</script>

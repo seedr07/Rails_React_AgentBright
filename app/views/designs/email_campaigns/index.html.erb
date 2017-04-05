@@ -1,0 +1,387 @@
+<!--
+*******************************************
+Note: The purpose of views/designs/ is for
+building frontend markup only. Do not add
+ERB or javascript to this page. Copy and
+paste this markup, and then integrate that
+code in its rightful location with the app
+backend.
+
+With very few exceptions, this file should
+remain pure front-end HTML/CSS/JS.
+*******************************************
+-->
+
+<style>
+  .ab-search-bar-header {
+    display: flex;
+  }
+
+  @media only screen and (max-width: 991px) {
+    .ab-search-bar-header {
+      flex-direction: column;
+    }
+  }
+
+  .ab-search-bar-header-left {
+    flex-grow: 1;
+  }
+
+  .ab-search-bar-header-right {
+    flex: 0 1 auto;
+  }
+
+  .ab-email-campaigns-select-menu {
+    flex-wrap: wrap;
+  }
+
+  .ui.sortable.table thead th {
+    border-left: none;
+  }
+
+  .ui.sortable.table thead th.no-sort:hover {
+    background: transparent;
+    cursor: auto;
+    color: rgba(0, 0, 0, 0.87);
+  }
+
+  td.ab-status-column {
+    width: 10px;
+    height: 100%;
+    padding: 0 !important;
+    position: relative;
+  }
+
+  td.ab-status-column > .ab-status {
+    position: absolute;
+    top: 0;
+    width: 10px;
+    height: 100%;
+    background-color: #ddd;
+    display: inline-block;
+  }
+
+  td.ab-status-column > .ab-status.ab-positive-status {
+    background-color: #21BA45;
+  }
+
+  td.ab-status-column > .ab-status.ab-warning-status {
+    background-color: #FFD700;
+  }
+
+  td.ab-status-column > .ab-status.ab-negative-status {
+    background-color: #DB2828;
+  }
+
+  .ui.fixed.sticky + table {
+    margin-top: 61px;
+  }
+</style>
+
+<div class="ui masthead vertical segment">
+  <div class="ui container">
+    <div class="introduction">
+      <h1 class="ui header">Email Campaigns</h1>
+      <a class="ui button" href="#">
+        <i class="ui plus icon"></i>
+        Create new email campaign
+      </a><!-- /.ui primary button -->
+    </div>
+  </div>
+</div>
+
+<div class="main ui container">
+  <div class="ui vertical basic segment">
+    <div class="ui centered grid">
+      <div class="column">
+        <div class="ui segments">
+
+          <div class="ui segment">
+
+            <div class="ab-search-bar-header">
+
+              <div class="ab-search-bar-header-left">
+                <div class="ui icon fluid input">
+                  <input class="prompt" type="text" placeholder="Search email campaigns...">
+                  <i class="search icon"></i>
+                </div>
+              </div><!-- /.ab-search-bar-header-left -->
+
+              <div class="ab-search-bar-header-right">
+                <div class="p-l display-inline-block">
+                  <div class="ui dropdown basic button" data-ui-behavior="dropdown-sort">
+                    <span class="text">Sort</span>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                      <div class="header">Sort email campaigns by</div><!-- /.header -->
+                      <div class="item">Name</div><!-- /.item -->
+                      <div class="item">Recently created</div><!-- /.item -->
+                      <div class="item">Least recently created</div><!-- /.item -->
+                      <div class="item">Recently updated</div><!-- /.item -->
+                      <div class="item">Least recently updated</div><!-- /.item -->
+                    </div><!-- /.menu -->
+                  </div><!-- /.ui dropdown button -->
+                </div><!-- /.p-l -->
+
+                <div class="ui small basic buttons">
+                  <div class="ui button">
+                    <span class="text">1</span>
+                  </div><!-- /.ui button -->
+                  <div class="ui button">
+                    <span class="text">2</span>
+                  </div><!-- /.ui button -->
+                  <div class="ui disabled button">
+                    <span class="text">...</span>
+                  </div><!-- /.ui button -->
+                  <div class="ui button">
+                    <span class="text">13</span>
+                  </div><!-- /.ui button -->
+                  <div class="ui icon button">
+                    <i class="right chevron icon"></i>
+                  </div><!-- /.ui button -->
+                </div><!-- /.ui buttons -->
+
+              </div><!-- /.ab-search-bar-header-right -->
+
+            </div><!-- /.ab-search-bar-container -->
+          </div><!-- /.ui segment -->
+
+          <div class="ui segment p-a-0">
+
+            <!-- <div class="ui sticky" data-ui-behavior="email-campaigns-select-menu">
+
+                <div class="ui inverted menu ab-email-campaigns-select-menu">
+                  <div class="borderless item">
+                    <span>3 email campaigns selected | <a href="#">Clear</a></span>
+                  </div>
+                  <div class="right menu">
+                    <a class="item" data-ui-behavior="delete-email-campaigns-button">
+                      <i class="large trash outline icon m-a-0"></i>
+                    </a>
+                  </div>
+                </div>
+
+            </div> -->
+
+            <table class="ui sortable very basic selectable table" data-ui-behavior="sortable-table">
+              <thead>
+                <tr>
+                  <th class="no-sort collapsing">
+                    <div class="ui fitted checkbox" data-ui-behavior="select-all-checkbox-popover" data-html="Select all <a href='#'>150 email campaigns</a> in the search." data-variation="inverted">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </th>
+                  <th class="">Name</th>
+                  <th class="no-sort"></th>
+                  <th class="no-sort"></th>
+                  <th class="no-sort"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="ui fitted checkbox">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="item">
+                      <div class="ui small header">
+                        <div class="content">
+                          August 2016 Newsletter
+                          <div class="sub header">Draft</div><!-- /.sub header -->
+                          <div class="sub header">
+                            <strong>Last edited</strong> on July 29, 2016 at 8:12am by you
+                          </div><!-- /.sub header -->
+                        </div><!-- /.content -->
+                      </div><!-- /.ui small header -->
+                    </div><!-- /.item -->
+                  </td>
+                  <td>
+                    <div class="ui mini statistic">
+                      <div class="value"><i class="ui child icon"></i> 452</div><!-- /.value -->
+                      <div class="label">recipients</div><!-- /.label -->
+                    </div><!-- /.ui mini statistic -->
+                  </td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="ui fitted checkbox">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="item">
+                      <div class="ui small header">
+                        <div class="content">
+                          July 2016 Newsletter
+                          <div class="sub header">Scheduled for delivery</div><!-- /.sub header -->
+                          <div class="sub header">
+                            <strong>Last edited</strong> on July 29, 2016 at 8:12am by you
+                          </div><!-- /.sub header -->
+                        </div><!-- /.content -->
+                      </div><!-- /.ui small header -->
+                    </div><!-- /.item -->
+                  </td>
+                  <td>
+                    <div class="ui mini statistic">
+                      <div class="value"><i class="ui child icon"></i> 499</div><!-- /.value -->
+                      <div class="label">recipients</div><!-- /.label -->
+                    </div><!-- /.ui mini statistic -->
+                  </td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="ui fitted checkbox">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="item">
+                      <div class="ui small header">
+                        <div class="content">
+                          June 2016 Newsletter
+                          <div class="sub header">In delivery</div><!-- /.sub header -->
+                          <div class="sub header">
+                            <strong>Last edited</strong> on July 29, 2016 at 8:12am by you
+                          </div><!-- /.sub header -->
+                        </div><!-- /.content -->
+                      </div><!-- /.ui small header -->
+                    </div><!-- /.item -->
+                  </td>
+                  <td>
+                    <div class="ui mini statistic">
+                      <div class="value"><i class="ui child icon"></i> 311</div><!-- /.value -->
+                      <div class="label">recipients</div><!-- /.label -->
+                    </div><!-- /.ui mini statistic -->
+                  </td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="ui fitted checkbox">
+                      <input type="checkbox">
+                      <label></label>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="item">
+                      <div class="ui small header">
+                        <div class="content">
+                          May 2016 Newsletter
+                          <div class="sub header">Sent</div><!-- /.sub header -->
+                          <div class="sub header">
+                            <strong>Delivered</strong> on April 30, 2016 at 8:12am
+                          </div><!-- /.sub header -->
+                        </div><!-- /.content -->
+                      </div><!-- /.ui small header -->
+                    </div><!-- /.item -->
+                  </td>
+                  <td>
+                    <div class="ui mini statistic">
+                      <div class="value"><i class="ui child icon"></i> 299</div><!-- /.value -->
+                      <div class="label">recipients</div><!-- /.label -->
+                    </div><!-- /.ui mini statistic -->
+                  </td>
+                  <td>
+                    <div class="ui mini statistic">
+                      <div class="value"><i class="ui mail outline icon"></i> 77</div><!-- /.value -->
+                      <div class="label">opens</div><!-- /.label -->
+                    </div><!-- /.ui mini statistic -->
+                  </td>
+                  <td>
+                    <div class="ui mini statistic">
+                      <div class="value"><i class="ui mouse pointer icon"></i> 29</div><!-- /.value -->
+                      <div class="label">clicks</div><!-- /.label -->
+                    </div><!-- /.ui mini statistic -->
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr><th colspan="8">
+                  <div class="ui right floated pagination menu">
+                    <a class="icon item">
+                      <i class="left chevron icon"></i>
+                    </a>
+                    <a class="item">1</a>
+                    <a class="item">2</a>
+                    <a class="item">...</a>
+                    <a class="item">12</a>
+                    <a class="item">13</a>
+                    <a class="icon item">
+                      <i class="right chevron icon"></i>
+                    </a>
+                  </div>
+                </th>
+              </tr></tfoot>
+            </table>
+
+          </div><!-- /.ui segment -->
+
+        </div><!-- /.ui segments -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ui small basic modal" data-ui-behavior="delete-email-campaigns-modal">
+  <div class="ui icon header">
+    <i class="trash icon"></i>
+    Are you sure you want to delete these 3 email campaigns?
+  </div>
+  <div class="actions">
+    <div class="ui cancel red basic inverted button">
+      <i class="remove icon"></i>
+      No
+    </div>
+    <div class="ui ok green inverted button">
+      <i class="checkmark icon"></i>
+      Yes
+    </div>
+  </div>
+</div>
+
+<script>
+  // Initialize sorting dropdown
+  $('[data-ui-behavior=dropdown-sort]')
+    .dropdown({
+      action: 'select'
+    })
+  ;
+
+  // Initialize select all popover
+  $('[data-ui-behavior=select-all-checkbox-popover]')
+    .popup({
+      on: 'click'
+    })
+  ;
+
+  // Initialize delete confirmation modal
+  $('[data-ui-behavior=delete-email-campaigns-modal]')
+    .modal('attach events', '[data-ui-behavior=delete-email-campaigns-button]', 'show')
+  ;
+
+  // Initialize Semantic UI dropdowns
+  $('[data-ui-behavior=checkbox]')
+    .checkbox()
+  ;
+
+  // Initialize sortable table
+  $('[data-ui-behavior=sortable-table]')
+    .tablesort()
+  ;
+
+  // Initialize sticky
+  $('[data-ui-behavior=email-campaigns-select-menu]')
+    .sticky()
+  ;
+</script>

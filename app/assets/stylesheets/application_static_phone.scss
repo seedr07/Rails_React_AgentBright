@@ -1,0 +1,20 @@
+// These assets are located in app/assets/webpack directory, and are generated ONLY when static
+// assets are prepared (not for hot reloading assets).
+
+// Super important: This file is loaded even for hot loading only, so we need to be sure
+// that we don't reference the static generated CSS files.
+
+@import "third-party/prettycheckable";
+@import "third-party/select2";
+@import "third-party/select2-bootstrap";
+@import "third-party/bootstrap-select";
+@import "third-party/animate";
+@import "toastr";
+
+@import "ribbon";
+
+@import "vendor-bundle";
+// @import 'app-bundle';
+
+// Non-webpack assets
+@import 'application_non_webpack_phone';

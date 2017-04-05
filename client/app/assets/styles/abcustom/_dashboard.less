@@ -1,0 +1,46 @@
+.dashboard-progress {
+  &.well {
+    padding-bottom: 28px;
+    @media only screen and (max-width: @screen-xs-max) {
+      padding: 16px 8px;
+    }
+  }
+  .stat-block {
+    @media only screen and (min-width: @screen-sm-min) {
+      height: 132px;
+    }
+  }
+}
+
+a.not-blue-link {
+  color: inherit;
+}
+
+a.link-underline {
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.iconic-fluid {
+  width: 100%;
+}
+
+#home_index {
+  section.activity-stream article.activity .bucket {
+    display: inline;
+  }
+
+  .js-activity-comment {
+    .suffix {
+      display: none;
+    }
+  }
+
+  .js-activity-task.js-activity-create,
+  .js-activity-task.js-activity-complete {
+    .suffix {
+      display: none;
+    }
+  }
+}

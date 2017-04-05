@@ -1,0 +1,246 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.kimonolabs.com/api/8gk4q90w?apikey=d8e92ec2fd98cfd1869e207278a6df91&kimpath2=41%20Charles%20Mary%20Dr%20Higganum%20CT%203361
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - Express
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '659'
+      Etag:
+      - '"-1322546806"'
+      Vary:
+      - Accept-Encoding
+      Date:
+      - Wed, 12 Nov 2014 20:43:01 GMT
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "name": "Realtor.com Property Details",
+          "count": 1,
+          "frequency": "On demand",
+          "version": 302,
+          "newdata": true,
+          "lastrunstatus": "success",
+          "thisversionrun": "Wed Nov 12 2014 20:43:00 GMT+0000 (UTC)",
+          "lastsuccess": "Wed Nov 12 2014 20:42:40 GMT+0000 (UTC)",
+          "results": {
+            "agent_details": [
+              {
+                "office_number": "",
+                "broker_phone_number": {
+                  "text": "Email Agent",
+                  "href": "http://www.realtor.com/realestateandhomes-detail/#modal_emailagnt474293"
+                },
+                "broker": "Page Taft-Christies IRE - Essex",
+                "listing_agent": "MAUREEN O'GRADY The Rachel Thomas Group"
+              }
+            ]
+          }
+        }
+    http_version: 
+  recorded_at: Wed, 12 Nov 2014 20:43:02 GMT
+- request:
+    method: get
+    uri: https://www.kimonolabs.com/api/9ztboodu?apikey=d8e92ec2fd98cfd1869e207278a6df91
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - Express
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - '"2037357135"'
+      Vary:
+      - Accept-Encoding
+      Content-Encoding:
+      - gzip
+      Date:
+      - Wed, 12 Nov 2014 21:33:12 GMT
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAACA61U247bNhB9368YGEWbIJatm70bA4u2603Sh73BcREURSHQ
+        4shiQ5FakrLWDfLvGdLOVm76UqB+sM2Z4eHMmTPz6QxgpFiDowWMVsik0wYe
+        jG7RuD0wxeHnLSoH1+iYkHY09vGl7pSjC0k4VQYfO1Tl3kPcK+DY0L1D5A6N
+        FVqRJwtnhT1njtG5YtJisElmnemUdcx11mPYrizRHt9ytbBHFAry7g/I4U7v
+        IEkhjZMc0mSRZYv4HN7drl/F9IEXv66XL0fP4F/x/utdg7aTzt/7REcytEde
+        Cn5kYwG/Bw8cI45Rogx0fjdPZ2PCDGhHJ0dbGtG6AymjByOsEwrhN2QGDPHK
+        YYOsrKHWDcJP8KAFsX//A3zQmtsJrLVjUu7BYMS1wjHcYQ9bw5RwCB+FK2tU
+        0AtXQ0ltQwPCSurGGHqtOJqqk0A1KKikpka35JvAO4msEWoLNTO8p3cOXnvA
+        sZ2KpHCUnG4ogTdPLVNW7BCo5VJbIrQymnJstSnrMeQgmdkiVcHDDeinJTBh
+        JkMWyBnakcMV8hMHc3XwJPC2k3IMCfzCZAVXZB/GiYZt8bkxR6PDJ6/K0SCQ
+        rNaU3lg71y6m03ZieNmKp0mpm+kuTqby4pzNcJ7nUR8/8ajP47ioM/p6vIgn
+        f7bbUzCaDw+WZXDLrKU+dRads7Aihu8lh5t9Qz1ZriGeZ+fJ6Pnq50HujbSF
+        6poNGg91l83y13k6LK4zcpBx3/cTcxjMkLT/j35YkPrqVWKjgxynWRadZBWt
+        eEFJRT6pYrkuQk7FbX4xj+MozdP5xfBVqV1hxV9Bufk4m83h/SO8dXCj3TBs
+        T0ItNp04EJG8Ts+HXsY58sJpQnIB6T22Dn2tkMzHYeaG4faxYwaLCvGANk7n
+        8eHZYZSuKpqoAWcnijH6I5qirWkaBiFXwbyAF1TsS8izPPJVk3rdhDJJvkXw
+        l5Za8h6lJLkpMsEKreA0RoKRKUSR6iB67vQJfWGQtwXz6zI0ltFKhCtBw3DC
+        kPcX/5N+k3TKqtm8ikm1pF/7rWBrg9U/xFQeq9yEIhu9QxvQQsKTkPCPnWuK
+        kjUtE1t1eX9z/RCtrpffe6vVnSnx8uuxQS665pIg23AuaRVQgZehzB43QQf/
+        NkJr2utwJI2WFLS0bf3Gov23hyF3f8/Q2fD3jzP/7/MXT5pvecAGAAA=
+    http_version: 
+  recorded_at: Wed, 12 Nov 2014 21:33:13 GMT
+- request:
+    method: get
+    uri: https://www.kimonolabs.com/api/9ztboodu?apikey=d8e92ec2fd98cfd1869e207278a6df91&kimpath2=41%20Charles%20Mary%20Dr%20Higganum%20CT%203361
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      X-Powered-By:
+      - Express
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - '"2098670932"'
+      Vary:
+      - Accept-Encoding
+      Content-Encoding:
+      - gzip
+      Date:
+      - Wed, 12 Nov 2014 21:36:25 GMT
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAACA61UW4/qNhB+318xopVOq3JJILDAWwADkUJCk9AjVFWRSQxJ
+        mwtrO8vSo/PfO7loG9St1FblIdhz/eabGX95AuhkNGWdOXQcRhOZc9jz/Mq4
+        vAPNQtAvLJOwYpLGieh0S/sgLzKJDmp1O3P2UrAsuJch7AxClqJfbfnKuIjz
+        DDXj6p6xW0glxbvkBatECRV4zoSkshBliDMmKjirA8goFk0QNCrVn1kIVv4K
+        6hCGiqrBUJ2PtLmiwGbn/aDgD747eMvvO+/BRREETIh/7cuZKBJZ+n3BKwqu
+        DS1+2JAxh58rDTQWjVUcVGx+O5nMulNFqaI1ypCJgMdXWXPScQ2PrMC2YNif
+        DWFB9INnrA8mmOQnYoK+dIgLhgU6mDYKjmARY7Nd2M7Wtld9WBwM04O17QCx
+        iLM5AlmvjSWxlkfQrRV49ko/fnLBNNbE9Y4m6YO9JxasTRtd9qZudcHcEHD3
+        +tKwDy44tr1zu/DjQTcN7wg73SOOoZtuHzbE9rbE2ekmbInuGdamyrC0bRPP
+        fcRo6p/BPWA5ZTU73WjSdNHmYK6wNFBdr0m9012M3G/zcmJh1SANFix8UFAZ
+        NZp1kSRdUGFLkzMsUN62i1N6Ye+taoSSvZVj2mkZolTwoBRGUl7ng8G1z8Pg
+        Gr/1gzwdvCrqIJmegzF91rReqryFvZumKH40ws/LVOn/er08BsOFqdCpsIwo
+        T5iAHeV3WPEu4gxDmiIDHigTTVM7735fW8DTRPhZkZ4YL+PsZqo2mY6e26UV
+        PGnhvd1ufV7vaQW5PLNyeRguXZSnTPTq8Rxoaq/B1Csx9VbcryH5S8+vEPm7
+        0Xg4HPeUmapO2ymTXPoi/r0a42o09QC3oW1xZ5T7pyKuy8dlehhzTMNCX+YY
+        RLK/q0u8FJQz/8xYTWF3OpmA+wJr2bbKz2fcpxZFD9PB898Y969RnrVMPpwB
+        kiIn9WP22MGIs/N/4vebNA9p4rMyML1kUnvWhrPRx12ugZZp9jin4NGzxObw
+        WMgYR8ZwCPSACMHeHrpQqrOLTyvQJYv6wSG4wfanjaOvjuBFDBwaRCzBY55S
+        ARueF9eHTpS+/v+1HcMBPY1HgfKsKL1AEX9dh4/IrADKCl8Z5sP98fCZh6Ze
+        wOMVxw2B43N9usM/LftP5p/a/788laevfwBULRd96gYAAA==
+    http_version: 
+  recorded_at: Wed, 12 Nov 2014 21:36:25 GMT
+- request:
+    method: get
+    uri: https://www.kimonolabs.com/api/ondemand/9ztboodu?apikey=d8e92ec2fd98cfd1869e207278a6df91&kimpath2=41%20Charles%20Mary%20Dr%20Higganum%20CT%203361
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby SDK 0.14.0
+      X-Inbox-Api-Wrapper:
+      - ruby
+  response:
+    status:
+      code: 503
+      message: Service Unavailable
+    headers:
+      Cache-Control:
+      - no-cache, no-store
+      Content-Type:
+      - text/html; charset=utf-8
+      Date:
+      - Thu, 12 Mar 2015 23:51:53 GMT
+      Server:
+      - nginx/1.4.6 (Ubuntu)
+      Content-Length:
+      - '487'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: |-
+        <!DOCTYPE html>
+            <html>
+            <head>
+              <meta name="viewport" content="width=device-width, initial-scale=1">
+              <style type="text/css">
+                html, body, iframe { margin: 0; padding: 0; height: 100%; }
+                iframe { display: block; width: 100%; border: none; }
+              </style>
+            <title>Application Error</title>
+            </head>
+            <body>
+              <iframe src="https://s3.amazonaws.com/kimbucket/error.html">
+                <p>Application Error</p>
+              </iframe>
+            </body>
+            </html>
+    http_version: 
+  recorded_at: Mon, 31 Mar 2014 23:20:00 GMT
+recorded_with: VCR 2.9.3

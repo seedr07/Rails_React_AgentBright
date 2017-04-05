@@ -1,0 +1,182 @@
+// Tags
+// ---------------------------
+
+.tagsinput {
+  border-color: #e0e0e0;
+  .tag {
+    background-color: #e0e0e0;
+    color: #737373;
+    font-weight: 500;
+    .transition(.15s linear);
+    &:hover {
+      background-color: mix(@main-color, black, 85%);
+    }
+  }
+}
+
+.tagsinput-primary {
+  border-color: @main-color;
+  .tag {
+    background-color: @main-color;
+    color: #FFF;
+  }
+}
+
+.tagsinput input {
+  border: none;
+}
+
+.tagsinput-add {
+  background-color: #e0e0e0;
+  &:hover {
+    background-color: #373737;
+  }
+}
+
+.tagsinput-remove-link {
+  padding: 5px 7px 5px 0;
+}
+
+.bootstrap-tagsinput {
+  max-width: 550px;
+  border-radius: 3px;
+  input[type="text"] {
+    border: none;
+    outline: none;
+    min-height: inherit;
+    &:first-child {
+      margin: 0;
+      margin-bottom: 2px;
+    }
+  }
+  .tag {
+    color: #517c96;
+  }
+}
+
+.tagsinput-primary .tag {
+  color: #FFF;
+}
+
+.tagsinput-primary {
+  .bootstrap-tagsinput {
+    border-color: #c8c8c8;
+    &:hover {
+      border-color: @input-hover-color;
+    }
+  }
+
+}
+
+.tagsinput-orange {
+  border-color: #ff9422;
+  .bootstrap-tagsinput {
+    border-color: #ff9422;
+    input[type="text"] {
+      color: #000;
+    }
+  }
+  .tag {
+    color: #fff;
+    background-color: #ff9422;
+    &:hover {
+      background-color: mix(@ab-orange, white, 80%);
+    }
+  }
+}
+
+// Typeahead.js
+// ---------------------------
+
+.typeahead.dropdown-menu {
+  max-width: 550px;
+  min-width: 50px;
+  width: 100% !important;
+}
+
+.typeahead.dropdown-menu li.active > a, .typeahead.dropdown-menu li.selected > a, .typeahead.dropdown-menu li.active > a.highlighted, .typeahead.dropdown-menu li.selected > a.highlighted {
+  background: #737373;
+  color: #ffffff;
+}
+
+.typeahead.dropdown-menu li > a {
+  font-size: 24px;
+}
+
+.tt-dropdown-menu {
+  right: auto;
+  border: 1px solid #D0D0D0;
+  display: block;
+  width: auto;
+  min-width: 160px;
+  box-shadow: 0 6px 6px 1px rgba(0, 0, 0, 0.1);
+  -webkit-transition: none;
+          transition: none;
+  .tt-suggestions {
+    max-width: 550px;
+    min-width: 50px;
+    width: 100% !important;
+  }
+}
+
+// .tt-suggestion, .tt-dropdown-menu li.selected > a, .tt-is-under-cursor > a.highlighted, .tt-dropdown-menu a.highlighted, .tt-is-under-cursor {
+//   background: #999999;
+//   color: #ffffff;
+// }
+
+// .tt-is-under-cursor{
+//   background: #737373;
+// }
+
+// .tt-suggestion a {
+//   font-size: 24px;
+// }
+
+.twitter-typeahead{
+  width: 100%;
+}
+
+
+// .tt-dropdown-menu {
+//   top: 60px !important;
+//   left: 0px;
+//   display: none;
+//   opacity: 1;
+//   visibility: visible;
+//   width: 50%;
+//   margin-top: 0px;
+//   border: 2px solid @second-color!important;
+//   padding: 5px 0;
+//   background-color: @inverse;
+//   border-radius: @border-radius-large;
+
+//   .tt-suggestion {
+//     a {
+//       padding: 6px 14px;
+//     }
+//     &:first-child,
+//     &:last-child {
+//       a {
+//         padding: 6px 14px;
+//         border-radius: 0;
+//       }
+//     }
+//   }
+// }
+
+.twitter-typeahead .tt-hint{
+  display: none!important;
+}
+
+.bootstrap-tagsinput > .twitter-typeahead > .tt-dropdown-menu {
+  top: 100% !important;
+  margin-top: 1px;
+  right: auto;
+  border: 1px solid #D0D0D0;
+  display: block;
+  width: auto;
+  min-width: 160px;
+  box-shadow: 0 6px 6px 1px rgba(0, 0, 0, 0.1);
+  -webkit-transition: none;
+          transition: none;
+}

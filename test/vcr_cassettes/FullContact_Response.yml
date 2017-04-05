@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.fullcontact.com/v2/person.json?apiKey=&email=ogradypatrickj@gmail.com
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Server:
+      - nginx/1.6.1
+      Date:
+      - Tue, 11 Nov 2014 22:39:28 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Charset,Accept
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "status" : 403,
+          "message" : "API Key is missing or invalid. Please check your request.",
+          "requestId" : "ed4ce991-22bc-4c03-b310-96de868cf271"
+        }
+    http_version: 
+  recorded_at: Tue, 11 Nov 2014 22:39:28 GMT
+recorded_with: VCR 2.9.3

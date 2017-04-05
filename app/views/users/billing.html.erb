@@ -1,0 +1,43 @@
+<div class="row">
+  <!-- SIDEBAR MENU -->
+  <div class="col-sm-3 hide-phone">
+    <%=render(partial: "shared/account_settings_sidebar") %>
+  </div>
+  <!-- MAIN SECTION -->
+  <div class="col-sm-9">
+    <!--HEADER SECTION-->
+    <div class="row">
+      <div class="col-sm-12 header">
+        <h1>
+          <a href="#">My Profile</a>
+        </h1>
+        <h2>Billing</h2>
+      </div><!-- .col-sm-12 -->
+    </div><!-- .row -->
+    <%= render(partial: "shared/account_settings_mobile_menu") %>
+    <div class="sub-section">
+      <% if current_user.subscriptions.any? %>
+        <% if current_user.subscription %>
+          <%= render(
+            "subscriptions/subscription",
+            subscription: current_user.subscription
+          ) %>
+        <% end %>
+        <%= link_to(
+          "View all invoices",
+          subscriber_invoices_path,
+          class: "invoices"
+        ) %>
+      <% else %>
+        <%= render("subscriptions/no_subscription") %>
+      <% end %>
+    </div><!-- /.sub-section -->
+    <% if super_admin_signed_in? %>
+      <hr>
+      <div class="sub-section">
+        <h2>Change Subscription Plan:</h2>
+        <%= render @plans %>
+      </div><!-- /.sub-section -->
+    <% end %>
+  </div><!-- .col-sm-9 -->
+</div><!-- .row -->

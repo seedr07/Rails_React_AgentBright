@@ -1,0 +1,14 @@
+<% content_for :javascript do %>
+  <script type="text/javascript" src="https://js.stripe.com/v1/">
+  </script>
+<% end %>
+
+<% if Rails.env.test? %>
+  <% content_for :javascript do %>
+    <script type="text/javascript" charset="utf-8">
+      document.addEventListener('turbolinks:load', function() {
+        Stripe.endpoint = '<%== Stripe.api_base + '/v1' %>';
+      });
+    </script>
+  <% end %>
+<% end %>

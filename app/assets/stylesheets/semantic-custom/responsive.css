@@ -1,0 +1,152 @@
+/*******************************
+          Responsive
+*******************************/
+
+
+
+/* Hide Top Bar */
+@media only screen and (min-width: 1145px) {
+  .fixed.main.menu {
+    width: inherit;
+    left: 250px;
+    right: 0;
+  }
+  .fixed.main.menu #menu-button {
+    display: none;
+  }
+
+  /* 100% Menu Width */
+  .fixed.menu > .container {
+    margin-left: 0em !important;
+    margin-right: 0em !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+}
+
+/* Remove Fixed Sidebar /  Show Top Bar */
+@media only screen and (max-width: 1144px) {
+
+  /* Hide Fixed Sidebar */
+  .full.height > .toc {
+    display: none;
+  }
+
+  /* Hide Fixed Launch Button */
+  .fixed.launch.button {
+    display: none !important;
+  }
+
+  /* 100% Menu Width */
+  .fixed.menu > .container {
+    margin-left: 0em !important;
+    margin-right: 0em !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+}
+
+@media only screen and (max-width: 992px) {
+
+  /* Still 100% Fixed Menu */
+  .fixed.menu > .container {
+    margin-left: 0em !important;
+    margin-right: 0em !important;
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+}
+
+
+@media only screen and (max-width: 820px) {
+
+  /* Ad Takes Full Width */
+  .masthead .introduction {
+    display: block;
+  }
+  .masthead .advertisement {
+    display: block;
+    float: none;
+    margin: 2em 0em 0em;
+    padding-left: 0em;
+    width: auto;
+  }
+  .masthead .advertisement #carbonads > span {
+    position: relative;
+    display: block;
+    max-width: 300px;
+  }
+
+}
+
+@media only screen and (max-width: 768px) {
+
+  /* Hide Some Fixed Menu Content (Pagination, Search) */
+  .fixed.menu > .container > .section.item {
+    display: none;
+  }
+
+  
+
+  /* Let Buttons Vertically Stack */
+  .masthead .button {
+    margin-bottom: 0.75em;
+  }
+
+  .masthead .main.menu {
+    display: none;
+  }
+  .masthead .main.menu + .main.menu {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  /* No Download Button */
+  .masthead .download.button {
+    display: none;
+  }
+
+  /* Hide Sitemap */
+  .pusher > .footer .grid .three.column {
+    display: none !important;
+  }
+
+  table#pendings_table tr .right.aligned {
+    text-align: left;
+  }
+}
+
+/* Small Phone */
+@media only screen and (max-width: 500px) {
+
+  /* Hide Main Menu Search */
+  .main.menu .search.item {
+    display: none;
+  }
+
+  /* Resize Sidebar */
+  #toc {
+    width: 200px;
+  }
+
+  /* Stack Advert */
+  .masthead .advertisement #carbonads > span {
+    max-width: none;
+  }
+  .advertisement .carbon-wrap {
+  -webkit-flex-direction: column-reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+
+    text-align: center;
+    align-items: center;
+  }
+  .carbon-poweredby {
+    display: none;
+  }
+
+}

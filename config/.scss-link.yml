@@ -1,0 +1,4 @@
+exclude:
+  - "app/assets/webpack/**"
+  - "app/assets/stylesheets/third-party/**"
+  - "client/node_modules/**"

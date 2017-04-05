@@ -1,0 +1,139 @@
+<!--START PAGE CONTENT-->
+<div class="row header below24">
+  <div class="col-xs-12">
+    <h1 class="inline-block">
+      <%= link_to "Leads", user_leads_path %>
+    </h1>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="media">
+          <div class="media-object" style="margin-right: 8px">
+            <span class="initials-100 rounded">
+              <%= @contact.initials.upcase %>
+            </span>
+          </div>
+          <div class="media-body">
+            <h2 class="h2 nomargin">
+              <%= @contact.full_name %> <span class="fwl">via <%= @lead.lead_source_to_s %></span><br/>
+              <span class="nomargin fwl">Buyer Lead</span>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="stat-block no-border col-sm-4">
+    <p>Lead Received</p>
+
+    <h3 class="below18">
+      <%= time_ago_in_words @lead.created_at %> ago
+    </h3>
+  </div>
+
+  <div class="stat-block no-border col-sm-8">
+    <p>State</p>
+
+    <h3 class="below18">
+      <%= @lead.state.titleize %>
+    </h3>
+  </div>
+</div>
+
+<div class="row below36">
+  <div class="col-sm-12">
+    <% unless @lead.claimed? %>
+        <button class="btn btn-success btn-embossed btn-full-mobile add-btn btn-loading", data-loading-text="Claiming...">
+          <%= link_to 'Claim This Lead', claim_public_lead_url(@lead, {user_id: @user_id}), style: "color: #ffffff;" %>
+        </button>
+    <% end %>
+    <% if current_user && current_user == @lead.created_by_user %>
+        <% if @lead.claimed? %>
+            <button class="btn btn-danger btn-embossed btn-full-mobile add-btn">Unassign Lead</button>
+        <% else %>
+            <div class="dropdown inline">
+              <button class="btn btn-primary btn-embossed btn-full-mobile dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                Refer This Lead
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                <% @user_lead_groups_owned_or_part_of.each do |lead_group| %>
+                    <li role="presentation">
+                      <%= link_to "Refer to #{lead_group.name}",
+                                  refer_lead_public_lead_path(@lead, {user_id: @user_id, lead_group_id: lead_group.id}),
+                                  confirm: "You are about to refer #{@contact.full_name} to Lead Group: #{lead_group.name} . This will stop all automated lead forwarding related actions for this lead. Are you sure?" %>
+                    </li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+    <% end %>
+    <% if @lead.claimed? %>
+        <button class="btn btn-danger btn-embossed btn-full-mobile add-btn">Unclaim Lead</button>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="row below36">
+  <div class="group col-xs-12 inline-block">
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Lead</h3>
+        <ul class="dotted-list no-dots">
+          <li class="clearfix">
+            <p class="fwb nomargin">Name</p>
+
+            <p class="nomargin"><%= @contact.full_name %></p>
+          </li>
+          <li class="clearfix">
+            <p class="fwb nomargin">Email</p>
+
+            <p class="nomargin"><%= display_primary_email_address(@contact) %></p>
+          </li>
+          <li class="clearfix">
+            <p class="fwb nomargin">Phone</p>
+
+            <p class="nomargin"><%= display_primary_phone_number(@contact) %></p>
+          </li>
+          <li class="clearfix">
+            <p class="fwb nomargin">Type</p>
+
+            <p class="nomargin">Buyer</p>
+          </li>
+          <li class="clearfix">
+            <p class="fwb nomargin">Lead Source</p>
+
+            <p class="nomargin">Internet - <%= @lead.lead_source_to_s %></p>
+          </li>
+          <li class="clearfix">
+            <p class="fwb nomargin">Received</p>
+
+            <p class="nomargin"><%= l @lead.created_at, format: :email_long %> <br/>
+              (<%= time_ago_in_words @lead.created_at %> ago)</p>
+          </li>
+          <li class="clearfix">
+            <p class="fwb nomargin">Referring Agent</p>
+
+            <p class="nomargin">
+              <%= @created_by_user.full_name %><br/>
+              <%= @created_by_user.email %><br/>
+              <%= number_to_phone(@created_by_user.mobile_number, area_code: true) %>
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div class="col-sm-6">
+        <h3><%= 'Property'.pluralize(@lead.properties.count) %></h3>
+        <ul class="dotted-list no-dots">
+          <%= render partial: 'properties/lead_property', collection: @lead.properties, as: :property %>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+</div>

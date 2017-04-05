@@ -1,0 +1,12 @@
+<div id="wrap" class="wrap clearfix nopadding relative navtoggle signed-out <%= grey_background_class %> ">
+  <div class="main full-height relative">
+    <div id="main-content" class="main-content signed-out">
+      <div id="ab-flash-block">
+          <%= bootstrap_flash %>
+      </div>
+      <div class="container relative clearfix">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</div>

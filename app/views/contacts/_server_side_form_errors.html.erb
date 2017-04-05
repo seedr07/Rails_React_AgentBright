@@ -1,0 +1,11 @@
+<div class="form-group" data-behavior="contact-server-errors">
+  <% @contact.errors.each do |attribute, error| %>
+    </br>
+    <div class="error-message">
+      <%# Here we check only with `:base` property because all other attributes
+        related errors will get displayed to its fields area respectively`. %>
+
+      <%= error if attribute == :base %>
+    </div>
+  <% end %>
+</div>

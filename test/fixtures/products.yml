@@ -1,0 +1,72 @@
+# == Schema Information
+#
+# Table name: products
+#
+#  active                     :boolean
+#  alternative_description    :text
+#  call_to_action             :string
+#  created_at                 :datetime         not null
+#  description                :text
+#  id                         :integer          not null, primary key
+#  name                       :string
+#  product_image_content_type :string
+#  product_image_file_name    :string
+#  product_image_file_size    :string
+#  product_image_updated_at   :string
+#  promoted                   :boolean          default(FALSE), not null
+#  questions                  :text
+#  resources                  :text             default(""), not null
+#  short_description          :string
+#  sku                        :string
+#  slug                       :string           not null
+#  tagline                    :string
+#  terms                      :text
+#  type                       :string           not null
+#  updated_at                 :datetime         not null
+#
+# Indexes
+#
+#  index_products_on_slug  (slug)
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# one:
+#   name: MyString
+#   sku: MyString
+#   tagline: MyString
+#   call_to_action: MyString
+#   short_description: MyString
+#   description: MyText
+#   type: 
+#   active: false
+#   questions: MyText
+#   terms: MyText
+#   alternative_description: MyText
+#   product_image_file_name: MyString
+#   product_image_file_size: MyString
+#   product_image_content_type: MyString
+#   product_image_updated_at: MyString
+#   promoted: false
+#   slug: MyString
+#   resources: MyText
+
+# two:
+#   name: MyString
+#   sku: MyString
+#   tagline: MyString
+#   call_to_action: MyString
+#   short_description: MyString
+#   description: MyText
+#   type: 
+#   active: false
+#   questions: MyText
+#   terms: MyText
+#   alternative_description: MyText
+#   product_image_file_name: MyString
+#   product_image_file_size: MyString
+#   product_image_content_type: MyString
+#   product_image_updated_at: MyString
+#   promoted: false
+#   slug: MyString
+#   resources: MyText

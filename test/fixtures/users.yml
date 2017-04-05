@@ -1,0 +1,354 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  ab_email_address                               :string           not null
+#  account_marked_inactive_at                     :datetime
+#  address                                        :string
+#  agent_percentage_split                         :decimal(, )
+#  annual_broker_fees_paid                        :decimal(, )
+#  authentication_token                           :string
+#  avatar_color                                   :integer          default(0)
+#  billing_address                                :string           default("")
+#  billing_address_2                              :string           default("")
+#  billing_city                                   :string           default("")
+#  billing_country                                :string           default("")
+#  billing_email_address                          :string           default("")
+#  billing_first_name                             :string           default("")
+#  billing_last_name                              :string           default("")
+#  billing_organization                           :string           default("")
+#  billing_state                                  :string           default("")
+#  billing_zip_code                               :string           default("")
+#  broker_fee_alternative                         :boolean          default(FALSE)
+#  broker_fee_alternative_split                   :decimal(, )
+#  broker_fee_per_transaction                     :decimal(, )
+#  broker_percentage_split                        :decimal(, )
+#  city                                           :string
+#  commission_split_type                          :string
+#  company                                        :string
+#  company_website                                :string
+#  contacts_count                                 :integer          default(0)
+#  contacts_database_storage                      :string
+#  country                                        :string
+#  created_at                                     :datetime
+#  current_sign_in_at                             :datetime
+#  current_sign_in_ip                             :string
+#  dly_calls_counter                              :integer          default(0)
+#  dly_notes_counter                              :integer          default(0)
+#  dly_visits_counter                             :integer          default(0)
+#  email                                          :string           default(""), not null
+#  email_campaign_track_clicks                    :boolean          default(TRUE)
+#  email_campaign_track_opens                     :boolean          default(TRUE)
+#  email_signature                                :text
+#  email_signature_status                         :boolean
+#  encrypted_password                             :string           default(""), not null
+#  fax_number                                     :string
+#  first_name                                     :string
+#  franchise_fee                                  :boolean          default(FALSE), not null
+#  franchise_fee_per_transaction                  :decimal(, )
+#  id                                             :integer          not null, primary key
+#  initial_setup                                  :boolean          default(FALSE)
+#  last_cursor                                    :string
+#  last_name                                      :string
+#  last_sign_in_at                                :datetime
+#  last_sign_in_ip                                :string
+#  lead_form_key                                  :string
+#  mobile_number                                  :string
+#  monthly_broker_fees_paid                       :decimal(, )
+#  name                                           :string
+#  nilas_account_status                           :string
+#  nilas_calendar_setting_id                      :string
+#  nilas_trial_status_set_at                      :datetime
+#  number_of_closed_leads_YTD                     :integer          default(0)
+#  nylas_account_id                               :string
+#  nylas_connected_email_account                  :string
+#  nylas_sync_status                              :string
+#  nylas_token                                    :string
+#  office_number                                  :string
+#  per_transaction_fee_capped                     :boolean          default(FALSE)
+#  personal_website                               :string
+#  profile_pic                                    :string
+#  real_estate_experience                         :string
+#  remember_created_at                            :datetime
+#  reset_password_sent_at                         :datetime
+#  reset_password_token                           :string
+#  show_beta_features                             :boolean          default(FALSE), not null
+#  show_narrow_main_nav_bar                       :boolean          default(FALSE)
+#  sign_in_count                                  :integer          default(0), not null
+#  state                                          :string
+#  stripe_customer_id                             :string
+#  subscribed                                     :boolean          default(FALSE)
+#  subscription_account_status                    :integer          default(1)
+#  subscription_account_status_marked_inactive_at :datetime
+#  super_admin                                    :boolean          default(FALSE)
+#  team_group_id                                  :integer
+#  team_id                                        :integer
+#  team_name                                      :string
+#  time_zone                                      :string
+#  transaction_fee_cap                            :integer
+#  twitter_secret                                 :string
+#  twitter_token                                  :string
+#  ungraded_contacts_count                        :integer          default(0)
+#  updated_at                                     :datetime
+#  wkly_calls_counter                             :integer          default(0)
+#  wkly_notes_counter                             :integer          default(0)
+#  wkly_visits_counter                            :integer          default(0)
+#  zip                                            :string
+#
+# Indexes
+#
+#  index_users_on_email                          (email) UNIQUE
+#  index_users_on_last_cursor                    (last_cursor)
+#  index_users_on_nylas_connected_email_account  (nylas_connected_email_account)
+#  index_users_on_nylas_token                    (nylas_token)
+#  index_users_on_reset_password_token           (reset_password_token) UNIQUE
+#  index_users_on_stripe_customer_id             (stripe_customer_id)
+#  index_users_on_team_group_id                  (team_group_id)
+#
+
+john:
+  #id: 1
+  email: 'john@example.com'
+  encrypted_password: '$2a$10$HHIxo6pEcVD5Y1oR7uUNeOIq7SEW1BrYA7rXk96piIb18D0lUqKUS' #welcome1
+  super_admin: true
+  reset_password_token: 5h632xrnASqFanDhKQsB8
+  mobile_number: +1 786-763-1059
+  ab_email_address: 'john.0@example.com'
+  lead_form_key: john
+  first_name: John
+  last_name: Smith
+  name: John Smith
+  contacts_count: 10
+  ungraded_contacts_count: 4
+  time_zone: 'Eastern Time (US & Canada)'
+  commission_split_type: Percentage
+  agent_percentage_split: 65
+  broker_percentage_split: 35
+  monthly_broker_fees_paid: 100
+  annual_broker_fees_paid: 1200
+  zip: "06426"
+  city: "Essex"
+  state: "Connecticut"
+  authentication_token: "abcdefghijklmnop"
+
+nancy:
+  name: 'Nancy Smith'
+  first_name: 'Nancy'
+  last_name: 'Smith'
+  email: 'nancy.smith@example.com'
+  encrypted_password: '$2a$10$HHIxo6pEcVD5Y1oR7uUNeOIq7SEW1BrYA7rXk96piIb18D0lUqKUS' #welcome1
+  reset_password_token: 5h632xrnASsFanDhKQsB7
+  mobile_number: +1 786-763-1059
+  ab_email_address: 'nancy.smith.0@example.com'
+  lead_form_key: nancy
+  contacts_count: 10
+  ungraded_contacts_count: 4
+  time_zone: 'Eastern Time (US & Canada)'
+  commission_split_type: Fee
+  broker_fee_per_transaction: 350
+  broker_fee_alternative: true
+  broker_fee_alternative_split: 20
+  per_transaction_fee_capped: true
+  transaction_fee_cap: 20
+  monthly_broker_fees_paid: 50
+  annual_broker_fees_paid: 600
+  # nylas_token: '4ocrIxRyTc8QsmjfHjDiwIoRst4Ynj'
+  authentication_token: "abcdefghijklmnop"
+
+admin:
+  # id: 3
+  email: 'admin@example.com'
+  encrypted_password: '$2a$10$HHIxo6pEcVD5Y1oR7uUNeOIq7SEW1BrYA7rXk96piIb18D0lUqKUS' #welcome1
+  super_admin: true
+  reset_password_token: 5h632xrnASqFanDhKQsB9
+  mobile_number: +1 786-763-1059
+  ab_email_address: 'admin.0@example.com'
+  lead_form_key: admin
+  contacts_count: 10
+  ungraded_contacts_count: 5
+  time_zone: 'Eastern Time (US & Canada)'
+  authentication_token: "abcdefghijklmnop"
+
+patrick:
+  # id: 4
+  email: patrick@agentbright.com
+  encrypted_password: '$2a$10$HHIxo6pEcVD5Y1oR7uUNeOIq7SEW1BrYA7rXk96piIb18D0lUqKUS' #welcome1
+  super_admin: true
+  reset_password_token: 5h632xrnASqFanDhKQsB84R
+  mobile_number: 8605755306
+  ab_email_address: patrickogrady214@agentbright.me
+  lead_form_key: wDRiT98lhA
+  first_name: Patrick
+  last_name: O'grady
+  contacts_count: 10
+  ungraded_contacts_count: 4
+  time_zone: 'Eastern Time (US & Canada)'
+  commission_split_type: Fee
+  authentication_token: "abcdefghijklmnop"
+
+vipul:
+  # id: 5
+  email: vipul@bigbinary.com
+  encrypted_password: '$2a$10$HHIxo6pEcVD5Y1oR7uUNeOIq7SEW1BrYA7rXk96piIb18D0lUqKUS' #welcome1
+  super_admin: true
+  reset_password_token: 5h932xrnASqFanDhKQsB84R
+  mobile_number: 7862882252
+  ab_email_address: vipulamler867@agentbright.me
+  lead_form_key: wDRiT98lhV
+  first_name: Vipul
+  last_name: A M
+  contacts_count: 10
+  ungraded_contacts_count: 4
+  time_zone: 'Eastern Time (US & Canada)'
+  authentication_token: "abcdefghijklmnop"
+
+robert:
+  name: 'Robert Reporta'
+  first_name: 'Robert'
+  last_name: 'Reporta'
+  email: 'robert.reporta@example.com'
+  encrypted_password: '$2a$10$HHIxo6pEcVD5Y1oR7uUNeOIq7SEW1BrYA7rXk96piIb18D0lUqKUS' #welcome1
+  mobile_number: +1 860-666-7777
+  ab_email_address: 'robert.reporta.0@example.com'
+  lead_form_key: robert
+  contacts_count: 10
+  ungraded_contacts_count: 4
+  time_zone: 'Eastern Time (US & Canada)'
+  commission_split_type: Fee
+  broker_fee_per_transaction: 350
+  broker_fee_alternative: true
+  broker_fee_alternative_split: 20
+  per_transaction_fee_capped: true
+  transaction_fee_cap: 20
+  monthly_broker_fees_paid: 50
+  annual_broker_fees_paid: 600
+  authentication_token: "abcdefghijklmnop"
+
+test_email_campaign_user:
+  id: 390897 # must have id for email campaign tests to pass
+  name: 'Nikhil Sharma'
+  first_name: 'Nikhil'
+  last_name: 'Sharma'
+  email: 'nsharmatennis@gmail.com'
+  encrypted_password: '$2a$10$HHIxo6pEcVD5Y1oR7uUNeOIq7SEW1BrYA7rXk96piIb18D0lUqKUS' #welcome1
+  reset_password_token: 5h639xrnBSsFanBhKVsB7
+  mobile_number: +1 615-763-1059
+  ab_email_address: 'n.sharma@ab.com'
+  lead_form_key: nsharma6
+  contacts_count: 12
+  ungraded_contacts_count: 3
+  time_zone: 'Eastern Time (US & Canada)'
+  commission_split_type: Fee
+  broker_fee_per_transaction: 400
+  broker_fee_alternative: true
+  broker_fee_alternative_split: 20
+  per_transaction_fee_capped: true
+  transaction_fee_cap: 20
+  monthly_broker_fees_paid: 50
+  annual_broker_fees_paid: 600
+  authentication_token: "abcdefghijklmnop"
+
+steven_75_percent_split:
+  commission_split_type: Percentage
+  agent_percentage_split: 75
+  name: 'Steven Seventyfive-Percent'
+  first_name: 'Steven'
+  last_name: 'Seventyfive-Percent'
+  email: 'steven75@example.com'
+  encrypted_password: '$2a$10$HHIxo6pEcVD5Y1oR7uUNeOIq7SEW1BrYA7rXk96piIb18D0lUqKUS' #welcome1
+  reset_password_token: 5h632xrnASsFanDhKQsB12
+  ab_email_address: 'steven75.ab0@example.com'
+  lead_form_key: steven75
+  time_zone: 'Eastern Time (US & Canada)'
+  authentication_token: "abcdefghijklmnop"
+
+frank_500_fee_split:
+  commission_split_type: Fee
+  broker_fee_per_transaction: 500
+  name: 'Frank Fivehundred'
+  first_name: 'Frank'
+  last_name: 'Fivehundred'
+  email: 'frank500@example.com'
+  encrypted_password: '$2a$10$HHIxo6pEcVD5Y1oR7uUNeOIq7SEW1BrYA7rXk96piIb18D0lUqKUS' #welcome1
+  reset_password_token: 5h632xrnASsFanDhKQsB13
+  ab_email_address: 'frank500.ab0@example.com'
+  lead_form_key: frank500
+  time_zone: 'Eastern Time (US & Canada)'
+  authentication_token: "abcdefghijklmnop"
+
+ned_newleads:
+  name: 'Ned Newleads'
+  first_name: 'Ned'
+  last_name: 'Newleads'
+  email: 'ned@example.com'
+  encrypted_password: '$2a$10$HHIxo6pEcVD5Y1oR7uUNeOIq7SEW1BrYA7rXk96piIb18D0lUqKUS' #welcome1
+  reset_password_token: 5h632xrnASsFanDhKQsB14
+  ab_email_address: 'ned.ab0@example.com'
+  lead_form_key: ned
+  time_zone: 'Eastern Time (US & Canada)'
+  authentication_token: "abcdefghijklmnop"
+
+new_trulia3_lead_user:
+  name: 'Maureen Grady'
+  first_name: 'Maureen'
+  last_name: 'Grady'
+  email: 'maureenogrady@rachelthomas.com'
+  encrypted_password: '$2a$10$HHIxo6pEcVD5Y1oR7uUNeOIq7SEW1BrYA7rXk96piIb18D0lUqKUS' #welcome1
+  reset_password_token: 5h639xrnBSsFanBhKVsB15
+  mobile_number: +1 815-863-2059
+  ab_email_address: 'maureenogrady@agentbright.me'
+  lead_form_key: mgrady1
+  contacts_count: 10
+  ungraded_contacts_count: 2
+  time_zone: 'Eastern Time (US & Canada)'
+  commission_split_type: Fee
+  broker_fee_per_transaction: 400
+  broker_fee_alternative: true
+  broker_fee_alternative_split: 20
+  per_transaction_fee_capped: true
+  transaction_fee_cap: 20
+  monthly_broker_fees_paid: 50
+  annual_broker_fees_paid: 600
+  authentication_token: "abcdefghijklmnop"
+
+maureen:
+  name: 'Maureen Smith'
+  first_name: 'Maureen'
+  last_name: 'Smith'
+  email: 'maureensmith@rachelthomas.com'
+  encrypted_password: '$2a$10$HHIxo6pEcVD5Y1oR7uUNeOIq7SEW1BrYA7rXk96piIb18D0lUqKUS' #welcome1
+  reset_password_token: 5h632xrnASsFanDhKQsB16
+  mobile_number: +1 786-763-1059
+  ab_email_address: 'maureensmith@rachelthomas.com'
+  lead_form_key: maureensmith_1
+  contacts_count: 10
+  ungraded_contacts_count: 4
+  time_zone: 'Eastern Time (US & Canada)'
+  commission_split_type: Fee
+  broker_fee_per_transaction: 350
+  broker_fee_alternative: true
+  broker_fee_alternative_split: 20
+  per_transaction_fee_capped: true
+  transaction_fee_cap: 20
+  monthly_broker_fees_paid: 50
+  annual_broker_fees_paid: 600
+  time_zone: 'Eastern Time (US & Canada)'
+  authentication_token: "abcdefghijklmnop"
+
+jane:
+  email: 'jane@example.com'
+  encrypted_password: '$2a$10$HHIxo6pEcVD5Y1oR7uUNeOIq7SEW1BrYA7rXk96piIb18D0lUqKUS' #welcome1
+  reset_password_token: 5h632xrnASsFanDhKQsB17
+  lead_form_key: jjones1
+  name: 'Jane Jones'
+  first_name: 'Jane'
+  last_name: 'Jones'
+  mobile_number: +1 860-575-6950
+  ab_email_address: 'jane@sandbox78422.mailgun.org'
+  super_admin: true
+  subscription_account_status: 3
+  nylas_token: "Rs5GhEm8mULTVFU3LbPVPGLvPMy2Ma"
+  nylas_account_id: "3sdlmdy4bnyy7rynd7ysuo8jy"
+  nylas_connected_email_account: 'jane.jones.agentbright@gmail.com'
+  time_zone: 'Eastern Time (US & Canada)'
+  authentication_token: "abcdefghijklmnop"

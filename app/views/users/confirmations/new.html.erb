@@ -1,0 +1,16 @@
+<h2>Resend confirmation instructions</h2>
+
+<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email %></div>
+
+  <div><%= f.submit 'Upload Contacts File',
+    class: "btn btn-default add-btn
+      btn-embossed btn-loading",
+    value: "Resend confirmation instructions", "data-loading-text" => "Resending..." %>
+  </div>
+<% end %>
+
+<%= render(partial: "users/shared/links")%>

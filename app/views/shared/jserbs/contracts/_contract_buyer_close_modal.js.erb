@@ -1,0 +1,9 @@
+$("[data-behavior~=insert-form]")
+  .find("[data-behavior~=modal-content]").remove();
+$("[data-behavior~=insert-form]")
+  .append('<%= j render("contracts/modals/contract_buyer_close", lead: @lead, property: @property, contract: @contract) %>');
+
+$('.no-ajax-loading-indicator-on-submit').click(function() {
+  $(this).button('loading');
+});
+initializeDatepicker();

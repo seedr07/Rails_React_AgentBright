@@ -1,0 +1,15 @@
+json.extract!(
+  contact,
+  :id,
+  :first_name,
+  :name,
+  :last_name,
+  :grade,
+  :grade_to_s,
+  :phone_number,
+  :email,
+  :created_at,
+  :updated_at,
+  :profession,
+  :company
+)

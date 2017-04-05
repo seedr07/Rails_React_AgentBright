@@ -1,0 +1,35 @@
+<div class="lead-stats">
+
+  <div class="row below18 hide-phone">
+    <div class="stat-block no-border col-sm-12">
+      <h4>
+        Past 7 days:&nbsp;&nbsp;
+        <span class="fwn">Received: </span><%= current_user.leads_received_in_last_week  %>&nbsp;&nbsp;·&nbsp;
+        <span class="fwn">Open: </span><%= current_user.open_leads_received_in_last_week %>&nbsp;&nbsp;·&nbsp;
+        <span class="fwn">Referred: </span><%= current_user.leads_referred_in_last_week  %>&nbsp;&nbsp;·&nbsp;
+        <span class="fwn">Promoted: </span><%= current_user.promoted_leads_received_in_last_week %>&nbsp;&nbsp;·&nbsp;
+        <span class="fwn">Not Converted/Junk: </span><%= current_user.junk_leads_received_in_last_week + current_user.not_converted_leads_received_in_last_week %>
+      </h4>
+
+    </div>
+  </div><!-- /row.section -->
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="progress-data full-width clearfix nomargin alignr">
+        <span class="p fwb float-left">Responded To</span>
+        <span class="h4 nomargin">
+          <span class="fwn"><%= current_user.leads_referred_or_contact_attempted_in_past_week %>/<%=current_user.leads_received_in_last_week %> </span><%= lead_resolved_rate_past_week(current_user) %>%
+        </span>
+      </div>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="<%= lead_resolved_rate_past_week(current_user) %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= lead_resolved_rate_past_week(current_user) %>%;">
+        </div><!-- /progress-bar -->
+      </div><!-- /progress -->
+    </div><!-- /.col-sm-6 -->
+    <div class="col-sm-6">
+      <%= progress_bar_sm("Replied in 30 mins", "#{decimal_to_percentage(current_user.rate_of_leads_contacted_in_under_30_minutes_in_past_week)}%", current_user.rate_of_leads_contacted_in_under_30_minutes_in_past_week, 1).html_safe %>
+    </div><!-- /.col-sm-6 -->
+  </div><!-- /.row sub-section -->
+
+</div><!-- /lead-stats -->

@@ -1,0 +1,14 @@
+<div class="excerpt">
+  <div class="in_timeline">
+    <%= render(
+      partial: "public_activity/shared/#{changes_partial}",
+      locals: { activity: activity }
+    ) %>
+  </div><!-- /.in_timeline -->
+  <div class="in_project">
+    <%= render(
+      partial: "public_activity/shared/#{changes_partial}",
+      locals: { activity: activity }
+    ) %>
+  </div><!-- /.in_project -->
+</div><!-- /.excerpt -->

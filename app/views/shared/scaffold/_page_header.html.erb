@@ -1,0 +1,25 @@
+<% if local_assigns[:body].present? %>
+
+  <div class="row">
+    <div class="col-sm-12 header below18">
+      <%= body %>
+    </div><!-- /col-sm-12.header -->
+  </div><!-- /row -->
+
+<% else %>
+
+  <div class="row">
+    <div class="col-sm-12 header below18">
+      <h1 class="inline-block">
+        <%= link_to primary_name, primary_path %>
+      </h1>
+      <% if local_assigns[:add_button_text].present? && local_assigns[:add_button_path].present? %>
+        <%= link_to add_button_text, add_button_path, class: "btn btn-default btn-paper btn-raised b0 add-btn" %>
+      <% end %>
+      <% if local_assigns[:secondary_name].present? %>
+        <h2><%= secondary_name %></h2>
+      <% end %>
+    </div><!-- /col-sm-12.header -->
+  </div><!-- /row -->
+
+<% end %>

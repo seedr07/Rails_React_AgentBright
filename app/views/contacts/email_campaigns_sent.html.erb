@@ -1,0 +1,36 @@
+<div class="row header">
+  <div class="col-xs-12">
+    <h1>
+      <%= link_to @contact.full_name, @contact %>
+    </h1>
+    <h2>Email Campaigns</h2>
+  </div><!-- /.col-xs-12 -->
+</div><!-- /.row header -->
+
+<%= render(partial: 'shared/contacts_email_campaign_stats') %>
+
+<div class="row sub-section">
+  <div class="col-xs-12">
+    <table class="ab-table">
+      <thead>
+        <tr>
+          <th width="25%">Sent</th>
+          <th>Campaign</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @campaigns.each do |campaign| %>
+          <tr>
+            <td>
+              <%= campaign.created_at.strftime("%B %d, %Y") %><br>
+              <%= campaign.created_at.strftime("%I:%M%P") %>
+            </td>
+            <td class="breakword">
+              <%= link_to EmailCampaign.find(campaign.email_campaign_id).name, email_campaign_path(EmailCampaign.find(campaign.email_campaign_id)) %><br>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table><!-- /.ab-table -->
+  </div><!-- /.col-xs-12 -->
+</div><!-- /.row sub-section -->

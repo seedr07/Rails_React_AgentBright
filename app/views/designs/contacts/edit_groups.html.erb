@@ -1,0 +1,124 @@
+<!--
+*******************************************
+Note: The purpose of views/designs/ is for
+building frontend markup only. Do not add
+ERB or javascript to this page. Copy and
+paste this markup, and then integrate that
+code in its rightful location with the app
+backend.
+
+With very few exceptions, this file should
+remain pure front-end HTML/CSS/JS.
+*******************************************
+-->
+
+<style>
+  .ab-edit-group-list-container {
+    max-height: 250px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .ab-edit-groups-example {
+    max-width: 350px;
+  }
+</style>
+
+<div class="main ui container">
+  <div class="ui vertical basic segment">
+    <div class="ui centered grid">
+      <div class="column ab-edit-groups-example">
+        <div class="ui segments">
+          <div class="ui segment">
+            <h3>Edit Groups</h3>
+            <div class="ui search">
+              <div class="ui fluid icon input">
+                <input class="prompt" type="text" placeholder="Search for a group...">
+                <i class="search icon"></i>
+              </div>
+              <div class="results"></div>
+            </div>
+          </div><!-- /.ui segment -->
+          <div class="ui segment p-r-0 p-b-0">
+            <div class="ab-edit-group-list-container">
+              <div class="ui selection list">
+                <div class="item">
+                  <div class="ui checkbox" data-ui-behavior="checkbox">
+                    <input type="checkbox" name="aplus">
+                    <label for="aplus">Friends</label>
+                  </div>
+                </div><!-- /.item -->
+                <div class="item">
+                  <div class="ui checkbox" data-ui-behavior="checkbox">
+                    <input type="checkbox" name="example">
+                    <label>Family</label>
+                  </div>
+                </div><!-- /.item -->
+                <div class="item">
+                  <div class="ui checkbox" data-ui-behavior="checkbox">
+                    <input type="checkbox" name="example">
+                    <label>Neighbors</label>
+                  </div>
+                </div><!-- /.item -->
+                <div class="item">
+                  <div class="ui checkbox" data-ui-behavior="checkbox">
+                    <input type="checkbox" name="example">
+                    <label>Rotary Club</label>
+                  </div>
+                </div><!-- /.item -->
+                <div class="item">
+                  <div class="ui checkbox" data-ui-behavior="checkbox">
+                    <input type="checkbox" name="example">
+                    <label>Current Clients</label>
+                  </div>
+                </div><!-- /.item -->
+                <div class="item">
+                  <div class="ui checkbox" data-ui-behavior="checkbox">
+                    <input type="checkbox" name="example">
+                    <label>Past Clients</label>
+                  </div>
+                </div><!-- /.item -->
+                <div class="item">
+                  <div class="ui checkbox" data-ui-behavior="checkbox">
+                    <input type="checkbox" name="example">
+                    <label>Realtors</label>
+                  </div>
+                </div><!-- /.item -->
+                <div class="item">
+                  <div class="ui checkbox" data-ui-behavior="checkbox">
+                    <input type="checkbox" name="example">
+                    <label>Vendors</label>
+                  </div>
+                </div><!-- /.item -->
+                <div class="item">
+                  <div class="ui checkbox" data-ui-behavior="checkbox">
+                    <input type="checkbox" name="example">
+                    <label>Mortgage Brokers</label>
+                  </div>
+                </div><!-- /.item -->
+                <div class="item">
+                  <div class="ui checkbox" data-ui-behavior="checkbox">
+                    <input type="checkbox" name="example">
+                    <label>Home Inspectors</label>
+                  </div>
+                </div><!-- /.item -->
+              </div><!-- /.ui list -->
+            </div><!-- /.ab-edit-group-list-container -->
+          </div><!-- /.ui segment -->
+          <div class="ui segment">
+            <button class="ui primary button">
+              Save
+            </button>
+            <button class="ui button">
+              Cancel
+            </button>
+          </div><!-- /.ui segment -->
+        </div><!-- /.ui segments -->
+      </div><!-- /.column -->
+    </div><!-- /.ui centered grid -->
+  </div><!-- /.ui vertical basic segment -->
+</div><!-- /.main ui container -->
+
+<script>
+  // Initialize Semantic UI dropdowns
+  $('[data-ui-behavior=checkbox]').checkbox();
+</script>

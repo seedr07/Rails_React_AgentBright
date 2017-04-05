@@ -1,0 +1,35 @@
+<h2>Sales Stats</h2>
+<ul class="leaders">
+  <li>
+    <span>Active Listings</span>
+    <span class="fwb"><%= current_user.number_of_active_listings %></span>
+  </li>
+  <li>
+    <span>Active Buyers</span>
+    <span class="fwb"><%= current_user.number_of_active_buyers %></span>
+  </li>
+  <li>
+    <span>Average List Price</span>
+    <span class="fwb"><%= num_to_currency(current_user.avg_list_price_last_12_months) %></span>
+  </li>
+  <li>
+    <span>Average Sales Price</span>
+    <span class="fwb"><%= num_to_currency(current_user.avg_sale_price_last_12_months) %></span>
+  </li>
+  <li>
+    <span>Sale to List Price</span>
+    <span class="fwb"><%= number_with_precision(current_user.sale_to_list_price_ratio, precision: 0) %>%</span>
+  </li>
+  <li>
+    <span>Average Days to Closing</span>
+    <span class="fwb"><%= number_with_precision(current_user.avg_days_to_closing, precision: 0) %></span>
+  </li>
+  <li>
+    <span>Average Commission Percentage</span>
+    <span class="fwb"><%= number_with_precision(current_user.avg_commission_rate, precision: 2) %>%</span>
+  </li>
+  <li>
+    <span>Average Gross Commission</span>
+    <span class="fwb"><%= num_to_currency(current_user.avg_gross_commission) %></span>
+  </li>
+</ul><!-- /.leaders -->

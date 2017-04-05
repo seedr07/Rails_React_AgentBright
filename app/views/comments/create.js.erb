@@ -1,0 +1,20 @@
+// On show page
+$('#comment_content').val('');
+$("#comment_emptymessage").hide();
+$('#comments').prepend('<%= j render(@comment) %>');
+$("[data-behavior=\"submit_comment\"]").focus();
+$('#add-comment').button('reset');
+
+// From add comment modal
+$("#mainModal").modal("hide");
+$("[data-behavior~=insert-form]")
+  .find("[data-behavior~=modal-content]").remove();
+
+// Show success message
+toastr.success("Comment saved!");
+
+
+<% if @contact.present? %>
+    $("#activity-stream").html('<%= j render partial: "contacts/stream/tabbed_activities",
+                               locals: { activities: @contact_recent_activities, activities_link_url: @activities_link_url  } %>')
+<% end %>

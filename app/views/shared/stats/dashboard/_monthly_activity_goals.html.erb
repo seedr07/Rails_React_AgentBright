@@ -1,0 +1,48 @@
+<div id="stats" class="below24 relative">
+  <h3>Activity Marketing Goals</h3>
+
+  <ul class="nav nav-pills below18 team-only">
+    <li role="presentation" class="active"><a href="#my-stats" data-toggle="pill">My Stats</a></li>
+    <li role="presentation"><a href="#team-stats" data-toggle="pill">Team Stats</a></li>
+  </ul>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="tab-content nopadding noborder">
+        <div class="tab-pane fade in active" id="my-stats">
+          <%= stat_block(
+            value: @total_calls_per_month,
+            label: "Monthly Call Goals",
+            columns: 4
+          ) %>
+          <%= stat_block(
+            value: @total_notes_per_month,
+            label: "Monthly Notes Goals",
+            columns: 4
+          ) %>
+          <%= stat_block(
+            value: @total_visits_per_month,
+            label: "Monthly Visits Goals",
+            columns: 4
+          ) %>
+        </div>
+        <div class="tab-pane fade" id="team-stats">
+          <%= stat_block(
+            value: current_user.closed_team_leads_ytd.count,
+            label: "Closed YTD",
+            columns: 4
+          ) %>
+          <%= stat_block(
+            value: number_to_currency(current_user.closed_team_leads_ytd.sum(:displayed_price).to_i, precision: 0),
+            label: "Total Volume YTD",
+            columns: 4
+          ) %>
+          <%= stat_block(
+            value: number_to_currency(current_user.closed_team_leads_ytd.sum(:displayed_net_commission).to_i, precision: 0),
+            label: "Commission YTD",
+            columns: 4
+          ) %>
+        </div>
+      </div>
+    </div><!-- /.col-xs-12 -->
+  </div><!-- /.row -->
+</div><!-- /#stats.below24 -->

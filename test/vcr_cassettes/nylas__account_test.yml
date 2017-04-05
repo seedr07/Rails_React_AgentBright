@@ -1,0 +1,100 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://74aaJYLWzt2dizG6uE634NX5CujMuR:@api.nylas.com/account
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Nylas Ruby SDK 1.1.0 - 2.2.2
+      X-Inbox-Api-Wrapper:
+      - ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.6.2
+      Date:
+      - Wed, 23 Sep 2015 18:12:35 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '255'
+      Access-Control-Allow-Headers:
+      - Authorization,Accept,Cache-Control,X-Requested-With,Content-Type
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE,OPTIONS
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+            "account_id": "3sdlmdy4bnyy7rynd7ysuo8jy",
+            "email_address": "jane.jones.agentbright@gmail.com",
+            "id": "3sdlmdy4bnyy7rynd7ysuo8jy",
+            "name": "jane jones",
+            "object": "account",
+            "organization_unit": "label",
+            "provider": "gmail"
+        }
+    http_version: 
+  recorded_at: Wed, 23 Sep 2015 18:12:35 GMT
+- request:
+    method: get
+    uri: https://bad_token:@api.nylas.com/account
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Nylas Ruby SDK 1.1.0 - 2.2.2
+      X-Inbox-Api-Wrapper:
+      - ruby
+  response:
+    status:
+      code: 401
+      message: UNAUTHORIZED
+    headers:
+      Server:
+      - nginx/1.6.2
+      Date:
+      - Wed, 23 Sep 2015 18:12:36 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '89'
+      Www-Authenticate:
+      - Basic realm="API Access Token Required"
+      Access-Control-Allow-Headers:
+      - Authorization,Accept,Cache-Control,X-Requested-With,Content-Type
+      Access-Control-Allow-Methods:
+      - GET,PUT,POST,DELETE,OPTIONS
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Strict-Transport-Security:
+      - max-age=31536000;
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "message": "Could not verify access credential.",
+          "type": "invalid_request_error"
+        }
+    http_version: 
+  recorded_at: Wed, 23 Sep 2015 18:12:36 GMT
+recorded_with: VCR 2.9.3

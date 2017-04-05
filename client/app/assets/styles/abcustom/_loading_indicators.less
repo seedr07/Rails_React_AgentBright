@@ -1,0 +1,41 @@
+// LOADING INDICATOR
+
+.context-loader.large-format-loader.is-context-loading {
+  display: block;
+  position: fixed;
+  white-space: nowrap;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: 0; 
+  width: auto; 
+  padding: 190px 0 0;
+  font-weight: normal;
+  background: rgba(255, 255, 255, 0.8);
+  border: 0;
+  z-index: 10001;
+  text-align: center;
+  color: #999;
+  font-size: 12px;
+  @media only screen and (min-width: @screen-md-min) {
+    margin-left: 250px;
+    margin-top: 0px;
+  }
+}
+
+.context-loader>p {
+  max-width: inherit;
+}
+
+.submenu-active .context-loader.large-format-loader.is-context-loading {
+  margin-left: 0;
+}
+
+.narrow .context-loader.large-format-loader.is-context-loading {
+  margin-left: 80px;
+}
+
+.mobile-overlay .context-loader.large-format-loader.is-context-loading {
+  margin-top: 0px;
+}

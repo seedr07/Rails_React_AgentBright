@@ -1,0 +1,7 @@
+app/assets/javascripts/common/vendor/*
+app/assets/javascripts/common/vendor/bootstrap-3/*
+app/assets/javascripts/flat-ui/*
+app/assets/javascripts/flat-ui-custom/*
+app/assets/javascripts/third-party/*
+app/assets/webpack/*
+client/node_modules/*

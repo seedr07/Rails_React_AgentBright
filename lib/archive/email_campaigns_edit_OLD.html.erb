@@ -1,0 +1,637 @@
+<style>
+  .tab-content {
+    background-color: #f5f5f5;
+  }
+</style>
+
+<!-- HEADER -->
+<div class="row header">
+  <div class="col-xs-12">
+    <h1><%= link_to "Email Campaigns", email_campaigns_path %></h1>
+    <h2>Edit <%= @email_campaign.name %></h2>
+  </div><!-- /.col-xs-12 -->
+</div><!-- /.row header -->
+
+<div class="row sub-section well">
+  <div class="col-xs-12">
+    <%= simple_form_for(@email_campaign) do |f| %>
+      <div class="row below24">
+        <div class="col-xs-12">
+          <a href="#step-image" class="btn btn-primary below12" data-toggle="tab" data-behavior="form-auto-save">Step 1: Add Image</a>
+          <a href="#step-content" class="btn btn-primary below12" data-toggle="tab" data-behavior="form-auto-save">Step 2: Write Content</a>
+          <a href="#step-recipients" class="btn btn-primary below12" data-toggle="tab" data-behavior="form-auto-save">Step 3: Choose Recipients</a>
+        </div><!-- /.col-xs-12 -->
+      </div><!-- /.row -->
+      <div class="row">
+        <div class="col-sm-5">
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade in active" id="step-image">
+              <h4>Setup campaign</h4>
+              <input type="hidden" id="email_campaign_id" name="email_campaign_id" value=<%= @email_campaign.id %> />
+              <div class="form-group">
+                <label>Name your campaign</label>
+                <input type="text" class="form-control" value="<%= @email_campaign.name %>" id="campaign-name" maxlength="250">
+                <div class="field-help always-show">Upload an image</div><!-- /.field-help always-show -->
+              </div><!-- /form-group -->
+              <div class="form-group">
+                <div class="fileinput <%= display_fileinput_class(@email_campaign.campaign_image) %>" data-provides="fileinput">
+                  <div class="fileinput-new thumbnail" style="width: 150px; height: 150px;">
+                    <img src="https://placehold.it/150x150" alt="...">
+                  </div>
+                  <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 150px; max-height: 150px;">
+                    <img src="<%= @email_campaign.campaign_image_url %>" alt="...">
+                  </div>
+                  <div>
+                    <span class="btn btn-primary btn-embossed btn-file">
+                    <span class="fileinput-new"><span class="fui-image"></span>  Select image</span>
+                    <span class="fileinput-exists"><span class="fui-gear"></span>  Change</span>
+                      <%= file_field_tag('image[file]',
+                        data: { behavior: 'profile-image-uploader',
+                        url: images_path,
+                        'sequential-uploads' => true,
+                        'data-type' => 'json',
+                        'type' => 'POST',
+                        'limit-concurrent-uploads' => 1
+                        }
+                      ) %>
+                      <%= hidden_field_tag :profile_image_id, f.object.campaign_image.try(:id), data: { behavior: 'attach-hidden-field' } %>
+                    </span>
+                    <a href="#" class="btn btn-primary btn-embossed fileinput-exists" data-dismiss="fileinput" data-behavior="remove-campaign-image"><span class="fui-trash"></span>  Remove</a>
+                  </div>
+                </div>
+              </div>
+              <div class="spinner-row" style="display: none;" id="image-spinner">
+                <div class="control-group">
+                  <label class="control-label">&nbsp;</label>
+                  <div class="controls">
+                    <%= image_tag("ajax-loader.gif") %> Uploading Profile Image.
+                  </div>
+                </div>
+              </div>
+              <div class="row above36">
+                <div class="col-xs-12">
+                  <a href="#step-content" class="btn btn-huge btn-default below12" data-toggle="tab" data-behavior="form-auto-save">Next Step <span class="mdi-navigation-arrow-forward"></span></a>
+                </div><!-- /.col-xs-12 -->
+              </div><!-- /.row -->
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="step-content">
+              <h4>Add content</h4>
+              <div class="row">
+                <div class="col-xs-12">
+                  <%= f.input(
+                    :subject,
+                    label: "Email Subject Line",
+                    input_html: {
+                      class: "form-control",
+                      data: { behavior: "subject-preview-update" },
+                      maxlength: "250"
+                    }
+                  ) %>
+                  <%= f.input(
+                    :title,
+                    input_html: {
+                      class: "form-control",
+                      data: { behavior: "title-preview-update" },
+                      maxlength: "250"
+                    }
+                  ) %>
+                  <%= f.input(:content, as: :hidden) %>
+                  <trix-editor input="email_campaign_content" class="trix-content" data-behavior="content-preview-update"></trix-editor>
+                </div><!-- /.col-xs-12 -->
+              </div><!-- /.row -->
+              <div class="row above36">
+                <div class="col-xs-12">
+                  <a href="#step-image" class="btn btn-huge btn-default below12" data-toggle="tab" data-behavior="form-auto-save"><span class="mdi-navigation-arrow-back"></span> Previous Step</a>
+                  <a href="#step-recipients" class="btn btn-huge btn-default below12" data-toggle="tab" data-behavior="form-auto-save">Next Step <span class="mdi-navigation-arrow-forward"></span></a>
+                </div><!-- /.col-xs-12 -->
+              </div><!-- /.row -->
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="step-recipients">
+              <h4>Who should receive this campaign?</h4>
+              <div class="row">
+                <div class="col-xs-12">
+                  <div data-behavior="calculate-recipients">
+                    <div class="form-group">
+                      <label>Enter groups</label>
+                      <div class="tagsinput-primary">
+                        <input name="tagsinput" class="tagsinput" type="text" data-role="tagsinput" id="tag-groups" data-behavior="calculate-recipients" value = "<%= @email_campaign.groups %>" />
+                      </div>
+                    </div><!-- /.form-group -->
+                  </div>
+                  <div data-behavior="calculate-recipients">
+                    <div class="form-group">
+                      <label>Enter individual contacts</label>
+                      <div class="tagsinput-primary">
+                        <input name="tagsinput" class="tagsinput" type="text" data-role="tagsinput" id="tag-contacts" data-behavior="calculate-recipients" value = "<%= @email_campaign.contacts %>" />
+                      </div>
+                    </div><!-- /.form-group -->
+                  </div>
+                  <div class="row">
+                    <div class="stat-block no-border col-xs-12 below24">
+                      <p>Total recipients</p>
+                      <h4 class="below18">
+                        <div id="campaign-recipients">
+                        </div>
+                      </h4>
+                    </div><!-- /stat-block.col-xs-12 -->
+                  </div><!-- /.row -->
+                  <div class="row sub-section">
+                    <div class="col-xs-12">
+                      <a class="btn btn-primary btn-info below30" data-toggle="modal" data-target="#send-test-email" data-behavior="form-auto-save" id="test-email-entry">
+                        Send me a test email
+                      </a>
+                    </div><!-- /.col-xs-12 -->
+                  </div><!-- /.row -->
+                  <div class="row sub-section">
+                    <div class="col-xs-12">
+                      <a href="#step-content" class="btn btn-huge btn-default below12" data-toggle="tab" data-behavior="form-auto-save"><span class="mdi-navigation-arrow-back"></span> Previous Step</a>
+                      <a class="btn btn-primary below12 js-send-button" data-behavior="campaign-validate-send">Send Now</a>
+                      <a class="btn btn-primary below12 js-send-button" data-behavior="schedule-for-later">Schedule for later</a>
+                    </div><!-- /.col-xs-12 -->
+                  </div><!-- /.row -->
+                  <div class="row hidejs" id="campaign-scheduling">
+                    <div class="col-xs-12">
+                      <div class="form-group date-picker-group">
+                        <% if @email_campaign.campaign_status == 1 %>
+                          <label><small>Campaign currently scheduled to be delivered on <%= @email_campaign.scheduled_delivery_at.strftime("%B %d, %Y at %I:%M %p") %>. Please enter another date if you would like to reschedule.</small></label>
+                        <% end %>
+                        <label>Select the date to send this campaign</label>
+                        <div class="input-group">
+                          <span class="input-group-btn">
+                            <button class="btn datebtn" type="button" tabindex="-1"><span class="fui-calendar"></span></button>
+                          </span>
+                          <input type="date" class="date_picker form-control" data-behavior="datepicker" id="campaign-schedule-date">
+                        </div><!-- /input-group -->
+                      </div><!-- /form-group -->
+                      <div class="form-group time-picker-group">
+                        <label>Select the time</label>
+                        <div class="input-group">
+                          <span class="input-group-btn">
+                            <button class="btn" type="button" tabindex="-1"><span class="iconic" data-glyph="clock" title="clock" aria-hidden="true"></span></button>
+                          </span>
+                          <input type="time" class="form-control" data-behavior="timepicker" id="campaign-schedule-time"/>
+                        </div><!-- /.input-group -->
+                      </div><!-- /.form-group -->
+                      <% if @email_campaign.campaign_status == 1 %>
+                        <a class="btn btn-info" data-loading-text="Scheduling..." data-behavior="save-and-schedule">Reschedule</a>
+                        <a class="clickable" data-behavior="cancel-campaign-scheduling">Cancel Scheduled Delivery</a>
+                      <% else %>
+                        <a class="btn btn-info" data-loading-text="Scheduling..." data-behavior="save-and-schedule">Schedule</a>
+                        <a class="clickable" data-behavior="cancel-campaign-scheduling">Cancel</a>
+                      <% end %>
+                    </div><!-- /.col-xs-12 -->
+                  </div><!-- /.row -->
+                </div><!-- /.col-xs-12 -->
+              </div><!-- /.row -->
+            </div>
+          </div>
+        </div><!-- /.col-sm-5 -->
+        <div class="col-sm-7">
+          <iframe id="loader_frame" src="<%= preview_content_html_email_campaign_path(@email_campaign) %>" class="iframe" frameborder="0" width="100%" height="100%" seamless="seamless" style="min-height:900px;border:solid 1px #000">
+          </iframe>
+        </div><!-- /.col-sm-7 -->
+      </div><!-- /.row -->
+    <% end %>
+  </div><!-- /.col-xs-12 -->
+</div><!-- /.row -->
+
+<% content_for :extra_html_body do %>
+  <!-- Modal #send-test-email -->
+  <div class="modal fade" id="send-test-email" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h4 class="modal-title" id="myModalLabel">Test Email Recipients</h4>
+        </div><!-- /modal-header -->
+        <div class="modal-body">
+          <div class="form-group">
+            <label>Enter Individual Emails Seperated By Commas</label>
+              <div class="tagsinput-primary">
+                <input name="tagsinput" class="tagsinput" type="text" data-role="tagsinput" id="test-tag-contacts"/>
+              </div>
+          </div><!-- /.form-group -->
+        </div><!-- /modal-body -->
+        <div class="modal-footer">
+          <button class="btn btn-info" data-behavior="send-test-campaign" data-dismiss="modal">Send Now!</button>
+          <br>
+          <br>
+          <a class="clickable" data-dismiss="modal">Cancel</a>
+        </div><!-- /modal-footer -->
+      </div><!-- /modal-content -->
+    </div><!-- /modal-dialog -->
+  </div><!-- /modal#send-test-email -->
+
+  <% content_for :javascript do %>
+    <script>
+      function parseResponseHeaders(headerStr) {
+        var headers = {};
+        if (!headerStr) {
+          return headers;
+        }
+        var headerPairs = headerStr.split('\u000d\u000a');
+        for (var i = 0; i < headerPairs.length; i++) {
+          var headerPair = headerPairs[i];
+          // Can't use split() here because it does the wrong thing
+          // if the header value has the string ": " in it.
+          var index = headerPair.indexOf('\u003a\u0020');
+          if (index > 0) {
+            var key = headerPair.substring(0, index);
+            var val = headerPair.substring(index + 2);
+            headers[key] = val;
+          }
+        }
+        return headers;
+      }
+      $('[data-behavior~=send-test-campaign]').click(function() {
+        alert('Validating inputs, please wait a few seconds ... ');
+        var test_emails = $("#test-tag-contacts").val();
+        var name = $('#campaign-name').val();
+        var subject = $('#email_campaign_subject').val()
+        var title = $('#email_campaign_title').val();
+        var content = $('#email_campaign_content').val();
+        if (test_emails == '' || subject == '' || name == '' || title == '' || content == '') {
+          alert('Unable to send test email. Please make sure you have entered test email address(s) and field for email subject,title, name, and content are filled out properly');
+
+        }
+        else {
+          var validate = $.post(
+            "<%= validate_emails_for_campaign_path %>" ,
+            { emails: test_emails }
+          );
+          validate.always(function() {
+            var valid_emails = validate.responseText;
+            if (valid_emails == '') {
+              alert('None of the test email address you entered were valid, Please check your entries and try again');
+            }
+            else {
+              var result = $.post(
+                "<%= send_test_email_campaign_path %>" ,
+                { test_emails: test_emails, campaign_id: <%= @email_campaign.id %> }
+              );
+              result.always(function() {
+                var response = result.responseText;
+                if (response == 'success') {
+                  alert('Successfully sent test email campaigns to the following addresses: ' + valid_emails );
+                }
+                else {
+                  alert('Sorry there was an error creating your test campaign. Please check that your inputs for name, title, content, and test email addresses are valid and try again');
+                }
+              });
+            }
+          });
+
+        }
+      });
+    </script>
+  <% end %>
+<% end %>
+
+<script>
+  // Show/hide schedule for later UI
+  $('[data-behavior~=schedule-for-later]').click(function() {
+    $('.js-send-button').hide();
+    $('#campaign-scheduling').show();
+  });
+  $('[data-behavior~=cancel-campaign-scheduling]').click(function() {
+    $('#campaign-scheduling').hide();
+    $('.js-send-button').show();
+  });
+</script>
+
+<% content_for :javascript do %>
+  <script>
+
+    // TAGS INPUT FOR GROUPS AND CONTACTS
+    var substringMatcher = function(strs) {
+      return function findMatches(q, cb) {
+        var matches, substrRegex;
+
+        // an array that will be populated with substring matches
+        matches = [];
+
+        // regex used to determine if a string contains the substring `q`
+        substrRegex = new RegExp(q, 'i');
+
+        // iterate through the pool of strings and for any string that
+        // contains the substring `q`, add it to the `matches` array
+        $.each(strs, function(i, str) {
+          if (substrRegex.test(str)) {
+            // the typeahead jQuery plugin expects suggestions to a
+            // JavaScript object, refer to typeahead docs for more info
+            matches.push({ value: str });
+          }
+        });
+
+        cb(matches);
+      };
+    };
+    var contacts = [];
+    <% @user.contacts.each do |contact| %>
+      <% if contact.primary_email_address %>
+        <% if contact.primary_email_address.email %>
+          <% contact.typeahead_query_name = "name: #{contact.first_name} #{contact.last_name} email: #{contact.primary_email_address.email}" %>
+            contacts.push("<%= contact.typeahead_query_name %>");
+        <% end %>
+      <% end %>
+    <% end %>
+    var groups = [];
+    <% groups = Contact::DEFAULT_GROUPS_LIST %>
+    <% groups.each do |group| %>
+        groups.push("<%= group %>");
+    <% end %>
+
+    $('#tag-contacts').tagsinput({
+      typeaheadjs: {
+        name: 'contacts',
+        displayKey: 'value',
+        valueKey: 'value',
+        templates: {
+          empty: "<h6>Unable to find any matches, you must select a suggestion for input to be valid</h6>"
+        },
+        source: substringMatcher(contacts),
+        highlight: true
+      },
+      freeInput: false
+    });
+
+    $('#tag-contacts').on('itemAdded', function(event) {
+      var added_item = event.item;
+      if ( added_item.indexOf('&#39;') >= 0 ) {
+        var updated_item = added_item.replace(/&#39;/g, "'");
+        $('#tag-contacts').tagsinput('remove', added_item);
+        $('#tag-contacts').tagsinput('add', updated_item);
+      }
+    });
+
+    $('#tag-groups').tagsinput({
+      typeaheadjs: {
+        name: 'groups',
+        displayKey: 'value',
+        valueKey: 'value',
+        templates: {
+          empty: "<h6>Unable to find any matches, you must select a suggestion for input to be valid</h6>"
+        },
+        source: substringMatcher(groups),
+        highlight: true
+      },
+      freeInput: false
+    });
+
+
+
+
+    // Calculate total number of recipients
+    $( '[data-behavior~=calculate-recipients]' )
+    .focusout(function() {
+      var contacts = $("#tag-contacts").val();
+      var groups = $("#tag-groups").val();
+      var response = $.post( "<%= calculate_edit_email_campaign_recipients_path %>" , {  groups: groups, contacts: contacts } );
+      response.always(function() {
+        var recipients = response.responseText;
+        $("#campaign-recipients").html("<div><label>" + recipients + "</label></div>");
+      });
+    })
+    .blur(function() {
+      var contacts = $("#tag-contacts").val();
+      var groups = $("#tag-groups").val();
+      var response = $.post( "<%= calculate_edit_email_campaign_recipients_path %>" , {  groups: groups, contacts: contacts } );
+      response.always(function() {
+        var recipients = response.responseText;
+        $("#campaign-recipients").html("<div><label>" + recipients + "</label></div>");
+      });
+    });
+
+
+
+    // PREVIEWS
+
+    // Display live updates to :title in iframe preview area
+    $( '[data-behavior~=title-preview-update]' )
+    .focusout(function() {
+      var name = $('#campaign-name').val();
+      var subject = $('#email_campaign_subject').val()
+      var title = $('#email_campaign_title').val();
+      var content = $('#email_campaign_content').val();
+      var contacts = $("#tag-contacts").val();
+      var groups = $("#tag-groups").val();
+      var time = $('#campaign-schedule-time').val();
+      var date = $('#campaign-schedule-date').val();
+      var image_id = $('#profile_image_id').val();
+      var response = $.post( "<%= autosave_email_campaign_path %>" , { name: name, title: title, content: content, groups: groups, contacts: contacts, time: time, date: date, campaign_id: <%= @email_campaign.id %>, image_id: image_id } );
+      response.always(function() {
+        console.log("Title Preview Update Focusout Status: " + response.status);
+        $("#loader_frame").contents().find("#campaign-preview-title").html("<h1 class='null' style='text-align: center;margin: 0;padding: 0;display: block;font-family: Helvetica;font-size: 40px;font-style: normal;font-weight: bold;line-height: 125%;letter-spacing: -1px;color: #606060 !important;'><span style='color:#000033'> " + title + " </span></h1>");
+      });
+    })
+    .blur(function() {
+      var name = $('#campaign-name').val();
+      var subject = $('#email_campaign_subject').val()
+      var title = $('#email_campaign_title').val();
+      var content = $('#email_campaign_content').val();
+      var contacts = $("#tag-contacts").val();
+      var groups = $("#tag-groups").val();
+      var time = $('#campaign-schedule-time').val();
+      var date = $('#campaign-schedule-date').val();
+      var image_id = $('#profile_image_id').val();
+      var response = $.post( "<%= autosave_email_campaign_path %>" , { name: name, title: title, content: content, groups: groups, contacts: contacts, time: time, date: date, campaign_id: <%= @email_campaign.id %>, image_id: image_id } );
+      response.always(function() {
+        console.log("Title Preview Update Blur Status: " + response.status);
+        $("#loader_frame").contents().find("#campaign-preview-title").html("<h1 class='null' style='text-align: center;margin: 0;padding: 0;display: block;font-family: Helvetica;font-size: 40px;font-style: normal;font-weight: bold;line-height: 125%;letter-spacing: -1px;color: #606060 !important;'><span style='color:#000033'> " + title + "</span></h1>");
+      });
+    });
+
+    // Display updates to :content in iframe preview area
+    $( '[data-behavior~=content-preview-update]' )
+    .focusout(function() {
+      var name = $('#campaign-name').val();
+      var title = $('#email_campaign_title').val();
+      var content = $('#email_campaign_content').val();
+      var contacts = $("#tag-contacts").val();
+      var groups = $("#tag-groups").val();
+      var time = $('#campaign-schedule-time').val();
+      var date = $('#campaign-schedule-date').val();
+      var image_id = $('#profile_image_id').val();
+      var response = $.post( "<%= autosave_email_campaign_path %>" , { name: name, title: title, content: content, groups: groups, contacts: contacts, time: time, date: date, campaign_id: <%= @email_campaign.id %>, image_id: image_id } );
+      response.always(function() {
+        console.log("Content Preview Update Focusout Status: " + response.status);
+        $("#loader_frame").contents().find("#campaign-preview-content").html("<div> " + content + "</div>");
+      });
+    })
+    .blur(function() {
+      var name = $('#campaign-name').val();
+      var title = $('#email_campaign_title').val();
+      var content = $('#email_campaign_content').val();
+      var contacts = $("#tag-contacts").val();
+      var groups = $("#tag-groups").val();
+      var time = $('#campaign-schedule-time').val();
+      var date = $('#campaign-schedule-date').val();
+      var image_id = $('#profile_image_id').val();
+      var response = $.post( "<%= autosave_email_campaign_path %>" , { name: name, title: title, content: content, groups: groups, contacts: contacts, time: time, date: date, campaign_id: <%= @email_campaign.id %>, image_id: image_id } );
+      response.always(function() {
+        console.log("Content Preview Update Blur Status: " + response.status);
+        $("#loader_frame").contents().find("#campaign-preview-content").html("<> " + content + "</div>");
+      });
+    });
+
+    // Autosave the form
+    $('[data-behavior~=form-auto-save]').click(function() {
+      var name = $('#campaign-name').val();
+      var subject = $('#email_campaign_subject').val();
+      var title = $('#email_campaign_title').val();
+      var content = $('#email_campaign_content').val();
+      var contacts = $("#tag-contacts").val();
+      var groups = $("#tag-groups").val();
+      var time = $('#campaign-schedule-time').val();
+      var date = $('#campaign-schedule-date').val();
+      var image_id = $('#profile_image_id').val();
+      var campaign_id = $('#email_campaign_id').val();
+      response = $.post( "<%= autosave_email_campaign_path %>" , { name: name, subject: subject, title: title, content: content, groups: groups, contacts: contacts, time: time, date: date, campaign_id: campaign_id, image_id: image_id } );
+      response.always(function() {
+        // console.log("Autosave Email Campaign Status: " + response.status);
+        // document.getElementById('loader_frame').contentWindow.location.reload(true);
+        // document.getElementById('loader_frame2').contentWindow.location.reload(true);
+        var contacts = $("#tag-contacts").val();
+        var groups = $("#tag-groups").val();
+        var response2 = $.post( "<%= calculate_edit_email_campaign_recipients_path %>" , {  groups: groups, contacts: contacts } );
+        response2.always(function() {
+          console.log("Autosave & Calculate Recipients Status: " + response.status);
+          var recipients = response2.responseText;
+          $("#campaign-recipients").html("<div><label>" + recipients + "</label></div>");
+        });
+      });
+    });
+
+    // Save and schedule to be sent at a future time
+    $('[data-behavior~=save-and-schedule]').click(function() {
+      alert('Validating inputs and attempting to schedule campaign');
+      var name = $('#campaign-name').val();
+      var title = $('#email_campaign_subject').val();
+      var title = $('#email_campaign_title').val();
+      var content = $('#email_campaign_content').val();
+      var contacts = $("#tag-contacts").val();
+      var groups = $("#tag-groups").val();
+      var time = $('#campaign-schedule-time').val();
+      var date = $('#campaign-schedule-date').val();
+      var image_id = $('#profile_image_id').val();
+      var response = $.post( "<%= autosave_email_campaign_path %>" , { name: name, title: title, content: content, groups: groups, contacts: contacts, time: time, date: date, campaign_id: <%= @email_campaign.id %>, image_id: image_id } );
+      response.always(function() {
+        console.log("Save and Schedule Status: " + response.status);
+        if ((contacts == '' && groups == '') || subject == '' || name == '' || title == '' || content == '' || time == '' || date == '') {
+          alert('Unable to schedule email campaign because necessary inputs are missing. Please check your inputs for contacts, groups, email subject, name, title, content, time, date and try again.');
+        }
+        else {
+          var response2 = $.post( "<%= retreive_campaign_groups_contacts_path %>" , { groups: groups} );
+          response2.always(function() {
+            console.log("Retrieve campaigns groups contacts Status: " + response.status);
+            var groupContacts = response.responseText;
+            if (groupContacts == '' && contacts == '') {
+              alert('Unable to schedule email campaign because you have not entered any contacts or groups that contain contacts. Please check your inputs and try again.');
+            }
+            else {
+              var response3 = $.post( "<%= pre_delivery_campaign_emails_validation_merge_path %>" , { id: <%= @email_campaign.id %> , groups: groupContacts } );
+              response3.always(function() {
+                console.log("pre delivery campaign emails validation merge Status: " + response.status);
+                var validEmailList = response2.responseText;
+                if (validEmailList == '') {
+                  alert('Unable to schedule email campaign because the none of the contacts or group contacts entered had valid emails. Please check you input and try again.');
+                }
+                else {
+                  alert('Attempting to schedule your email campaign to be delivered to the following validated addresses : ' + validEmailList );
+                  var response4 = $.post( "<%= schedule_email_campaign_path %>" , { id: <%= @email_campaign.id %> } );
+                  response4.always(function() {
+                    console.log("schedule email campaign Status: " + response.status);
+                    window.location.replace("<%= @campaign_index_url %>");
+                  });
+                }
+              });
+            }
+          });
+        }
+      });
+    });
+
+    // Cancel scheduled delivery of campaign
+    $('[data-behavior~=cancel-campaign-scheduling]').click(function() {
+      alert('Canceling scheduled delivery for email campaign');
+      var response = $.post( "<%= cancel_email_campaign_scheduling_path %>" , { id: <%= @email_campaign.id %> } );
+      response.always(function() {
+        console.log("Cancel Campaign Scheduling Status: " + response.status);
+        alert('Successfully canceled scheduled delivery for your email campaign');
+        window.location.replace("<%= @campaign_index_url %>");
+      });
+    });
+
+
+    // Validate and send campaign
+    $('[data-behavior~=campaign-validate-send]').click(function() {
+      alert('Validating Email Campaign......');
+      $('[data-behavior~=campaign-validate-send]').attr("disabled", true);
+      var name = $('#campaign-name').val();
+      var title = $('#email_campaign_subject').val();
+      var title = $('#email_campaign_title').val();
+      var content = $('#email_campaign_content').val();
+      var contacts = $("#tag-contacts").val();
+      var groups = $("#tag-groups").val();
+      var time = $('#campaign-schedule-time').val();
+      var date = $('#campaign-schedule-date').val();
+      var image_id = $('#profile_image_id').val();
+      $.post( "<%= autosave_email_campaign_path %>" , { name: name, title: title, content: content, groups: groups, contacts: contacts, time: time, date: date, campaign_id: <%= @email_campaign.id %>, image_id: image_id } );
+      if ((contacts == '' && groups == '') || subject == '' || name == '' || title == '' || content == '') {
+        alert('Unable to deliver email campaign because necessary inputs are missing. Please check your inputs for contacts, groups, name, email subject, title, content and try again.');
+        $('[data-behavior~=campaign-validate-send]').attr("disabled", false);
+      }
+      else {
+        var response = $.post( "<%= retreive_campaign_groups_contacts_path %>" , { groups: groups} );
+        response.always(function() {
+          console.log("Retrieve Campaign Groups Contacts Status: " + response.status);
+          var groupContacts = response.responseText;
+          if (groupContacts == '' && contacts == '') {
+            alert('Unable to deliver emails campaign because you have not entered any contacts or groups that contain contacts. Please check your inputs and try again.');
+            $('[data-behavior~=campaign-validate-send]').attr("disabled", false);
+          }
+          else {
+            var response2 = $.post( "<%= pre_delivery_campaign_emails_validation_merge_path %>" , { id: <%= @email_campaign.id %> , groups: groupContacts } );
+            response2.always(function() {
+              console.log("Predelivery merge validation Status: " + response2.status);
+              var validEmailList = response2.responseText;
+              if (validEmailList == '') {
+                alert('Unable to deliver email campaign because the none of the contacts or group contacts entered had valid emails. Please check you input and try again.');
+                $('[data-behavior~=campaign-validate-send]').attr("disabled", false);
+              }
+              else {
+                alert('Attempting to deliver your email campaign to the following validated addresses : ' + validEmailList );
+                var response3 = $.post( "<%= deliver_email_campaign_path %>" , { id: <%= @email_campaign.id %> , email_list: validEmailList } );
+                response3.always(function() {
+                  console.log("deliver email campaign Status: " + response3.status);
+                  window.location.replace("<%= @campaign_index_url %>");
+                });
+              }
+            });
+          }
+        });
+      }
+    });
+    $('[data-behavior~=remove-campaign-image]').click(function() {
+      var response = $.post( "<%= remove_email_campaign_image_path %>" , { campaign_id: <%= @email_campaign.id %> } );
+      response.always(function() {
+        alert('Removed Campaign Image');
+        var image_id = $('#profile_image_id').val(null);
+        $("#loader_frame").contents().find("#campaign-preview-image").html("<img height='150' src='https://placehold.it/200' alt='...'>");
+        $('#image-spinner').hide();
+        var name = $('#campaign-name').val();
+        var title = $('#email_campaign_subject').val();
+        var title = $('#email_campaign_title').val();
+        var content = $('#email_campaign_content').val();
+        var contacts = $("#tag-contacts").val();
+        var groups = $("#tag-groups").val();
+        var time = $('#campaign-schedule-time').val();
+        var date = $('#campaign-schedule-date').val();
+        var image_id = $('#profile_image_id').val();
+        $.post( "<%= autosave_email_campaign_path %>" , { name: name, title: title, content: content, groups: groups, contacts: contacts, time: time, date: date, campaign_id: <%= @email_campaign.id %>, image_id: image_id } );
+      });
+    });
+
+  </script>
+<% end %>

@@ -1,0 +1,51 @@
+<div class="row sub-section hide-phone">
+  <div class="col-sm-12">
+    <h2>Client Pipeline</h2>
+    <div class="row stat-row">
+      <div class="stat-block alignc col-sm-3">
+        <h2 class="nomargin fwl">
+          <%= number_to_currency(current_user.leads.leads_by_status(1).sum(:displayed_price).to_i, precision: 0) %>
+        </h2>
+        <h2 class="nomargin">
+          <%= number_to_currency(current_user.leads.leads_by_status(1).sum(:displayed_net_commission).to_i, precision: 0) %>
+        </h2>
+        <p class="fwb">
+          <span class=""><%= current_user.leads.leads_by_status(1).count %> Propsect</span>
+        </p>
+      </div><!-- /stat-block.col-sm-3 -->
+      <div class="stat-block alignc col-sm-3">
+        <h2 class="nomargin fwl">
+          <%= number_to_currency(current_user.leads.leads_by_status(2).sum(:displayed_price).to_i, precision: 0) %>
+        </h2>
+        <h2 class="nomargin">
+          <%= number_to_currency(current_user.leads.leads_by_status(2).sum(:displayed_net_commission).to_i, precision: 0) %>
+        </h2>
+        <p class="fwb">
+          <span class=""><%= current_user.leads.leads_by_status(2).count %> Active</span>
+        </p>
+      </div><!-- /stat-block.col-sm-3 -->
+      <div class="stat-block alignc col-sm-3">
+        <h2 class="nomargin fwl">
+          <%= number_to_currency(current_user.leads.leads_by_status(3).sum(:displayed_price).to_i, precision: 0) %>
+        </h2>
+        <h2 class="nomargin">
+          <%= number_to_currency(current_user.leads.leads_by_status(3).sum(:displayed_net_commission).to_i, precision: 0) %>
+        </h2>
+        <p class="fwb">
+          <span class=""><%= current_user.leads.leads_by_status(3).count %> Pending</span>
+        </p>
+      </div><!-- /stat-block.col-sm-3 -->
+      <div class="stat-block alignc col-sm-3">
+        <h2 class="nomargin fwl">
+          <%= number_to_currency(current_user.closed_leads_ytd.sum(:displayed_price).to_i, precision: 0) %>
+        </h2>
+        <h2 class="nomargin">
+          <%= number_to_currency(current_user.closed_leads_ytd.sum(:displayed_net_commission).to_i, precision: 0) %>
+        </h2>
+        <p class="fwb">
+          <span class=""><%= current_user.closed_leads_ytd.count %> Closed YTD</span>
+        </p>
+      </div><!-- /stat-block.col-sm-3 -->
+    </div><!-- /.row -->
+  </div><!-- /.col-sm-12 -->
+</div><!-- /.row sub-section -->

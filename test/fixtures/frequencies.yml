@@ -1,0 +1,30 @@
+# == Schema Information
+#
+# Table name: frequencies
+#
+#  created_at :datetime
+#  freq_order :integer
+#  freq_type  :string
+#  id         :integer          not null, primary key
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  freq_type: One off
+
+two:
+  freq_type: Weekly
+
+three:
+  freq_type: Bi-monthly
+
+four:
+  freq_type: Monthly
+
+five:
+  freq_type: Quarterly
+
+six:
+  freq_type: Annually

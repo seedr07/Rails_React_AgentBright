@@ -1,0 +1,12 @@
+<!--HEADER-->
+<div class="row">
+  <div class="lastUnit col-sm-12 header">
+    <h1>
+      <%= link_to "Referral Generation", contact_activities_path %>
+    </h1>
+    <h2>Edit Referral Activity</h2>
+  </div>
+</div>
+<!--END HEADER-->
+
+<%= render :partial => 'form', :locals => { :show_all_fields => true } %>

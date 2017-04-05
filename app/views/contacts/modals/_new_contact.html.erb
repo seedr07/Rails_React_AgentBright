@@ -1,0 +1,55 @@
+<div data-behavior="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h4 class="modal-title" id="myModalLabel">Add new contact</h4>
+  </div><!-- /modal-header -->
+  <%= simple_form_for(@contact, remote: true, namespace: "#{modal_id}", html: { data: { fv_live: "submitted", form: "contact_form"} }) do |f| %>
+    <%= f.input_field(handle_required_validations(@for_page), value: true, as: :hidden) %>
+    <%= hidden_field_tag :for_page, for_page %>
+    <div class="modal-body">
+      <div class="row" id="quick-add-contact">
+        <div class="col-sm-12">
+          <input type="hidden" name="modal_id" value="<%= modal_id %>">
+          <input type="hidden" name="target_select_id" value="<%= target_select_id %>">
+          <%= f.input :first_name, label: "First Name", input_html: { class: "form-control" }, wrapper_html: {
+                                                                    data: { behavior: "first-name" }} %>
+          <%= f.input :last_name, label: "Last Name", input_html: { class: "form-control"}, wrapper_html: {
+                                                                    data: { behavior: "last-name" }} %>
+          <%= f.input(
+            :grade,
+            label: "Contact Rank",
+            as: :radio_buttons,
+            item_wrapper_class: "radio radio-inline",
+            collection: Contact::GRADES
+          ) %>
+        <div class="sub-section">
+          <label data="contact-phones">Phone Number</label>
+          <%= f.simple_fields_for :phone_numbers do |builder| %>
+            <%= render(partial: 'contacts/phone_number_fields', locals: { f: builder}) %>
+          <% end %>
+          <%= link_to_add_fields "Add Phone Number", f, :phone_numbers, "contacts/" %>
+        </div><!-- /.sub-section -->
+
+        <div class="sub-section">
+          <label data="contact-emails">Email Address</label>
+          <%= f.simple_fields_for :email_addresses do |builder| %>
+            <%= render(partial: 'contacts/email_address_fields', locals: {f: builder}) %>
+          <% end %>
+          <%= link_to_add_fields "Add Email Address", f, :email_addresses, "contacts/" %>
+        </div><!-- /.sub-section -->
+
+        <%= f.simple_fields_for(:addresses) do |address_form| %>
+          <%= render(partial: 'addresses/form', locals: {f: address_form}) %>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <%= f.button :submit, class: "btn-default btn-embossed btn-loading", value: "Save Contact", "data-loading-text" => "Saving..." %>
+    <a data-dismiss="modal">
+      Cancel
+    </a>
+  </div>
+<% end %>
+</div><!-- /modal-content -->

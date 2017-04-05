@@ -1,0 +1,67 @@
+# == Schema Information
+#
+# Table name: contact_activities
+#
+#  activity_for       :string
+#  activity_type      :string
+#  asked_for_referral :boolean          default(FALSE)
+#  comments           :text
+#  completed_at       :datetime
+#  contact_id         :integer
+#  created_at         :datetime
+#  id                 :integer          not null, primary key
+#  lead_id            :integer
+#  received_referral  :boolean
+#  replied_to         :boolean          default(FALSE)
+#  subject            :string
+#  updated_at         :datetime
+#  user_id            :integer
+#
+# Indexes
+#
+#  index_contact_activities_on_activity_for        (activity_for)
+#  index_contact_activities_on_activity_type       (activity_type)
+#  index_contact_activities_on_asked_for_referral  (asked_for_referral)
+#  index_contact_activities_on_contact_id          (contact_id)
+#  index_contact_activities_on_lead_id             (lead_id)
+#  index_contact_activities_on_received_referral   (received_referral)
+#  index_contact_activities_on_replied_to          (replied_to)
+#  index_contact_activities_on_user_id             (user_id)
+#
+
+ john_call1:
+  user: john
+  contact: will
+  activity_type: call
+  completed_at: <%= Time.current %>
+
+ john_call2:
+  user: john
+  contact: will
+  activity_type: call
+  completed_at: <%= Time.current %>
+
+ john_call3:
+  user: john
+  contact: will
+  activity_type: call
+  completed_at: <%= Time.current %>
+
+ nancy_call_update:
+  user: nancy
+  lead: katie
+  contact: katie
+  activity_type: Call
+  completed_at: <%= Time.current %>
+
+ nancy_call_update2:
+  user: nancy
+  lead: katie
+  contact: katie
+  activity_type: Call
+  completed_at: <%= Time.current - 1.year %>
+
+ nancy_call4_for_delete:
+  user: nancy
+  lead: katie
+  activity_type: Call

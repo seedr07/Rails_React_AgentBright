@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-sm-3 hide-phone">
+    <%=render(partial: "shared/account_settings_sidebar") %>
+  </div>
+  <div class="col-sm-9">
+    <div class="row">
+      <div class="col-sm-12 header">
+        <h1>
+          <a href="#">My Profile</a>
+        </h1>
+        <h2><%= @user.name %></h2>
+      </div>
+    </div>
+    <%= render(partial: "shared/account_settings_mobile_menu") %>
+    <%= render(
+      partial: "profiles/nylas_settings",
+      locals: { nylas_account: @nylas_account }
+    ) %>
+
+    <%= render(partial: "profiles/email_settings") %>
+
+    <% if @nylas_account && super_admin_signed_in? %>
+      <div class="row">
+        <div class="col-xs-12 below18">
+          <%= render(partial: "profiles/emails") %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 below18">
+          <%= render(partial: "profiles/email_tracking_log") %>
+        </div><!-- /.col-xs-12 below18 -->
+      </div><!-- /.row -->
+    <% end %>
+  </div>
+</div>

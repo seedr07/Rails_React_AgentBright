@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.fullcontact.com/v2/person.json?apiKey=467e80d98fdac1ee&email=email_with_no_info@gmail.com
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 202
+      message: Accepted
+    headers:
+      Server:
+      - nginx/1.6.1
+      Date:
+      - Wed, 12 Nov 2014 01:17:11 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Rate-Limit-Limit:
+      - '60'
+      X-Rate-Limit-Remaining:
+      - '59'
+      X-Rate-Limit-Reset:
+      - '59'
+      Vary:
+      - Accept-Encoding, User-Agent
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "status" : 202,
+          "message" : "Queued for search. Please retry your query within about 2 minutes. Prefer not to re-submit queries? Try using our webhook option, documented at: http://www.fullcontact.com/developer/docs/person/#webhook-email",
+          "requestId" : "c25966b4-6e9e-475a-8dfa-f3cff1f2f372"
+        }
+    http_version: 
+  recorded_at: Wed, 12 Nov 2014 01:17:11 GMT
+recorded_with: VCR 2.9.3

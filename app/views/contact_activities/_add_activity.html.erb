@@ -1,0 +1,210 @@
+<div class="row below18" data-behavior="quick-add-activity" data-info-lead="<%= lead.id %>" data-info-contact="<%= lead.contact.id %>" data-default-activity-date="<%= format_for_datepicker(Time.zone.now.strftime("%Y-%m-%d")) %>">
+  <div class="col-xs-12">
+    <h4>Add:</h4>
+    <ul class="nav nav-pills">
+      <li role="presentation" class="active"><a href="#add-comment-form" data-toggle="pill">Comment</a></li>
+      <li role="presentation"><a href="#add-call-form" data-toggle="pill">Call</a></li>
+      <li role="presentation"><a href="#add-email-form" data-toggle="pill">Email</a></li>
+      <li role="presentation"><a href="#add-note-form" data-toggle="pill">Note</a></li>
+      <li role="presentation"><a href="#add-meeting-form" data-toggle="pill">Meeting</a></li>
+      <li role="presentation"><a href="#add-lunch-form" data-toggle="pill">Lunch</a></li>
+    </ul>
+  </div><!-- /.col-xs-12 -->
+</div><!-- /.row -->
+<div class="tab-content nopadding">
+  <div class="tab-pane fade in active" id="add-comment-form">
+    <div class="row">
+      <div class="col-xs-12">
+        <form>
+          <div class="form-group">
+            <textarea id="activity-stream-quick-comment-content" rows="5" class="form-control" placeholder="Add new comment..."></textarea>
+          </div><!-- /.form-group -->
+        </form>
+        <div id="activity-stream-quick-comment-status" style="height: 40px;">
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+              <button id="activity-stream-quick-comment" class="btn btn-default btn-paper btn-raised">Post New Comment</button>
+            </div><!-- /.col-xs-12 -->
+          </div><!-- /.row -->
+      </div><!-- /.col-xs-12 -->
+    </div><!-- /.row -->
+  </div><!-- /#-form.tab-pane -->
+  <div class="tab-pane fade" id="add-call-form">
+    <div class="row">
+      <div class="col-xs-12">
+        <form>
+          <div class="form-group">
+            <select id="activity-stream-quick-record-call-number">
+              <% contact.phone_numbers.each do |p| %>
+                <option value="<%= p.number %>"><%= p.number %></option>
+              <% end %>
+            </select>
+          </div><!-- /.form-group -->
+          <div class="form-group">
+            <input id="activity-stream-quick-record-call-subject" type="text" class="form-control" placeholder="Call subject" />
+          </div><!-- /.form-group -->
+          <div class="form-group">
+            <textarea id="activity-stream-quick-record-call-info" rows="2" class="form-control" placeholder="Additional info..."></textarea>
+          </div><!-- /.form-group -->
+          <div class="row multiple-fields">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Date</label>
+                <input id="activity-stream-quick-record-call-date" type="date" class="form-control" value="<%= format_for_datepicker(Time.zone.now.strftime("%Y-%m-%d")) %>" data-behavior="datepicker"/>
+              </div><!-- /.form-group -->
+            </div><!-- /.col-sm-6 -->
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label>Time</label>
+                <input id="activity-stream-quick-record-call-time" type="time" class="form-control" value="10:00 AM" data-behavior="timepicker" />
+              </div><!-- /.form-group -->
+            </div><!-- /.col-sm-3 -->
+            <!-- <div class="col-sm-3"> -->
+              <!-- <div class="form-group"> -->
+                <!-- <label>Duration</label> -->
+                <!-- <input type="text" class="form-control" /> -->
+              <!-- </div> .form-group -->
+            <!-- </div> .col-sm-3 -->
+          </div><!-- /.row -->
+          <div id="activity-stream-quick-record-call-status" style="height: 40px;">
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <button id="activity-stream-quick-record-call" class="btn btn-default btn-paper btn-raised">Record Call</button>
+            </div><!-- /.col-xs-12 -->
+          </div><!-- /.row -->
+        </form>
+      </div><!-- /.col-xs-12 -->
+    </div><!-- /.row -->
+  </div><!-- /#-form.tab-pane -->
+  <div class="tab-pane fade" id="add-email-form" data-info-user-nylas-token="<%= current_user.nylas_token %>">
+    <% if current_user.nylas_account_valid? %>
+      <div class="col-xs-12" data-behavior="lead-quick-email">
+        <%= render(
+          partial: "emails/lead_quick_email_form",
+          locals: { lead: lead, contact: lead.contact }
+        ) %>
+      </div>
+    <% else %>
+      <div class="inline-block">
+        <span href="profile/edit/integrations" class="fui-gear"></span> <%= link_to "Please visit email integrations and connect your email account first", edit_integrations_path %>
+      </div>
+    <% end %>
+  </div><!-- /#-form.tab-pane -->
+  <div class="tab-pane fade" id="add-note-form">
+    <div class="row">
+      <div class="col-xs-12">
+        <form>
+          <div class="form-group">
+            <input id="activity-stream-quick-record-note-subject" type="text" class="form-control" placeholder="Note subject" />
+          </div><!-- /.form-group -->
+          <div class="form-group">
+            <textarea id="activity-stream-quick-record-note-info" rows="2" class="form-control" placeholder="Additional info..."></textarea>
+          </div><!-- /.form-group -->
+          <div class="row multiple-fields">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Date</label>
+                <input id="activity-stream-quick-record-note-date" type="date" class="form-control" value="<%= format_for_datepicker(Time.zone.now.strftime("%Y-%m-%d")) %>" data-behavior="datepicker" />
+              </div><!-- /.form-group -->
+            </div><!-- /.col-sm-6 -->
+          </div><!-- /.row -->
+          <div id="activity-stream-quick-record-note-status" style="height: 40px;">
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <button id="activity-stream-quick-record-note" class="btn btn-default btn-paper btn-raised">Record Note</button>
+            </div><!-- /.col-xs-12 -->
+          </div><!-- /.row -->
+        </form>
+      </div><!-- /.col-xs-12 -->
+    </div><!-- /.row -->
+  </div><!-- /#-form.tab-pane -->
+  <div class="tab-pane fade" id="add-meeting-form">
+    <div class="row">
+      <div class="col-xs-12">
+        <form>
+          <div class="form-group">
+            <input type="text" id="activity-stream-quick-record-meeting-subject" class="form-control" placeholder="Meeting subject" />
+          </div><!-- /.form-group -->
+          <div class="form-group">
+            <textarea name="" id="activity-stream-quick-record-meeting-info" rows="2" class="form-control" placeholder="Additional info..."></textarea>
+          </div><!-- /.form-group -->
+          <div class="row multiple-fields">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Date</label>
+                <input id="activity-stream-quick-record-meeting-date" type="date" class="form-control" value="<%= format_for_datepicker(Time.zone.now.strftime("%Y-%m-%d")) %>" data-behavior="datepicker" />
+              </div><!-- /.form-group -->
+            </div><!-- /.col-sm-6 -->
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label>Time</label>
+                <input id="activity-stream-quick-record-meeting-time" type="time" class="form-control" value="10:00 AM" data-behavior="timepicker" />
+              </div><!-- /.form-group -->
+            </div><!-- /.col-sm-3 -->
+            <!-- <div class="col-sm-3"> -->
+              <!-- <div class="form-group"> -->
+                <!-- <label>Duration</label> -->
+                <!-- <input type="text" class="form-control" /> -->
+              <!-- </div> .form-group -->
+            <!-- </div> .col-sm-3 -->
+          </div><!-- /.row -->
+          <div id="activity-stream-quick-record-meeting-status" style="height: 40px;">
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <button id="activity-stream-quick-record-meeting" class="btn btn-default btn-paper btn-raised">Record Meeting</button>
+            </div><!-- /.col-xs-12 -->
+          </div><!-- /.row -->
+        </form>
+      </div><!-- /.col-xs-12 -->
+    </div><!-- /.row -->
+  </div><!-- /#-form.tab-pane -->
+  <div class="tab-pane fade" id="add-lunch-form">
+    <div class="row">
+      <div class="col-xs-12">
+        <form>
+          <div class="form-group">
+            <input id="activity-stream-quick-record-lunch-subject" type="text" class="form-control" placeholder="Lunch subject" />
+          </div><!-- /.form-group -->
+          <div class="form-group">
+            <textarea id="activity-stream-quick-record-lunch-info" rows="2" class="form-control" placeholder="Additional info..."></textarea>
+            <div class="field-help">
+              Such as the location, etc.
+            </div><!-- /.field-help -->
+          </div><!-- /.form-group -->
+          <div class="row multiple-fields">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Date</label>
+                <input id="activity-stream-quick-record-lunch-date" type="date" class="form-control" value="<%= format_for_datepicker(Time.zone.now.strftime("%Y-%m-%d")) %>" data-behavior="datepicker" />
+              </div><!-- /.form-group -->
+            </div><!-- /.col-sm-6 -->
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label>Time</label>
+                <input id="activity-stream-quick-record-lunch-time" type="time" class="form-control" value="10:00 AM" data-behavior="timepicker" />
+              </div><!-- /.form-group -->
+            </div><!-- /.col-sm-3 -->
+            <!-- <div class="col-sm-3"> -->
+              <!-- <div class="form-group"> -->
+                <!-- <label>Duration</label> -->
+                <!-- <input type="text" class="form-control" /> -->
+              <!-- </div> .form-group -->
+            <!-- </div> .col-sm-3 -->
+          </div><!-- /.row -->
+          <div id="activity-stream-quick-record-lunch-status" style="height: 40px;">
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <button id="activity-stream-quick-record-lunch" class="btn btn-default btn-paper btn-raised">Record Lunch</button>
+            </div><!-- /.col-xs-12 -->
+          </div><!-- /.row -->
+        </form>
+      </div><!-- /.col-xs-12 -->
+    </div><!-- /.row -->
+  </div><!-- /#-form.tab-pane -->
+</div><!-- /.tab-content -->
+<hr />

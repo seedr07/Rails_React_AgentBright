@@ -1,0 +1,79 @@
+# == Schema Information
+#
+# Table name: subscriptions
+#
+#  account_balance               :float
+#  card_expires_on               :date
+#  card_last_four_digits         :string
+#  card_type                     :string
+#  created_at                    :datetime
+#  deactivated_on                :date
+#  id                            :integer          not null, primary key
+#  next_payment_amount           :decimal(, )      default(0.0), not null
+#  next_payment_on               :date
+#  plan_id                       :integer          not null
+#  plan_type                     :string           default("StandardPlan"), not null
+#  scheduled_for_cancellation_on :date
+#  stripe_id                     :string
+#  trial_ends_at                 :datetime
+#  updated_at                    :datetime
+#  user_id                       :integer
+#
+# Indexes
+#
+#  index_subscriptions_on_plan_id    (plan_id)
+#  index_subscriptions_on_stripe_id  (stripe_id)
+#  index_subscriptions_on_user_id    (user_id)
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# one:
+  # stripe_customer_id: MyString
+  # charge_errors_count: 1
+  # state: MyString
+  # starts_at: 2014-11-08 22:02:38
+  # ends_at: 2014-11-08 22:02:38
+  # trial_ends_at: 2014-11-08 22:02:38
+  # account_balance: 1
+  # last_four_digits: MyString
+  # card_expires_at: 2014-11-08 22:02:38
+  # subscriber_id: 
+  # plan_id: 
+
+# two:
+  # stripe_customer_id: MyString
+  # charge_errors_count: 1
+  # state: MyString
+  # starts_at: 2014-11-08 22:02:38
+  # ends_at: 2014-11-08 22:02:38
+  # trial_ends_at: 2014-11-08 22:02:38
+  # account_balance: 1
+  # last_four_digits: MyString
+  # card_expires_at: 2014-11-08 22:02:38
+  # subscriber_id: 
+  # plan_id: 
+
+john_subscription:
+  user: john
+  plan: free_plan
+  plan_type: "Plan"
+  next_payment_amount: 0
+  next_payment_on: 2016-05-28
+  stripe_id: "xxxx"
+
+nancy_subscription:
+  user: nancy
+  plan: free_plan
+  plan_type: "Plan"
+  next_payment_amount: 0
+  next_payment_on: 2016-05-28
+  stripe_id: "xxxx"
+
+jane_subscription:
+  user: jane
+  plan: free_plan
+  plan_type: "Plan"
+  next_payment_amount: 0
+  next_payment_on: 2016-05-28
+  stripe_id: "xxxx"

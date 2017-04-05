@@ -1,0 +1,32 @@
+<div class="tablet-overlay-container navigation-overlay clearfix hide-phone" style="visibility:hidden;opacity:1;z-index:-5;">
+  <div class="close-overlay close-left absolute clickable pad-lv3 mdi-navigation-close with-ripple"></div>
+  <div class="row clearfix">
+    <nav class="mobile-nav col-xs-4 col-xs-offset-4 centered clearfix">
+      <ul class="alignc list-unstyled nomargin clearfix">
+        <li>
+          <%= link_to("Dashboard", dashboard_path, class: "tablet-menu-link inline-block relative pad-lv5 with-ripple") %>
+        </li>
+        <% if show_beta_features? %>
+          <li>
+            <%= link_to("Marketing Center", marketing_center_index_path, class: "tablet-menu-link inline-block relative pad-lv5 with-ripple") %>
+          </li>
+        <% end %>
+        <li>
+          <%= link_to("Contacts", contacts_path, class: "tablet-menu-link inline-block relative pad-lv5 with-ripple") %>
+        </li>
+        <li>
+          <%= link_to("Leads", user_leads_path, class: "tablet-menu-link inline-block relative pad-lv5 with-ripple") %>
+        </li>
+        <li>
+          <%= link_to("Clients", clients_path, class: "tablet-menu-link inline-block relative pad-lv5 with-ripple") %>
+        </li>
+        <li>
+          <%= link_to("Tasks", tasks_path, class: "tablet-menu-link inline-block relative pad-lv5 with-ripple") %>
+        </li>
+        <li>
+          <%= link_to("Reports", reports_path, class: "tablet-menu-link inline-block relative pad-lv5 with-ripple") %>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>

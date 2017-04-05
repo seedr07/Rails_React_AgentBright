@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-xs-12 basic-table">
+    <h3>Ranked so far:</h3>
+    <div class="line section nomargin">
+      <table class="ab-table table--rank-contacts">
+        <tbody>
+          <% @graded_contacts.each do |contact| %>
+              <tr>
+                <td class="breakword td__grade-circle">
+                  <span class="grader nomargin"><%= contact.grade_to_s %></span>
+                </td>
+                <td class="breakword">
+                  <h4 class="h4-title td__title">
+                    <%= link_to contact_display_name(contact) %>
+                  </h4>
+                  <p class="td__info">
+                    <%= display_primary_email_address(contact) %>
+                  </p>
+                  <p class="td__info">
+                    <%= display_primary_phone_number(contact) %>
+                  </p>
+                </td>
+                <td class="alignr nopadding">
+                  <%= link_to(
+                    contact,
+                    method: :delete,
+                    class: "btn btn-primary btn-paper btn-narrow btn-paper-menu-icon",
+                    data: { confirm: "You are about to delete #{contact.full_name}. Are you sure?" }
+                  ) do %>
+                    <span class="fui-trash"></span>
+                  <% end %>
+                </td>
+              </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

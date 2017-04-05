@@ -1,0 +1,52 @@
+$dev-green: #008000;
+$staging-red: #ff4856;
+
+.environment-banner {
+  border-radius: 16px;
+  font-size: 10px;
+  font-weight: bold;
+  left: 0;
+  line-height: 14px;
+  margin: -12px 0 0 -12px;
+  padding: 12px 12px 0 16px;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  z-index: 50000;
+
+  &.development {
+    background: lighten($dev-green, 10%);
+    color: lighten($dev-green, 70%);
+  }
+
+  &.staging {
+    background: lighten($staging-red, 10%);
+    color: lighten($staging-red, 70%);
+  }
+}
+
+body {
+  &.dev-green-ribbon {
+    &:before {
+      background: lighten($dev-green, 10%);
+      content: "";
+      display: block;
+      height: 4px;
+      position: fixed;
+      width: 100%;
+      z-index: 50000;
+    }
+  }
+
+  &.staging-red-ribbon {
+    &:before {
+      background: lighten($staging-red, 10%);
+      content: "";
+      display: block;
+      height: 4px;
+      position: fixed;
+      width: 100%;
+      z-index: 50000;
+    }
+  }
+}

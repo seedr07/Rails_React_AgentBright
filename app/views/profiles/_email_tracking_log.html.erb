@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-xs-12 below18">
+    <h2>Tracking Info - For Agent sent Emails (to Contacts, Leads & Client) </h2>
+  </div>
+  <div class="col-xs-12 basic-table">
+    <div class="line section nomargin">
+      <table class="ab-table stay-table">
+        <thead>
+        <tr>
+          <th width="30%">Sent To</th>
+          <th width="12%">Opened</th>
+          <th width="50%">Click/Open Date & Time</th>
+          <th class="nowrap alignr"></th>
+        </tr>
+        </thead>
+        <tbody>
+          <% current_user.all_inbox_messages.all.each do |inbox_message| %>
+            <tr>
+              <td class="bk-word">
+                <%= inbox_message.sent_to_email_address %>
+              </td>
+              <td class="bk-word">
+                <% if inbox_message.opened == true %>
+                  Yes
+                <% else %>
+                  No
+                <% end %>
+              </td>
+              <td>
+                <% inbox_message.inbox_message_activities.each do |activity| %>
+                  <%= activity.activity_event %> at <%= activity.ts.strftime("%B %d, %Y at %I:%M %p") %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

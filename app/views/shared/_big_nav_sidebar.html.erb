@@ -1,0 +1,80 @@
+<div class="big-nav relative overflow-hidden">
+  <% cache "nav-background" do %>
+    <div class="nav-background"></div><!-- /.nav-background -->
+    <div class="logo-area">
+      <a href="/" class="block"></a>
+    </div>
+  <% end %>
+  <ul class="main-nav nomargin" data-introjs="step5">
+    <li class="relative hide-mobile <%= in_settings? ? 'active' : '' %>">
+      <% cache ["nav_user_name", current_user] do %>
+        <a title="My Profile" class="nav-settings clickable js-toggle-submenu" data-behavior="toggle-submenu">
+          <% if current_user.profile_image %>
+            <div class="inline-block avatar" style="background-image: url(<%= current_user.profile_image_url %>)"></div>
+          <% else %>
+            <div class="inline-block avatar">
+              <span class="initials-68 <%= current_user.avatar_class %>"><%= current_user.initials.upcase %></span>
+            </div>
+          <% end %>
+
+          <div class="inline-block relative">
+            <span class="nav-label capitalize name">
+              <%= current_user.first_name %>
+            </span>
+            <span class="faded"></span>
+          </div>
+        </a>
+      <% end %>
+      <!-- <a class="notifications-link clickable" data-container="body" data-toggle="popover" data-placement="right" title="Notifications" data-template='<%#= render("notifications/popover_template") %>' data-html="true" data-content='<%#= render("notifications/popover") %>'>
+        <span class="badge">5</span>
+      </a> -->
+    </li>
+    <% if show_beta_features? %>
+      <li class="show-tablet">
+        <%= link_to(dashboard_path, title: "Dashboard") do %>
+          <span class="nav-icon reports-nav iconic iconic-md" data-glyph="dashboard"></span>
+          <span class="nav-label">Dashboard</span>
+        <% end %>
+      </li>
+    <% else %>
+      <li class="<%= controller?('home') ? 'active' : '' %>">
+        <%= link_to(dashboard_path, title: "Dashboard") do %>
+          <span class="nav-icon reports-nav iconic iconic-md" data-glyph="dashboard"></span>
+          <span class="nav-label">Dashboard</span>
+        <% end %>
+      </li>
+    <% end %>
+    <li class="<%= controller?('contacts') ? 'active' : '' %>">
+      <%= link_to contacts_path, title: "Contacts" do %>
+        <span class="nav-icon fui-user"></span>
+        <span class="nav-label">Contacts</span>
+      <% end %>
+    </li>
+    
+
+  </ul>
+  <% cache ["second_nav", current_user] do %>
+    <ul id="second-nav" class="second-nav nomargin show-desktop">
+      <li class="top-links">
+        <%= link_to edit_user_registration_path do %>
+          <span class="nav-label">Account Settings</span>
+        <% end %>
+      </li>
+      <li class="top-links">
+        <%= link_to edit_profile_path do %>
+          <span class="nav-label">My Profile</span>
+        <% end %>
+      </li>
+      <li class="top-links">
+        <%= link_to destroy_user_session_path, method: :delete do %>
+        <span class="nav-label">Log Out</span>
+        <% end %>
+      </li>
+
+    </ul>
+  <% end %>
+  <div class="nav-arrow hide-mobile">
+    <div id="div-nav-arrow-button" class="nav-arrow-button pad-lv3 dim-el <%= (current_user.show_narrow_main_nav_bar ? "fui-arrow-right" : "fui-arrow-left") %>"></div>
+  </div>
+</div>
+<!--END BIG NAV-->

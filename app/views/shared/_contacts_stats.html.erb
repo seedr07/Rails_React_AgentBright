@@ -1,0 +1,32 @@
+<% cache ["contacts_stats", current_user] do %>
+  <div class="row sub-section hide-phone">
+  <div class="col-sm-12">
+    <div class="row stat-row">
+      <div class="stat-block alignc col-sm-4">
+        <h2 class="nomargin">
+          <a href="#"><%= current_user.active_contacts_count %></a>
+        </h2>
+        <p class="fwb">
+          <span class="">Total Contacts</span>
+        </p>
+      </div><!-- /stat-block.col-sm-4 -->
+      <div class="stat-block alignc col-sm-4">
+        <h2 class="nomargin">
+          <%= current_user.ungraded_contacts_count %>
+        </h2>
+        <p class="fwb">
+          <span class="">Not Ranked</span>
+        </p>
+      </div><!-- /stat-block.col-sm-4 -->
+      <div class="stat-block alignc col-sm-4">
+        <h2 class="nomargin">
+          <%= data_for_sorting_complete(current_user.active_contacts_count, current_user.ungraded_contacts_count) %>%
+        </h2>
+        <p class="fwb">
+          <span class="">Sorting Complete</span>
+        </p>
+      </div><!-- /stat-block.col-sm-4 -->
+    </div><!-- /.row.sub-section -->
+  </div><!-- /.col-sm-12 -->
+  </div><!-- /.row sub-section -->
+<% end %>

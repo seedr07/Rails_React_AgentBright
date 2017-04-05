@@ -1,0 +1,48 @@
+<script>
+  jQuery.fn.displayReferralFields = function() {
+    this.change(function() {
+      if ($(this).val() === "<%= LeadType.find_by(name: 'Referral - From Database').id %>") {
+        $("#referring-field").show();
+        $("#select-listing-field").hide();
+      } else if ($(this).val() === "<%= LeadType.find_by(name: 'Referral - From Business Network').id %>") {
+        $("#referring-field").show();
+        $("#select-listing-field").hide();
+      } else if ($(this).val() === "<%= LeadType.find_by(name: 'Referral - From Realtor').id %>") {
+        $("#referring-field").show();
+        $("#select-listing-field").hide();
+      } else if ($(this).val() === "<%= LeadType.find_by(name: 'Listing Inquiry').id %>") {
+        $("#select-listing-field").show();
+        $("#referring-field").hide();
+      } else {
+        $("#select-listing-field").hide();
+        $("#referring-field").hide();
+        $("#percentage2-field").hide();
+        $("#fee2-field").hide();
+      }
+    });
+    if (this.val() === "<%= LeadType.find_by(name: 'Referral - From Database').id %>") {
+      $("#referring-field").show();
+      $("#select-listing-field").hide();
+    } else if (this.val() === "<%= LeadType.find_by(name: 'Referral - From Business Network').id %>") {
+      $("#referring-field").show();
+      $("#select-listing-field").hide();
+    } else if (this.val() === "<%= LeadType.find_by(name: 'Referral - From Realtor').id %>") {
+      $("#referring-field").show();
+      $("#select-listing-field").hide();
+    } else if (this.val() === "<%= LeadType.find_by(name: 'Listing Inquiry').id %>") {
+      $("#select-listing-field").show();
+      $("#referring-field").hide();
+    } else {
+      $("#select-listing-field").hide();
+      $("#referring-field").hide();
+      $("#percentage2-field").hide();
+      $("#fee2-field").hide();
+    }
+    return this;
+  };
+
+  function display_referral_fields() {
+    $('[data-behavior~=display-referral-field]').displayReferralFields();
+  }
+
+</script>

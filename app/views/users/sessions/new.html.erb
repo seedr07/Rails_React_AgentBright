@@ -1,0 +1,71 @@
+<% content_for(:body_class, "grey_background") %>
+<div class="row">
+  <div class="col-xs-12 login-logo">
+    <div class="bounding-box"></div>
+  </div>
+</div>
+
+<!--HEADER-->
+<div class="row">
+  <div class="lastUnit col-sm-12 header form-signin">
+    <h1>Please sign in</h1>
+  </div>
+</div>
+<!--END HEADER-->
+
+
+<div class="row">
+  <div class="new-record-wrapper line active">
+
+    <%= simple_form_for(
+      resource,
+      as: resource_name,
+      url: session_path(resource_name),
+      html: { class: "new-record below48 form-signin", autocomplete: "on" }
+    ) do |f| %>
+      <%= f.input(
+        :email,
+        wrapper: :login,
+        label: false,
+        placeholder: "Email Address"
+      ) %>
+      <%= f.input(
+        :password,
+        wrapper: :login,
+        label: false,
+        placeholder: "Password"
+      ) %>
+
+      <% if devise_mapping.rememberable? -%>
+        <%= f.input(
+          :remember_me,
+          wrapper: :inline_checkbox,
+          as: :boolean,
+          wrapper_html: { class: "checkbox above18 loginfield" }
+        )  %>
+      <% end %>
+
+      <div class="lastUnit col-xs-12 below36 btn-form">
+        <%= f.button(
+          :submit,
+          class: "btn btn-default btn-lg btn-block btn-embossed btn-loading",
+            value: "Sign in",
+            "data-loading-text" => "Signing in.."
+          ) %>
+      </div>
+
+      <div class="alignc">
+        <%= render(partial: "users/shared/links") %>
+      </div>
+
+      <div class="login-footer">
+        <a href="http://www.agentbright.com">
+          <div class="footer-logo"></div>
+        </a>
+        <span class="dim-el"> ©2010-2015 All Rights Reserved. <a rel="noopener noreferrer" href="http://agentbright.com/terms-of-service/" target="_blank" tabindex="-1">Privacy and Terms</a></span>
+      </div>
+
+    <% end %>
+
+  </div>
+</div>

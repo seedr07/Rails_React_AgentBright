@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" class="landing-pages-layout">
+  <head>
+    <%= render(partial: "application/head_contents") %>
+  </head>
+
+  <body id="<%= "%s_%s" % [controller_name, action_name] %>" class="<%= @layout_carrier.env_banner %> <%= yield :body_class if content_for? :body_class %> ">
+    <%= render(partial: "shared/environment_banner") %>
+
+    <div id="wrap" class="wrap clearfix nopadding relative navtoggle signed-out ">
+      <div class="main full-height relative">
+        <div id="main-content" class="main-content signed-out">
+          <%= render(partial: "shared/flashes") %>
+          <div class="container relative clearfix">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%= render(partial: "application/extra_content") %>
+
+  </body>
+</html>

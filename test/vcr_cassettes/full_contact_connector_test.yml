@@ -1,0 +1,515 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.fullcontact.com/v2/person.json?apiKey=7718b6047c08a037&email=adsfasd
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - FullContact Ruby Client/0.10.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 422
+      message: Unprocessable Entity
+    headers:
+      Server:
+      - nginx/1.6.1
+      Date:
+      - Fri, 29 May 2015 12:57:56 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '153'
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Charset,Accept
+      X-Rate-Limit-Limit:
+      - '300'
+      X-Rate-Limit-Remaining:
+      - '298'
+      X-Rate-Limit-Reset:
+      - '4'
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "status" : 422,
+          "message" : "Parameter(type='email', value='adsfasd') failed validation.",
+          "requestId" : "5f2b2f3b-b557-4057-ae01-18ba1783ec85"
+        }
+    http_version: 
+  recorded_at: Fri, 29 May 2015 12:57:56 GMT
+- request:
+    method: get
+    uri: https://api.fullcontact.com/v2/person.json?apiKey=7718b6047c08a037&email=ogradypatrickj@gmail.com
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - FullContact Ruby Client/0.10.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.6.1
+      Date:
+      - Fri, 29 May 2015 12:57:56 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding, User-Agent
+      X-Rate-Limit-Limit:
+      - '300'
+      X-Rate-Limit-Remaining:
+      - '297'
+      X-Rate-Limit-Reset:
+      - '4'
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "status" : 200,
+          "requestId" : "1afcc258-be72-4b29-a325-cd829f6b7e94",
+          "likelihood" : 0.93,
+          "photos" : [ {
+            "type" : "facebook",
+            "typeId" : "facebook",
+            "typeName" : "Facebook",
+            "url" : "https://d2ojpxxtu63wzl.cloudfront.net/static/abd8adfd74ac00177f50e63e7fac225d_381de2fbefabfdbc3285dde300963098744ff88710643565e7d7c557b70a31cc",
+            "isPrimary" : true
+          }, {
+            "type" : "gravatar",
+            "typeId" : "gravatar",
+            "typeName" : "Gravatar",
+            "url" : "https://d2ojpxxtu63wzl.cloudfront.net/static/00a9f33a3dfe93386f8603ba12af6d2f_ffa15b54d139051d9011b47caf54ae8a521a30d3959e1c9d8514ac4b1ae57b61",
+            "isPrimary" : false,
+            "photoBytesMD5" : "2027fb3ef4d1f03efa85d2af617b369f"
+          }, {
+            "type" : "twitter",
+            "typeId" : "twitter",
+            "typeName" : "Twitter",
+            "url" : "https://d2ojpxxtu63wzl.cloudfront.net/static/3dad0d2fb1ec75eb4fc920b97d8a7294_633cc4a82ab1bd78569fc410342f0a6c8a8ccf964f684e9ed41f1038c87319d3",
+            "isPrimary" : false
+          }, {
+            "type" : "pinterest",
+            "typeId" : "pinterest",
+            "typeName" : "Pinterest",
+            "url" : "https://d2ojpxxtu63wzl.cloudfront.net/static/2cfb0aded49e3343deb0a8dc67340a79_cfd4d2f2e7b2c5de8adb189e21a5303bdf7f0ba9d9cff5ae00ecb00125cbd4a6",
+            "isPrimary" : false
+          }, {
+            "type" : "foursquare",
+            "typeId" : "foursquare",
+            "typeName" : "Foursquare",
+            "url" : "https://d2ojpxxtu63wzl.cloudfront.net/static/8379c996ca8722959703a63371994037_737e9bb8b740ddc678bd9d5b0bc22ead8c5ed710a8ca0ddaf8107b1b851cd85d",
+            "isPrimary" : false
+          } ],
+          "contactInfo" : {
+            "websites" : [ {
+              "url" : "http://heyogrady.com"
+            } ],
+            "familyName" : "O'grady",
+            "fullName" : "Patrick O'grady",
+            "givenName" : "Patrick"
+          },
+          "demographics" : {
+            "locationDeduced" : {
+              "normalizedLocation" : "Dayton, Ohio",
+              "deducedLocation" : "Dayton, Ohio, United States",
+              "city" : {
+                "deduced" : false,
+                "name" : "Dayton"
+              },
+              "state" : {
+                "deduced" : false,
+                "name" : "Ohio",
+                "code" : "OH"
+              },
+              "country" : {
+                "deduced" : true,
+                "name" : "United States",
+                "code" : "US"
+              },
+              "continent" : {
+                "deduced" : true,
+                "name" : "North America"
+              },
+              "county" : {
+                "deduced" : true,
+                "name" : "Montgomery",
+                "code" : "Montgomery"
+              },
+              "likelihood" : 1.0
+            },
+            "gender" : "Male",
+            "locationGeneral" : "Dayton, Ohio"
+          },
+          "socialProfiles" : [ {
+            "followers" : 108,
+            "following" : 38,
+            "type" : "pinterest",
+            "typeId" : "pinterest",
+            "typeName" : "Pinterest",
+            "url" : "http://www.pinterest.com/patrickogrady/",
+            "username" : "patrickogrady"
+          }, {
+            "type" : "flickr",
+            "typeId" : "flickr",
+            "typeName" : "Flickr",
+            "url" : "https://www.flickr.com/people/ogradypj",
+            "username" : "ogradypj",
+            "id" : "39774914@n05"
+          }, {
+            "bio" : "I'm a show.",
+            "followers" : 92,
+            "following" : 53,
+            "type" : "twitter",
+            "typeId" : "twitter",
+            "typeName" : "Twitter",
+            "url" : "https://twitter.com/heyogrady",
+            "username" : "heyogrady",
+            "id" : "19360949"
+          }, {
+            "type" : "foursquare",
+            "typeId" : "foursquare",
+            "typeName" : "Foursquare",
+            "url" : "https://foursquare.com/user/203592",
+            "id" : "203592"
+          }, {
+            "followers" : 1279,
+            "following" : 1279,
+            "type" : "facebook",
+            "typeId" : "facebook",
+            "typeName" : "Facebook",
+            "url" : "https://www.facebook.com/patrickogrady",
+            "username" : "patrickogrady",
+            "id" : "21900567"
+          }, {
+            "type" : "vimeo",
+            "typeId" : "vimeo",
+            "typeName" : "Vimeo",
+            "url" : "http://vimeo.com/user408487",
+            "username" : "user408487",
+            "id" : "408487"
+          }, {
+            "type" : "linkedin",
+            "typeId" : "linkedin",
+            "typeName" : "LinkedIn",
+            "url" : "https://www.linkedin.com/in/patrickogrady1",
+            "username" : "patrickogrady1"
+          }, {
+            "type" : "gravatar",
+            "typeId" : "gravatar",
+            "typeName" : "Gravatar",
+            "url" : "https://gravatar.com/ogrady66",
+            "username" : "ogrady66",
+            "id" : "45158779"
+          } ]
+        }
+    http_version: 
+  recorded_at: Fri, 29 May 2015 12:57:56 GMT
+- request:
+    method: get
+    uri: https://api.fullcontact.com/v2/person.json?apiKey=7718b6047c08a037&email=
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - FullContact Ruby Client/0.10.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 422
+      message: Unprocessable Entity
+    headers:
+      Server:
+      - nginx/1.6.1
+      Date:
+      - Fri, 29 May 2015 12:57:56 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '146'
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Charset,Accept
+      X-Rate-Limit-Limit:
+      - '300'
+      X-Rate-Limit-Remaining:
+      - '296'
+      X-Rate-Limit-Reset:
+      - '4'
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "status" : 422,
+          "message" : "Parameter(type='email', value='') failed validation.",
+          "requestId" : "b2892111-1381-4a77-9c68-6efb976e1d2f"
+        }
+    http_version: 
+  recorded_at: Fri, 29 May 2015 12:57:56 GMT
+- request:
+    method: get
+    uri: https://api.fullcontact.com/v2/person.json?apiKey=7718b6047c08a037&email=ogradypatrickj%2Btest1@gmail.com
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - FullContact Ruby Client/0.10.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.6.1
+      Date:
+      - Fri, 29 May 2015 12:57:56 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding, User-Agent
+      X-Rate-Limit-Limit:
+      - '300'
+      X-Rate-Limit-Remaining:
+      - '295'
+      X-Rate-Limit-Reset:
+      - '4'
+    body:
+      encoding: ASCII-8BIT
+      string: |-
+        {
+          "status" : 200,
+          "requestId" : "48e3f651-e247-4367-b6e1-8ac24511f79f",
+          "likelihood" : 0.91,
+          "photos" : [ {
+            "type" : "facebook",
+            "typeId" : "facebook",
+            "typeName" : "Facebook",
+            "url" : "https://d2ojpxxtu63wzl.cloudfront.net/static/abd8adfd74ac00177f50e63e7fac225d_381de2fbefabfdbc3285dde300963098744ff88710643565e7d7c557b70a31cc",
+            "isPrimary" : true
+          }, {
+            "type" : "gravatar",
+            "typeId" : "gravatar",
+            "typeName" : "Gravatar",
+            "url" : "https://d2ojpxxtu63wzl.cloudfront.net/static/00a9f33a3dfe93386f8603ba12af6d2f_ffa15b54d139051d9011b47caf54ae8a521a30d3959e1c9d8514ac4b1ae57b61",
+            "isPrimary" : false,
+            "photoBytesMD5" : "2027fb3ef4d1f03efa85d2af617b369f"
+          }, {
+            "type" : "twitter",
+            "typeId" : "twitter",
+            "typeName" : "Twitter",
+            "url" : "https://d2ojpxxtu63wzl.cloudfront.net/static/3dad0d2fb1ec75eb4fc920b97d8a7294_633cc4a82ab1bd78569fc410342f0a6c8a8ccf964f684e9ed41f1038c87319d3",
+            "isPrimary" : false
+          }, {
+            "type" : "pinterest",
+            "typeId" : "pinterest",
+            "typeName" : "Pinterest",
+            "url" : "https://d2ojpxxtu63wzl.cloudfront.net/static/2cfb0aded49e3343deb0a8dc67340a79_cfd4d2f2e7b2c5de8adb189e21a5303bdf7f0ba9d9cff5ae00ecb00125cbd4a6",
+            "isPrimary" : false
+          } ],
+          "contactInfo" : {
+            "websites" : [ {
+              "url" : "http://heyogrady.com"
+            } ],
+            "familyName" : "O'grady",
+            "fullName" : "Patrick O'grady",
+            "givenName" : "Patrick"
+          },
+          "demographics" : {
+            "locationDeduced" : {
+              "normalizedLocation" : "Dayton, Ohio",
+              "deducedLocation" : "Dayton, Ohio, United States",
+              "city" : {
+                "deduced" : false,
+                "name" : "Dayton"
+              },
+              "state" : {
+                "deduced" : false,
+                "name" : "Ohio",
+                "code" : "OH"
+              },
+              "country" : {
+                "deduced" : true,
+                "name" : "United States",
+                "code" : "US"
+              },
+              "continent" : {
+                "deduced" : true,
+                "name" : "North America"
+              },
+              "county" : {
+                "deduced" : true,
+                "name" : "Montgomery",
+                "code" : "Montgomery"
+              },
+              "likelihood" : 1.0
+            },
+            "gender" : "Male",
+            "locationGeneral" : "Dayton, OH"
+          },
+          "socialProfiles" : [ {
+            "followers" : 108,
+            "following" : 38,
+            "type" : "pinterest",
+            "typeId" : "pinterest",
+            "typeName" : "Pinterest",
+            "url" : "http://www.pinterest.com/patrickogrady/",
+            "username" : "patrickogrady"
+          }, {
+            "type" : "flickr",
+            "typeId" : "flickr",
+            "typeName" : "Flickr",
+            "url" : "https://www.flickr.com/people/ogradypj",
+            "username" : "ogradypj",
+            "id" : "39774914@n05"
+          }, {
+            "bio" : "I'm a show.",
+            "followers" : 92,
+            "following" : 53,
+            "type" : "twitter",
+            "typeId" : "twitter",
+            "typeName" : "Twitter",
+            "url" : "https://twitter.com/heyogrady",
+            "username" : "heyogrady",
+            "id" : "19360949"
+          }, {
+            "type" : "klout",
+            "typeId" : "klout",
+            "typeName" : "Klout",
+            "url" : "http://klout.com/heyogrady",
+            "username" : "heyogrady",
+            "id" : "236720477914624890"
+          }, {
+            "type" : "foursquare",
+            "typeId" : "foursquare",
+            "typeName" : "Foursquare",
+            "url" : "https://foursquare.com/user/203592",
+            "id" : "203592"
+          }, {
+            "type" : "vimeo",
+            "typeId" : "vimeo",
+            "typeName" : "Vimeo",
+            "url" : "http://vimeo.com/user408487",
+            "username" : "user408487",
+            "id" : "408487"
+          }, {
+            "type" : "facebook",
+            "typeId" : "facebook",
+            "typeName" : "Facebook",
+            "url" : "https://www.facebook.com/patrickogrady",
+            "username" : "patrickogrady",
+            "id" : "21900567"
+          }, {
+            "type" : "gravatar",
+            "typeId" : "gravatar",
+            "typeName" : "Gravatar",
+            "url" : "https://gravatar.com/ogrady66",
+            "username" : "ogrady66",
+            "id" : "45158779"
+          } ],
+          "digitalFootprint" : {
+            "scores" : [ {
+              "provider" : "klout",
+              "type" : "general",
+              "value" : 19
+            } ],
+            "topics" : [ {
+              "provider" : "klout",
+              "value" : "Colleges and Universities"
+            }, {
+              "provider" : "klout",
+              "value" : "Entertainment"
+            }, {
+              "provider" : "klout",
+              "value" : "Leadership"
+            }, {
+              "provider" : "klout",
+              "value" : "Podcasting"
+            }, {
+              "provider" : "klout",
+              "value" : "Web Development"
+            } ]
+          }
+        }
+    http_version: 
+  recorded_at: Fri, 29 May 2015 12:57:56 GMT
+- request:
+    method: get
+    uri: https://api.fullcontact.com/v2/person.json?apiKey=7718b6047c08a037&email
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - FullContact Ruby Client/0.10.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Server:
+      - nginx/1.9.3
+      Date:
+      - Tue, 08 Dec 2015 19:10:56 GMT
+      Content-Type:
+      - application/json; charset=UTF-8
+      Content-Length:
+      - '218'
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Charset,Accept
+      X-Rate-Limit-Limit:
+      - '60'
+      X-Rate-Limit-Remaining:
+      - '42'
+      X-Rate-Limit-Reset:
+      - '18'
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "status" : 403,
+          "message" : "Usage limits for the provided API Key have been exceeded. Please try again later or contact support to increase your limits.",
+          "requestId" : "1bbecc43-c95e-4761-9523-1ce69a56ab1d"
+        }
+    http_version: 
+  recorded_at: Tue, 08 Dec 2015 19:10:42 GMT
+recorded_with: VCR 3.0.0

@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-sm-6">
+    <p class="full-width clearfix nomargin alignr">
+      <span class="h4 float-left nomargin">
+        Contacts ranked: <%= "#{number_with_precision((current_user.active_contacts_count.to_f - current_user.ungraded_contacts_count.to_f), precision: 0)}/#{current_user.active_contacts_count}" %>
+      </span>
+      <span class="h4">
+        <%= "#{fraction_to_percentage((current_user.active_contacts_count.to_f - current_user.ungraded_contacts_count.to_f), current_user.active_contacts_count)}%" %>
+      </span>
+    </p>
+
+    <div class="progress below24">
+      <div class="progress-bar" style="width: <%= grading_progress_bar_width(current_user) %>%">
+      <span class="sr-only"><%= "#{grading_progress_bar_width(current_user)}%" %></span>
+    </div>
+  </div>
+</div>
+</div>

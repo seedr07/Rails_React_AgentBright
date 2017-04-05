@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="lastUnit col-xs-12">
+    <div class="no-data alignc">
+      <div class="freddicon autoresponder alignc">
+        <span class="fui-list-bulleted"></span>
+        <h2>
+          Looks like you haven't created any contacts yet.
+        </h2>
+      </div>
+      <div class="row alignc below12" >
+        <%= link_to "Add your first contact", new_contact_path, class: "add-btn btn btn-info btn-embossed b0", id: "add-contact-btn" %>
+        <br>
+        <br><h2> or import with one of the following: </h2>
+        <br>
+        <%= link_to image_tag("Glyphicons/csv.png"), new_upload_contact_path %>
+        <h4> CSV </h4>
+      </div>
+    </div>
+  </div>
+</div>

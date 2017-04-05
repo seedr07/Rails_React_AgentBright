@@ -1,0 +1,10 @@
+trix-toolbar button.code {
+  display: none;
+}
+
+trix-editor {
+  min-height: 120px;
+}
+
+trix-toolbar button.link { display: none; }
+form.edit_email_campaign_form trix-toolbar .button_group.block_tools { display: none; }

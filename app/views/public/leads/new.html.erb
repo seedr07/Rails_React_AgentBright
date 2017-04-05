@@ -1,0 +1,211 @@
+<div style="max-width: 600px">
+  <div class="row">
+    <div class="col-xs-12 above24">
+      <a href="http://www.agentbright.com"><%= image_tag("abhuge.png", class: "img-responsive") %></a>
+      <hr>
+    </div>
+  </div>
+</div>
+
+<% content_for :extra_js do %>
+  display_referral_fields();
+  display_buyer_or_seller_sections();
+<% end %>
+
+<div class="row main-section">
+  <div class="col-xs-12">
+      <%= simple_form_for(@lead,
+                          url:  create_from_shared_form_path(key: @user.lead_form_key),
+                          html: { class: 'new-record below48' }) do |f| %>
+      <%= f.fields_for :contact do |cf| %>
+
+        <div class="row multiple-fields">
+          <div class="col-sm-6">
+            <%= cf.input :first_name,
+                         label: 'First Name',
+                         input_html: { class: "form-control" } %>
+          </div>
+          <div class="col-sm-6">
+            <%= cf.input :last_name,
+                         label: 'Last Name',
+                         input_html: { class: "form-control" } %>
+          </div>
+        </div>
+        <div class="row multiple-fields">
+          <div class="col-sm-6">
+            <%= cf.fields_for :email_addresses do |email_address| %>
+              <%= email_address.input :email,
+                                      label: 'Email Address',
+                                      input_html: { class: "form-control" } %>
+            <% end %>
+          </div>
+          <div class="col-sm-6">
+            <%= cf.fields_for :phone_numbers do |phone_number| %>
+              <%= phone_number.input :number,
+                          label: 'Mobile Phone',
+                          input_html: { class: "form-control", data: { input_mask: 'phone'}, pattern: "[0-9]*" }%>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+
+        <%= f.association :lead_type,
+                          label: "Where did this lead come from?",
+                          collection: LeadType.all.order("name asc"),
+                          label_method: :name, input_html: { "data-behavior" => "display-referral-field"} %>
+
+        <%= f.association :lead_source,
+                          label: "Lead Source",
+                          label_method: :name do %>
+          <%= f.grouped_collection_select :lead_source_id, LeadType.order(:name), :lead_sources, :name, :id, :name, include_blank: true %>
+      <% end %>
+      <%#=<div id="referring-field" class="hidejs">
+        <%#=<%= f.association :referring_contact,
+                  as: :select,
+                  label: "Referrer",
+                  collection: current_user.contacts.active.order('first_name asc'),
+                  label_method: :full_name %>
+
+        <%#=<button class="btn add-btn btn-default btn-embossed b0 below24" data-toggle="modal" data-target="#new_referring_contact_modal_form">
+          Add a new contact
+        </button>
+      </div><!-- /#referring-field.hidejs -->
+
+      <%#= f.input :client_type,
+                  label: "Buyer or Seller?",
+                  as: :radio_buttons,
+                  item_wrapper_class: "radio-inline",
+                  collection:  ["Buyer", "Seller"], default: "Buyer",
+                  checked:  "Buyer" %>
+
+      <label>What type of lead?</label>
+      <%= f.input :client_type,
+                    label: false,
+                    as: :radio_buttons,
+                    item_wrapper_class: "radio-inline",
+                    collection:  ["Buyer", "Seller"]
+                    # input_html: {
+                    # class: "prettyradio",
+                    # "data-behavior"=>"select-client-type" }
+                    %>
+
+      <div id="seller-section" class="hidejs">
+        <%= f.input :timeframe,
+                  as: :select,
+                  label: "Timeframe",
+                  collection: Lead::TIMEFRAMES,
+                  include_blank: false %>
+        <h3>Property Info</h3>
+        <%= f.simple_fields_for :properties, f.object.properties.first || f.object.properties.build do |property_form| %>
+          <%= property_form.simple_fields_for :address, property_form.object.address || property_form.object.build_address do |address_form| %>
+              <%= render 'addresses/form', f: address_form %>
+          <% end %>
+          <%= property_form.hidden_field :transaction_type, value: "Seller" %>
+          <%= property_form.input :property_type,
+                      as: :select,
+                      collection: Property::PROPERTY_TYPES,
+                      include_blank: false %>
+
+          <%= property_form.input :initial_agent_valuation,
+                      label: "How much do you think it end up selling for?",
+                      input_html: { class: 'form-control' } %>
+
+          <div class="row multiple-fields">
+            <div class="col-sm-6">
+              <%= property_form.input :bedrooms, input_html: { class: "form-control", pattern: "[0-9]*" } %>
+            </div><!-- /.col-sm-6 -->
+            <div class="col-sm-6">
+              <%= property_form.input :bathrooms, input_html: { class: "form-control", pattern: "[0-9]*" } %>
+            </div><!-- /.col-sm-6 -->
+          </div><!-- /.row multiple-fields -->
+          <div class="row multiple-fields">
+            <div class="col-sm-6">
+              <%= property_form.input :sq_feet, input_html: { class: "form-control", pattern: "[0-9]*" }, label: "Square Feet" %>
+            </div><!-- /.col-sm-6 -->
+            <div class="col-sm-6">
+              <%= property_form.input :lot_size, input_html: { class: "form-control" }, label: "Lot Size" %>
+            </div><!-- /.col-sm-6 -->
+          </div><!-- /.row multiple-fields -->
+        <% end %>
+        <%= f.input :notes,  :input_html => { :rows => 4 } %>
+
+        <div class="sub-section">
+          <%= f.button :submit, class: 'btn-default btn-embossed', value: 'Submit' %>
+          <%= link_to "Cancel", user_leads_path %>
+        </div>
+      </div><!-- /#seller-section -->
+
+      <div id="buyer-section" class="hidejs">
+        <h3>Buyer Preferences</h3>
+        <%= f.input :buyer_area_of_interest,
+                  input_html: { class: "form-control" },
+                  label: "Area of Interest" %>
+
+        <div class="row multiple-fields">
+          <div class="col-sm-6">
+            <%= f.input :property_type,
+                      label: "Property Type",
+                      as: :select,
+                      collection: Lead::PROPERTY_TYPES,
+                      include_blank: false %>
+          </div><!-- /.col-sm-6 -->
+          <div class="col-sm-6">
+            <%= f.input :timeframe,
+                      as: :select,
+                      label: "Timeframe",
+                      collection: Lead::TIMEFRAMES,
+                      include_blank: false %>
+          </div><!-- /.col-sm-6 -->
+        </div><!-- /.row multiple-fields -->
+
+        <div class="row multiple-fields">
+          <div class="col-sm-6">
+            <%= f.input(
+              :min_price_range,
+              label: "Min Price",
+              as: :bootstrap_currency
+            ) %>
+          </div><!-- /.col-sm-6 -->
+          <div class="col-sm-6">
+            <%= f.input(
+              :max_price_range,
+              label: "Max Price",
+              as: :bootstrap_currency
+            ) %>
+          </div><!-- /.col-sm-6 -->
+        </div><!-- /.row multiple-fields -->
+
+        <div class="row multiple-fields">
+          <div class="col-sm-6">
+            <%= f.input :buyer_prequalified,
+                      as: :select,
+                      label: "Is the buyer prequalified?" %>
+          </div><!-- /.col-sm-6 -->
+          <div class="col-sm-6">
+            <%= f.input(
+              :prequalification_amount,
+              label: "Prequalification Amount",
+              as: :bootstrap_currency
+            ) %>
+          </div><!-- /.col-sm-6 -->
+        </div><!-- /.row multiple-fields -->
+
+        <div class="sub-section">
+          <h2>Properties Interested In</h2>
+          <%= f.fields_for :properties, @lead.properties.build do |builder| %>
+            <%= render 'public/leads/property_fields', f: builder %>
+          <% end %>
+          <%= link_to_add_fields "Add Property", f, :properties %>
+
+        </div><!-- /.sub-section -->
+        <%= f.input :notes,  :input_html => { :rows => 4 } %>
+
+
+        <div class="sub-section">
+          <%= f.button :submit, class: "btn-default btn-embossed btn-loading", value: "Save", "data-loading-text" => "Saving..." %>
+          <%= link_to "Cancel", user_leads_path %>
+      </div><!-- /#buyer-section -->
+
+    <% end %>
+  </div><!-- /.col-xs-12 -->
+</div><!-- /.row main-section -->

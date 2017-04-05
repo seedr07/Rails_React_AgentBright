@@ -1,0 +1,9 @@
+#= require common/flat-ui/demo
+#= require common/flat-ui/datepicker
+#= require common/flat-ui/feedback
+#= require common/flat-ui/inputs
+#= require common/flat-ui/navigation
+#= require common/flat-ui/slider
+#= require common/flat-ui/spinner
+#= require common/flat-ui/table
+#= require common/flat-ui/typeahead

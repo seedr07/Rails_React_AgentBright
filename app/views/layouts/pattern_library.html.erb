@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%= render "application/head_contents" %>
+    <%= stylesheet_link_tag "codemirror", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "codemirror" %>
+    <%= javascript_include_tag "codemirror/modes/xml" %>
+    <%= javascript_include_tag "codemirror/modes/htmlmixed" %>
+    <%= javascript_include_tag "codemirror/modes/javascript" %>
+    <%= javascript_include_tag "codemirror/modes/ruby" %>
+  </head>
+
+  <body id="<%= "%s_%s" % [controller_name, action_name] %>" class="<%= @layout_carrier.env_banner %>">
+
+    <%= render("shared/environment_banner") %>
+    <%= render("patterns/library_navigation") %>
+
+    <div id="wrap" class="wrap clearfix nopadding">
+      <div id="main-content" class="main-content mc-content">
+        <%= render "shared/loading_indicator" %>
+
+        <div class="container relative clearfix">
+          <%= render "shared/flashes" %>
+          <%= yield %>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <%= render("application/extra_content") %>
+
+    <script>
+      $("textarea.codemirror").each(function() {
+        CodeMirror.fromTextArea($(this).get(0), {
+          lineNumbers: true,
+          lineWrapping: true,
+          readOnly: true,
+          tabSize: 2,
+          mode: "text/html"
+        });
+      });
+    </script>
+
+  </body>
+</html>
+

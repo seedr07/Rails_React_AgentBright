@@ -1,0 +1,120 @@
+<% narrow_class = (current_user.show_narrow_main_nav_bar ? "narrow" : "") %>
+<!--BIG NAV-->
+<div class="big-nav relative overflow-hidden navtoggle <%= narrow_class %>">
+  <div class="logo-area navtoggle <%= narrow_class %>">
+    <a href="#" class="block"></a>
+  </div>
+  <ul class="main-nav nomargin navtoggle <%= narrow_class %>">
+    <li class="<%= in_settings? ? 'active' : '' %>">
+      <a href="#" >
+         <% if current_user.profile_image %>
+            <div class="inline-block avatar" style="background-image: url(<%= current_user.profile_image_url %>)"></div>
+         <% else %>
+           <div class="inline-block avatar" >
+             <span class= "initials-68 <%=current_user.avatar_class %>"><%= current_user.initials.upcase %></span>
+           </div>
+         <% end %>
+
+        <div class="inline-block relative">
+          <span class="nav-label capitalize name">
+            <%= current_user.first_name %>
+          </span>
+          <span class="faded"></span>
+        </div>
+      </a>
+    </li>
+    <li class="<%= controller?('subscription') ? 'active' : '' %>">
+      <%= link_to "#", title: "Subscriptions" do %>
+        <span class="nav-icon fui-check"></span>
+        <span class="nav-label">Subscriptions</span>
+      <% end %>
+    </li>
+    <li class="show-tablet">
+    </li>
+
+    <li class="<%= controller?('marketing_center') ? 'active' : '' %>">
+    </li>
+    <li class="<%= controller?('contacts') ? 'active' : '' %>">
+    </li>
+    <% lead = @lead if defined?(@lead) %>
+    <li class="<%= in_leads?(lead) ? 'active' : ''%>">
+    </li>
+    <li class="<%= in_clients?(lead) ? 'active' : ''%>">
+    </li>
+    <% if current_user.user_has_teammates? %>
+      <li>
+      </li>
+    <% else %>
+    <% end %>
+    <li class="<%= controller?('tasks') ? 'active' : '' %>">
+    </li>
+
+    <!--<li class="hide-mobile">
+      <a href="#">
+        <span class="nav-icon fui-search"></span>
+        <span class="nav-label">Search</span>
+      </a>
+    </li>-->
+  </ul>
+  <ul id="second-nav" class="second-nav nomargin navtoggle show-desktop <%= narrow_class %>">
+    <li class="top-links">
+    </li>
+    <li class="top-links">
+    </li>
+    <li class="top-links">
+    </li>
+
+    <% if super_admin_signed_in? %>
+      <li class="top-links">
+      </li>
+
+      <li class="top-links" data-superadmin-link style="display:none">
+      </li>
+
+      <li class="top-links" data-superadmin-link style="display:none">
+      </li>
+
+      <li class="top-links" data-superadmin-link style="display:none">
+      </li>
+
+        <li class="top-links" data-superadmin-link style="display:none">
+        </li>
+        <li class="top-links" data-superadmin-link style="display:none">
+        </li>
+    <% end %>
+  </ul>
+</div>
+<!--END BIG NAV-->
+
+
+
+<div id="wrap" class="wrap clearfix nopadding relative navtoggle <%= narrow_class %>">
+  <div class="main full-height relative">
+
+    <div id="main-content" class="main-content">
+
+      <div class="context-loader large-format-loader is-context-loading">
+        <p><%= image_tag 'ab-spinner-128.gif', { height: 64, width: 64 } %></p>
+        <p>Loading…</p>
+      </div>
+
+      <%= render(partial: 'layouts/announcement') %>
+
+      <div id="ab-flash-block">
+        <%= bootstrap_flash %>
+      </div>
+
+      <div class="container relative clearfix">
+         <%= yield %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <a href="#" class="btn btn-default btn-fab fui-plus"></a> -->
+
+<script>
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
+</script>

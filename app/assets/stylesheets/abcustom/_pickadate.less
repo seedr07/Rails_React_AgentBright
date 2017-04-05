@@ -1,0 +1,25 @@
+.date-picker-group,
+.time-picker-group {
+  input.form-control,
+  input.form-control[readonly] {
+    color: @input-font-color;
+    cursor: auto;
+    background-color: #FFF;
+    border: 2px solid @input-border-color;
+    opacity: 1;
+    &:focus {
+      border: 2px solid @input-focus-color;
+    }
+  }
+  .iconic[data-glyph=clock]:before {
+    top: 2px;
+  }
+}
+
+.table-input-nomargin { 
+  .input-group, 
+  select.select { 
+    margin-bottom: 0;
+    min-width: 220px;
+  }
+}

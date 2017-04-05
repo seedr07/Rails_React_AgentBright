@@ -1,0 +1,95 @@
+<div class="main-navigation clearfix shadow-z-1" tabindex="0">
+  <div class="line clearfix">
+    <nav class="navigation-left float-left">
+      <ul class="linear-list clearfix">
+        <li class="nav-link small-meta fwb show-mobile">
+          <a href="#" class="menu-button no-delay gray-link alignc pad-lv3 pad-tb0" data-no-turbolink data-behavior="open-navigation-overlay">
+            <span class="ab-md-icon mdi-navigation-menu"></span>
+          </a>
+        </li>
+        <li class="nav-link small-meta fwb branding hide-mobile">
+          <a href="/dashboard" class="no-delay gray-link alignc pad-lv3 pad-tb0">
+            <%= image_tag('ablogo-black-orange.png', height: 36) %>
+          </a>
+        </li>
+
+        <li class="nav-link small-meta fwb hide-mobile">
+          <a href="/contacts" aria-label="Lists: Create lists, add subscribers, create sign up forms" title="Create lists, add subscribers, create sign up forms" class=" gray-link alignc pad-lv3 pad-tb0">
+            Contacts
+          </a>
+        </li>
+
+      </ul><!-- /.linear-list clearfix -->
+    </nav><!-- /.navigation-left float-left -->
+
+    <nav class="navigation-right float-right">
+      <ul class="linear-list clearfix">
+        <li class="nav-link small-meta fwb full-height">
+          <div class="gray-link no-delay alignc pad-lv3 pad-tb0 hide-phone account-button clickable" data-behavior="open-account-menu">
+            <% if current_user.profile_image %>
+              <div class="main-navigation-avatar inline-block avatar" style="background-image: url(<%= current_user.profile_image_url %>)"></div>
+            <% else %>
+              <div class="main-navigation-avatar inline-block avatar <%=current_user.avatar_class %>">
+                <%= current_user.initials.upcase %>
+              </div>
+            <% end %>
+          </div>
+        </li><!-- /.nav-link small-meta fwb full-height -->
+      </ul><!-- /.linear-list clearfix -->
+    </nav><!-- /.navigation-right float-right -->
+
+  </div><!-- /.line clearfix -->
+</div><!-- /.main-navigation -->
+
+
+<!-- <div class="main-navigation selfclear" aria-hidden="false" role="navigation" tabindex="0">
+  <div class="line selfclear">
+    <nav class="navigation-left float-left">
+      <ul class="linear-list selfclear">
+        <li class="nav-link small-meta fwb show-mobile">
+          <a aria-hidden="true" role="presentation" href="#" class="menu-button no-delay gray-link alignc pad-lv3 pad-tb0" data-behavior="open-navigation-overlay"
+          onclick="_gaq.push(['_trackEvent', 'dashboard', 'main navigation', 'hamburger']);">
+            <span class="freddicon hamburger"></span>
+          </a>
+        </li>
+        <li class="nav-link small-meta fwb branding">
+          <a href="/" aria-label="Main dashboard" class="no-delay gray-link alignc pad-lv3 pad-tb0" id="freddielink" onclick="_gaq.push(['_trackEvent', 'dashboard', 'main navigation', 'main-dashboard']);">
+            <img src="/release/10.0.48/images/navigation/freddie_o.svg" height="36">
+          </a>
+        </li>
+        <li class="nav-link small-meta fwb hide-mobile">
+          <a href="/campaigns/" aria-label="Campaigns: Design and send emails" title="Design and send emails" class=" gray-link alignc pad-lv3 pad-tb0" onclick="_gaq.push(['_trackEvent', 'dashboard', 'main navigation', 'campaigns']);">
+            Campaigns
+          </a>
+        </li>
+        <li class="nav-link small-meta fwb hide-mobile">
+          <a href="/templates/" aria-label="Templates: Create and edit reusable email templates" title="Create and edit reusable email templates" class=" gray-link alignc pad-lv3 pad-tb0" id="templates-link" onclick="_gaq.push(['_trackEvent', 'dashboard', 'main navigation', 'templates']);">
+            Templates
+          </a>
+        </li>
+        <li class="nav-link small-meta fwb hide-mobile">
+          <a href="/lists/" aria-label="Lists: Create lists, add subscribers, create sign up forms" title="Create lists, add subscribers, create sign up forms" class=" gray-link alignc pad-lv3 pad-tb0" onclick="_gaq.push(['_trackEvent', 'dashboard', 'main navigation', 'lists']);">
+            Lists
+          </a>
+        </li>
+        <li class="nav-link small-meta fwb hide-mobile">
+          <a href="/reports/" aria-label="Reports: Track the outcome of your email campaigns" title="Track the outcome of your email campaigns" class=" gray-link alignc pad-lv3 pad-tb0" onclick="_gaq.push(['_trackEvent', 'dashboard', 'main navigation', 'reports']);">
+            Reports
+          </a>
+        </li>
+        <li id="automations-link" class="nav-link small-meta fwb hide-mobile">
+          <a href="/automations/" aria-label="Automation: Automatically send emails based on events and subscriber behavior" title="Automatically send emails based on events and subscriber behavior" class=" gray-link alignc pad-lv3 pad-tb0" id="automations-link" onclick="_gaq.push(['_trackEvent', 'dashboard', 'main navigation', 'automations']);">
+            Automation
+          </a>
+        </li> 
+      </ul>
+    </nav>
+
+  <nav class="navigation-right float-right"> <ul class="linear-list selfclear">
+  <li class="nav-link small-meta fwb full-height">
+    <a aria-label="Global search" href="#" class="nav-search-button no-delay gray-link alignc pad-lv3 pad-tb0" onclick="_gaq.push(['_trackEvent', 'dashboard', 'main navigation', 'search']);"><span class="freddicon search nomargin"></span></a></li>
+  <li class="nav-link small-meta fwb full-height">
+    <a title="Get help by referring to the knowledge base articles, answers and glossary" aria-label="Get help by referring to the knowledge base articles, answers and glossary" href="#" class="nav-help-button no-delay gray-link alignc pad-lv3 pad-tb0" onclick="_gaq.push(['_trackEvent', 'dashboard', 'main navigation', 'help']);">Help</a></li>
+  <li class="nav-link small-meta fwb full-height"> 
+    <a href="#" class="account-button no-delay gray-link alignc pad-lv3 pad-tb0 hide-phone" data-behavior="open-account-menu" onclick="_gaq.push(['_trackEvent', 'dashboard', 'main navigation', 'account']);"> <div role="presentation" class="logged-in-avatar inline-block avatar nomargin avatar-notifications" style="background-image: url(https://secure.gravatar.com/avatar/e44dabb1c4ff2fb8e68e0dc0706509f6.jpg?s=300&amp;d=https%3A%2F%2Fcdn-images.mailchimp.com%2Ficons%2Fletter-avatars%2Fp.png)"></div> <div aria-label="Signed in as Patrick - click to toggle account menu" class="account-name inline-block hide-mobile valign-middle alignl"> <span aria-label="Signed in as Patrick">Patrick</span><br> <span class="fwn" aria-label="Account name">agentbright</span> </div> <span class="inline-block freddicon menu-down mar-lv1 mar-tb0 mar-r0"></span> </a> </li> </ul> </nav> </div>
+  </div> -->
